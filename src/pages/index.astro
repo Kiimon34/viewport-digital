@@ -3,115 +3,151 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Viewport Digital LLC | Code, Capture, Convert">
-  <!-- Minimalist Floating Header -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/70 backdrop-blur-md border-b border-white/5">
-    <div class="max-w-7xl mx-auto px-8 h-24 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-4 group">
-        <div class="bg-white p-2 rounded-xl shadow-2xl">
-          <img src="/logo.png" alt="Viewport Digital LLC" class="h-10 w-auto object-contain" />
+  <!-- Navigation Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-8 h-28 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-5 group">
+        <div class="bg-white p-3.5 rounded-2xl shadow-2xl group-hover:scale-105 transition duration-300">
+          <img src="/logo.png" alt="Viewport Digital LLC" class="h-14 md:h-16 w-auto object-contain" />
         </div>
-        <span class="font-bold tracking-tight text-white text-lg hidden sm:inline">VIEWPORT DIGITAL</span>
+        <div class="flex flex-col">
+          <span class="font-black tracking-tight text-white text-xl">VIEWPORT DIGITAL</span>
+          <span class="text-xs uppercase font-mono tracking-widest text-cyan-400">Code • Capture • Convert</span>
+        </div>
       </a>
-      <div class="flex items-center gap-6">
-        <a href="#work" class="text-sm text-slate-400 hover:text-white transition">Selected Works</a>
-        <a href="#contact" class="bg-white text-slate-950 px-6 py-3 rounded-full text-sm font-semibold hover:bg-cyan-400 transition">Start Project</a>
-      </div>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#pricing" class="hover:text-cyan-400 transition">Pricing Tiers</a>
+        <a href="#services" class="hover:text-cyan-400 transition">Capabilities</a>
+        <a href="#contact" class="bg-cyan-500 text-slate-950 px-6 py-3 rounded-xl hover:bg-cyan-400 transition font-bold shadow-lg shadow-cyan-500/20">Secure Your Slot</a>
+      </nav>
     </div>
   </header>
 
-  <main class="bg-slate-950 text-slate-100 min-h-screen pt-32">
-    <!-- Editorial Split Hero -->
-    <section class="min-h-[80vh] px-8 max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center py-16">
-      <div class="lg:col-span-7 space-y-8">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 text-xs font-mono text-cyan-400">
-          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-          Indianapolis & Central Indiana Studio
-        </div>
-        <h1 class="text-6xl sm:text-7xl lg:text-8xl font-black tracking-tighter uppercase leading-[0.9]">
-          Engineering <br /><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-200 to-white">Digital Authority.</span>
-        </h1>
-        <p class="text-lg text-slate-400 max-w-xl font-light leading-relaxed">
-          We merge lightning-fast Astro web architecture with precision commercial photography. Built for brands that demand absolute market dominance.
-        </p>
-        <div class="flex items-center gap-4 pt-4">
-          <a href="#contact" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-8 py-4 rounded-full transition text-base">Secure Your Slot</a>
-          <a href="#work" class="border border-white/20 hover:border-white text-white px-8 py-4 rounded-full transition text-base font-medium">Explore Portfolio</a>
-        </div>
+  <main class="bg-slate-950 text-slate-100 min-h-screen pt-36">
+    <!-- Hero Section with Slogan -->
+    <section class="py-24 px-8 max-w-6xl mx-auto text-center relative">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-xs font-mono text-cyan-400 mb-8">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        Central Indiana Digital Agency & Commercial Studio
       </div>
-      
-      <!-- Editorial Framing Box -->
-      <div class="lg:col-span-5 relative">
-        <div class="aspect-[4/5] rounded-3xl bg-gradient-to-br from-slate-900 to-slate-900/50 border border-white/10 p-8 flex flex-col justify-between relative overflow-hidden group shadow-2xl">
-          <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-cyan-500/10 via-transparent to-transparent pointer-events-none"></div>
-          <div class="flex justify-between items-start z-10">
-            <span class="font-mono text-xs text-slate-500 tracking-widest uppercase">Dual-Discipline Agency</span>
-            <span class="text-cyan-400 font-mono text-xs">EST. 2026</span>
+      <h1 class="text-6xl sm:text-7xl lg:text-9xl font-black tracking-tighter uppercase mb-8 leading-none">
+        Code. Capture. <br /><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-white">Convert.</span>
+      </h1>
+      <p class="text-xl text-slate-400 max-w-3xl mx-auto mb-12 font-light leading-relaxed">
+        High-performance Astro web architecture and razor-sharp commercial visual media engineered for businesses that refuse to get lost in the noise.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-5">
+        <a href="#pricing" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-9 py-4 rounded-xl transition text-lg shadow-xl shadow-cyan-500/20">View Pricing & Tiers</a>
+        <a href="#contact" class="border border-white/20 hover:border-white text-white px-9 py-4 rounded-xl transition text-lg font-medium">Initialize Project</a>
+      </div>
+    </section>
+
+    <!-- Pricing Tiers Section (Explicitly Added) -->
+    <section id="pricing" class="py-32 px-8 max-w-7xl mx-auto border-t border-white/10">
+      <div class="text-center mb-20">
+        <span class="text-xs tracking-widest uppercase text-cyan-400 font-mono mb-3 block">Transparent Investment</span>
+        <h2 class="text-4xl md:text-6xl font-black tracking-tight text-white uppercase">Project Tiers & Rates</h2>
+        <p class="text-slate-400 max-w-xl mx-auto mt-4 font-light">Zero hidden fees. Complete technical execution from single-page landing assets to custom database portals.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8 items-stretch">
+        <!-- Tier 1 -->
+        <div class="bg-slate-900/40 border border-white/10 p-10 rounded-3xl flex flex-col justify-between backdrop-blur-xl relative group hover:border-cyan-500/50 transition">
+          <div>
+            <div class="text-cyan-400 font-mono text-xs uppercase tracking-widest mb-3">Tier 1</div>
+            <h3 class="text-2xl font-bold text-white mb-2">The Local Landing Page</h3>
+            <p class="text-slate-400 text-sm mb-6 font-light">Best for single-page sites, local service providers, transport companies, or quick campaign launches.</p>
+            <div class="text-4xl font-black text-white mb-8">$750 – $1,200 <span class="text-xs font-normal text-slate-400 uppercase font-mono">Flat Fee</span></div>
+            <ul class="space-y-4 text-sm text-slate-300 font-light mb-8">
+              <li class="flex items-center gap-3">✓ Lightning-fast single page on Astro</li>
+              <li class="flex items-center gap-3">✓ Mobile-optimized responsive design</li>
+              <li class="flex items-center gap-3">✓ Formspree contact form integration</li>
+              <li class="flex items-center gap-3">✓ Fast Vercel edge hosting setup</li>
+            </ul>
           </div>
-          <div class="space-y-3 z-10">
-            <p class="font-mono text-xs text-cyan-400 tracking-wider uppercase">Current Focus</p>
-            <p class="text-2xl font-bold tracking-tight text-white">High-Performance Jamstack & Commercial Media Production</p>
+          <a href="#contact" class="w-full bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-white font-semibold py-4 rounded-xl transition text-center">Select Tier 1</a>
+        </div>
+
+        <!-- Tier 2 -->
+        <div class="bg-slate-900/80 border-2 border-cyan-500/50 p-10 rounded-3xl flex flex-col justify-between backdrop-blur-xl relative shadow-2xl shadow-cyan-500/10">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-cyan-500 text-slate-950 text-[10px] font-mono font-bold uppercase tracking-widest px-4 py-1 rounded-full">Most Popular</div>
+          <div>
+            <div class="text-cyan-400 font-mono text-xs uppercase tracking-widest mb-3">Tier 2</div>
+            <h3 class="text-2xl font-bold text-white mb-2">Multi-Page Business Core</h3>
+            <p class="text-slate-400 text-sm mb-6 font-light">Best for small local businesses, professional offices, or trade contractors needing a robust footprint.</p>
+            <div class="text-4xl font-black text-white mb-8">$1,800 – $3,200 <span class="text-xs font-normal text-slate-400 uppercase font-mono">Flat Fee</span></div>
+            <ul class="space-y-4 text-sm text-slate-300 font-light mb-8">
+              <li class="flex items-center gap-3">✓ Up to 5 custom pages (Home, Services, About, Gallery, Contact)</li>
+              <li class="flex items-center gap-3">✓ Integrated commercial photography assets</li>
+              <li class="flex items-center gap-3">✓ Clean semantic navigation structure</li>
+              <li class="flex items-center gap-3">✓ Top-tier SEO metadata configuration</li>
+            </ul>
           </div>
+          <a href="#contact" class="w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-4 rounded-xl transition text-center shadow-lg">Select Tier 2</a>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="bg-slate-900/40 border border-white/10 p-10 rounded-3xl flex flex-col justify-between backdrop-blur-xl relative group hover:border-cyan-500/50 transition">
+          <div>
+            <div class="text-cyan-400 font-mono text-xs uppercase tracking-widest mb-3">Tier 3</div>
+            <h3 class="text-2xl font-bold text-white mb-2">Custom Portal & App</h3>
+            <p class="text-slate-400 text-sm mb-6 font-light">Best for interactive client onboarding engines, complex multi-step questionnaires, and member workflows.</p>
+            <div class="text-4xl font-black text-white mb-8">$3,500 – $6,500+ <span class="text-xs font-normal text-slate-400 uppercase font-mono">Depending on Logic</span></div>
+            <ul class="space-y-4 text-sm text-slate-300 font-light mb-8">
+              <li class="flex items-center gap-3">✓ Astro Server-Side Rendering (SSR)</li>
+              <li class="flex items-center gap-3">✓ Supabase database integration</li>
+              <li class="flex items-center gap-3">✓ Secure user authentication & login</li>
+              <li class="flex items-center gap-3">✓ Custom dashboard components</li>
+            </ul>
+          </div>
+          <a href="#contact" class="w-full bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-white font-semibold py-4 rounded-xl transition text-center">Select Tier 3</a>
         </div>
       </div>
     </section>
 
-    <!-- Immersive Asymmetric Portfolio Showcase -->
-    <section id="work" class="py-32 px-8 max-w-7xl mx-auto border-t border-white/10">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
-        <div>
-          <span class="text-xs tracking-widest uppercase text-cyan-400 font-mono mb-3 block">Selected Case Studies</span>
-          <h2 class="text-4xl md:text-6xl font-black tracking-tight text-white">Execution Proof</h2>
-        </div>
-        <p class="text-slate-400 max-w-sm mt-4 md:mt-0 font-light">Engineered for sub-second load parameters and elite visual conversion.</p>
+    <!-- Services / Capabilities -->
+    <section id="services" class="py-32 px-8 max-w-7xl mx-auto border-t border-white/10">
+      <div class="text-center mb-16">
+        <span class="text-xs tracking-widest uppercase text-cyan-400 font-mono mb-3 block">Dual-Discipline Advantage</span>
+        <h2 class="text-4xl md:text-5xl font-black text-white uppercase tracking-tight">Code & Visual Media</h2>
       </div>
-
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="group relative rounded-3xl overflow-hidden border border-white/10 bg-slate-900 h-[480px] flex flex-col justify-end p-10">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent z-10"></div>
-          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-cyan-950/50 via-slate-950 to-slate-950"></div>
-          <div class="relative z-20 space-y-4">
-            <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono text-xs uppercase">Tier 2 Multi-Page Core</span>
-            <h3 class="text-3xl font-bold text-white tracking-tight">Commercial Architecture & Brand Hubs</h3>
-            <p class="text-slate-400 font-light">Full integration of custom photography assets directly into high-performance Astro components.</p>
-          </div>
+        <div class="bg-slate-900/60 border border-white/10 p-10 rounded-3xl backdrop-blur-xl">
+          <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl mb-6 font-mono">⚡</div>
+          <h3 class="text-2xl font-bold text-white mb-4">High-Performance Web Dev</h3>
+          <p class="text-slate-400 font-light leading-relaxed">Astro and Jamstack infrastructure built for instantaneous mobile loading speeds, pristine Core Web Vitals, and zero bloated JavaScript drag.</p>
         </div>
-
-        <div class="group relative rounded-3xl overflow-hidden border border-white/10 bg-slate-900 h-[480px] flex flex-col justify-end p-10">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent z-10"></div>
-          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-950/50 via-slate-950 to-slate-950"></div>
-          <div class="relative z-20 space-y-4">
-            <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono text-xs uppercase">Tier 3 Full-Stack Portal</span>
-            <h3 class="text-3xl font-bold text-white tracking-tight">Interactive Client Onboarding Engines</h3>
-            <p class="text-slate-400 font-light">Secure user authentication and dynamic database pipelines backed by Supabase and Astro SSR.</p>
-          </div>
+        <div class="bg-slate-900/60 border border-white/10 p-10 rounded-3xl backdrop-blur-xl">
+          <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl mb-6 font-mono">📷</div>
+          <h3 class="text-2xl font-bold text-white mb-4">Commercial Photography</h3>
+          <p class="text-slate-400 font-light leading-relaxed">Sharp, high-impact visual media captured on professional hardware tailored for real estate, product branding, and local market dominance.</p>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-32 px-8 max-w-4xl mx-auto border-t border-white/10">
-      <div class="text-center mb-16 space-y-4">
-        <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight uppercase">Let's Build Your Asset</h2>
-        <p class="text-slate-400 text-lg font-light">Submit project parameters directly to the agency build queue.</p>
+    <!-- Contact Form -->
+    <section id="contact" class="py-32 px-8 max-w-3xl mx-auto border-t border-white/10">
+      <div class="text-center mb-14">
+        <h2 class="text-4xl font-black text-white uppercase tracking-tight mb-3">Initiate Project</h2>
+        <p class="text-slate-400 font-light">Direct pipeline to the agency build queue. Response time under 24 hours.</p>
       </div>
       
       <form action="https://formspree.io/f/xyeyllbk" method="POST" class="space-y-6 bg-slate-900/40 border border-white/10 p-10 md:p-14 rounded-3xl backdrop-blur-xl">
-        <div class="grid md:grid-cols-2 gap-6">
-          <div>
-            <label class="block text-xs uppercase font-mono tracking-wider mb-2.5 text-slate-400" for="name">Your Name</label>
-            <input type="text" id="name" name="name" required class="w-full bg-slate-950 border border-white/10 rounded-2xl p-4 focus:border-cyan-500 outline-none transition text-white" placeholder="Jane Doe" />
-          </div>
-          <div>
-            <label class="block text-xs uppercase font-mono tracking-wider mb-2.5 text-slate-400" for="email">Email Address</label>
-            <input type="email" id="email" name="_replyto" required class="w-full bg-slate-950 border border-white/10 rounded-2xl p-4 focus:border-cyan-500 outline-none transition text-white" placeholder="jane@company.com" />
-          </div>
+        <div>
+          <label class="block text-xs uppercase font-mono tracking-wider mb-2.5 text-slate-400" for="name">Your Name</label>
+          <input type="text" id="name" name="name" required class="w-full bg-slate-950 border border-white/10 rounded-2xl p-4 focus:border-cyan-500 outline-none transition text-white" placeholder="John Doe" />
+        </div>
+        <div>
+          <label class="block text-xs uppercase font-mono tracking-wider mb-2.5 text-slate-400" for="email">Email Address</label>
+          <input type="email" id="email" name="_replyto" required class="w-full bg-slate-950 border border-white/10 rounded-2xl p-4 focus:border-cyan-500 outline-none transition text-white" placeholder="john@company.com" />
         </div>
         <div>
           <label class="block text-xs uppercase font-mono tracking-wider mb-2.5 text-slate-400" for="message">Project Scope & Tier Selection</label>
-          <textarea id="message" name="message" rows="5" required class="w-full bg-slate-950 border border-white/10 rounded-2xl p-4 focus:border-cyan-500 outline-none transition text-white resize-none" placeholder="Specify web architecture requirements or commercial photography needs..."></textarea>
+          <textarea id="message" name="message" rows="5" required class="w-full bg-slate-950 border border-white/10 rounded-2xl p-4 focus:border-cyan-500 outline-none transition text-white resize-none" placeholder="Select a tier or outline your custom requirements..."></textarea>
         </div>
-        <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-5 rounded-2xl transition text-lg tracking-wide uppercase">Initialize Transmission</button>
+        <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-5 rounded-2xl transition text-lg tracking-wide uppercase shadow-lg shadow-cyan-500/20">Transmit Request</button>
       </form>
     </section>
   </main>
 </Layout>
+
