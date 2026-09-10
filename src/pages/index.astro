@@ -1,5 +1,4 @@
 ---
-// src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -18,6 +17,7 @@ import Layout from '../layouts/Layout.astro';
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
         <a href="/" class="text-cyan-400 font-semibold">Web & Commercial</a>
         <a href="/photography" class="hover:text-cyan-400 transition">Portraits & Weddings</a>
+        <a href="#pricing" class="hover:text-cyan-400 transition">Pricing</a>
         <a href="#contact" class="bg-cyan-500 text-slate-950 px-6 py-3 rounded-xl hover:bg-cyan-400 transition font-bold">Secure Slot</a>
       </nav>
     </div>
@@ -37,6 +37,7 @@ import Layout from '../layouts/Layout.astro';
       </p>
     </section>
 
+    <!-- Web Development Pricing Tiers -->
     <section id="pricing" class="py-32 px-8 max-w-7xl mx-auto border-t border-white/10">
       <div class="text-center mb-20">
         <span class="text-xs tracking-widest uppercase text-cyan-400 font-mono mb-3 block">Transparent Investment</span>
@@ -95,6 +96,63 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
+    <!-- Monthly Maintenance Retainers -->
+    <section class="py-20 px-8 max-w-7xl mx-auto border-t border-white/10">
+      <div class="text-center mb-16">
+        <span class="text-xs tracking-widest uppercase text-cyan-400 font-mono mb-3 block">Predictable Revenue</span>
+        <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white uppercase">Monthly Maintenance Retainers</h2>
+        <p class="text-slate-400 max-w-lg mx-auto mt-3 font-light text-sm">Protect uptime, handle updates instantly, and secure baseline monthly cash flow.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8">
+        <div class="bg-slate-900/40 border border-white/10 p-8 rounded-3xl flex flex-col justify-between backdrop-blur-xl">
+          <div>
+            <div class="text-cyan-400 font-mono text-xs uppercase tracking-widest mb-2">Basic Care</div>
+            <div class="text-3xl font-black text-white mb-4">$75 <span class="text-xs font-normal text-slate-400 uppercase font-mono">/ month</span></div>
+            <p class="text-slate-400 text-sm mb-6 font-light">Ideal for standard static sites requiring hands-off security and minor tweaks.</p>
+            <ul class="space-y-3 text-sm text-slate-300 font-light mb-6">
+              <li>✓ Monthly framework checks</li>
+              <li>✓ Vercel deployment upkeep</li>
+              <li>✓ Uptime monitoring</li>
+              <li>✓ Up to 30 mins text/image updates</li>
+            </ul>
+          </div>
+          <a href="#contact" class="w-full bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-white font-semibold py-3 rounded-xl transition text-center text-sm">Select Basic</a>
+        </div>
+
+        <div class="bg-slate-900/40 border border-white/10 p-8 rounded-3xl flex flex-col justify-between backdrop-blur-xl">
+          <div>
+            <div class="text-cyan-400 font-mono text-xs uppercase tracking-widest mb-2">Growth Retainer</div>
+            <div class="text-3xl font-black text-white mb-4">$150 <span class="text-xs font-normal text-slate-400 uppercase font-mono">/ month</span></div>
+            <p class="text-slate-400 text-sm mb-6 font-light">Built for active businesses that need ongoing content execution.</p>
+            <ul class="space-y-3 text-sm text-slate-300 font-light mb-6">
+              <li>✓ Standard uptime monitoring</li>
+              <li>✓ Priority support queue</li>
+              <li>✓ Up to 2 hours of content edits</li>
+              <li>✓ Fresh asset swaps per month</li>
+            </ul>
+          </div>
+          <a href="#contact" class="w-full bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-white font-semibold py-3 rounded-xl transition text-center text-sm">Select Growth</a>
+        </div>
+
+        <div class="bg-slate-900/40 border border-white/10 p-8 rounded-3xl flex flex-col justify-between backdrop-blur-xl">
+          <div>
+            <div class="text-cyan-400 font-mono text-xs uppercase tracking-widest mb-2">Scale Retainer</div>
+            <div class="text-3xl font-black text-white mb-4">$300 <span class="text-xs font-normal text-slate-400 uppercase font-mono">/ month</span></div>
+            <p class="text-slate-400 text-sm mb-6 font-light">Engineered for dynamic application portals with active databases.</p>
+            <ul class="space-y-3 text-sm text-slate-300 font-light mb-6">
+              <li>✓ Active database management</li>
+              <li>✓ Priority same-day bug fixes</li>
+              <li>✓ Up to 4 hours feature updates</li>
+              <li>✓ Full Supabase optimization</li>
+            </ul>
+          </div>
+          <a href="#contact" class="w-full bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-white font-semibold py-3 rounded-xl transition text-center text-sm">Select Scale</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
     <section id="contact" class="py-32 px-8 max-w-3xl mx-auto border-t border-white/10">
       <div class="text-center mb-14">
         <h2 class="text-4xl font-black text-white uppercase tracking-tight mb-3">Initiate Project</h2>
