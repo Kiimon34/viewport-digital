@@ -23,8 +23,6 @@ import { SpotlightCard } from '../components/ui/SpotlightCard.tsx';
         
         <!-- Enlarged Identity & Real Logo Asset -->
         <a href="/" class="flex items-center gap-4 group">
-          
-          <!-- Logo Box Frame -->
           <div class="h-14 w-14 sm:h-16 sm:w-16 border-2 border-[#00E5FF] bg-[#00E5FF]/10 flex items-center justify-center relative overflow-hidden group-hover:bg-[#00E5FF]/20 group-hover:shadow-[0_0_25px_rgba(0,229,255,0.4)] transition-all duration-300">
             <img 
               src="/logo.png" 
@@ -34,7 +32,6 @@ import { SpotlightCard } from '../components/ui/SpotlightCard.tsx';
             <span class="absolute bottom-0 right-0 h-2 w-2 bg-[#00E5FF]"></span>
           </div>
 
-          <!-- Enlarged Company Typography -->
           <div class="flex flex-col justify-center">
             <div class="flex items-center gap-2">
               <span class="text-xl sm:text-2xl font-black uppercase tracking-tight text-white font-sans">
@@ -189,7 +186,7 @@ import { SpotlightCard } from '../components/ui/SpotlightCard.tsx';
         </div>
       </section>
 
-      <!-- Dedicated Commercial Photography Gallery -->
+      <!-- Dedicated Commercial Photography Gallery (Wide Aspect Ratio) -->
       <section id="commercial-gallery" class="py-24 border-t border-white/10">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
@@ -200,7 +197,6 @@ import { SpotlightCard } from '../components/ui/SpotlightCard.tsx';
             </p>
           </div>
 
-          <!-- Explicit Separation Callout -->
           <div class="border border-white/10 bg-[#0c0c0c] p-4 font-mono text-xs max-w-xs">
             <span class="text-[#00E5FF] block uppercase font-bold mb-1">Looking for Portraits?</span>
             <p class="text-neutral-400 text-[11px] mb-3">Family, lifestyle, and private portrait sessions live on our dedicated studio board.</p>
@@ -210,38 +206,54 @@ import { SpotlightCard } from '../components/ui/SpotlightCard.tsx';
           </div>
         </div>
 
+        <!-- Wide-Framed Photo Cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           
-          <div class="group relative border border-white/10 bg-[#0c0c0c] overflow-hidden aspect-[4/5] flex flex-col justify-end p-6">
-            <div class="absolute inset-0 bg-neutral-900 group-hover:scale-105 transition duration-500 flex items-center justify-center">
-              <span class="font-mono text-xs text-neutral-600 uppercase tracking-widest">[ Fleet Asset 01 ]</span>
-            </div>
-            <div class="relative z-10 bg-[#050505]/90 p-4 border border-white/10">
+          <!-- Asset 01: Fleet -->
+          <div class="group relative border border-white/10 bg-[#0c0c0c] overflow-hidden aspect-[16/10] sm:aspect-[4/3] flex flex-col justify-end p-4 sm:p-6">
+            <img 
+              src="/fleet-01.jpg" 
+              alt="Healthcare Transportation Fleet Logistics" 
+              class="absolute inset-0 h-full w-full object-cover object-center group-hover:scale-105 transition duration-500 filter brightness-90 group-hover:brightness-100"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent pointer-events-none"></div>
+
+            <div class="relative z-10 bg-[#050505]/95 p-3.5 sm:p-4 border border-white/10 backdrop-blur-sm">
               <span class="font-mono text-[10px] uppercase text-[#00E5FF] tracking-wider block">Healthcare Transportation</span>
-              <h4 class="font-mono text-sm font-bold text-white uppercase mt-1">Fleet Logistics & Vehicles</h4>
-              <p class="font-mono text-[11px] text-neutral-400 mt-1">High-contrast vehicle profiling and mobility access captures.</p>
+              <h4 class="font-mono text-xs sm:text-sm font-bold text-white uppercase mt-1">Fleet Logistics & Vehicles</h4>
+              <p class="font-mono text-[10px] sm:text-[11px] text-neutral-400 mt-1">High-contrast vehicle profiling and mobility access captures.</p>
             </div>
           </div>
 
-          <div class="group relative border border-white/10 bg-[#0c0c0c] overflow-hidden aspect-[4/5] flex flex-col justify-end p-6">
-            <div class="absolute inset-0 bg-neutral-900 group-hover:scale-105 transition duration-500 flex items-center justify-center">
-              <span class="font-mono text-xs text-neutral-600 uppercase tracking-widest">[ Space Asset 02 ]</span>
-            </div>
-            <div class="relative z-10 bg-[#050505]/90 p-4 border border-white/10">
+          <!-- Asset 02: Space -->
+          <div class="group relative border border-white/10 bg-[#0c0c0c] overflow-hidden aspect-[16/10] sm:aspect-[4/3] flex flex-col justify-end p-4 sm:p-6">
+            <img 
+              src="/space-02.png" 
+              alt="Medical Clinic and Workspace Interior" 
+              class="absolute inset-0 h-full w-full object-cover object-center group-hover:scale-105 transition duration-500 filter brightness-90 group-hover:brightness-100"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent pointer-events-none"></div>
+
+            <div class="relative z-10 bg-[#050505]/95 p-3.5 sm:p-4 border border-white/10 backdrop-blur-sm">
               <span class="font-mono text-[10px] uppercase text-[#00E5FF] tracking-wider block">Facility Architecture</span>
-              <h4 class="font-mono text-sm font-bold text-white uppercase mt-1">Workspace & Clinic Interiors</h4>
-              <p class="font-mono text-[11px] text-neutral-400 mt-1">Wide-angle perspective architectural and equipment photography.</p>
+              <h4 class="font-mono text-xs sm:text-sm font-bold text-white uppercase mt-1">Workspace & Clinic Interiors</h4>
+              <p class="font-mono text-[10px] sm:text-[11px] text-neutral-400 mt-1">Wide-angle perspective architectural and equipment photography.</p>
             </div>
           </div>
 
-          <div class="group relative border border-white/10 bg-[#0c0c0c] overflow-hidden aspect-[4/5] flex flex-col justify-end p-6">
-            <div class="absolute inset-0 bg-neutral-900 group-hover:scale-105 transition duration-500 flex items-center justify-center">
-              <span class="font-mono text-xs text-neutral-600 uppercase tracking-widest">[ Staff Asset 03 ]</span>
-            </div>
-            <div class="relative z-10 bg-[#050505]/90 p-4 border border-white/10">
+          <!-- Asset 03: Staff -->
+          <div class="group relative border border-white/10 bg-[#0c0c0c] overflow-hidden aspect-[16/10] sm:aspect-[4/3] flex flex-col justify-end p-4 sm:p-6">
+            <img 
+              src="/staff-03.png" 
+              alt="Commercial Operational Team Profiles" 
+              class="absolute inset-0 h-full w-full object-cover object-center group-hover:scale-105 transition duration-500 filter brightness-90 group-hover:brightness-100"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent pointer-events-none"></div>
+
+            <div class="relative z-10 bg-[#050505]/95 p-3.5 sm:p-4 border border-white/10 backdrop-blur-sm">
               <span class="font-mono text-[10px] uppercase text-[#00E5FF] tracking-wider block">Executive & Operational</span>
-              <h4 class="font-mono text-sm font-bold text-white uppercase mt-1">Commercial Team Profiles</h4>
-              <p class="font-mono text-[11px] text-neutral-400 mt-1">Uniform, polished headshots tailored directly for web team sections.</p>
+              <h4 class="font-mono text-xs sm:text-sm font-bold text-white uppercase mt-1">Commercial Team Profiles</h4>
+              <p class="font-mono text-[10px] sm:text-[11px] text-neutral-400 mt-1">Uniform, polished headshots tailored directly for web team sections.</p>
             </div>
           </div>
 
