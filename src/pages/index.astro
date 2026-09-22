@@ -9,13 +9,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Viewport Digital LLC | High-Performance Web Infrastructure & Media</title>
 		<meta name="description" content="Custom high-performance web applications and commercial media out of Carmel, Indiana." />
+		<!-- Tailwind CSS CDN for Instant Styling -->
+		<script src="https://cdn.tailwindcss.com"></script>
 	</head>
 	<body class="bg-slate-950 text-slate-100 antialiased selection:bg-slate-800 selection:text-white">
 
 		<!-- Utility / Sticky Header Bar -->
 		<header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80">
 			<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-				<a href="/" class="font-extrabold tracking-tighter text-lg uppercase">
+				<a href="/" class="font-extrabold tracking-tighter text-lg uppercase text-white">
 					Viewport Digital <span class="text-slate-400 font-normal">LLC</span>
 				</a>
 				<nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
@@ -32,15 +34,14 @@
 		</header>
 
 		<main>
-			<!-- Hero Section: Star of the Show -->
+			<!-- Hero Section -->
 			<section class="relative overflow-hidden pt-24 pb-32 lg:pt-36 lg:pb-40">
-				<!-- Radial Background Gradient Mask for Tactile Depth -->
 				<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none"></div>
 
 				<div class="max-w-4xl mx-auto px-6 text-center relative z-10">
 					<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs text-slate-300 mb-8 font-mono">
 						<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-						Based in Carmel, Indiana[span_1](start_span)[span_1](end_span)
+						Based in Carmel, Indiana
 					</div>
 
 					<h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] text-white mb-8">
@@ -64,7 +65,7 @@
 				</div>
 			</section>
 
-			<!-- Services Section: Granular Breakdown -->
+			<!-- Services Section -->
 			<section id="services" class="py-24 border-t border-slate-900 bg-slate-900/30">
 				<div class="max-w-7xl mx-auto px-6">
 					<div class="max-w-2xl mb-16">
@@ -77,7 +78,6 @@
 					</div>
 
 					<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-						<!-- Card 1 -->
 						<div class="p-8 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md flex flex-col justify-between hover:border-slate-700 transition-all">
 							<div>
 								<div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-6 font-mono font-bold">
@@ -85,13 +85,12 @@
 								</div>
 								<h3 class="text-xl font-bold text-white mb-3">Custom Web Apps</h3>
 								<p class="text-slate-400 text-sm leading-[1.6] mb-6">
-									High-performance static architecture via Astro and Vercel[span_2](start_span)[span_2](end_span). Blazing fast load times, rigid security, and bulletproof responsive layouts.
+									High-performance static architecture via Astro and Vercel. Blazing fast load times, rigid security, and bulletproof responsive layouts.
 								</p>
 							</div>
 							<span class="text-xs font-mono text-indigo-400 uppercase tracking-wider">Growth & Pro Tiers</span>
 						</div>
 
-						<!-- Card 2 -->
 						<div class="p-8 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md flex flex-col justify-between hover:border-slate-700 transition-all">
 							<div>
 								<div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-6 font-mono font-bold">
@@ -105,7 +104,6 @@
 							<span class="text-xs font-mono text-indigo-400 uppercase tracking-wider">Brand & Product Assets</span>
 						</div>
 
-						<!-- Card 3 -->
 						<div class="p-8 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md flex flex-col justify-between hover:border-slate-700 transition-all">
 							<div>
 								<div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-6 font-mono font-bold">
@@ -122,7 +120,7 @@
 				</div>
 			</section>
 
-			<!-- Contact / CTA Section -->
+			<!-- Contact Section -->
 			<section id="contact" class="py-24 border-t border-slate-900">
 				<div class="max-w-3xl mx-auto px-6 text-center">
 					<h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-4">
@@ -133,7 +131,7 @@
 					</p>
 
 					<div class="p-8 rounded-2xl bg-slate-900/40 border border-slate-800 text-left">
-						<form action="https://formspree.io/f/your-endpoint" method="POST" class="space-y-6">
+						<form action="https://formspree.io/f/xlgpqvaz" method="POST" class="space-y-6">
 							<div>
 								<label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-2">Your Name</label>
 								<input type="text" name="name" required class="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-slate-500 transition-colors" placeholder="Jane Doe" />
@@ -158,7 +156,7 @@
 		<!-- Footer -->
 		<footer class="border-t border-slate-900 py-12">
 			<div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
-				<p>&copy; 2026 Viewport Digital LLC. All rights reserved[span_3](start_span)[span_3](end_span).</p>
+				<p>&copy; 2026 Viewport Digital LLC. All rights reserved.</p>
 				<p class="font-mono text-xs">kiimon@viewportdigitalmedia.com</p>
 			</div>
 		</footer>
