@@ -1,64 +1,371 @@
 ---
-// Viewport Digital LLC - Agency Landing Page
-// Stack: Astro, Tailwind CSS, Vercel
+// Viewport Digital LLC - Agency Landing Page (Self-Contained Styles)
 ---
 
-<html lang="en" class="scroll-smooth bg-slate-950 text-slate-100">
+<html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Viewport Digital LLC | High-Performance Web Infrastructure & Media</title>
-		<meta name="description" content="Custom high-performance web applications and commercial media out of Carmel, Indiana." />
-		<!-- Tailwind CSS CDN for Instant Styling -->
-		<script src="https://cdn.tailwindcss.com"></script>
-	</head>
-	<body class="bg-slate-950 text-slate-100 antialiased selection:bg-slate-800 selection:text-white">
+		<style>
+			:root {
+				color-scheme: dark;
+			}
+			body {
+				margin: 0;
+				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+				background-color: #020617;
+				color: #f8fafc;
+				line-height: 1.5;
+				-webkit-font-smoothing: antialiased;
+			}
+			header {
+				position: sticky;
+				top: 0;
+				z-index: 50;
+				backdrop-filter: blur(12px);
+				-webkit-backdrop-filter: blur(12px);
+				background-color: rgba(2, 6, 23, 0.8);
+				border-bottom: 1px solid rgba(30, 41, 59, 0.8);
+			}
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 24px;
+			}
+			.header-content {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				height: 80px;
+			}
+			.logo {
+				font-weight: 800;
+				letter-spacing: -0.03em;
+				font-size: 1.125rem;
+				text-transform: uppercase;
+				color: #fff;
+				text-decoration: none;
+			}
+			.logo span {
+				color: #94a3b8;
+				font-weight: 400;
+			}
+			nav {
+				display: none;
+				gap: 32px;
+				font-size: 0.875rem;
+				font-weight: 500;
+				color: #cbd5e1;
+			}
+			@media(min-width: 768px) {
+				nav { display: flex; }
+			}
+			nav a {
+				color: #cbd5e1;
+				text-decoration: none;
+				transition: color 0.2s;
+			}
+			nav a:hover { color: #fff; }
+			
+			.btn-primary {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				padding: 10px 20px;
+				border-radius: 8px;
+				background-color: #fff;
+				color: #020617;
+				font-weight: 600;
+				font-size: 0.875rem;
+				letter-spacing: -0.01em;
+				text-decoration: none;
+				transition: background-color 0.2s;
+				box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+			}
+			.btn-primary:hover { background-color: #e2e8f0; }
+			
+			/* Hero Section */
+			.hero {
+				position: relative;
+				overflow: hidden;
+				padding: 96px 0 128px 0;
+				text-align: center;
+			}
+			.hero-glow {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 500px;
+				height: 500px;
+				background: rgba(99, 102, 241, 0.1);
+				filter: blur(100px);
+				border-radius: 50%;
+				pointer-events: none;
+			}
+			.badge {
+				display: inline-flex;
+				align-items: center;
+				gap: 8px;
+				padding: 6px 14px;
+				border-radius: 9999px;
+				background-color: #0f172a;
+				border: 1px solid #1e293b;
+				font-size: 0.75rem;
+				color: #cbd5e1;
+				margin-bottom: 32px;
+				font-family: ui-monospace, monospace;
+			}
+			.dot {
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				background-color: #10b981;
+			}
+			h1 {
+				font-size: 3rem;
+				font-weight: 800;
+				letter-spacing: -0.03em;
+				line-height: 1.05;
+				color: #fff;
+				margin: 0 0 32px 0;
+			}
+			@media(min-width: 640px) {
+				h1 { font-size: 4.5rem; }
+			}
+			.hero-p {
+				max-width: 650px;
+				margin: 0 auto 40px auto;
+				font-size: 1.125rem;
+				color: rgba(203, 213, 225, 0.9);
+				line-height: 1.6;
+			}
+			.hero-actions {
+				display: flex;
+				flex-direction: column;
+				gap: 16px;
+				justify-content: center;
+				align-items: center;
+			}
+			@media(min-width: 640px) {
+				.hero-actions { flex-direction: row; }
+			}
+			.btn-secondary {
+				padding: 16px 32px;
+				border-radius: 12px;
+				background-color: #0f172a;
+				border: 1px solid #1e293b;
+				color: #fff;
+				font-weight: 600;
+				text-decoration: none;
+				transition: background-color 0.2s;
+			}
+			.btn-secondary:hover { background-color: #1e293b; }
 
-		<!-- Utility / Sticky Header Bar -->
-		<header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80">
-			<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-				<a href="/" class="font-extrabold tracking-tighter text-lg uppercase text-white">
-					Viewport Digital <span class="text-slate-400 font-normal">LLC</span>
-				</a>
-				<nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-					<a href="#services" class="hover:text-white transition-colors">Services</a>
-					<a href="#stack" class="hover:text-white transition-colors">Architecture</a>
-					<a href="#work" class="hover:text-white transition-colors">Work</a>
+			/* Services Section */
+			.services {
+				padding: 96px 0;
+				border-top: 1px solid #0f172a;
+				background-color: rgba(15, 23, 42, 0.3);
+			}
+			.services-header {
+				max-width: 600px;
+				margin-bottom: 64px;
+			}
+			.services-header h2 {
+				font-size: 2.25rem;
+				font-weight: 800;
+				letter-spacing: -0.02em;
+				color: #fff;
+				margin: 0 0 16px 0;
+			}
+			.services-header p {
+				color: #94a3b8;
+				font-size: 1rem;
+				line-height: 1.5;
+			}
+			.grid {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 32px;
+			}
+			@media(min-width: 768px) {
+				.grid { grid-template-columns: repeat(3, 1fr); }
+			}
+			.card {
+				padding: 32px;
+				border-radius: 16px;
+				background-color: rgba(15, 23, 42, 0.6);
+				border: 1px solid rgba(30, 41, 59, 0.8);
+				backdrop-filter: blur(12px);
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				transition: border-color 0.2s;
+			}
+			.card:hover { border-color: #475569; }
+			.card-num {
+				width: 48px;
+				height: 48px;
+				border-radius: 12px;
+				background-color: rgba(99, 102, 241, 0.1);
+				border: 1px solid rgba(99, 102, 241, 0.2);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: #818cf8;
+				font-family: ui-monospace, monospace;
+				font-weight: 700;
+				margin-bottom: 24px;
+			}
+			.card h3 {
+				font-size: 1.25rem;
+				font-weight: 700;
+				color: #fff;
+				margin: 0 0 12px 0;
+			}
+			.card p {
+				color: #94a3b8;
+				font-size: 0.875rem;
+				line-height: 1.6;
+				margin: 0 0 24px 0;
+			}
+			.card-tag {
+				font-size: 0.75rem;
+				font-family: ui-monospace, monospace;
+				color: #818cf8;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+			}
+
+			/* Contact Section */
+			.contact {
+				padding: 96px 0;
+				border-top: 1px solid #0f172a;
+			}
+			.contact-box {
+				max-width: 700px;
+				margin: 0 auto;
+				text-align: center;
+			}
+			.contact-box h2 {
+				font-size: 2.25rem;
+				font-weight: 800;
+				letter-spacing: -0.02em;
+				color: #fff;
+				margin: 0 0 16px 0;
+			}
+			.contact-box > p {
+				color: #94a3b8;
+				margin: 0 auto 40px auto;
+				max-width: 500px;
+				line-height: 1.5;
+			}
+			.form-wrap {
+				padding: 32px;
+				border-radius: 16px;
+				background-color: rgba(15, 23, 42, 0.4);
+				border: 1px solid #1e293b;
+				text-align: left;
+			}
+			.form-group {
+				margin-bottom: 24px;
+			}
+			label {
+				display: block;
+				font-size: 0.75rem;
+				font-family: ui-monospace, monospace;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				color: #94a3b8;
+				margin-bottom: 8px;
+			}
+			input, textarea {
+				width: 100%;
+				padding: 12px 16px;
+				border-radius: 8px;
+				background-color: #020617;
+				border: 1px solid #1e293b;
+				color: #fff;
+				font-size: 0.875rem;
+				box-sizing: border-box;
+				outline: none;
+				transition: border-color 0.2s;
+			}
+			input:focus, textarea:focus { border-color: #64748b; }
+			.btn-submit {
+				width: 100%;
+				padding: 16px;
+				border-radius: 12px;
+				background-color: #fff;
+				color: #020617;
+				font-weight: 700;
+				border: none;
+				cursor: pointer;
+				transition: background-color 0.2s;
+				font-size: 0.875rem;
+				letter-spacing: -0.01em;
+			}
+			.btn-submit:hover { background-color: #e2e8f0; }
+
+			/* Footer */
+			footer {
+				border-top: 1px solid #0f172a;
+				padding: 48px 0;
+			}
+			.footer-content {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: space-between;
+				gap: 16px;
+				font-size: 0.875rem;
+				color: #64748b;
+			}
+			@media(min-width: 640px) {
+				.footer-content { flex-direction: row; }
+			}
+		</style>
+	</head>
+	<body>
+
+		<!-- Header -->
+		<header>
+			<div class="container header-content">
+				<a href="/" class="logo">Viewport Digital <span>LLC</span></a>
+				<nav>
+					<a href="#services">Services</a>
+					<a href="#stack">Architecture</a>
+					<a href="#work">Work</a>
 				</nav>
 				<div>
-					<a href="#contact" class="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-white text-slate-950 font-semibold text-sm tracking-wide hover:bg-slate-200 transition-colors shadow-sm">
-						Inquire Now
-					</a>
+					<a href="#contact" class="btn-primary">Inquire Now</a>
 				</div>
 			</div>
 		</header>
 
 		<main>
 			<!-- Hero Section -->
-			<section class="relative overflow-hidden pt-24 pb-32 lg:pt-36 lg:pb-40">
-				<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none"></div>
-
-				<div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-					<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs text-slate-300 mb-8 font-mono">
-						<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+			<section class="hero">
+				<div class="hero-glow"></div>
+				<div class="container" style="position: relative; z-index: 10;">
+					<div class="badge">
+						<span class="dot"></span>
 						Based in Carmel, Indiana
 					</div>
 
-					<h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] text-white mb-8">
-						Code. Capture. Convert.
-					</h1>
+					<h1>Code. Capture. Convert.</h1>
 
-					<div class="max-w-[650px] mx-auto">
-						<p class="text-lg sm:text-xl text-slate-300/90 leading-[1.6] mb-10">
-							We build high-performance web infrastructure and commercial media for brands that refuse to blend in. Zero database bloat. Pure speed.
-						</p>
-					</div>
+					<p class="hero-p">
+						We build high-performance web infrastructure and commercial media for brands that refuse to blend in. Zero database bloat. Pure speed.
+					</p>
 
-					<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-						<a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white text-slate-950 font-bold tracking-tight hover:bg-slate-200 transition-all shadow-lg">
+					<div class="hero-actions">
+						<a href="#contact" class="btn-primary" style="padding: 16px 32px; border-radius: 12px; font-weight: 700;">
 							Start Your Build
 						</a>
-						<a href="#services" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 border border-slate-800 text-white font-semibold hover:bg-slate-800 transition-all">
+						<a href="#services" class="btn-secondary">
 							Explore Services
 						</a>
 					</div>
@@ -66,98 +373,90 @@
 			</section>
 
 			<!-- Services Section -->
-			<section id="services" class="py-24 border-t border-slate-900 bg-slate-900/30">
-				<div class="max-w-7xl mx-auto px-6">
-					<div class="max-w-2xl mb-16">
-						<h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-4">
-							Engineered for Impact.
-						</h2>
-						<p class="text-slate-400 text-base leading-[1.5]">
+			<section id="services" class="services">
+				<div class="container">
+					<div class="services-header">
+						<h2>Engineered for Impact.</h2>
+						<p>
 							Every digital property and visual asset is crafted to eliminate friction and drive measurable outcomes.
 						</p>
 					</div>
 
-					<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-						<div class="p-8 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md flex flex-col justify-between hover:border-slate-700 transition-all">
+					<div class="grid">
+						<div class="card">
 							<div>
-								<div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-6 font-mono font-bold">
-									01
-								</div>
-								<h3 class="text-xl font-bold text-white mb-3">Custom Web Apps</h3>
-								<p class="text-slate-400 text-sm leading-[1.6] mb-6">
+								<div class="card-num">01</div>
+								<h3>Custom Web Apps</h3>
+								<p>
 									High-performance static architecture via Astro and Vercel. Blazing fast load times, rigid security, and bulletproof responsive layouts.
 								</p>
 							</div>
-							<span class="text-xs font-mono text-indigo-400 uppercase tracking-wider">Growth & Pro Tiers</span>
+							<span class="card-tag">Growth & Pro Tiers</span>
 						</div>
 
-						<div class="p-8 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md flex flex-col justify-between hover:border-slate-700 transition-all">
+						<div class="card">
 							<div>
-								<div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-6 font-mono font-bold">
-									02
-								</div>
-								<h3 class="text-xl font-bold text-white mb-3">Commercial Media</h3>
-								<p class="text-slate-400 text-sm leading-[1.6] mb-6">
+								<div class="card-num">02</div>
+								<h3>Commercial Media</h3>
+								<p>
 									Sharp, deliberate brand assets and corporate imagery engineered to elevate your digital footprint and capture consumer attention instantly.
 								</p>
 							</div>
-							<span class="text-xs font-mono text-indigo-400 uppercase tracking-wider">Brand & Product Assets</span>
+							<span class="card-tag">Brand & Product Assets</span>
 						</div>
 
-						<div class="p-8 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md flex flex-col justify-between hover:border-slate-700 transition-all">
+						<div class="card">
 							<div>
-								<div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-6 font-mono font-bold">
-									03
-								</div>
-								<h3 class="text-xl font-bold text-white mb-3">Events & Portraits</h3>
-								<p class="text-slate-400 text-sm leading-[1.6] mb-6">
+								<div class="card-num">03</div>
+								<h3>Events & Portraits</h3>
+								<p>
 									Clean, professional individual and special event photography focused on authentic storytelling without the awkward staging.
 								</p>
 							</div>
-							<span class="text-xs font-mono text-indigo-400 uppercase tracking-wider">Direct Booking</span>
+							<span class="card-tag">Direct Booking</span>
 						</div>
 					</div>
 				</div>
 			</section>
 
 			<!-- Contact Section -->
-			<section id="contact" class="py-24 border-t border-slate-900">
-				<div class="max-w-3xl mx-auto px-6 text-center">
-					<h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-4">
-						Let's Build Your Digital Footprint.
-					</h2>
-					<p class="text-slate-400 text-base leading-[1.5] mb-10 max-w-[600px] mx-auto">
-						Reach out directly to kick off your project build or schedule a media session.
-					</p>
+			<section id="contact" class="contact">
+				<div class="container">
+					<div class="contact-box">
+						<h2>Let's Build Your Digital Footprint.</h2>
+						<p>
+							Reach out directly to kick off your project build or schedule a media session.
+						</p>
 
-					<div class="p-8 rounded-2xl bg-slate-900/40 border border-slate-800 text-left">
-						<form action="https://formspree.io/f/xlgpqvaz" method="POST" class="space-y-6">
-							<div>
-								<label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-2">Your Name</label>
-								<input type="text" name="name" required class="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-slate-500 transition-colors" placeholder="Jane Doe" />
-							</div>
-							<div>
-								<label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-2">Email Address</label>
-								<input type="email" name="email" required class="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-slate-500 transition-colors" placeholder="jane@company.com" />
-							</div>
-							<div>
-								<label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-2">Project Scope</label>
-								<textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-slate-500 transition-colors" placeholder="Tell us about your web build or media needs..."></textarea>
-							</div>
-							<button type="submit" class="w-full py-4 rounded-xl bg-white text-slate-950 font-bold tracking-tight hover:bg-slate-200 transition-all shadow-md">
-								Submit Inquiry
-							</button>
-						</form>
+						<div class="form-wrap">
+							<form action="https://formspree.io/f/xlgpqvaz" method="POST">
+								<div class="form-group">
+									<label>Your Name</label>
+									<input type="text" name="name" required placeholder="Jane Doe" />
+								</div>
+								<div class="form-group">
+									<label>Email Address</label>
+									<input type="email" name="email" required placeholder="jane@company.com" />
+								</div>
+								<div class="form-group">
+									<label>Project Scope</label>
+									<textarea name="message" rows="4" required placeholder="Tell us about your web build or media needs..."></textarea>
+								</div>
+								<button type="submit" class="btn-submit">
+									Submit Inquiry
+								</button>
+							</form>
+						</div>
 					</div>
 				</div>
 			</section>
 		</main>
 
 		<!-- Footer -->
-		<footer class="border-t border-slate-900 py-12">
-			<div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+		<footer>
+			<div class="container footer-content">
 				<p>&copy; 2026 Viewport Digital LLC. All rights reserved.</p>
-				<p class="font-mono text-xs">kiimon@viewportdigitalmedia.com</p>
+				<p style="font-family: ui-monospace, monospace; font-size: 0.75rem;">kiimon@viewportdigitalmedia.com</p>
 			</div>
 		</footer>
 
