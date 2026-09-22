@@ -1,5 +1,5 @@
 ---
-// Viewport Digital LLC - Christopher Nolan Cinematic Build
+// Viewport Digital LLC - Agency Landing Page (2026 Core Directive Build)
 // Stack: Astro, Vercel
 ---
 
@@ -7,52 +7,44 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Viewport Digital LLC — Cinematic Web Infrastructure & Media</title>
+		<title>Viewport Digital LLC | High-Performance Web Infrastructure & Media</title>
 		<style>
 			:root {
 				color-scheme: dark;
 			}
 			* {
 				box-sizing: border-box;
-				letter-spacing: -0.02em;
+				letter-spacing: -0.015em;
 			}
 			body {
 				margin: 0;
 				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-				background-color: #030508;
-				color: #e2e8f0;
-				line-height: 1.5;
-				overflow-x: hidden;
+				background-color: #030712;
+				color: #f8fafc;
+				line-height: 1.6;
 				-webkit-font-smoothing: antialiased;
 			}
 
-			/* Cinematic Blueprint Grid Lines */
-			body::before {
-				content: "";
-				position: fixed;
-				top: 0; left: 0; width: 100%; height: 100%;
-				background-image: 
-					linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
-					linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
-				background-size: 80px 80px;
-				pointer-events: none;
-				z-index: 1;
+			/* Accessibility Focus States */
+			a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+				outline: 2px solid #38bdf8;
+				outline-offset: 4px;
 			}
 
+			/* Header - Glassmorphism 2.0 */
 			header {
 				position: sticky;
 				top: 0;
 				z-index: 100;
 				backdrop-filter: blur(16px);
-				background-color: rgba(3, 5, 8, 0.85);
+				-webkit-backdrop-filter: blur(16px);
+				background-color: rgba(3, 7, 18, 0.75);
 				border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 			}
 			.container {
 				max-width: 1200px;
 				margin: 0 auto;
 				padding: 0 32px;
-				position: relative;
-				z-index: 2;
 			}
 			.header-content {
 				display: flex;
@@ -74,11 +66,11 @@
 			}
 			nav {
 				display: flex;
-				gap: 36px;
+				gap: 32px;
 				font-size: 0.85rem;
 				font-weight: 500;
 				text-transform: uppercase;
-				letter-spacing: 0.05em;
+				letter-spacing: 0.08em;
 				color: #94a3b8;
 			}
 			nav a {
@@ -87,143 +79,150 @@
 				transition: color 0.2s ease;
 			}
 			nav a:hover { color: #fff; }
-			
-			.btn-cinematic {
+
+			/* Archival Indexing Tag */
+			.archival-tag {
+				font-size: 0.75rem;
+				font-family: ui-monospace, monospace;
+				text-transform: uppercase;
+				letter-spacing: 0.15em;
+				color: #38bdf8;
+				display: inline-flex;
+				align-items: center;
+				gap: 8px;
+				margin-bottom: 24px;
+			}
+			.archival-tag::before {
+				content: "■";
+				font-size: 0.5rem;
+			}
+
+			/* Buttons & Micro-Interactions */
+			.btn-primary {
 				display: inline-flex;
 				align-items: center;
 				justify-content: center;
-				padding: 12px 28px;
-				background-color: #fff;
-				color: #030508;
+				padding: 14px 28px;
+				background-color: #f8fafc;
+				color: #030712;
 				font-weight: 700;
-				font-size: 0.85rem;
-				text-transform: uppercase;
-				letter-spacing: 0.05em;
+				font-size: 0.9rem;
 				text-decoration: none;
+				border-radius: 8px;
 				transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-				position: relative;
+				box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
 			}
-			.btn-cinematic:hover {
+			.btn-primary:hover {
 				background-color: #cbd5e1;
 				transform: translateY(-2px);
-				box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
 			}
 
 			.btn-outline {
 				display: inline-flex;
 				align-items: center;
 				justify-content: center;
-				padding: 12px 28px;
-				background-color: transparent;
-				border: 1px solid rgba(255, 255, 255, 0.2);
-				color: #fff;
+				padding: 14px 28px;
+				background-color: rgba(15, 23, 42, 0.6);
+				border: 1px solid rgba(255, 255, 255, 0.15);
+				color: #f8fafc;
 				font-weight: 600;
-				font-size: 0.85rem;
-				text-transform: uppercase;
-				letter-spacing: 0.05em;
+				font-size: 0.9rem;
 				text-decoration: none;
+				border-radius: 8px;
 				transition: all 0.3s ease;
+				backdrop-filter: blur(8px);
 			}
 			.btn-outline:hover {
-				border-color: #fff;
-				background-color: rgba(255, 255, 255, 0.05);
+				border-color: rgba(255, 255, 255, 0.4);
+				background-color: rgba(15, 23, 42, 0.9);
 			}
 
 			/* Hero Section */
 			.hero {
-				padding: 160px 0 140px 0;
+				padding: 128px 0 96px 0;
 				position: relative;
+				overflow: hidden;
 			}
-			.hero-horizon {
+			.hero-glow {
 				position: absolute;
-				top: 40%;
+				top: 30%;
 				left: 50%;
 				transform: translate(-50%, -50%);
-				width: 700px;
-				height: 350px;
-				background: radial-gradient(ellipse at center, rgba(56, 189, 248, 0.08) 0%, rgba(99, 102, 241, 0.03) 50%, transparent 70%);
-				filter: blur(80px);
+				width: 650px;
+				height: 400px;
+				background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(99, 102, 241, 0.03) 60%, transparent 80%);
+				filter: blur(100px);
 				pointer-events: none;
 			}
-			.hero-tag {
-				font-size: 0.75rem;
-				font-family: ui-monospace, monospace;
-				text-transform: uppercase;
-				letter-spacing: 0.2em;
-				color: #38bdf8;
-				margin-bottom: 24px;
-				display: block;
-			}
 			h1 {
-				font-size: clamp(3.5rem, 8vw, 7rem);
+				font-size: clamp(3.2rem, 7vw, 6rem);
 				font-weight: 800;
-				letter-spacing: -0.04em;
-				line-height: 0.95;
+				letter-spacing: -0.03em;
+				line-height: 1.05;
 				color: #fff;
-				margin: 0 0 32px 0;
+				margin: 0 0 24px 0;
 				text-transform: uppercase;
 			}
 			.hero-p {
-				max-width: 600px;
-				font-size: 1.2rem;
+				max-width: 620px;
+				font-size: 1.15rem;
 				color: #94a3b8;
 				line-height: 1.6;
 				margin-bottom: 48px;
 			}
 			.hero-actions {
 				display: flex;
-				gap: 20px;
+				gap: 16px;
 				align-items: center;
 				flex-wrap: wrap;
 			}
 
 			/* Sections */
 			section {
-				padding: 140px 0;
-				border-top: 1px solid rgba(255, 255, 255, 0.08);
+				padding: 112px 0;
+				border-top: 1px solid rgba(255, 255, 255, 0.06);
 				position: relative;
-				z-index: 2;
 			}
 			.section-header {
 				max-width: 700px;
-				margin-bottom: 80px;
+				margin-bottom: 64px;
 			}
 			.section-header h2 {
-				font-size: clamp(2.5rem, 5vw, 4rem);
+				font-size: clamp(2.25rem, 4vw, 3.5rem);
 				font-weight: 800;
-				letter-spacing: -0.03em;
+				letter-spacing: -0.02em;
 				color: #fff;
 				margin: 0 0 16px 0;
 				text-transform: uppercase;
-				line-height: 1.05;
 			}
 			.section-header p {
 				color: #94a3b8;
-				font-size: 1.1rem;
+				font-size: 1.05rem;
 				line-height: 1.6;
 			}
 
-			/* Monumental Flagship Card */
-			.monument-card {
-				background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(3, 5, 8, 0.95) 100%);
-				border: 1px solid rgba(56, 189, 248, 0.3);
-				box-shadow: 0 20px 80px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-				padding: 64px;
+			/* Glassmorphism 2.0 Flagship Card */
+			.glass-card {
+				background: rgba(15, 23, 42, 0.45);
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+				backdrop-filter: blur(20px);
+				-webkit-backdrop-filter: blur(20px);
+				border-radius: 24px;
+				padding: 56px;
 				position: relative;
-				overflow: hidden;
+				transition: border-color 0.3s ease;
+			}
+			.glass-card:hover {
+				border-color: rgba(56, 189, 248, 0.3);
+			}
+			.flagship-grid {
 				display: grid;
 				grid-template-columns: 1fr;
 				gap: 48px;
 			}
-			@media(min-width: 900px) {
-				.monument-card { grid-template-columns: 1.3fr 0.7fr; align-items: center; }
-			}
-			.monument-card::after {
-				content: "";
-				position: absolute;
-				top: 0; right: 0; width: 150px; height: 150px;
-				background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
-				pointer-events: none;
+			@media(min-width: 860px) {
+				.flagship-grid { grid-template-columns: 1.2fr 0.8fr; align-items: center; }
 			}
 			.price-display {
 				font-size: 3rem;
@@ -232,26 +231,24 @@
 				letter-spacing: -0.03em;
 				margin: 16px 0 24px 0;
 			}
-			.specs-grid {
+			.specs-list {
 				list-style: none;
 				padding: 0;
-				margin: 0 0 40px 0;
+				margin: 0 0 32px 0;
 				display: grid;
-				gap: 16px;
+				gap: 14px;
 			}
-			.specs-grid li {
+			.specs-list li {
 				font-size: 0.95rem;
 				color: #cbd5e1;
 				display: flex;
 				align-items: center;
 				gap: 12px;
-				border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-				padding-bottom: 12px;
 			}
-			.specs-grid li::before {
-				content: "◆";
+			.specs-list li::before {
+				content: "→";
 				color: #38bdf8;
-				font-size: 0.75rem;
+				font-weight: bold;
 			}
 
 			/* Grid Two */
@@ -263,59 +260,49 @@
 			@media(min-width: 768px) {
 				.grid-2 { grid-template-columns: repeat(2, 1fr); }
 			}
-			.cinematic-box {
-				background: rgba(15, 23, 42, 0.5);
-				border: 1px solid rgba(255, 255, 255, 0.1);
-				padding: 48px;
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-				transition: border-color 0.3s ease;
-			}
-			.cinematic-box:hover { border-color: rgba(56, 189, 248, 0.4); }
 
-			/* Form Terminal */
-			.terminal-wrap {
+			/* Intake Terminal */
+			.terminal-box {
 				max-width: 680px;
 				margin: 0 auto;
-				background: #090d16;
-				border: 1px solid rgba(255, 255, 255, 0.15);
-				box-shadow: 0 30px 100px rgba(0,0,0,0.9);
-				padding: 56px;
+				background: rgba(10, 15, 30, 0.6);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				backdrop-filter: blur(16px);
+				border-radius: 20px;
+				padding: 48px;
+				box-shadow: 0 30px 80px rgba(0,0,0,0.6);
 			}
 			.form-group {
-				margin-bottom: 28px;
+				margin-bottom: 24px;
 			}
 			label {
 				display: block;
 				font-size: 0.75rem;
 				font-family: ui-monospace, monospace;
 				text-transform: uppercase;
-				letter-spacing: 0.15em;
+				letter-spacing: 0.12em;
 				color: #38bdf8;
 				margin-bottom: 10px;
 			}
 			input, textarea {
 				width: 100%;
 				padding: 16px;
-				background-color: #030508;
-				border: 1px solid rgba(255, 255, 255, 0.15);
+				background-color: rgba(3, 7, 18, 0.8);
+				border: 1px solid rgba(255, 255, 255, 0.12);
+				border-radius: 8px;
 				color: #fff;
 				font-size: 1rem;
 				box-sizing: border-box;
-				outline: none;
 				transition: border-color 0.2s ease;
 			}
 			input:focus, textarea:focus { border-color: #38bdf8; }
 
 			footer {
 				padding: 80px 0;
-				border-top: 1px solid rgba(255, 255, 255, 0.08);
+				border-top: 1px solid rgba(255, 255, 255, 0.06);
 				text-align: center;
 				color: #64748b;
 				font-size: 0.85rem;
-				position: relative;
-				z-index: 2;
 			}
 		</style>
 	</head>
@@ -325,62 +312,65 @@
 		<header>
 			<div class="container header-content">
 				<a href="/" class="logo">Viewport Digital <span>LLC</span></a>
-				<nav>
+				<nav aria-label="Main Navigation">
 					<a href="#flagship">Core Offer</a>
 					<a href="/pricing">Tiers</a>
 					<a href="/photography">Media</a>
 				</nav>
 				<div>
-					<a href="#contact" class="btn-cinematic" style="padding: 10px 20px;">Initialize</a>
+					<a href="#contact" class="btn-primary" style="padding: 10px 20px; font-size: 0.85rem;">Inquire</a>
 				</div>
 			</div>
 		</header>
 
-		<main>
+		<main id="main-content">
 			<!-- Hero Section -->
 			<section class="hero" style="border-top: none;">
-				<div class="hero-horizon"></div>
+				<div class="hero-glow"></div>
 				<div class="container">
-					<span class="hero-tag">[SYSTEM SECURE // CARMEL, INDIANA]</span>
+					<div class="archival-tag">[INDEX // 01 : CARMEL, INDIANA STUDIO]</div>
 					<h1>Code.<br>Capture.<br>Convert.</h1>
 					<p class="hero-p">
-						Unyielding web architecture and precision visual media engineered for entities that refuse to operate in the background. Zero lag. Absolute velocity.
+						Human-first web infrastructure and precision commercial media. We strip away template bloat and rigid subscriptions in favor of absolute architectural speed.
 					</p>
 					<div class="hero-actions">
-						<a href="#flagship" class="btn-cinematic">Execute Build</a>
-						<a href="/pricing" class="btn-outline">Review Specifications</a>
+						<a href="#flagship" class="btn-primary">Execute Build</a>
+						<a href="/pricing" class="btn-outline">Review Pricing Matrix</a>
 					</div>
 				</div>
 			</section>
 
-			<!-- Flagship Product Card (Tier 2 Monumental Core) -->
+			<!-- Flagship Product Card (Tier 2 Core) -->
 			<section id="flagship">
 				<div class="container">
 					<div class="section-header">
-						<h2>The Architectural Standard.</h2>
-						<p>Engineered at the intersection of raw Astro speed and edge deployment.</p>
+						<span class="archival-tag">[INDEX // 02 : FLAGSHIP STANDARD]</span>
+						<h2>The Multi-Page Business Core.</h2>
+						<p>Engineered via Astro and Vercel for sub-second load times and zero database friction.</p>
 					</div>
 
-					<div class="monument-card">
-						<div>
-							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.2em; color: #38bdf8;">Flagship Solution • Tier 2</span>
-							<h3 style="font-size: 2.5rem; font-weight: 800; color: #fff; margin: 12px 0 0 0; text-transform: uppercase; letter-spacing: -0.02em;">Multi-Page Business Core</h3>
-							<div class="price-display">$1,800 – $3,200</div>
-							<p style="color: #94a3b8; font-size: 1.05rem; line-height: 1.6; margin-bottom: 32px;">
-								Designed for professional offices and trade leaders demanding a dominant, lightning-fast digital asset that converts traffic autonomously.
-							</p>
-							<ul class="specs-grid">
-								<li>Up to 5 custom semantic pages (Home, Services, About, Gallery, Contact)</li>
-								<li>Integrated high-end commercial photography assets</li>
-								<li>Instantaneous static edge hosting via Vercel</li>
-								<li>Rigorously optimized SEO metadata architecture</li>
-							</ul>
-						</div>
-						<div style="background: rgba(3, 5, 8, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); padding: 40px; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
-							<div style="font-size: 0.85rem; font-family: ui-monospace, monospace; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.1em;">Parameters Verified</div>
-							<p style="font-size: 0.9rem; color: #94a3b8; margin: 0; line-height: 1.5;">Secure your foundational partner rate and lock in priority deployment queue status.</p>
-							<a href="#contact" class="btn-cinematic" style="text-align: center; margin-top: 8px;">Secure Build Slot</a>
-							<a href="/pricing" style="text-align: center; color: #94a3b8; font-size: 0.8rem; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em;" class="hover:text-white">View complete matrix &rarr;</a>
+					<div class="glass-card">
+						<div class="flagship-grid">
+							<div>
+								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.15em; color: #38bdf8;">Tier 2 Solution • Most Popular</span>
+								<h3 style="font-size: 2.25rem; font-weight: 800; color: #fff; margin: 12px 0 0 0; letter-spacing: -0.02em;">Business Core Architecture</h3>
+								<div class="price-display">$1,800 – $3,200</div>
+								<p style="color: #94a3b8; font-size: 1rem; line-height: 1.6; margin-bottom: 28px;">
+									Designed specifically for local service leaders and professional offices demanding a dominant, lightning-fast digital asset.
+								</p>
+								<ul class="specs-list">
+									<li>Up to 5 custom semantic pages (Home, Services, About, Gallery, Contact)</li>
+									<li>Integrated commercial photography assets</li>
+									<li>Sub-second static edge deployment via Vercel</li>
+									<li>Rigorously optimized SEO metadata structure</li>
+								</ul>
+							</div>
+							<div style="background: rgba(3, 7, 18, 0.5); border: 1px solid rgba(255, 255, 255, 0.08); padding: 40px; border-radius: 16px; display: flex; flex-direction: column; justify-content: center; gap: 16px;">
+								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #34d399; text-transform: uppercase;">Foundational Partner Rate</span>
+								<p style="font-size: 0.9rem; color: #94a3b8; margin: 0; line-height: 1.5;">Lock in priority queue status and direct collaboration with your engineer.</p>
+								<a href="#contact" class="btn-primary" style="text-align: center; margin-top: 8px;">Secure Build Slot</a>
+								<a href="/pricing" style="text-align: center; color: #94a3b8; font-size: 0.8rem; text-decoration: none; font-family: ui-monospace, monospace;" class="hover:text-white">View all development tiers &rarr;</a>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -389,31 +379,39 @@
 			<!-- Commercial Media Tease -->
 			<section>
 				<div class="container">
+					<div class="section-header">
+						<span class="archival-tag">[INDEX // 03 : VISUAL DOMAIN]</span>
+						<h2>Commercial Media Production.</h2>
+						<p>Authentic workspace assets captured and formatted specifically for your Astro repository.</p>
+					</div>
+
 					<div class="grid-2">
-						<div class="cinematic-box">
+						<div class="glass-card" style="padding: 40px; display: flex; flex-direction: column; justify-content: space-between;">
 							<div>
-								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.2em; color: #38bdf8;">Visual Domain</span>
-								<h3 style="font-size: 2rem; font-weight: 800; color: #fff; margin: 12px 0 16px 0; text-transform: uppercase;">Commercial Media Production</h3>
-								<p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 32px;">
-									Eliminate standard stock imagery. We capture authentic workspace dynamics, crew operations, and precise brand textures designed for immediate component integration.
+								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #38bdf8; text-transform: uppercase;">Visual Asset Suite</span>
+								<h3 style="font-size: 1.75rem; font-weight: 800; color: #fff; margin: 12px 0 16px 0;">The Full Brand Suite</h3>
+								<div style="font-size: 2.25rem; font-weight: 800; color: #fff; margin-bottom: 16px;">$750 flat</div>
+								<p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
+									Half-day commitment. 30 to 40 fully edited, web-optimized files delivered ready for immediate deployment.
 								</p>
 							</div>
-							<div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 24px;">
-								<span style="font-size: 0.8rem; font-family: ui-monospace, monospace; color: #34d399;">Bundle Savings: -$150</span>
-								<a href="/photography" class="btn-outline" style="padding: 8px 16px;">Access Suites</a>
+							<div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #34d399;">Bundle Savings: -$150</span>
+								<a href="/photography" class="btn-outline" style="padding: 8px 16px; font-size: 0.8rem;">Explore Suites</a>
 							</div>
 						</div>
 
-						<div class="cinematic-box">
+						<div class="glass-card" style="padding: 40px; display: flex; flex-direction: column; justify-content: space-between;">
 							<div>
-								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.2em; color: #38bdf8;">The Full Brand Suite</span>
-								<div style="font-size: 2.5rem; font-weight: 800; color: #fff; margin: 12px 0 16px 0;">$750 flat</div>
-								<p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 32px;">
-									Half-day tactical deployment. 30 to 40 fully edited, web-optimized files delivered directly to your project repository.
+								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #38bdf8; text-transform: uppercase;">Local Production</span>
+								<h3 style="font-size: 1.75rem; font-weight: 800; color: #fff; margin: 12px 0 16px 0;">Web Asset Starter</h3>
+								<div style="font-size: 2.25rem; font-weight: 800; color: #fff; margin-bottom: 16px;">$350 flat</div>
+								<p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
+									Natural pairing for single-page builds. 1 hour on-site, 10 to 15 edited files for instant layout texture.
 								</p>
 							</div>
-							<div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 24px;">
-								<a href="/photography" style="color: #fff; font-size: 0.85rem; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;" class="hover:underline">Explore all packages &rarr;</a>
+							<div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px;">
+								<a href="/photography" style="color: #fff; font-size: 0.85rem; text-decoration: none; font-weight: 600;" class="hover:underline">View complete pricing matrix &rarr;</a>
 							</div>
 						</div>
 					</div>
@@ -424,53 +422,55 @@
 			<section>
 				<div class="container">
 					<div class="section-header">
-						<h2>Total Sovereignty vs. Renting Space.</h2>
-						<p>The structural divergence between custom code and mainstream subscription platforms.</p>
+						<span class="archival-tag">[INDEX // 04 : ARCHITECTURAL COMPARISON]</span>
+						<h2>True Ownership vs. Rental Traps.</h2>
+						<p>Why custom code outperforms mainstream DIY template platforms.</p>
 					</div>
 
-					<div class="grid-2" style="gap: 40px;">
-						<div style="background: rgba(15, 23, 42, 0.3); border: 1px solid rgba(239, 68, 68, 0.2); padding: 48px;">
-							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #ef4444; text-transform: uppercase; letter-spacing: 0.2em;">System Vulnerability</span>
-							<h3 style="font-size: 1.75rem; font-weight: 800; color: #fff; margin: 12px 0 16px 0; text-transform: uppercase;">The Subscription Trap</h3>
+					<div class="grid-2">
+						<div class="glass-card" style="padding: 40px; border-color: rgba(239, 68, 68, 0.2);">
+							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #ef4444; text-transform: uppercase;">Subscription Overhead</span>
+							<h3 style="font-size: 1.5rem; font-weight: 800; color: #fff; margin: 12px 0 16px 0;">GoDaddy & Wix</h3>
 							<p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0;">
-								Platforms like GoDaddy and Wix lock you into endless overhead for bloated templates that choke mobile performance, ruin search indexing, and leave you stranded when operational failures occur.
+								Endless monthly overhead for bloated templates that choke on mobile devices, tank search rankings, and leave you stranded with call-center automated loops.
 							</p>
 						</div>
 
-						<div style="background: rgba(15, 23, 42, 0.3); border: 1px solid rgba(52, 211, 153, 0.3); padding: 48px;">
-							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #34d399; text-transform: uppercase; letter-spacing: 0.2em;">Absolute Control</span>
-							<h3 style="font-size: 1.75rem; font-weight: 800; color: #fff; margin: 12px 0 16px 0; text-transform: uppercase;">The Viewport Advantage</h3>
+						<div class="glass-card" style="padding: 40px; border-color: rgba(52, 211, 153, 0.3);">
+							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #34d399; text-transform: uppercase;">Absolute Sovereignty</span>
+							<h3 style="font-size: 1.5rem; font-weight: 800; color: #fff; margin: 12px 0 16px 0;">Viewport Digital LLC</h3>
 							<p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0;">
-								You own the code entirely. Built via Astro and Vercel for maximum execution speed and zero database bloat, backed directly by local engineering leadership in Carmel, Indiana[span_0](start_span)[span_0](end_span).
+								You own your code. High-speed Astro static rendering, edge deployment via Vercel, and direct partnership with a local engineer right here in Carmel, Indiana[span_0](start_span)[span_0](end_span).
 							</p>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<!-- Contact / Inquiry Section -->
+			<!-- Contact / Intake Terminal -->
 			<section id="contact">
 				<div class="container">
 					<div class="section-header" style="text-align: center; max-width: 600px; margin: 0 auto 60px auto;">
-						<h2>Initiate Transmission.</h2>
-						<p>Direct contact for project deployment, media bookings, and retainer setup.</p>
+						<span class="archival-tag">[INDEX // 05 : INTAKE TERMINAL]</span>
+						<h2>Initiate Project Transmission.</h2>
+						<p>Direct communication channel for web architecture, media bookings, and retainers.</p>
 					</div>
 
-					<div class="terminal-wrap">
+					<div class="terminal-box">
 						<form action="https://formspree.io/f/xlgpqvaz" method="POST">
 							<div class="form-group">
-								<label>// Your Name</label>
-								<input type="text" name="name" required placeholder="Jane Doe" />
+								<label htmlFor="name">// Your Name</label>
+								<input type="text" id="name" name="name" required placeholder="Jane Doe" />
 							</div>
 							<div class="form-group">
-								<label>// Email Address</label>
-								<input type="email" name="email" required placeholder="jane@company.com" />
+								<label htmlFor="email">// Email Address</label>
+								<input type="email" id="email" name="email" required placeholder="jane@company.com" />
 							</div>
 							<div class="form-group">
-								<label>// Project Scope & Requirements</label>
-								<textarea name="message" rows="4" required placeholder="Specify your web build tier, media suite, or deployment goals..."></textarea>
+								<label htmlFor="message">// Project Scope & Requirements</label>
+								<textarea id="message" name="message" rows="4" required placeholder="Specify your web build tier, media suite, or deployment goals..."></textarea>
 							</div>
-							<button type="submit" class="btn-cinematic" style="width: 100%; padding: 18px; border: none; cursor: pointer; font-size: 0.9rem;">
+							<button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer; padding: 16px; font-size: 0.95rem;">
 								Transmit Inquiry
 							</button>
 						</form>
