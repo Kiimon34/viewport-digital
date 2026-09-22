@@ -1,5 +1,5 @@
 ---
-// Viewport Digital LLC - Agency Landing Page (Full Pricing, Suites & Architecture)
+// Viewport Digital LLC - Streamlined Agency Landing Page
 // Stack: Astro, Tailwind CSS, Vercel
 ---
 
@@ -103,7 +103,7 @@
 				transform: translate(-50%, -50%);
 				width: 600px;
 				height: 600px;
-				background: rgba(99, 102, 241, 0.12);
+				background: rgba(99, 102, 241, 0.15);
 				filter: blur(120px);
 				border-radius: 50%;
 				pointer-events: none;
@@ -188,14 +188,6 @@
 				font-size: 1rem;
 				line-height: 1.6;
 			}
-			.grid-3 {
-				display: grid;
-				grid-template-columns: 1fr;
-				gap: 32px;
-			}
-			@media(min-width: 768px) {
-				.grid-3 { grid-template-columns: repeat(3, 1fr); }
-			}
 			.grid-2 {
 				display: grid;
 				grid-template-columns: 1fr;
@@ -205,7 +197,62 @@
 				.grid-2 { grid-template-columns: repeat(2, 1fr); }
 			}
 
-			/* Cards */
+			/* Flagship Feature Card (Tier 2 Burst) */
+			.flagship-card {
+				position: relative;
+				padding: 48px;
+				border-radius: 24px;
+				background: linear-gradient(145deg, rgba(30, 27, 75, 0.4) 0%, rgba(15, 23, 42, 0.8) 100%);
+				border: 2px solid #6366f1;
+				box-shadow: 0 0 40px rgba(99, 102, 241, 0.2);
+				backdrop-filter: blur(16px);
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+			.flagship-badge {
+				position: absolute;
+				top: -16px;
+				left: 48px;
+				background-color: #6366f1;
+				color: #fff;
+				font-size: 0.75rem;
+				font-weight: 700;
+				font-family: ui-monospace, monospace;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				padding: 6px 16px;
+				border-radius: 9999px;
+				box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+			}
+			.card-price {
+				font-size: 2.5rem;
+				font-weight: 800;
+				color: #fff;
+				margin: 16px 0 16px 0;
+				letter-spacing: -0.03em;
+			}
+			.features-list {
+				list-style: none;
+				padding: 0;
+				margin: 0 0 32px 0;
+				font-size: 0.95rem;
+				color: #cbd5e1;
+			}
+			.features-list li {
+				padding: 10px 0;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+				display: flex;
+				align-items: center;
+				gap: 12px;
+			}
+			.features-list li::before {
+				content: "✓";
+				color: #818cf8;
+				font-weight: bold;
+			}
+
+			/* Standard Card */
 			.card {
 				padding: 32px;
 				border-radius: 16px;
@@ -218,43 +265,6 @@
 				transition: border-color 0.2s;
 			}
 			.card:hover { border-color: #475569; }
-			.card-price {
-				font-size: 1.75rem;
-				font-weight: 800;
-				color: #fff;
-				margin: 16px 0 8px 0;
-				letter-spacing: -0.02em;
-			}
-			.card h3 {
-				font-size: 1.25rem;
-				font-weight: 700;
-				color: #fff;
-				margin: 0 0 8px 0;
-			}
-			.card p {
-				color: #94a3b8;
-				font-size: 0.875rem;
-				line-height: 1.6;
-				margin: 0 0 24px 0;
-			}
-			.card-tag {
-				font-size: 0.75rem;
-				font-family: ui-monospace, monospace;
-				color: #818cf8;
-				text-transform: uppercase;
-				letter-spacing: 0.05em;
-			}
-			.features-list {
-				list-style: none;
-				padding: 0;
-				margin: 0 0 24px 0;
-				font-size: 0.875rem;
-				color: #cbd5e1;
-			}
-			.features-list li {
-				padding: 6px 0;
-				border-bottom: 1px solid rgba(30, 41, 59, 0.4);
-			}
 
 			/* Comparison Section */
 			.comparison-box {
@@ -328,9 +338,9 @@
 			<div class="container header-content">
 				<a href="/" class="logo">Viewport Digital <span>LLC</span></a>
 				<nav>
-					<a href="#web-tiers">Web Tiers</a>
-					<a href="#retainers">Retainers</a>
-					<a href="#media">Media</a>
+					<a href="#flagship">Core Offer</a>
+					<a href="/pricing">All Tiers & Pricing</a>
+					<a href="/photography">Commercial Media</a>
 					<a href="#advantage">Why Us</a>
 				</nav>
 				<div>
@@ -346,7 +356,7 @@
 				<div class="container" style="position: relative; z-index: 10;">
 					<div class="badge">
 						<span class="dot"></span>
-						Based in Carmel, Indiana
+						Based in Carmel, Indiana[span_0](start_span)[span_0](end_span)
 					</div>
 
 					<h1>Code. Capture. Convert.</h1>
@@ -359,182 +369,76 @@
 						<a href="#contact" class="btn-primary" style="padding: 16px 32px; border-radius: 12px; font-size: 1rem;">
 							Start Your Build
 						</a>
-						<a href="#web-tiers" class="btn-secondary">
-							Explore Pricing
+						<a href="/pricing" class="btn-secondary">
+							View Full Pricing Matrix
 						</a>
 					</div>
 				</div>
 			</section>
 
-			<!-- Web Development Tiers -->
-			<section id="web-tiers">
+			<!-- Flagship Offer Section (Tier 2 Burst) -->
+			<section id="flagship">
 				<div class="container">
 					<div class="section-header">
-						<h2>Web Development Tiers.</h2>
+						<h2>The Flagship Web Solution.</h2>
 						<p>Engineered via Astro and Vercel for instantaneous load times, rigid security, and zero legacy bloat.</p>
 					</div>
 
-					<div class="grid-3">
-						<!-- Tier 1 -->
-						<div class="card">
+					<div style="max-width: 800px; margin: 0 auto;">
+						<div class="flagship-card">
+							<div class="flagship-badge">Most Popular • Agency Standard</div>
 							<div>
-								<span class="card-tag">Tier 1</span>
-								<h3>The Local Landing Page</h3>
-								<div class="card-price">$750 – $1,200</div>
-								<p>Best for single-page sites, local service providers, transport companies, or quick campaign launches.</p>
-								<ul class="features-list">
-									<li>High-impact single page on Astro</li>
-									<li>Mobile-optimized responsive design</li>
-									<li>Formspree contact form integration</li>
-									<li>Lightning-fast Vercel edge hosting</li>
-								</ul>
-							</div>
-							<a href="#contact" class="btn-secondary" style="text-align: center; display: block; padding: 12px;">Select Tier 1</a>
-						</div>
-
-						<!-- Tier 2 -->
-						<div class="card" style="border-color: #6366f1;">
-							<div>
-								<span class="card-tag" style="color: #a5b4fc;">Tier 2 (Most Popular)</span>
-								<h3>Multi-Page Business Core</h3>
+								<span style="font-size: 0.8rem; font-family: ui-monospace, monospace; color: #a5b4fc; text-transform: uppercase; letter-spacing: 0.05em;">Tier 2 Solution</span>
+								<h3 style="font-size: 2rem; font-weight: 800; color: #fff; margin: 8px 0 0 0;">Multi-Page Business Core</h3>
 								<div class="card-price">$1,800 – $3,200</div>
-								<p>Best for small local businesses, professional offices, or trade contractors needing a robust web footprint.</p>
+								<p style="color: #94a3b8; font-size: 1rem; margin-bottom: 24px;">
+									Designed specifically for small local businesses, professional offices, and trade contractors demanding a robust, lightning-fast digital footprint.
+								</p>
 								<ul class="features-list">
 									<li>Up to 5 custom pages (Home, Services, About, Gallery, Contact)</li>
 									<li>Integrated commercial photography assets</li>
-									<li>Clean navigation structure</li>
-									<li>Top-tier SEO metadata & performance</li>
+									<li>Clean semantic navigation structure</li>
+									<li>Top-tier SEO metadata & blazing fast Vercel edge hosting</li>
 								</ul>
 							</div>
-							<a href="#contact" class="btn-primary" style="text-align: center; display: block; padding: 12px;">Select Tier 2</a>
-						</div>
-
-						<!-- Tier 3 -->
-						<div class="card">
-							<div>
-								<span class="card-tag">Tier 3</span>
-								<h3>Custom Portal & App</h3>
-								<div class="card-price">$3,500 – $6,500+</div>
-								<p>Best for interactive client onboarding engines, complex multi-step questionnaires, and member workflows.</p>
-								<ul class="features-list">
-									<li>Astro Server-Side Rendering (SSR)</li>
-									<li>Database integration (Supabase)</li>
-									<li>Secure user authentication</li>
-									<li>Custom dashboard components</li>
-								</ul>
+							<div style="display: flex; gap: 16px; flex-direction: column; sm-flex-direction: row;">
+								<a href="#contact" class="btn-primary" style="text-align: center; padding: 16px; font-size: 1rem;">Secure Your Build Slot</a>
+								<a href="/pricing" style="text-align: center; color: #94a3b8; font-size: 0.875rem; text-decoration: none; padding: 8px;" class="hover:text-white">Compare all development tiers &rarr;</a>
 							</div>
-							<a href="#contact" class="btn-secondary" style="text-align: center; display: block; padding: 12px;">Select Tier 3</a>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<!-- Monthly Retainers -->
-			<section id="retainers" style="background-color: rgba(15, 23, 42, 0.3);">
+			<!-- Single Commercial Media Tease -->
+			<section id="media-tease" style="background-color: rgba(15, 23, 42, 0.3);">
 				<div class="container">
-					<div class="section-header">
-						<h2>Monthly Maintenance Retainers.</h2>
-						<p>Protect your digital investment with ongoing oversight, monitoring, and proactive updates.</p>
-					</div>
-
-					<div class="grid-3">
-						<div class="card">
-							<div>
-								<h3>Basic Care</h3>
-								<div class="card-price">$75 <span style="font-size: 1rem; color: #94a3b8; font-weight: 400;">/mo</span></div>
-								<p>Covers monthly framework checks, Vercel deployment upkeep, uptime monitoring, and up to 30 minutes of minor text updates.</p>
-							</div>
-							<span class="card-tag">Standard Upkeep</span>
-						</div>
-
-						<div class="card">
-							<div>
-								<h3>Growth Retainer</h3>
-								<div class="card-price">$150 <span style="font-size: 1rem; color: #94a3b8; font-weight: 400;">/mo</span></div>
-								<p>Includes standard monitoring plus priority support and up to two (2) hours of minor content edits or fresh asset swaps per month.</p>
-							</div>
-							<span class="card-tag">Active Growth</span>
-						</div>
-
-						<div class="card">
-							<div>
-								<h3>Scale Retainer</h3>
-								<div class="card-price">$300 <span style="font-size: 1rem; color: #94a3b8; font-weight: 400;">/mo</span></div>
-								<p>Built for dynamic portals; covers active database management, priority same-day bug remediation, and up to four (4) hours of updates.</p>
-							</div>
-							<span class="card-tag">Enterprise Support</span>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<!-- Media & Photography Suites -->
-			<section id="media">
-				<div class="container">
-					<div class="section-header">
-						<h2>Commercial & Event Media.</h2>
-						<p>High-end visual assets engineered to populate your digital properties and elevate your brand presence.</p>
-					</div>
-
-					<div class="grid-3" style="margin-bottom: 48px;">
-						<div class="card">
-							<div>
-								<span class="card-tag">Commercial</span>
-								<h3>Web Asset Starter</h3>
-								<div class="card-price">$350 flat</div>
-								<p>Natural pairing for single-page builds. 1 hour on-site, 10 to 15 fully edited, web-optimized files.</p>
-							</div>
-							<span style="font-size: 0.8rem; color: #10b981;">Bundle Discount: Save $150 with web dev</span>
-						</div>
-
-						<div class="card">
-							<div>
-								<span class="card-tag">Commercial</span>
-								<h3>Full Brand Suite</h3>
-								<div class="card-price">$750 flat</div>
-								<p>Half-day commitment for multi-page cores. Action shots, crew workflow, interior details, and curb appeal (30–40 files).</p>
-							</div>
-							<span style="font-size: 0.8rem; color: #10b981;">Bundle Discount: Save $150 with web dev</span>
-						</div>
-
-						<div class="card">
-							<div>
-								<span class="card-tag">Commercial</span>
-								<h3>Full-Day Production</h3>
-								<div class="card-price">$1,500+</div>
-								<p>Heavy lifting. Full day on-site, complex lighting setups, multi-room facilities, inventory catalogs, and deep file delivery.</p>
-							</div>
-							<span style="font-size: 0.8rem; color: #10b981;">Bundle Discount: Save $150 with web dev</span>
-						</div>
-					</div>
-
-					<div class="grid-2">
-						<div class="card">
-							<div>
-								<h3>Family & Portrait Sessions</h3>
-								<ul class="features-list" style="margin-top: 16px;">
-									<li><strong>Essentials Mini-Session ($175):</strong> 30 min at a local backdrop, 10–15 edited files.</li>
-									<li><strong>Full Family Story ($325):</strong> Up to 90 mins, multiple outfit swaps, up to 5 members ($25/extra person), 30–40 edited files.</li>
-								</ul>
+					<div class="grid-2" style="align-items: center;">
+						<div>
+							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #818cf8; text-transform: uppercase; letter-spacing: 0.05em;">Visual Assets</span>
+							<h2 style="font-size: 2.25rem; font-weight: 800; color: #fff; margin: 12px 0 16px 0;">Commercial Media Production.</h2>
+							<p style="color: #94a3b8; font-size: 1rem; line-height: 1.6; margin-bottom: 24px;">
+								Stock photos destroy trust. We capture sharp storefront angles, crew workflows, and deliberate brand assets built to drop straight into your Astro components.
+							</p>
+							<div style="display: flex; gap: 16px; align-items: center;">
+								<a href="/photography" class="btn-secondary">Explore Photography Suites</a>
+								<span style="font-size: 0.85rem; color: #10b981; font-weight: 600;">Save $150 with web bundle</span>
 							</div>
 						</div>
-
 						<div class="card">
-							<div>
-								<h3>Events & Weddings</h3>
-								<ul class="features-list" style="margin-top: 16px;">
-									<li><strong>Hourly Event Coverage ($150/hr):</strong> 2-hour minimum for parties, reunions, and gatherings.</li>
-									<li><strong>Intimate & Elopement ($1,200):</strong> Up to 4 hours of coverage for smaller ceremonies.</li>
-									<li><strong>Full-Day Wedding ($2,200):</strong> Up to 8 hours of storytelling, timeline planning, and full gallery download.</li>
-								</ul>
-							</div>
+							<h3>The Full Brand Suite</h3>
+							<div class="card-price" style="font-size: 2rem;">$750 <span style="font-size: 1rem; color: #94a3b8; font-weight: 400;">flat</span></div>
+							<p style="color: #94a3b8; font-size: 0.875rem;">
+								Half-day commitment for multi-page cores. 30 to 40 fully edited, web-optimized files ready for immediate deployment.
+							</p>
+							<a href="/photography" style="color: #818cf8; font-size: 0.875rem; text-decoration: none; font-weight: 600;">View all media packages &rarr;</a>
 						</div>
 					</div>
 				</div>
 			</section>
 
 			<!-- Why Us & Code Ownership vs Subscription Traps -->
-			<section id="advantage" style="background-color: rgba(15, 23, 42, 0.3);">
+			<section id="advantage">
 				<div class="container">
 					<div class="comparison-box">
 						<div class="section-header" style="margin-bottom: 32px;">
@@ -544,13 +448,13 @@
 
 						<div class="grid-2" style="gap: 48px;">
 							<div>
-								<h3 style="color: #ef4444; margin-bottom: 16px;">The DIY Subscription Trap</h3>
+								<h3 style="color: #ef4444; margin-bottom: 16px; font-size: 1.25rem;">The DIY Subscription Trap</h3>
 								<p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6;">
 									Platforms like GoDaddy and Wix lock you into endless monthly fees for slow, bloated templates that choke on mobile devices, hurt SEO rankings, and look identical to your competitors. When something breaks, you talk to a call center robot.
 								</p>
 							</div>
 							<div>
-								<h3 style="color: #10b981; margin-bottom: 16px;">The Viewport Digital Advantage</h3>
+								<h3 style="color: #10b981; margin-bottom: 16px; font-size: 1.25rem;">The Viewport Digital Advantage</h3>
 								<p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6;">
 									You own your code. Built with Astro and Vercel for raw speed, zero database bloat, and bulletproof reliability. Plus, we bring professional media production directly to your door—combining elite web infrastructure with custom commercial photography in one seamless partnership.
 								</p>
@@ -561,12 +465,12 @@
 			</section>
 
 			<!-- Contact / Inquiry Section -->
-			<section id="contact">
+			<section id="contact" style="background-color: rgba(15, 23, 42, 0.3);">
 				<div class="container">
 					<div class="contact-box">
 						<div class="section-header" style="margin: 0 auto 32px auto;">
 							<h2>Let's Build Your Digital Footprint.</h2>
-							<p>Reach out directly to kick off your web build, schedule a media session, or lock in your retainer.</p>
+							<p>Reach out directly to kick off your web build or schedule a media session.</p>
 						</div>
 
 						<div class="form-wrap">
@@ -580,8 +484,8 @@
 									<input type="email" name="email" required placeholder="jane@company.com" />
 								</div>
 								<div class="form-group">
-									<label>Project Scope & Tier Selection</label>
-									<textarea name="message" rows="4" required placeholder="Tell us about your web build, tier selection, or photography needs..."></textarea>
+									<label>Project Scope</label>
+									<textarea name="message" rows="4" required placeholder="Tell us about your web build or media needs..."></textarea>
 								</div>
 								<button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer; padding: 16px; font-size: 1rem;">
 									Submit Inquiry
@@ -596,7 +500,7 @@
 		<!-- Footer -->
 		<footer>
 			<div class="container footer-content">
-				<p>&copy; 2026 Viewport Digital LLC. All rights reserved[span_0](start_span)[span_0](end_span).</p>
+				<p>&copy; 2026 Viewport Digital LLC. All rights reserved[span_1](start_span)[span_1](end_span).</p>
 				<p style="font-family: ui-monospace, monospace; font-size: 0.75rem;">kiimon@viewportdigitalmedia.com</p>
 			</div>
 		</footer>
