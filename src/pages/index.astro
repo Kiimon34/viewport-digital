@@ -1,5 +1,5 @@
 ---
-// Viewport Digital LLC - Steve Jobs Minimalist Build
+// Viewport Digital LLC - Christopher Nolan Cinematic Build
 // Stack: Astro, Vercel
 ---
 
@@ -7,204 +7,251 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Viewport Digital LLC — High-Performance Web Infrastructure & Media</title>
+		<title>Viewport Digital LLC — Cinematic Web Infrastructure & Media</title>
 		<style>
 			:root {
 				color-scheme: dark;
 			}
 			* {
 				box-sizing: border-box;
-				letter-spacing: -0.015em;
+				letter-spacing: -0.02em;
 			}
 			body {
 				margin: 0;
-				font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-				background-color: #000000;
-				color: #f5f5f7;
-				line-height: 1.47059;
-				font-weight: 400;
+				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+				background-color: #030508;
+				color: #e2e8f0;
+				line-height: 1.5;
+				overflow-x: hidden;
 				-webkit-font-smoothing: antialiased;
 			}
+
+			/* Cinematic Blueprint Grid Lines */
+			body::before {
+				content: "";
+				position: fixed;
+				top: 0; left: 0; width: 100%; height: 100%;
+				background-image: 
+					linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+					linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+				background-size: 80px 80px;
+				pointer-events: none;
+				z-index: 1;
+			}
+
 			header {
 				position: sticky;
 				top: 0;
 				z-index: 100;
-				backdrop-filter: blur(20px);
-				-webkit-backdrop-filter: blur(20px);
-				background-color: rgba(0, 0, 0, 0.8);
-				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+				backdrop-filter: blur(16px);
+				background-color: rgba(3, 5, 8, 0.85);
+				border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 			}
 			.container {
-				max-width: 1024px;
+				max-width: 1200px;
 				margin: 0 auto;
 				padding: 0 32px;
+				position: relative;
+				z-index: 2;
 			}
 			.header-content {
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
-				height: 52px;
+				height: 80px;
 			}
 			.logo {
-				font-weight: 600;
-				font-size: 0.95rem;
-				letter-spacing: -0.01em;
-				color: #f5f5f7;
+				font-weight: 800;
+				font-size: 1rem;
+				letter-spacing: 0.05em;
+				text-transform: uppercase;
+				color: #fff;
 				text-decoration: none;
 			}
 			.logo span {
-				color: #86868b;
+				color: #64748b;
 				font-weight: 400;
 			}
 			nav {
 				display: flex;
-				gap: 32px;
-				font-size: 0.8rem;
-				color: #86868b;
-			}
-			nav a {
-				color: #86868b;
-				text-decoration: none;
-				transition: color 0.2s ease;
-			}
-			nav a:hover { color: #f5f5f7; }
-			
-			.btn-apple {
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
-				padding: 8px 16px;
-				border-radius: 980px;
-				background-color: #f5f5f7;
-				color: #000000;
-				font-weight: 400;
-				font-size: 0.8rem;
-				text-decoration: none;
-				transition: all 0.2s ease;
-			}
-			.btn-apple:hover { background-color: #ffffff; transform: scale(1.02); }
-
-			.btn-apple-outline {
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
-				padding: 12px 24px;
-				border-radius: 980px;
-				background-color: transparent;
-				border: 1px solid rgba(255, 255, 255, 0.3);
-				color: #f5f5f7;
-				font-weight: 400;
-				font-size: 0.9rem;
-				text-decoration: none;
-				transition: all 0.2s ease;
-			}
-			.btn-apple-outline:hover { background-color: rgba(255, 255, 255, 0.08); border-color: #f5f5f7; }
-
-			/* Hero Section */
-			.hero {
-				padding: 140px 0 100px 0;
-				text-align: center;
-			}
-			.hero-super {
+				gap: 36px;
 				font-size: 0.85rem;
 				font-weight: 500;
 				text-transform: uppercase;
-				letter-spacing: 0.1em;
-				color: #86868b;
-				margin-bottom: 16px;
+				letter-spacing: 0.05em;
+				color: #94a3b8;
+			}
+			nav a {
+				color: #94a3b8;
+				text-decoration: none;
+				transition: color 0.2s ease;
+			}
+			nav a:hover { color: #fff; }
+			
+			.btn-cinematic {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				padding: 12px 28px;
+				background-color: #fff;
+				color: #030508;
+				font-weight: 700;
+				font-size: 0.85rem;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				text-decoration: none;
+				transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+				position: relative;
+			}
+			.btn-cinematic:hover {
+				background-color: #cbd5e1;
+				transform: translateY(-2px);
+				box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
+			}
+
+			.btn-outline {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				padding: 12px 28px;
+				background-color: transparent;
+				border: 1px solid rgba(255, 255, 255, 0.2);
+				color: #fff;
+				font-weight: 600;
+				font-size: 0.85rem;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				text-decoration: none;
+				transition: all 0.3s ease;
+			}
+			.btn-outline:hover {
+				border-color: #fff;
+				background-color: rgba(255, 255, 255, 0.05);
+			}
+
+			/* Hero Section */
+			.hero {
+				padding: 160px 0 140px 0;
+				position: relative;
+			}
+			.hero-horizon {
+				position: absolute;
+				top: 40%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 700px;
+				height: 350px;
+				background: radial-gradient(ellipse at center, rgba(56, 189, 248, 0.08) 0%, rgba(99, 102, 241, 0.03) 50%, transparent 70%);
+				filter: blur(80px);
+				pointer-events: none;
+			}
+			.hero-tag {
+				font-size: 0.75rem;
+				font-family: ui-monospace, monospace;
+				text-transform: uppercase;
+				letter-spacing: 0.2em;
+				color: #38bdf8;
+				margin-bottom: 24px;
+				display: block;
 			}
 			h1 {
-				font-size: clamp(3rem, 7vw, 5.5rem);
-				font-weight: 600;
-				letter-spacing: -0.03em;
-				line-height: 1.05;
-				color: #f5f5f7;
-				margin: 0 0 24px 0;
+				font-size: clamp(3.5rem, 8vw, 7rem);
+				font-weight: 800;
+				letter-spacing: -0.04em;
+				line-height: 0.95;
+				color: #fff;
+				margin: 0 0 32px 0;
+				text-transform: uppercase;
 			}
 			.hero-p {
-				max-width: 580px;
-				margin: 0 auto 48px auto;
-				font-size: 1.25rem;
-				color: #86868b;
-				line-height: 1.5;
-				font-weight: 400;
+				max-width: 600px;
+				font-size: 1.2rem;
+				color: #94a3b8;
+				line-height: 1.6;
+				margin-bottom: 48px;
 			}
 			.hero-actions {
 				display: flex;
-				gap: 16px;
-				justify-content: center;
+				gap: 20px;
 				align-items: center;
+				flex-wrap: wrap;
 			}
 
 			/* Sections */
 			section {
-				padding: 120px 0;
-				border-top: 1px solid rgba(255, 255, 255, 0.1);
+				padding: 140px 0;
+				border-top: 1px solid rgba(255, 255, 255, 0.08);
+				position: relative;
+				z-index: 2;
 			}
 			.section-header {
-				text-align: center;
-				max-width: 640px;
-				margin: 0 auto 80px auto;
+				max-width: 700px;
+				margin-bottom: 80px;
 			}
 			.section-header h2 {
-				font-size: clamp(2.25rem, 4vw, 3.5rem);
-				font-weight: 600;
-				letter-spacing: -0.02em;
-				color: #f5f5f7;
+				font-size: clamp(2.5rem, 5vw, 4rem);
+				font-weight: 800;
+				letter-spacing: -0.03em;
+				color: #fff;
 				margin: 0 0 16px 0;
+				text-transform: uppercase;
+				line-height: 1.05;
 			}
 			.section-header p {
-				color: #86868b;
+				color: #94a3b8;
 				font-size: 1.1rem;
-				line-height: 1.5;
+				line-height: 1.6;
 			}
 
-			/* Flagship Product Card */
-			.product-card {
-				background: #111113;
-				border: 1px solid rgba(255, 255, 255, 0.12);
-				border-radius: 28px;
-				padding: 64px 48px;
+			/* Monumental Flagship Card */
+			.monument-card {
+				background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(3, 5, 8, 0.95) 100%);
+				border: 1px solid rgba(56, 189, 248, 0.3);
+				box-shadow: 0 20px 80px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+				padding: 64px;
 				position: relative;
 				overflow: hidden;
 				display: grid;
 				grid-template-columns: 1fr;
 				gap: 48px;
 			}
-			@media(min-width: 768px) {
-				.product-card { grid-template-columns: 1.2fr 0.8fr; align-items: center; }
+			@media(min-width: 900px) {
+				.monument-card { grid-template-columns: 1.3fr 0.7fr; align-items: center; }
 			}
-			.product-title {
-				font-size: 2.25rem;
-				font-weight: 600;
-				color: #f5f5f7;
-				margin: 12px 0 16px 0;
-				letter-spacing: -0.02em;
+			.monument-card::after {
+				content: "";
+				position: absolute;
+				top: 0; right: 0; width: 150px; height: 150px;
+				background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
+				pointer-events: none;
 			}
-			.product-price {
-				font-size: 2.75rem;
-				font-weight: 600;
-				color: #f5f5f7;
-				margin-bottom: 24px;
-				letter-spacing: -0.02em;
+			.price-display {
+				font-size: 3rem;
+				font-weight: 800;
+				color: #fff;
+				letter-spacing: -0.03em;
+				margin: 16px 0 24px 0;
 			}
-			.specs-list {
+			.specs-grid {
 				list-style: none;
 				padding: 0;
-				margin: 0 0 32px 0;
-				font-size: 0.95rem;
-				color: #86868b;
+				margin: 0 0 40px 0;
+				display: grid;
+				gap: 16px;
 			}
-			.specs-list li {
-				padding: 10px 0;
-				border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+			.specs-grid li {
+				font-size: 0.95rem;
+				color: #cbd5e1;
 				display: flex;
 				align-items: center;
 				gap: 12px;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+				padding-bottom: 12px;
 			}
-			.specs-list li::before {
-				content: "—";
-				color: #f5f5f7;
+			.specs-grid li::before {
+				content: "◆";
+				color: #38bdf8;
+				font-size: 0.75rem;
 			}
 
 			/* Grid Two */
@@ -216,72 +263,59 @@
 			@media(min-width: 768px) {
 				.grid-2 { grid-template-columns: repeat(2, 1fr); }
 			}
-			.minimal-card {
-				background: #111113;
+			.cinematic-box {
+				background: rgba(15, 23, 42, 0.5);
 				border: 1px solid rgba(255, 255, 255, 0.1);
-				border-radius: 24px;
 				padding: 48px;
 				display: flex;
 				flex-direction: column;
 				justify-content: space-between;
+				transition: border-color 0.3s ease;
 			}
+			.cinematic-box:hover { border-color: rgba(56, 189, 248, 0.4); }
 
-			/* Comparison */
-			.comparison-grid {
-				display: grid;
-				grid-template-columns: 1fr;
-				gap: 32px;
-			}
-			@media(min-width: 768px) {
-				.comparison-grid { grid-template-columns: repeat(2, 1fr); }
-			}
-			.compare-col {
-				background: #111113;
-				border: 1px solid rgba(255, 255, 255, 0.1);
-				border-radius: 24px;
-				padding: 48px;
-			}
-
-			/* Contact */
-			.contact-wrap {
-				max-width: 560px;
+			/* Form Terminal */
+			.terminal-wrap {
+				max-width: 680px;
 				margin: 0 auto;
-				background: #111113;
-				border: 1px solid rgba(255, 255, 255, 0.1);
-				border-radius: 24px;
-				padding: 48px;
+				background: #090d16;
+				border: 1px solid rgba(255, 255, 255, 0.15);
+				box-shadow: 0 30px 100px rgba(0,0,0,0.9);
+				padding: 56px;
 			}
 			.form-group {
-				margin-bottom: 24px;
+				margin-bottom: 28px;
 			}
 			label {
 				display: block;
 				font-size: 0.75rem;
+				font-family: ui-monospace, monospace;
 				text-transform: uppercase;
-				letter-spacing: 0.08em;
-				color: #86868b;
-				margin-bottom: 8px;
+				letter-spacing: 0.15em;
+				color: #38bdf8;
+				margin-bottom: 10px;
 			}
 			input, textarea {
 				width: 100%;
-				padding: 14px 16px;
-				border-radius: 12px;
-				background-color: #000000;
+				padding: 16px;
+				background-color: #030508;
 				border: 1px solid rgba(255, 255, 255, 0.15);
-				color: #f5f5f7;
-				font-size: 0.95rem;
+				color: #fff;
+				font-size: 1rem;
 				box-sizing: border-box;
 				outline: none;
 				transition: border-color 0.2s ease;
 			}
-			input:focus, textarea:focus { border-color: #f5f5f7; }
+			input:focus, textarea:focus { border-color: #38bdf8; }
 
 			footer {
-				padding: 60px 0;
-				border-top: 1px solid rgba(255, 255, 255, 0.1);
+				padding: 80px 0;
+				border-top: 1px solid rgba(255, 255, 255, 0.08);
 				text-align: center;
-				color: #86868b;
-				font-size: 0.8rem;
+				color: #64748b;
+				font-size: 0.85rem;
+				position: relative;
+				z-index: 2;
 			}
 		</style>
 	</head>
@@ -293,59 +327,60 @@
 				<a href="/" class="logo">Viewport Digital <span>LLC</span></a>
 				<nav>
 					<a href="#flagship">Core Offer</a>
-					<a href="/pricing">All Tiers</a>
+					<a href="/pricing">Tiers</a>
 					<a href="/photography">Media</a>
 				</nav>
 				<div>
-					<a href="#contact" class="btn-apple">Inquire</a>
+					<a href="#contact" class="btn-cinematic" style="padding: 10px 20px;">Initialize</a>
 				</div>
 			</div>
 		</header>
 
 		<main>
 			<!-- Hero Section -->
-			<section class="hero" style="border-top: none; padding-top: 100px;">
+			<section class="hero" style="border-top: none;">
+				<div class="hero-horizon"></div>
 				<div class="container">
-					<div class="hero-super">Viewport Digital LLC — Carmel, Indiana</div>
-					<h1>Code. Capture. Convert.</h1>
+					<span class="hero-tag">[SYSTEM SECURE // CARMEL, INDIANA]</span>
+					<h1>Code.<br>Capture.<br>Convert.</h1>
 					<p class="hero-p">
-						High-performance web infrastructure and commercial media built with absolute precision. Zero bloat. Pure speed.
+						Unyielding web architecture and precision visual media engineered for entities that refuse to operate in the background. Zero lag. Absolute velocity.
 					</p>
 					<div class="hero-actions">
-						<a href="#flagship" class="btn-apple" style="padding: 14px 28px; font-size: 0.95rem;">Explore Build</a>
-						<a href="/pricing" class="btn-apple-outline">View Pricing</a>
+						<a href="#flagship" class="btn-cinematic">Execute Build</a>
+						<a href="/pricing" class="btn-outline">Review Specifications</a>
 					</div>
 				</div>
 			</section>
 
-			<!-- Flagship Product Card (Tier 2 Spotlight) -->
+			<!-- Flagship Product Card (Tier 2 Monumental Core) -->
 			<section id="flagship">
 				<div class="container">
 					<div class="section-header">
-						<h2>Engineered without compromise.</h2>
-						<p>Our flagship solution designed for businesses that refuse to blend in.</p>
+						<h2>The Architectural Standard.</h2>
+						<p>Engineered at the intersection of raw Astro speed and edge deployment.</p>
 					</div>
 
-					<div class="product-card">
+					<div class="monument-card">
 						<div>
-							<div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #86868b; margin-bottom: 8px;">Flagship Standard</div>
-							<h3 class="product-title">Multi-Page Business Core</h3>
-							<div class="product-price">$1,800 – $3,200</div>
-							<p style="color: #86868b; font-size: 1.05rem; line-height: 1.5; margin-bottom: 32px;">
-								Built from the metal up using Astro and Vercel. Instantaneous load times, pristine mobile responsiveness, and total architectural ownership.
+							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.2em; color: #38bdf8;">Flagship Solution • Tier 2</span>
+							<h3 style="font-size: 2.5rem; font-weight: 800; color: #fff; margin: 12px 0 0 0; text-transform: uppercase; letter-spacing: -0.02em;">Multi-Page Business Core</h3>
+							<div class="price-display">$1,800 – $3,200</div>
+							<p style="color: #94a3b8; font-size: 1.05rem; line-height: 1.6; margin-bottom: 32px;">
+								Designed for professional offices and trade leaders demanding a dominant, lightning-fast digital asset that converts traffic autonomously.
 							</p>
-							<ul class="specs-list">
-								<li>Up to 5 custom semantic pages</li>
-								<li>Integrated commercial photography assets</li>
-								<li>Blazing-fast Vercel edge deployment</li>
-								<li>Top-tier SEO metadata configuration</li>
+							<ul class="specs-grid">
+								<li>Up to 5 custom semantic pages (Home, Services, About, Gallery, Contact)</li>
+								<li>Integrated high-end commercial photography assets</li>
+								<li>Instantaneous static edge hosting via Vercel</li>
+								<li>Rigorously optimized SEO metadata architecture</li>
 							</ul>
 						</div>
-						<div style="display: flex; flex-direction: column; gap: 16px; justify-content: center; background: rgba(0,0,0,0.4); padding: 36px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.06);">
-							<div style="font-size: 0.9rem; color: #f5f5f7; font-weight: 500;">Ready to deploy?</div>
-							<p style="font-size: 0.85rem; color: #86868b; margin: 0;">Secure your build slot with our foundational partner rate.</p>
-							<a href="#contact" class="btn-apple" style="padding: 14px; text-align: center; font-size: 0.9rem; margin-top: 8px;">Initiate Project</a>
-							<a href="/pricing" style="text-align: center; color: #86868b; font-size: 0.8rem; text-decoration: none; margin-top: 4px;" class="hover:text-white">Compare all tiers &rarr;</a>
+						<div style="background: rgba(3, 5, 8, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); padding: 40px; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+							<div style="font-size: 0.85rem; font-family: ui-monospace, monospace; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.1em;">Parameters Verified</div>
+							<p style="font-size: 0.9rem; color: #94a3b8; margin: 0; line-height: 1.5;">Secure your foundational partner rate and lock in priority deployment queue status.</p>
+							<a href="#contact" class="btn-cinematic" style="text-align: center; margin-top: 8px;">Secure Build Slot</a>
+							<a href="/pricing" style="text-align: center; color: #94a3b8; font-size: 0.8rem; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em;" class="hover:text-white">View complete matrix &rarr;</a>
 						</div>
 					</div>
 				</div>
@@ -355,30 +390,30 @@
 			<section>
 				<div class="container">
 					<div class="grid-2">
-						<div class="minimal-card">
+						<div class="cinematic-box">
 							<div>
-								<div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #86868b; margin-bottom: 8px;">Visual Assets</div>
-								<h3 style="font-size: 1.8rem; font-weight: 600; color: #f5f5f7; margin: 0 0 16px 0;">Commercial Media Production</h3>
-								<p style="color: #86868b; font-size: 0.95rem; line-height: 1.5; margin-bottom: 24px;">
-									Ditch generic stock photography. We capture authentic workspace textures and brand assets engineered specifically for your layout.
+								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.2em; color: #38bdf8;">Visual Domain</span>
+								<h3 style="font-size: 2rem; font-weight: 800; color: #fff; margin: 12px 0 16px 0; text-transform: uppercase;">Commercial Media Production</h3>
+								<p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 32px;">
+									Eliminate standard stock imagery. We capture authentic workspace dynamics, crew operations, and precise brand textures designed for immediate component integration.
 								</p>
 							</div>
-							<div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
-								<span style="font-size: 0.85rem; color: #34c759; font-weight: 500;">Save $150 with web bundle</span>
-								<a href="/photography" class="btn-apple" style="padding: 8px 16px;">View Suites</a>
+							<div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 24px;">
+								<span style="font-size: 0.8rem; font-family: ui-monospace, monospace; color: #34d399;">Bundle Savings: -$150</span>
+								<a href="/photography" class="btn-outline" style="padding: 8px 16px;">Access Suites</a>
 							</div>
 						</div>
 
-						<div class="minimal-card">
+						<div class="cinematic-box">
 							<div>
-								<div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #86868b; margin-bottom: 8px;">Full Brand Suite</div>
-								<h3 style="font-size: 1.8rem; font-weight: 600; color: #f5f5f7; margin: 0 0 16px 0;">$750 flat</h3>
-								<p style="color: #86868b; font-size: 0.95rem; line-height: 1.5; margin-bottom: 24px;">
-									Half-day commitment. 30 to 40 fully edited, web-optimized files delivered directly to your project repository.
+								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.2em; color: #38bdf8;">The Full Brand Suite</span>
+								<div style="font-size: 2.5rem; font-weight: 800; color: #fff; margin: 12px 0 16px 0;">$750 flat</div>
+								<p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 32px;">
+									Half-day tactical deployment. 30 to 40 fully edited, web-optimized files delivered directly to your project repository.
 								</p>
 							</div>
-							<div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
-								<a href="/photography" style="color: #f5f5f7; font-size: 0.85rem; text-decoration: none;" class="hover:underline">Explore all packages &rarr;</a>
+							<div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 24px;">
+								<a href="/photography" style="color: #fff; font-size: 0.85rem; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;" class="hover:underline">Explore all packages &rarr;</a>
 							</div>
 						</div>
 					</div>
@@ -389,24 +424,24 @@
 			<section>
 				<div class="container">
 					<div class="section-header">
-						<h2>Absolute control. Zero friction.</h2>
-						<p>Why custom architecture outperforms mainstream builders.</p>
+						<h2>Total Sovereignty vs. Renting Space.</h2>
+						<p>The structural divergence between custom code and mainstream subscription platforms.</p>
 					</div>
 
-					<div class="comparison-grid">
-						<div class="compare-col">
-							<div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #ff453a; margin-bottom: 8px;">The Legacy Trap</div>
-							<h3 style="font-size: 1.5rem; font-weight: 600; color: #f5f5f7; margin: 0 0 16px 0;">GoDaddy & Wix</h3>
-							<p style="color: #86868b; font-size: 0.95rem; line-height: 1.6; margin: 0;">
-								Endless monthly subscriptions for bloated templates that choke on mobile devices, tank search rankings, and leave you stranded with automated customer service loops.
+					<div class="grid-2" style="gap: 40px;">
+						<div style="background: rgba(15, 23, 42, 0.3); border: 1px solid rgba(239, 68, 68, 0.2); padding: 48px;">
+							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #ef4444; text-transform: uppercase; letter-spacing: 0.2em;">System Vulnerability</span>
+							<h3 style="font-size: 1.75rem; font-weight: 800; color: #fff; margin: 12px 0 16px 0; text-transform: uppercase;">The Subscription Trap</h3>
+							<p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0;">
+								Platforms like GoDaddy and Wix lock you into endless overhead for bloated templates that choke mobile performance, ruin search indexing, and leave you stranded when operational failures occur.
 							</p>
 						</div>
 
-						<div class="compare-col" style="border-color: rgba(52, 199, 89, 0.4);">
-							<div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #34c759; margin-bottom: 8px;">The Viewport Standard</div>
-							<h3 style="font-size: 1.5rem; font-weight: 600; color: #f5f5f7; margin: 0 0 16px 0;">True Ownership</h3>
-							<p style="color: #86868b; font-size: 0.95rem; line-height: 1.6; margin: 0;">
-								You own the code. High-speed Astro static rendering, edge deployment via Vercel, and direct partnership with a local engineer in Carmel, Indiana[span_0](start_span)[span_0](end_span).
+						<div style="background: rgba(15, 23, 42, 0.3); border: 1px solid rgba(52, 211, 153, 0.3); padding: 48px;">
+							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #34d399; text-transform: uppercase; letter-spacing: 0.2em;">Absolute Control</span>
+							<h3 style="font-size: 1.75rem; font-weight: 800; color: #fff; margin: 12px 0 16px 0; text-transform: uppercase;">The Viewport Advantage</h3>
+							<p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0;">
+								You own the code entirely. Built via Astro and Vercel for maximum execution speed and zero database bloat, backed directly by local engineering leadership in Carmel, Indiana[span_0](start_span)[span_0](end_span).
 							</p>
 						</div>
 					</div>
@@ -416,27 +451,27 @@
 			<!-- Contact / Inquiry Section -->
 			<section id="contact">
 				<div class="container">
-					<div class="section-header">
-						<h2>Start your build.</h2>
-						<p>Initiate a project or schedule a consultation directly.</p>
+					<div class="section-header" style="text-align: center; max-width: 600px; margin: 0 auto 60px auto;">
+						<h2>Initiate Transmission.</h2>
+						<p>Direct contact for project deployment, media bookings, and retainer setup.</p>
 					</div>
 
-					<div class="contact-wrap">
+					<div class="terminal-wrap">
 						<form action="https://formspree.io/f/xlgpqvaz" method="POST">
 							<div class="form-group">
-								<label>Your Name</label>
+								<label>// Your Name</label>
 								<input type="text" name="name" required placeholder="Jane Doe" />
 							</div>
 							<div class="form-group">
-								<label>Email Address</label>
+								<label>// Email Address</label>
 								<input type="email" name="email" required placeholder="jane@company.com" />
 							</div>
 							<div class="form-group">
-								<label>Project Scope</label>
-								<textarea name="message" rows="4" required placeholder="Describe your web build or media requirements..."></textarea>
+								<label>// Project Scope & Requirements</label>
+								<textarea name="message" rows="4" required placeholder="Specify your web build tier, media suite, or deployment goals..."></textarea>
 							</div>
-							<button type="submit" class="btn-apple" style="width: 100%; padding: 14px; font-size: 0.95rem; border: none; cursor: pointer;">
-								Send Inquiry
+							<button type="submit" class="btn-cinematic" style="width: 100%; padding: 18px; border: none; cursor: pointer; font-size: 0.9rem;">
+								Transmit Inquiry
 							</button>
 						</form>
 					</div>
@@ -447,8 +482,8 @@
 		<!-- Footer -->
 		<footer>
 			<div class="container">
-				<p style="margin: 0 0 8px 0;">&copy; 2026 Viewport Digital LLC. All rights reserved[span_1](start_span)[span_1](end_span).</p>
-				<p style="font-family: ui-monospace, monospace; font-size: 0.75rem; color: #555558;">kiimon@viewportdigitalmedia.com</p>
+				<p style="margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75rem;">&copy; 2026 Viewport Digital LLC. All rights reserved[span_1](start_span)[span_1](end_span).</p>
+				<p style="font-family: ui-monospace, monospace; font-size: 0.75rem; color: #38bdf8;">kiimon@viewportdigitalmedia.com</p>
 			</div>
 		</footer>
 
