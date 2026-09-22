@@ -1,193 +1,213 @@
 ---
-// Viewport Digital LLC - Streamlined Agency Landing Page
-// Stack: Astro, Tailwind CSS, Vercel
+// Viewport Digital LLC - Steve Jobs Minimalist Build
+// Stack: Astro, Vercel
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Viewport Digital LLC | High-Performance Web Infrastructure & Media</title>
+		<title>Viewport Digital LLC — High-Performance Web Infrastructure & Media</title>
 		<style>
 			:root {
 				color-scheme: dark;
 			}
 			* {
 				box-sizing: border-box;
+				letter-spacing: -0.015em;
 			}
 			body {
 				margin: 0;
-				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-				background-color: #020617;
-				color: #f8fafc;
-				line-height: 1.5;
+				font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+				background-color: #000000;
+				color: #f5f5f7;
+				line-height: 1.47059;
+				font-weight: 400;
 				-webkit-font-smoothing: antialiased;
 			}
 			header {
 				position: sticky;
 				top: 0;
-				z-index: 50;
-				backdrop-filter: blur(12px);
-				-webkit-backdrop-filter: blur(12px);
-				background-color: rgba(2, 6, 23, 0.85);
-				border-bottom: 1px solid rgba(30, 41, 59, 0.8);
+				z-index: 100;
+				backdrop-filter: blur(20px);
+				-webkit-backdrop-filter: blur(20px);
+				background-color: rgba(0, 0, 0, 0.8);
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 			}
 			.container {
-				max-width: 1200px;
+				max-width: 1024px;
 				margin: 0 auto;
-				padding: 0 24px;
+				padding: 0 32px;
 			}
 			.header-content {
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
-				height: 80px;
+				height: 52px;
 			}
 			.logo {
-				font-weight: 800;
-				letter-spacing: -0.03em;
-				font-size: 1.125rem;
-				text-transform: uppercase;
-				color: #fff;
+				font-weight: 600;
+				font-size: 0.95rem;
+				letter-spacing: -0.01em;
+				color: #f5f5f7;
 				text-decoration: none;
 			}
 			.logo span {
-				color: #94a3b8;
+				color: #86868b;
 				font-weight: 400;
 			}
 			nav {
-				display: none;
+				display: flex;
 				gap: 32px;
-				font-size: 0.875rem;
-				font-weight: 500;
-				color: #cbd5e1;
-			}
-			@media(min-width: 768px) {
-				nav { display: flex; }
+				font-size: 0.8rem;
+				color: #86868b;
 			}
 			nav a {
-				color: #cbd5e1;
+				color: #86868b;
 				text-decoration: none;
-				transition: color 0.2s;
+				transition: color 0.2s ease;
 			}
-			nav a:hover { color: #fff; }
+			nav a:hover { color: #f5f5f7; }
 			
-			.btn-primary {
+			.btn-apple {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				padding: 8px 16px;
+				border-radius: 980px;
+				background-color: #f5f5f7;
+				color: #000000;
+				font-weight: 400;
+				font-size: 0.8rem;
+				text-decoration: none;
+				transition: all 0.2s ease;
+			}
+			.btn-apple:hover { background-color: #ffffff; transform: scale(1.02); }
+
+			.btn-apple-outline {
 				display: inline-flex;
 				align-items: center;
 				justify-content: center;
 				padding: 12px 24px;
-				border-radius: 8px;
-				background-color: #fff;
-				color: #020617;
-				font-weight: 700;
-				font-size: 0.875rem;
-				letter-spacing: -0.01em;
+				border-radius: 980px;
+				background-color: transparent;
+				border: 1px solid rgba(255, 255, 255, 0.3);
+				color: #f5f5f7;
+				font-weight: 400;
+				font-size: 0.9rem;
 				text-decoration: none;
-				transition: background-color 0.2s;
-				box-shadow: 0 4px 12px rgba(255,255,255,0.1);
+				transition: all 0.2s ease;
 			}
-			.btn-primary:hover { background-color: #e2e8f0; }
+			.btn-apple-outline:hover { background-color: rgba(255, 255, 255, 0.08); border-color: #f5f5f7; }
 
 			/* Hero Section */
 			.hero {
-				position: relative;
-				overflow: hidden;
-				padding: 96px 0 128px 0;
+				padding: 140px 0 100px 0;
 				text-align: center;
 			}
-			.hero-glow {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				width: 600px;
-				height: 600px;
-				background: rgba(99, 102, 241, 0.15);
-				filter: blur(120px);
-				border-radius: 50%;
-				pointer-events: none;
-			}
-			.badge {
-				display: inline-flex;
-				align-items: center;
-				gap: 8px;
-				padding: 6px 16px;
-				border-radius: 9999px;
-				background-color: #0f172a;
-				border: 1px solid #1e293b;
-				font-size: 0.75rem;
-				color: #cbd5e1;
-				margin-bottom: 32px;
-				font-family: ui-monospace, monospace;
-			}
-			.dot {
-				width: 8px;
-				height: 8px;
-				border-radius: 50%;
-				background-color: #10b981;
+			.hero-super {
+				font-size: 0.85rem;
+				font-weight: 500;
+				text-transform: uppercase;
+				letter-spacing: 0.1em;
+				color: #86868b;
+				margin-bottom: 16px;
 			}
 			h1 {
-				font-size: 3rem;
-				font-weight: 800;
+				font-size: clamp(3rem, 7vw, 5.5rem);
+				font-weight: 600;
 				letter-spacing: -0.03em;
 				line-height: 1.05;
-				color: #fff;
+				color: #f5f5f7;
 				margin: 0 0 24px 0;
 			}
-			@media(min-width: 640px) {
-				h1 { font-size: 4.5rem; }
-			}
 			.hero-p {
-				max-width: 650px;
-				margin: 0 auto 40px auto;
-				font-size: 1.125rem;
-				color: rgba(203, 213, 225, 0.9);
-				line-height: 1.6;
+				max-width: 580px;
+				margin: 0 auto 48px auto;
+				font-size: 1.25rem;
+				color: #86868b;
+				line-height: 1.5;
+				font-weight: 400;
 			}
 			.hero-actions {
 				display: flex;
-				flex-direction: column;
 				gap: 16px;
 				justify-content: center;
 				align-items: center;
 			}
-			@media(min-width: 640px) {
-				.hero-actions { flex-direction: row; }
-			}
-			.btn-secondary {
-				padding: 16px 32px;
-				border-radius: 12px;
-				background-color: #0f172a;
-				border: 1px solid #1e293b;
-				color: #fff;
-				font-weight: 600;
-				text-decoration: none;
-				transition: background-color 0.2s;
-			}
-			.btn-secondary:hover { background-color: #1e293b; }
 
-			/* Section Styling */
+			/* Sections */
 			section {
-				padding: 96px 0;
-				border-top: 1px solid rgba(30, 41, 59, 0.5);
+				padding: 120px 0;
+				border-top: 1px solid rgba(255, 255, 255, 0.1);
 			}
 			.section-header {
-				max-width: 700px;
-				margin-bottom: 64px;
+				text-align: center;
+				max-width: 640px;
+				margin: 0 auto 80px auto;
 			}
 			.section-header h2 {
-				font-size: 2.25rem;
-				font-weight: 800;
+				font-size: clamp(2.25rem, 4vw, 3.5rem);
+				font-weight: 600;
 				letter-spacing: -0.02em;
-				color: #fff;
+				color: #f5f5f7;
 				margin: 0 0 16px 0;
 			}
 			.section-header p {
-				color: #94a3b8;
-				font-size: 1rem;
-				line-height: 1.6;
+				color: #86868b;
+				font-size: 1.1rem;
+				line-height: 1.5;
 			}
+
+			/* Flagship Product Card */
+			.product-card {
+				background: #111113;
+				border: 1px solid rgba(255, 255, 255, 0.12);
+				border-radius: 28px;
+				padding: 64px 48px;
+				position: relative;
+				overflow: hidden;
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 48px;
+			}
+			@media(min-width: 768px) {
+				.product-card { grid-template-columns: 1.2fr 0.8fr; align-items: center; }
+			}
+			.product-title {
+				font-size: 2.25rem;
+				font-weight: 600;
+				color: #f5f5f7;
+				margin: 12px 0 16px 0;
+				letter-spacing: -0.02em;
+			}
+			.product-price {
+				font-size: 2.75rem;
+				font-weight: 600;
+				color: #f5f5f7;
+				margin-bottom: 24px;
+				letter-spacing: -0.02em;
+			}
+			.specs-list {
+				list-style: none;
+				padding: 0;
+				margin: 0 0 32px 0;
+				font-size: 0.95rem;
+				color: #86868b;
+			}
+			.specs-list li {
+				padding: 10px 0;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+				display: flex;
+				align-items: center;
+				gap: 12px;
+			}
+			.specs-list li::before {
+				content: "—";
+				color: #f5f5f7;
+			}
+
+			/* Grid Two */
 			.grid-2 {
 				display: grid;
 				grid-template-columns: 1fr;
@@ -196,96 +216,40 @@
 			@media(min-width: 768px) {
 				.grid-2 { grid-template-columns: repeat(2, 1fr); }
 			}
-
-			/* Flagship Feature Card (Tier 2 Burst) */
-			.flagship-card {
-				position: relative;
-				padding: 48px;
+			.minimal-card {
+				background: #111113;
+				border: 1px solid rgba(255, 255, 255, 0.1);
 				border-radius: 24px;
-				background: linear-gradient(145deg, rgba(30, 27, 75, 0.4) 0%, rgba(15, 23, 42, 0.8) 100%);
-				border: 2px solid #6366f1;
-				box-shadow: 0 0 40px rgba(99, 102, 241, 0.2);
-				backdrop-filter: blur(16px);
+				padding: 48px;
 				display: flex;
 				flex-direction: column;
 				justify-content: space-between;
 			}
-			.flagship-badge {
-				position: absolute;
-				top: -16px;
-				left: 48px;
-				background-color: #6366f1;
-				color: #fff;
-				font-size: 0.75rem;
-				font-weight: 700;
-				font-family: ui-monospace, monospace;
-				text-transform: uppercase;
-				letter-spacing: 0.05em;
-				padding: 6px 16px;
-				border-radius: 9999px;
-				box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
-			}
-			.card-price {
-				font-size: 2.5rem;
-				font-weight: 800;
-				color: #fff;
-				margin: 16px 0 16px 0;
-				letter-spacing: -0.03em;
-			}
-			.features-list {
-				list-style: none;
-				padding: 0;
-				margin: 0 0 32px 0;
-				font-size: 0.95rem;
-				color: #cbd5e1;
-			}
-			.features-list li {
-				padding: 10px 0;
-				border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-				display: flex;
-				align-items: center;
-				gap: 12px;
-			}
-			.features-list li::before {
-				content: "✓";
-				color: #818cf8;
-				font-weight: bold;
-			}
 
-			/* Standard Card */
-			.card {
-				padding: 32px;
-				border-radius: 16px;
-				background-color: rgba(15, 23, 42, 0.6);
-				border: 1px solid rgba(30, 41, 59, 0.8);
-				backdrop-filter: blur(12px);
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-				transition: border-color 0.2s;
+			/* Comparison */
+			.comparison-grid {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 32px;
 			}
-			.card:hover { border-color: #475569; }
-
-			/* Comparison Section */
-			.comparison-box {
-				background: linear-gradient(180deg, rgba(15,23,42,0.8) 0%, rgba(2,6,23,0.9) 100%);
-				border: 1px solid #1e293b;
-				border-radius: 20px;
+			@media(min-width: 768px) {
+				.comparison-grid { grid-template-columns: repeat(2, 1fr); }
+			}
+			.compare-col {
+				background: #111113;
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				border-radius: 24px;
 				padding: 48px;
 			}
 
-			/* Contact Form */
-			.contact-box {
-				max-width: 700px;
+			/* Contact */
+			.contact-wrap {
+				max-width: 560px;
 				margin: 0 auto;
-				text-align: center;
-			}
-			.form-wrap {
-				padding: 40px;
-				border-radius: 20px;
-				background-color: rgba(15, 23, 42, 0.4);
-				border: 1px solid #1e293b;
-				text-align: left;
+				background: #111113;
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				border-radius: 24px;
+				padding: 48px;
 			}
 			.form-group {
 				margin-bottom: 24px;
@@ -293,41 +257,31 @@
 			label {
 				display: block;
 				font-size: 0.75rem;
-				font-family: ui-monospace, monospace;
 				text-transform: uppercase;
-				letter-spacing: 0.05em;
-				color: #94a3b8;
+				letter-spacing: 0.08em;
+				color: #86868b;
 				margin-bottom: 8px;
 			}
 			input, textarea {
 				width: 100%;
 				padding: 14px 16px;
-				border-radius: 8px;
-				background-color: #020617;
-				border: 1px solid #1e293b;
-				color: #fff;
-				font-size: 0.875rem;
+				border-radius: 12px;
+				background-color: #000000;
+				border: 1px solid rgba(255, 255, 255, 0.15);
+				color: #f5f5f7;
+				font-size: 0.95rem;
 				box-sizing: border-box;
 				outline: none;
-				transition: border-color 0.2s;
+				transition: border-color 0.2s ease;
 			}
-			input:focus, textarea:focus { border-color: #64748b; }
-			
+			input:focus, textarea:focus { border-color: #f5f5f7; }
+
 			footer {
-				border-top: 1px solid #0f172a;
-				padding: 48px 0;
-			}
-			.footer-content {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: space-between;
-				gap: 16px;
-				font-size: 0.875rem;
-				color: #64748b;
-			}
-			@media(min-width: 640px) {
-				.footer-content { flex-direction: row; }
+				padding: 60px 0;
+				border-top: 1px solid rgba(255, 255, 255, 0.1);
+				text-align: center;
+				color: #86868b;
+				font-size: 0.8rem;
 			}
 		</style>
 	</head>
@@ -339,159 +293,152 @@
 				<a href="/" class="logo">Viewport Digital <span>LLC</span></a>
 				<nav>
 					<a href="#flagship">Core Offer</a>
-					<a href="/pricing">All Tiers & Pricing</a>
-					<a href="/photography">Commercial Media</a>
-					<a href="#advantage">Why Us</a>
+					<a href="/pricing">All Tiers</a>
+					<a href="/photography">Media</a>
 				</nav>
 				<div>
-					<a href="#contact" class="btn-primary">Inquire Now</a>
+					<a href="#contact" class="btn-apple">Inquire</a>
 				</div>
 			</div>
 		</header>
 
 		<main>
 			<!-- Hero Section -->
-			<section class="hero">
-				<div class="hero-glow"></div>
-				<div class="container" style="position: relative; z-index: 10;">
-					<div class="badge">
-						<span class="dot"></span>
-						Based in Carmel, Indiana[span_0](start_span)[span_0](end_span)
-					</div>
-
+			<section class="hero" style="border-top: none; padding-top: 100px;">
+				<div class="container">
+					<div class="hero-super">Viewport Digital LLC — Carmel, Indiana</div>
 					<h1>Code. Capture. Convert.</h1>
-
 					<p class="hero-p">
-						We build high-performance web infrastructure and commercial media for brands that refuse to blend in. Zero database bloat. Pure speed.
+						High-performance web infrastructure and commercial media built with absolute precision. Zero bloat. Pure speed.
 					</p>
-
 					<div class="hero-actions">
-						<a href="#contact" class="btn-primary" style="padding: 16px 32px; border-radius: 12px; font-size: 1rem;">
-							Start Your Build
-						</a>
-						<a href="/pricing" class="btn-secondary">
-							View Full Pricing Matrix
-						</a>
+						<a href="#flagship" class="btn-apple" style="padding: 14px 28px; font-size: 0.95rem;">Explore Build</a>
+						<a href="/pricing" class="btn-apple-outline">View Pricing</a>
 					</div>
 				</div>
 			</section>
 
-			<!-- Flagship Offer Section (Tier 2 Burst) -->
+			<!-- Flagship Product Card (Tier 2 Spotlight) -->
 			<section id="flagship">
 				<div class="container">
 					<div class="section-header">
-						<h2>The Flagship Web Solution.</h2>
-						<p>Engineered via Astro and Vercel for instantaneous load times, rigid security, and zero legacy bloat.</p>
+						<h2>Engineered without compromise.</h2>
+						<p>Our flagship solution designed for businesses that refuse to blend in.</p>
 					</div>
 
-					<div style="max-width: 800px; margin: 0 auto;">
-						<div class="flagship-card">
-							<div class="flagship-badge">Most Popular • Agency Standard</div>
-							<div>
-								<span style="font-size: 0.8rem; font-family: ui-monospace, monospace; color: #a5b4fc; text-transform: uppercase; letter-spacing: 0.05em;">Tier 2 Solution</span>
-								<h3 style="font-size: 2rem; font-weight: 800; color: #fff; margin: 8px 0 0 0;">Multi-Page Business Core</h3>
-								<div class="card-price">$1,800 – $3,200</div>
-								<p style="color: #94a3b8; font-size: 1rem; margin-bottom: 24px;">
-									Designed specifically for small local businesses, professional offices, and trade contractors demanding a robust, lightning-fast digital footprint.
-								</p>
-								<ul class="features-list">
-									<li>Up to 5 custom pages (Home, Services, About, Gallery, Contact)</li>
-									<li>Integrated commercial photography assets</li>
-									<li>Clean semantic navigation structure</li>
-									<li>Top-tier SEO metadata & blazing fast Vercel edge hosting</li>
-								</ul>
-							</div>
-							<div style="display: flex; gap: 16px; flex-direction: column; sm-flex-direction: row;">
-								<a href="#contact" class="btn-primary" style="text-align: center; padding: 16px; font-size: 1rem;">Secure Your Build Slot</a>
-								<a href="/pricing" style="text-align: center; color: #94a3b8; font-size: 0.875rem; text-decoration: none; padding: 8px;" class="hover:text-white">Compare all development tiers &rarr;</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<!-- Single Commercial Media Tease -->
-			<section id="media-tease" style="background-color: rgba(15, 23, 42, 0.3);">
-				<div class="container">
-					<div class="grid-2" style="align-items: center;">
+					<div class="product-card">
 						<div>
-							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #818cf8; text-transform: uppercase; letter-spacing: 0.05em;">Visual Assets</span>
-							<h2 style="font-size: 2.25rem; font-weight: 800; color: #fff; margin: 12px 0 16px 0;">Commercial Media Production.</h2>
-							<p style="color: #94a3b8; font-size: 1rem; line-height: 1.6; margin-bottom: 24px;">
-								Stock photos destroy trust. We capture sharp storefront angles, crew workflows, and deliberate brand assets built to drop straight into your Astro components.
+							<div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #86868b; margin-bottom: 8px;">Flagship Standard</div>
+							<h3 class="product-title">Multi-Page Business Core</h3>
+							<div class="product-price">$1,800 – $3,200</div>
+							<p style="color: #86868b; font-size: 1.05rem; line-height: 1.5; margin-bottom: 32px;">
+								Built from the metal up using Astro and Vercel. Instantaneous load times, pristine mobile responsiveness, and total architectural ownership.
 							</p>
-							<div style="display: flex; gap: 16px; align-items: center;">
-								<a href="/photography" class="btn-secondary">Explore Photography Suites</a>
-								<span style="font-size: 0.85rem; color: #10b981; font-weight: 600;">Save $150 with web bundle</span>
-							</div>
+							<ul class="specs-list">
+								<li>Up to 5 custom semantic pages</li>
+								<li>Integrated commercial photography assets</li>
+								<li>Blazing-fast Vercel edge deployment</li>
+								<li>Top-tier SEO metadata configuration</li>
+							</ul>
 						</div>
-						<div class="card">
-							<h3>The Full Brand Suite</h3>
-							<div class="card-price" style="font-size: 2rem;">$750 <span style="font-size: 1rem; color: #94a3b8; font-weight: 400;">flat</span></div>
-							<p style="color: #94a3b8; font-size: 0.875rem;">
-								Half-day commitment for multi-page cores. 30 to 40 fully edited, web-optimized files ready for immediate deployment.
-							</p>
-							<a href="/photography" style="color: #818cf8; font-size: 0.875rem; text-decoration: none; font-weight: 600;">View all media packages &rarr;</a>
+						<div style="display: flex; flex-direction: column; gap: 16px; justify-content: center; background: rgba(0,0,0,0.4); padding: 36px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.06);">
+							<div style="font-size: 0.9rem; color: #f5f5f7; font-weight: 500;">Ready to deploy?</div>
+							<p style="font-size: 0.85rem; color: #86868b; margin: 0;">Secure your build slot with our foundational partner rate.</p>
+							<a href="#contact" class="btn-apple" style="padding: 14px; text-align: center; font-size: 0.9rem; margin-top: 8px;">Initiate Project</a>
+							<a href="/pricing" style="text-align: center; color: #86868b; font-size: 0.8rem; text-decoration: none; margin-top: 4px;" class="hover:text-white">Compare all tiers &rarr;</a>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<!-- Why Us & Code Ownership vs Subscription Traps -->
-			<section id="advantage">
+			<!-- Commercial Media Tease -->
+			<section>
 				<div class="container">
-					<div class="comparison-box">
-						<div class="section-header" style="margin-bottom: 32px;">
-							<h2>Ownership vs. Subscription Traps.</h2>
-							<p>Why custom code beats bloated DIY builders like GoDaddy, Wix, and Replit every single time.</p>
+					<div class="grid-2">
+						<div class="minimal-card">
+							<div>
+								<div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #86868b; margin-bottom: 8px;">Visual Assets</div>
+								<h3 style="font-size: 1.8rem; font-weight: 600; color: #f5f5f7; margin: 0 0 16px 0;">Commercial Media Production</h3>
+								<p style="color: #86868b; font-size: 0.95rem; line-height: 1.5; margin-bottom: 24px;">
+									Ditch generic stock photography. We capture authentic workspace textures and brand assets engineered specifically for your layout.
+								</p>
+							</div>
+							<div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
+								<span style="font-size: 0.85rem; color: #34c759; font-weight: 500;">Save $150 with web bundle</span>
+								<a href="/photography" class="btn-apple" style="padding: 8px 16px;">View Suites</a>
+							</div>
 						</div>
 
-						<div class="grid-2" style="gap: 48px;">
+						<div class="minimal-card">
 							<div>
-								<h3 style="color: #ef4444; margin-bottom: 16px; font-size: 1.25rem;">The DIY Subscription Trap</h3>
-								<p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6;">
-									Platforms like GoDaddy and Wix lock you into endless monthly fees for slow, bloated templates that choke on mobile devices, hurt SEO rankings, and look identical to your competitors. When something breaks, you talk to a call center robot.
+								<div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #86868b; margin-bottom: 8px;">Full Brand Suite</div>
+								<h3 style="font-size: 1.8rem; font-weight: 600; color: #f5f5f7; margin: 0 0 16px 0;">$750 flat</h3>
+								<p style="color: #86868b; font-size: 0.95rem; line-height: 1.5; margin-bottom: 24px;">
+									Half-day commitment. 30 to 40 fully edited, web-optimized files delivered directly to your project repository.
 								</p>
 							</div>
-							<div>
-								<h3 style="color: #10b981; margin-bottom: 16px; font-size: 1.25rem;">The Viewport Digital Advantage</h3>
-								<p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6;">
-									You own your code. Built with Astro and Vercel for raw speed, zero database bloat, and bulletproof reliability. Plus, we bring professional media production directly to your door—combining elite web infrastructure with custom commercial photography in one seamless partnership.
-								</p>
+							<div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
+								<a href="/photography" style="color: #f5f5f7; font-size: 0.85rem; text-decoration: none;" class="hover:underline">Explore all packages &rarr;</a>
 							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Ownership vs Subscription Traps -->
+			<section>
+				<div class="container">
+					<div class="section-header">
+						<h2>Absolute control. Zero friction.</h2>
+						<p>Why custom architecture outperforms mainstream builders.</p>
+					</div>
+
+					<div class="comparison-grid">
+						<div class="compare-col">
+							<div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #ff453a; margin-bottom: 8px;">The Legacy Trap</div>
+							<h3 style="font-size: 1.5rem; font-weight: 600; color: #f5f5f7; margin: 0 0 16px 0;">GoDaddy & Wix</h3>
+							<p style="color: #86868b; font-size: 0.95rem; line-height: 1.6; margin: 0;">
+								Endless monthly subscriptions for bloated templates that choke on mobile devices, tank search rankings, and leave you stranded with automated customer service loops.
+							</p>
+						</div>
+
+						<div class="compare-col" style="border-color: rgba(52, 199, 89, 0.4);">
+							<div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #34c759; margin-bottom: 8px;">The Viewport Standard</div>
+							<h3 style="font-size: 1.5rem; font-weight: 600; color: #f5f5f7; margin: 0 0 16px 0;">True Ownership</h3>
+							<p style="color: #86868b; font-size: 0.95rem; line-height: 1.6; margin: 0;">
+								You own the code. High-speed Astro static rendering, edge deployment via Vercel, and direct partnership with a local engineer in Carmel, Indiana[span_0](start_span)[span_0](end_span).
+							</p>
 						</div>
 					</div>
 				</div>
 			</section>
 
 			<!-- Contact / Inquiry Section -->
-			<section id="contact" style="background-color: rgba(15, 23, 42, 0.3);">
+			<section id="contact">
 				<div class="container">
-					<div class="contact-box">
-						<div class="section-header" style="margin: 0 auto 32px auto;">
-							<h2>Let's Build Your Digital Footprint.</h2>
-							<p>Reach out directly to kick off your web build or schedule a media session.</p>
-						</div>
+					<div class="section-header">
+						<h2>Start your build.</h2>
+						<p>Initiate a project or schedule a consultation directly.</p>
+					</div>
 
-						<div class="form-wrap">
-							<form action="https://formspree.io/f/xlgpqvaz" method="POST">
-								<div class="form-group">
-									<label>Your Name</label>
-									<input type="text" name="name" required placeholder="Jane Doe" />
-								</div>
-								<div class="form-group">
-									<label>Email Address</label>
-									<input type="email" name="email" required placeholder="jane@company.com" />
-								</div>
-								<div class="form-group">
-									<label>Project Scope</label>
-									<textarea name="message" rows="4" required placeholder="Tell us about your web build or media needs..."></textarea>
-								</div>
-								<button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer; padding: 16px; font-size: 1rem;">
-									Submit Inquiry
-								</button>
-							</form>
-						</div>
+					<div class="contact-wrap">
+						<form action="https://formspree.io/f/xlgpqvaz" method="POST">
+							<div class="form-group">
+								<label>Your Name</label>
+								<input type="text" name="name" required placeholder="Jane Doe" />
+							</div>
+							<div class="form-group">
+								<label>Email Address</label>
+								<input type="email" name="email" required placeholder="jane@company.com" />
+							</div>
+							<div class="form-group">
+								<label>Project Scope</label>
+								<textarea name="message" rows="4" required placeholder="Describe your web build or media requirements..."></textarea>
+							</div>
+							<button type="submit" class="btn-apple" style="width: 100%; padding: 14px; font-size: 0.95rem; border: none; cursor: pointer;">
+								Send Inquiry
+							</button>
+						</form>
 					</div>
 				</div>
 			</section>
@@ -499,9 +446,9 @@
 
 		<!-- Footer -->
 		<footer>
-			<div class="container footer-content">
-				<p>&copy; 2026 Viewport Digital LLC. All rights reserved[span_1](start_span)[span_1](end_span).</p>
-				<p style="font-family: ui-monospace, monospace; font-size: 0.75rem;">kiimon@viewportdigitalmedia.com</p>
+			<div class="container">
+				<p style="margin: 0 0 8px 0;">&copy; 2026 Viewport Digital LLC. All rights reserved[span_1](start_span)[span_1](end_span).</p>
+				<p style="font-family: ui-monospace, monospace; font-size: 0.75rem; color: #555558;">kiimon@viewportdigitalmedia.com</p>
 			</div>
 		</footer>
 
