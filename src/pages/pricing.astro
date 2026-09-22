@@ -1,0 +1,166 @@
+---
+// Viewport Digital LLC - Pricing Matrix & Web Tiers
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Web Development Tiers & Pricing | Viewport Digital LLC</title>
+		<style>
+			:root { color-scheme: dark; }
+			* { box-sizing: border-box; }
+			body {
+				margin: 0;
+				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+				background-color: #020617;
+				color: #f8fafc;
+				line-height: 1.5;
+				-webkit-font-smoothing: antialiased;
+			}
+			header {
+				position: sticky; top: 0; z-index: 50;
+				backdrop-filter: blur(12px);
+				background-color: rgba(2, 6, 23, 0.85);
+				border-bottom: 1px solid rgba(30, 41, 59, 0.8);
+			}
+			.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+			.header-content { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+			.logo { font-weight: 800; letter-spacing: -0.03em; font-size: 1.125rem; text-transform: uppercase; color: #fff; text-decoration: none; }
+			.logo span { color: #94a3b8; font-weight: 400; }
+			nav { display: flex; gap: 32px; font-size: 0.875rem; font-weight: 500; color: #cbd5e1; }
+			nav a { color: #cbd5e1; text-decoration: none; transition: color 0.2s; }
+			nav a:hover { color: #fff; }
+			.btn-primary {
+				display: inline-flex; align-items: center; justify-content: center;
+				padding: 10px 20px; border-radius: 8px; background-color: #fff; color: #020617;
+				font-weight: 700; font-size: 0.875rem; text-decoration: none; transition: background-color 0.2s;
+			}
+			.btn-primary:hover { background-color: #e2e8f0; }
+			section { padding: 80px 0; border-top: 1px solid rgba(30, 41, 59, 0.5); }
+			.section-header { max-width: 700px; margin-bottom: 48px; }
+			.section-header h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; color: #fff; margin: 0 0 16px 0; }
+			.section-header p { color: #94a3b8; font-size: 1rem; }
+			.grid-3 { display: grid; grid-template-columns: 1fr; gap: 32px; }
+			@media(min-width: 768px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+			.card {
+				padding: 32px; border-radius: 16px; background-color: rgba(15, 23, 42, 0.6);
+				border: 1px solid rgba(30, 41, 59, 0.8); backdrop-filter: blur(12px);
+				display: flex; flex-direction: column; justify-content: space-between;
+			}
+			.card-price { font-size: 2rem; font-weight: 800; color: #fff; margin: 16px 0 8px 0; }
+			.card h3 { font-size: 1.25rem; font-weight: 700; color: #fff; margin: 0 0 8px 0; }
+			.card p { color: #94a3b8; font-size: 0.875rem; line-height: 1.6; margin: 0 0 24px 0; }
+			.card-tag { font-size: 0.75rem; font-family: ui-monospace, monospace; color: #818cf8; text-transform: uppercase; letter-spacing: 0.05em; }
+			.features-list { list-style: none; padding: 0; margin: 0 0 24px 0; font-size: 0.875rem; color: #cbd5e1; }
+			.features-list li { padding: 6px 0; border-bottom: 1px solid rgba(30, 41, 59, 0.4); }
+			footer { border-top: 1px solid #0f172a; padding: 48px 0; text-align: center; color: #64748b; font-size: 0.875rem; }
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="container header-content">
+				<a href="/" class="logo">Viewport Digital <span>LLC</span></a>
+				<nav>
+					<a href="/">Home</a>
+					<a href="/pricing">Pricing</a>
+					<a href="/photography">Photography</a>
+				</nav>
+				<div><a href="/#contact" class="btn-primary">Inquire Now</a></div>
+			</div>
+		</header>
+
+		<main class="container" style="padding-top: 64px; padding-bottom: 96px;">
+			<div class="section-header">
+				<h1>Web Development Tiers.</h1>
+				<p>Engineered via Astro and Vercel for instantaneous load times, rigid security, and zero legacy bloat.</p>
+			</div>
+
+			<div class="grid-3" style="margin-bottom: 96px;">
+				<div class="card">
+					<div>
+						<span class="card-tag">Tier 1</span>
+						<h3>The Local Landing Page</h3>
+						<div class="card-price">$750 – $1,200</div>
+						<p>Best for single-page sites, local service providers, transport companies, or quick campaign launches.</p>
+						<ul class="features-list">
+							<li>High-impact single page on Astro</li>
+							<li>Mobile-optimized responsive design</li>
+							<li>Formspree contact form integration</li>
+							<li>Lightning-fast Vercel edge hosting</li>
+						</ul>
+					</div>
+					<a href="/#contact" class="btn-primary" style="text-align: center;">Select Tier 1</a>
+				</div>
+
+				<div class="card" style="border-color: #6366f1;">
+					<div>
+						<span class="card-tag" style="color: #a5b4fc;">Tier 2 (Most Popular)</span>
+						<h3>Multi-Page Business Core</h3>
+						<div class="card-price">$1,800 – $3,200</div>
+						<p>Best for small local businesses, professional offices, or trade contractors needing a robust web footprint.</p>
+						<ul class="features-list">
+							<li>Up to 5 custom pages (Home, Services, About, Gallery, Contact)</li>
+							<li>Integrated commercial photography assets</li>
+							<li>Clean navigation structure</li>
+							<li>Top-tier SEO metadata & performance</li>
+						</ul>
+					</div>
+					<a href="/#contact" class="btn-primary" style="text-align: center; background-color: #6366f1; color: #fff;">Select Tier 2</a>
+				</div>
+
+				<div class="card">
+					<div>
+						<span class="card-tag">Tier 3</span>
+						<h3>Custom Portal & App</h3>
+						<div class="card-price">$3,500 – $6,500+</div>
+						<p>Best for interactive client onboarding engines, complex multi-step questionnaires, and member workflows.</p>
+						<ul class="features-list">
+							<li>Astro Server-Side Rendering (SSR)</li>
+							<li>Database integration (Supabase)</li>
+							<li>Secure user authentication</li>
+							<li>Custom dashboard components</li>
+						</ul>
+					</div>
+					<a href="/#contact" class="btn-primary" style="text-align: center;">Select Tier 3</a>
+				</div>
+			</div>
+
+			<div class="section-header">
+				<h2>Monthly Maintenance Retainers.</h2>
+				<p>Protect your digital investment with ongoing oversight, monitoring, and proactive updates.</p>
+			</div>
+
+			<div class="grid-3">
+				<div class="card">
+					<div>
+						<h3>Basic Care</h3>
+						<div class="card-price">$75 <span style="font-size: 1rem; color: #94a3b8; font-weight: 400;">/mo</span></div>
+						<p>Covers monthly framework checks, Vercel deployment upkeep, uptime monitoring, and up to 30 minutes of minor text updates.</p>
+					</div>
+					<span class="card-tag">Standard Upkeep</span>
+				</div>
+
+				<div class="card">
+					<div>
+						<h3>Growth Retainer</h3>
+						<div class="card-price">$150 <span style="font-size: 1rem; color: #94a3b8; font-weight: 400;">/mo</span></div>
+						<p>Includes standard monitoring plus priority support and up to two (2) hours of minor content edits or fresh asset swaps per month.</p>
+					</div>
+					<span class="card-tag">Active Growth</span>
+				</div>
+
+				<div class="card">
+					<div>
+						<h3>Scale Retainer</h3>
+						<div class="card-price">$300 <span style="font-size: 1rem; color: #94a3b8; font-weight: 400;">/mo</span></div>
+						<p>Built for dynamic portals; covers active database management, priority same-day bug remediation, and up to four (4) hours of updates.</p>
+					</div>
+					<span class="card-tag">Enterprise Support</span>
+				</div>
+			</div>
+		</main>
+
+		<footer>&copy; 2026 Viewport Digital LLC. All rights reserved. kiimon@viewportdigitalmedia.com</footer>
+	</body>
+</html>
