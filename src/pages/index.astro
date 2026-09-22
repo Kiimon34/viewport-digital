@@ -1,5 +1,5 @@
 ---
-// Viewport Digital LLC - Agency Landing Page (2026 Core Directive Build)
+// Viewport Digital LLC - Obsidian Quartz Design System (2026 Directive Build)
 // Stack: Astro, Vercel
 ---
 
@@ -11,24 +11,43 @@
 		<style>
 			:root {
 				color-scheme: dark;
+				--bg-canvas: #090A0F;
+				--surface-glass: #13161F;
+				--accent-amber: #FF5C00;
+				--text-primary: #F8FAFC;
+				--text-secondary: #94A3B8;
+				--border-frost: rgba(255, 255, 255, 0.07);
 			}
+
 			* {
 				box-sizing: border-box;
 				letter-spacing: -0.015em;
 			}
+
 			body {
 				margin: 0;
 				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-				background-color: #030712;
-				color: #f8fafc;
+				background-color: var(--bg-canvas);
+				color: var(--text-primary);
 				line-height: 1.6;
 				-webkit-font-smoothing: antialiased;
+				overflow-x: hidden;
 			}
 
-			/* Accessibility Focus States */
+			/* Accessibility Focus */
 			a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
-				outline: 2px solid #38bdf8;
+				outline: 2px solid var(--accent-amber);
 				outline-offset: 4px;
+			}
+
+			/* Cinematic Motion System */
+			@keyframes maskReveal {
+				0% { opacity: 0; transform: translateY(24px); filter: blur(4px); }
+				100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+			}
+
+			.animate-reveal {
+				animation: maskReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 			}
 
 			/* Header - Glassmorphism 2.0 */
@@ -36,34 +55,39 @@
 				position: sticky;
 				top: 0;
 				z-index: 100;
-				backdrop-filter: blur(16px);
-				-webkit-backdrop-filter: blur(16px);
-				background-color: rgba(3, 7, 18, 0.75);
-				border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+				backdrop-filter: blur(24px);
+				-webkit-backdrop-filter: blur(24px);
+				background-color: rgba(9, 10, 15, 0.8);
+				border-bottom: 1px solid var(--border-frost);
 			}
+
 			.container {
 				max-width: 1200px;
 				margin: 0 auto;
 				padding: 0 32px;
 			}
+
 			.header-content {
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
 				height: 80px;
 			}
+
 			.logo {
 				font-weight: 800;
 				font-size: 1rem;
-				letter-spacing: 0.05em;
+				letter-spacing: 0.06em;
 				text-transform: uppercase;
 				color: #fff;
 				text-decoration: none;
 			}
+
 			.logo span {
-				color: #64748b;
+				color: var(--text-secondary);
 				font-weight: 400;
 			}
+
 			nav {
 				display: flex;
 				gap: 32px;
@@ -71,13 +95,15 @@
 				font-weight: 500;
 				text-transform: uppercase;
 				letter-spacing: 0.08em;
-				color: #94a3b8;
+				color: var(--text-secondary);
 			}
+
 			nav a {
-				color: #94a3b8;
+				color: var(--text-secondary);
 				text-decoration: none;
 				transition: color 0.2s ease;
 			}
+
 			nav a:hover { color: #fff; }
 
 			/* Archival Indexing Tag */
@@ -86,35 +112,38 @@
 				font-family: ui-monospace, monospace;
 				text-transform: uppercase;
 				letter-spacing: 0.15em;
-				color: #38bdf8;
+				color: var(--accent-amber);
 				display: inline-flex;
 				align-items: center;
 				gap: 8px;
 				margin-bottom: 24px;
 			}
+
 			.archival-tag::before {
 				content: "■";
 				font-size: 0.5rem;
 			}
 
-			/* Buttons & Micro-Interactions */
+			/* Primary Action Drivers (High-Voltage Neon Amber) */
 			.btn-primary {
 				display: inline-flex;
 				align-items: center;
 				justify-content: center;
 				padding: 14px 28px;
-				background-color: #f8fafc;
-				color: #030712;
+				background-color: var(--accent-amber);
+				color: #090A0F;
 				font-weight: 700;
 				font-size: 0.9rem;
 				text-decoration: none;
 				border-radius: 8px;
 				transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-				box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+				box-shadow: 0 4px 25px rgba(255, 92, 0, 0.25);
 			}
+
 			.btn-primary:hover {
-				background-color: #cbd5e1;
+				background-color: #ff7024;
 				transform: translateY(-2px);
+				box-shadow: 0 6px 30px rgba(255, 92, 0, 0.4);
 			}
 
 			.btn-outline {
@@ -122,54 +151,59 @@
 				align-items: center;
 				justify-content: center;
 				padding: 14px 28px;
-				background-color: rgba(15, 23, 42, 0.6);
-				border: 1px solid rgba(255, 255, 255, 0.15);
-				color: #f8fafc;
+				background-color: var(--surface-glass);
+				border: 1px solid var(--border-frost);
+				color: var(--text-primary);
 				font-weight: 600;
 				font-size: 0.9rem;
 				text-decoration: none;
 				border-radius: 8px;
 				transition: all 0.3s ease;
-				backdrop-filter: blur(8px);
+				backdrop-filter: blur(12px);
 			}
+
 			.btn-outline:hover {
-				border-color: rgba(255, 255, 255, 0.4);
-				background-color: rgba(15, 23, 42, 0.9);
+				border-color: rgba(255, 255, 255, 0.25);
+				background-color: #1a1e2b;
 			}
 
 			/* Hero Section */
 			.hero {
-				padding: 128px 0 96px 0;
+				padding: 140px 0 110px 0;
 				position: relative;
 				overflow: hidden;
 			}
+
 			.hero-glow {
 				position: absolute;
-				top: 30%;
+				top: 35%;
 				left: 50%;
 				transform: translate(-50%, -50%);
-				width: 650px;
-				height: 400px;
-				background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(99, 102, 241, 0.03) 60%, transparent 80%);
-				filter: blur(100px);
+				width: 700px;
+				height: 450px;
+				background: radial-gradient(circle, rgba(255, 92, 0, 0.07) 0%, rgba(99, 102, 241, 0.02) 65%, transparent 85%);
+				filter: blur(120px);
 				pointer-events: none;
 			}
+
 			h1 {
-				font-size: clamp(3.2rem, 7vw, 6rem);
+				font-size: clamp(3.2rem, 7vw, 6.5rem);
 				font-weight: 800;
 				letter-spacing: -0.03em;
-				line-height: 1.05;
+				line-height: 1.02;
 				color: #fff;
 				margin: 0 0 24px 0;
 				text-transform: uppercase;
 			}
+
 			.hero-p {
 				max-width: 620px;
 				font-size: 1.15rem;
-				color: #94a3b8;
+				color: var(--text-secondary);
 				line-height: 1.6;
 				margin-bottom: 48px;
 			}
+
 			.hero-actions {
 				display: flex;
 				gap: 16px;
@@ -179,14 +213,16 @@
 
 			/* Sections */
 			section {
-				padding: 112px 0;
-				border-top: 1px solid rgba(255, 255, 255, 0.06);
+				padding: 120px 0;
+				border-top: 1px solid var(--border-frost);
 				position: relative;
 			}
+
 			.section-header {
 				max-width: 700px;
 				margin-bottom: 64px;
 			}
+
 			.section-header h2 {
 				font-size: clamp(2.25rem, 4vw, 3.5rem);
 				font-weight: 800;
@@ -195,35 +231,41 @@
 				margin: 0 0 16px 0;
 				text-transform: uppercase;
 			}
+
 			.section-header p {
-				color: #94a3b8;
+				color: var(--text-secondary);
 				font-size: 1.05rem;
 				line-height: 1.6;
 			}
 
-			/* Glassmorphism 2.0 Flagship Card */
+			/* Glassmorphism 2.0 Tactile Cards */
 			.glass-card {
-				background: rgba(15, 23, 42, 0.45);
-				border: 1px solid rgba(255, 255, 255, 0.08);
-				box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-				backdrop-filter: blur(20px);
-				-webkit-backdrop-filter: blur(20px);
+				background: var(--surface-glass);
+				border: 1px solid var(--border-frost);
+				box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 24px 60px rgba(0, 0, 0, 0.6);
+				backdrop-filter: blur(24px);
+				-webkit-backdrop-filter: blur(24px);
 				border-radius: 24px;
 				padding: 56px;
 				position: relative;
-				transition: border-color 0.3s ease;
+				transition: border-color 0.3s ease, transform 0.3s ease;
 			}
+
 			.glass-card:hover {
-				border-color: rgba(56, 189, 248, 0.3);
+				border-color: rgba(255, 92, 0, 0.35);
+				transform: translateY(-2px);
 			}
+
 			.flagship-grid {
 				display: grid;
 				grid-template-columns: 1fr;
 				gap: 48px;
 			}
+
 			@media(min-width: 860px) {
 				.flagship-grid { grid-template-columns: 1.2fr 0.8fr; align-items: center; }
 			}
+
 			.price-display {
 				font-size: 3rem;
 				font-weight: 800;
@@ -231,6 +273,7 @@
 				letter-spacing: -0.03em;
 				margin: 16px 0 24px 0;
 			}
+
 			.specs-list {
 				list-style: none;
 				padding: 0;
@@ -238,6 +281,7 @@
 				display: grid;
 				gap: 14px;
 			}
+
 			.specs-list li {
 				font-size: 0.95rem;
 				color: #cbd5e1;
@@ -245,9 +289,10 @@
 				align-items: center;
 				gap: 12px;
 			}
+
 			.specs-list li::before {
 				content: "→";
-				color: #38bdf8;
+				color: var(--accent-amber);
 				font-weight: bold;
 			}
 
@@ -257,51 +302,67 @@
 				grid-template-columns: 1fr;
 				gap: 32px;
 			}
+
 			@media(min-width: 768px) {
 				.grid-2 { grid-template-columns: repeat(2, 1fr); }
+			}
+
+			/* Architecture Directive Grid */
+			.grid-3 {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 24px;
+			}
+
+			@media(min-width: 768px) {
+				.grid-3 { grid-template-columns: repeat(3, 1fr); }
 			}
 
 			/* Intake Terminal */
 			.terminal-box {
 				max-width: 680px;
 				margin: 0 auto;
-				background: rgba(10, 15, 30, 0.6);
-				border: 1px solid rgba(255, 255, 255, 0.1);
-				backdrop-filter: blur(16px);
+				background: var(--surface-glass);
+				border: 1px solid var(--border-frost);
+				box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 30px 80px rgba(0,0,0,0.8);
+				backdrop-filter: blur(24px);
 				border-radius: 20px;
 				padding: 48px;
-				box-shadow: 0 30px 80px rgba(0,0,0,0.6);
 			}
+
 			.form-group {
 				margin-bottom: 24px;
 			}
+
 			label {
 				display: block;
 				font-size: 0.75rem;
 				font-family: ui-monospace, monospace;
 				text-transform: uppercase;
 				letter-spacing: 0.12em;
-				color: #38bdf8;
+				color: var(--accent-amber);
 				margin-bottom: 10px;
 			}
+
 			input, textarea {
 				width: 100%;
 				padding: 16px;
-				background-color: rgba(3, 7, 18, 0.8);
-				border: 1px solid rgba(255, 255, 255, 0.12);
+				background-color: #090A0F;
+				border: 1px solid rgba(255, 255, 255, 0.1);
 				border-radius: 8px;
 				color: #fff;
 				font-size: 1rem;
 				box-sizing: border-box;
 				transition: border-color 0.2s ease;
 			}
-			input:focus, textarea:focus { border-color: #38bdf8; }
+
+			input:focus, textarea:focus { border-color: var(--accent-amber); }
 
 			footer {
 				padding: 80px 0;
-				border-top: 1px solid rgba(255, 255, 255, 0.06);
+				border-top: 1px solid var(--border-frost);
 				text-align: center;
-				color: #64748b;
+				color: var(--text-secondary);
 				font-size: 0.85rem;
 			}
 		</style>
@@ -314,6 +375,7 @@
 				<a href="/" class="logo">Viewport Digital <span>LLC</span></a>
 				<nav aria-label="Main Navigation">
 					<a href="#flagship">Core Offer</a>
+					<a href="#architecture">Architecture</a>
 					<a href="/pricing">Tiers</a>
 					<a href="/photography">Media</a>
 				</nav>
@@ -325,13 +387,13 @@
 
 		<main id="main-content">
 			<!-- Hero Section -->
-			<section class="hero" style="border-top: none;">
+			<section class="hero animate-reveal" style="border-top: none;">
 				<div class="hero-glow"></div>
 				<div class="container">
 					<div class="archival-tag">[INDEX // 01 : CARMEL, INDIANA STUDIO]</div>
 					<h1>Code.<br>Capture.<br>Convert.</h1>
 					<p class="hero-p">
-						Human-first web infrastructure and precision commercial media. We strip away template bloat and rigid subscriptions in favor of absolute architectural speed.
+						Human-first web infrastructure and precision commercial media. We strip away plastic AI templates and subscription bloat in favor of authentic point-of-view design and sub-second performance.
 					</p>
 					<div class="hero-actions">
 						<a href="#flagship" class="btn-primary">Execute Build</a>
@@ -346,16 +408,16 @@
 					<div class="section-header">
 						<span class="archival-tag">[INDEX // 02 : FLAGSHIP STANDARD]</span>
 						<h2>The Multi-Page Business Core.</h2>
-						<p>Engineered via Astro and Vercel for sub-second load times and zero database friction.</p>
+						<p>Engineered via Astro and Vercel for sub-second load times, rigid security, and zero database friction.</p>
 					</div>
 
 					<div class="glass-card">
 						<div class="flagship-grid">
 							<div>
-								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.15em; color: #38bdf8;">Tier 2 Solution • Most Popular</span>
+								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-amber);">Tier 2 Solution • Most Popular</span>
 								<h3 style="font-size: 2.25rem; font-weight: 800; color: #fff; margin: 12px 0 0 0; letter-spacing: -0.02em;">Business Core Architecture</h3>
 								<div class="price-display">$1,800 – $3,200</div>
-								<p style="color: #94a3b8; font-size: 1rem; line-height: 1.6; margin-bottom: 28px;">
+								<p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.6; margin-bottom: 28px;">
 									Designed specifically for local service leaders and professional offices demanding a dominant, lightning-fast digital asset.
 								</p>
 								<ul class="specs-list">
@@ -365,12 +427,49 @@
 									<li>Rigorously optimized SEO metadata structure</li>
 								</ul>
 							</div>
-							<div style="background: rgba(3, 7, 18, 0.5); border: 1px solid rgba(255, 255, 255, 0.08); padding: 40px; border-radius: 16px; display: flex; flex-direction: column; justify-content: center; gap: 16px;">
-								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #34d399; text-transform: uppercase;">Foundational Partner Rate</span>
-								<p style="font-size: 0.9rem; color: #94a3b8; margin: 0; line-height: 1.5;">Lock in priority queue status and direct collaboration with your engineer.</p>
+							<div style="background: rgba(9, 10, 15, 0.6); border: 1px solid var(--border-frost); padding: 40px; border-radius: 16px; display: flex; flex-direction: column; justify-content: center; gap: 16px;">
+								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #34D399; text-transform: uppercase;">Foundational Partner Rate</span>
+								<p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">Lock in priority queue status and direct collaboration with your engineer.</p>
 								<a href="#contact" class="btn-primary" style="text-align: center; margin-top: 8px;">Secure Build Slot</a>
-								<a href="/pricing" style="text-align: center; color: #94a3b8; font-size: 0.8rem; text-decoration: none; font-family: ui-monospace, monospace;" class="hover:text-white">View all development tiers &rarr;</a>
+								<a href="/pricing" style="text-align: center; color: var(--text-secondary); font-size: 0.8rem; text-decoration: none; font-family: ui-monospace, monospace;" class="hover:text-white">View all development tiers &rarr;</a>
 							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Premium Architecture & Delivery Directives -->
+			<section id="architecture">
+				<div class="container">
+					<div class="section-header">
+						<span class="archival-tag">[INDEX // 03 : ARCHITECTURAL DIRECTIVES]</span>
+						<h2>Bespoke Craft & White-Glove Handover.</h2>
+						<p>How we ensure zero dead-end journeys, clean component code, and long-term stabilization.</p>
+					</div>
+
+					<div class="grid-3">
+						<div class="glass-card" style="padding: 36px;">
+							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: var(--accent-amber);">01 // BESPOKE CRAFT</span>
+							<h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin: 12px 0 12px 0;">Bespoke Over Stock</h3>
+							<p style="color: var(--text-secondary); font-size: 0.875rem; line-height: 1.6; margin: 0;">
+								Custom-tailored layouts, bespoke graphics, and precise visual assets. Zero generic stock-pack clutter or plastic AI aesthetics.
+							</p>
+						</div>
+
+						<div class="glass-card" style="padding: 36px;">
+							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: var(--accent-amber);">02 // CLEAN CODE</span>
+							<h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin: 12px 0 12px 0;">Anti-Black-Box Architecture</h3>
+							<p style="color: var(--text-secondary); font-size: 0.875rem; line-height: 1.6; margin: 0;">
+								Maintainable component code and structured CMS schemas so you or your team can easily keep content fresh without breaking layouts.
+							</p>
+						</div>
+
+						<div class="glass-card" style="padding: 36px;">
+							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: var(--accent-amber);">03 // STABILIZATION</span>
+							<h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin: 12px 0 12px 0;">White-Glove Handover</h3>
+							<p style="color: var(--text-secondary); font-size: 0.875rem; line-height: 1.6; margin: 0;">
+								Includes recorded video training, a 30-day post-launch stabilization buffer, and structured ongoing maintenance care tiers.
+							</p>
 						</div>
 					</div>
 				</div>
@@ -380,7 +479,7 @@
 			<section>
 				<div class="container">
 					<div class="section-header">
-						<span class="archival-tag">[INDEX // 03 : VISUAL DOMAIN]</span>
+						<span class="archival-tag">[INDEX // 04 : VISUAL DOMAIN]</span>
 						<h2>Commercial Media Production.</h2>
 						<p>Authentic workspace assets captured and formatted specifically for your Astro repository.</p>
 					</div>
@@ -388,29 +487,29 @@
 					<div class="grid-2">
 						<div class="glass-card" style="padding: 40px; display: flex; flex-direction: column; justify-content: space-between;">
 							<div>
-								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #38bdf8; text-transform: uppercase;">Visual Asset Suite</span>
+								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: var(--accent-amber); text-transform: uppercase;">Visual Asset Suite</span>
 								<h3 style="font-size: 1.75rem; font-weight: 800; color: #fff; margin: 12px 0 16px 0;">The Full Brand Suite</h3>
 								<div style="font-size: 2.25rem; font-weight: 800; color: #fff; margin-bottom: 16px;">$750 flat</div>
-								<p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
+								<p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
 									Half-day commitment. 30 to 40 fully edited, web-optimized files delivered ready for immediate deployment.
 								</p>
 							</div>
-							<div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; display: flex; justify-content: space-between; align-items: center;">
-								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #34d399;">Bundle Savings: -$150</span>
+							<div style="border-top: 1px solid var(--border-frost); padding-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #34D399;">Bundle Savings: -$150</span>
 								<a href="/photography" class="btn-outline" style="padding: 8px 16px; font-size: 0.8rem;">Explore Suites</a>
 							</div>
 						</div>
 
 						<div class="glass-card" style="padding: 40px; display: flex; flex-direction: column; justify-content: space-between;">
 							<div>
-								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #38bdf8; text-transform: uppercase;">Local Production</span>
+								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: var(--accent-amber); text-transform: uppercase;">Local Production</span>
 								<h3 style="font-size: 1.75rem; font-weight: 800; color: #fff; margin: 12px 0 16px 0;">Web Asset Starter</h3>
 								<div style="font-size: 2.25rem; font-weight: 800; color: #fff; margin-bottom: 16px;">$350 flat</div>
-								<p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
+								<p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
 									Natural pairing for single-page builds. 1 hour on-site, 10 to 15 edited files for instant layout texture.
 								</p>
 							</div>
-							<div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px;">
+							<div style="border-top: 1px solid var(--border-frost); padding-top: 20px;">
 								<a href="/photography" style="color: #fff; font-size: 0.85rem; text-decoration: none; font-weight: 600;" class="hover:underline">View complete pricing matrix &rarr;</a>
 							</div>
 						</div>
@@ -422,24 +521,24 @@
 			<section>
 				<div class="container">
 					<div class="section-header">
-						<span class="archival-tag">[INDEX // 04 : ARCHITECTURAL COMPARISON]</span>
+						<span class="archival-tag">[INDEX // 05 : ARCHITECTURAL COMPARISON]</span>
 						<h2>True Ownership vs. Rental Traps.</h2>
 						<p>Why custom code outperforms mainstream DIY template platforms.</p>
 					</div>
 
 					<div class="grid-2">
 						<div class="glass-card" style="padding: 40px; border-color: rgba(239, 68, 68, 0.2);">
-							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #ef4444; text-transform: uppercase;">Subscription Overhead</span>
+							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #EF4444; text-transform: uppercase;">Subscription Overhead</span>
 							<h3 style="font-size: 1.5rem; font-weight: 800; color: #fff; margin: 12px 0 16px 0;">GoDaddy & Wix</h3>
-							<p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0;">
+							<p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin: 0;">
 								Endless monthly overhead for bloated templates that choke on mobile devices, tank search rankings, and leave you stranded with call-center automated loops.
 							</p>
 						</div>
 
 						<div class="glass-card" style="padding: 40px; border-color: rgba(52, 211, 153, 0.3);">
-							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #34d399; text-transform: uppercase;">Absolute Sovereignty</span>
+							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #34D399; text-transform: uppercase;">Absolute Sovereignty</span>
 							<h3 style="font-size: 1.5rem; font-weight: 800; color: #fff; margin: 12px 0 16px 0;">Viewport Digital LLC</h3>
-							<p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0;">
+							<p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin: 0;">
 								You own your code. High-speed Astro static rendering, edge deployment via Vercel, and direct partnership with a local engineer right here in Carmel, Indiana[span_0](start_span)[span_0](end_span).
 							</p>
 						</div>
@@ -451,7 +550,7 @@
 			<section id="contact">
 				<div class="container">
 					<div class="section-header" style="text-align: center; max-width: 600px; margin: 0 auto 60px auto;">
-						<span class="archival-tag">[INDEX // 05 : INTAKE TERMINAL]</span>
+						<span class="archival-tag">[INDEX // 06 : INTAKE TERMINAL]</span>
 						<h2>Initiate Project Transmission.</h2>
 						<p>Direct communication channel for web architecture, media bookings, and retainers.</p>
 					</div>
@@ -483,7 +582,7 @@
 		<footer>
 			<div class="container">
 				<p style="margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75rem;">&copy; 2026 Viewport Digital LLC. All rights reserved[span_1](start_span)[span_1](end_span).</p>
-				<p style="font-family: ui-monospace, monospace; font-size: 0.75rem; color: #38bdf8;">kiimon@viewportdigitalmedia.com</p>
+				<p style="font-family: ui-monospace, monospace; font-size: 0.75rem; color: var(--accent-amber);">kiimon@viewportdigitalmedia.com</p>
 			</div>
 		</footer>
 
