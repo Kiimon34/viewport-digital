@@ -1,5 +1,5 @@
 ---
-// Viewport Digital LLC - Obsidian Quartz Design System (2026 Directive Build)
+// Viewport Digital LLC - Obsidian Quartz Design System (2026 Sovereign Build)
 // Stack: Astro, Vercel
 ---
 
@@ -13,10 +13,13 @@
 				color-scheme: dark;
 				--bg-canvas: #090A0F;
 				--surface-glass: #13161F;
+				--surface-glass-hover: #1a1e2b;
 				--accent-amber: #FF5C00;
+				--accent-amber-glow: rgba(255, 92, 0, 0.3);
 				--text-primary: #F8FAFC;
 				--text-secondary: #94A3B8;
-				--border-frost: rgba(255, 255, 255, 0.07);
+				--border-frost: rgba(255, 255, 255, 0.08);
+				--border-frost-hover: rgba(255, 92, 0, 0.4);
 			}
 
 			* {
@@ -42,12 +45,12 @@
 
 			/* Cinematic Motion System */
 			@keyframes maskReveal {
-				0% { opacity: 0; transform: translateY(24px); filter: blur(4px); }
+				0% { opacity: 0; transform: translateY(28px); filter: blur(6px); }
 				100% { opacity: 1; transform: translateY(0); filter: blur(0); }
 			}
 
 			.animate-reveal {
-				animation: maskReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+				animation: maskReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 			}
 
 			/* Header - Glassmorphism 2.0 */
@@ -57,7 +60,7 @@
 				z-index: 100;
 				backdrop-filter: blur(24px);
 				-webkit-backdrop-filter: blur(24px);
-				background-color: rgba(9, 10, 15, 0.8);
+				background-color: rgba(9, 10, 15, 0.82);
 				border-bottom: 1px solid var(--border-frost);
 			}
 
@@ -81,6 +84,16 @@
 				text-transform: uppercase;
 				color: #fff;
 				text-decoration: none;
+				display: flex;
+				align-items: center;
+				gap: 10px;
+			}
+
+			.logo-mark {
+				width: 10px;
+				height: 10px;
+				background-color: var(--accent-amber);
+				box-shadow: 0 0 12px var(--accent-amber);
 			}
 
 			.logo span {
@@ -124,7 +137,7 @@
 				font-size: 0.5rem;
 			}
 
-			/* Primary Action Drivers (High-Voltage Neon Amber) */
+			/* Action Drivers */
 			.btn-primary {
 				display: inline-flex;
 				align-items: center;
@@ -137,13 +150,13 @@
 				text-decoration: none;
 				border-radius: 8px;
 				transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-				box-shadow: 0 4px 25px rgba(255, 92, 0, 0.25);
+				box-shadow: 0 4px 25px rgba(255, 92, 0, 0.3);
 			}
 
 			.btn-primary:hover {
 				background-color: #ff7024;
 				transform: translateY(-2px);
-				box-shadow: 0 6px 30px rgba(255, 92, 0, 0.4);
+				box-shadow: 0 6px 35px rgba(255, 92, 0, 0.5);
 			}
 
 			.btn-outline {
@@ -163,13 +176,13 @@
 			}
 
 			.btn-outline:hover {
-				border-color: rgba(255, 255, 255, 0.25);
-				background-color: #1a1e2b;
+				border-color: rgba(255, 255, 255, 0.3);
+				background-color: var(--surface-glass-hover);
 			}
 
 			/* Hero Section */
 			.hero {
-				padding: 140px 0 110px 0;
+				padding: 140px 0 120px 0;
 				position: relative;
 				overflow: hidden;
 			}
@@ -179,15 +192,15 @@
 				top: 35%;
 				left: 50%;
 				transform: translate(-50%, -50%);
-				width: 700px;
-				height: 450px;
-				background: radial-gradient(circle, rgba(255, 92, 0, 0.07) 0%, rgba(99, 102, 241, 0.02) 65%, transparent 85%);
-				filter: blur(120px);
+				width: 750px;
+				height: 500px;
+				background: radial-gradient(circle, rgba(255, 92, 0, 0.08) 0%, rgba(99, 102, 241, 0.03) 60%, transparent 80%);
+				filter: blur(140px);
 				pointer-events: none;
 			}
 
 			h1 {
-				font-size: clamp(3.2rem, 7vw, 6.5rem);
+				font-size: clamp(3.2rem, 7.5vw, 6.8rem);
 				font-weight: 800;
 				letter-spacing: -0.03em;
 				line-height: 1.02;
@@ -213,7 +226,7 @@
 
 			/* Sections */
 			section {
-				padding: 120px 0;
+				padding: 130px 0;
 				border-top: 1px solid var(--border-frost);
 				position: relative;
 			}
@@ -242,7 +255,7 @@
 			.glass-card {
 				background: var(--surface-glass);
 				border: 1px solid var(--border-frost);
-				box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 24px 60px rgba(0, 0, 0, 0.6);
+				box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 24px 60px rgba(0, 0, 0, 0.6);
 				backdrop-filter: blur(24px);
 				-webkit-backdrop-filter: blur(24px);
 				border-radius: 24px;
@@ -252,7 +265,7 @@
 			}
 
 			.glass-card:hover {
-				border-color: rgba(255, 92, 0, 0.35);
+				border-color: var(--border-frost-hover);
 				transform: translateY(-2px);
 			}
 
@@ -296,7 +309,7 @@
 				font-weight: bold;
 			}
 
-			/* Grid Two */
+			/* Grid Two & Three */
 			.grid-2 {
 				display: grid;
 				grid-template-columns: 1fr;
@@ -307,7 +320,6 @@
 				.grid-2 { grid-template-columns: repeat(2, 1fr); }
 			}
 
-			/* Architecture Directive Grid */
 			.grid-3 {
 				display: grid;
 				grid-template-columns: 1fr;
@@ -324,7 +336,7 @@
 				margin: 0 auto;
 				background: var(--surface-glass);
 				border: 1px solid var(--border-frost);
-				box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 30px 80px rgba(0,0,0,0.8);
+				box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 30px 80px rgba(0,0,0,0.8);
 				backdrop-filter: blur(24px);
 				border-radius: 20px;
 				padding: 48px;
@@ -347,7 +359,7 @@
 			input, textarea {
 				width: 100%;
 				padding: 16px;
-				background-color: #090A0F;
+				background-color: var(--bg-canvas);
 				border: 1px solid rgba(255, 255, 255, 0.1);
 				border-radius: 8px;
 				color: #fff;
@@ -356,7 +368,7 @@
 				transition: border-color 0.2s ease;
 			}
 
-			input:focus, textarea:focus { border-color: var(--accent-amber); }
+			input:focus, textarea:focus { border-color: var(--accent-amber); outline: none; }
 
 			footer {
 				padding: 80px 0;
@@ -372,7 +384,10 @@
 		<!-- Header -->
 		<header>
 			<div class="container header-content">
-				<a href="/" class="logo">Viewport Digital <span>LLC</span></a>
+				<a href="/" class="logo">
+					<div class="logo-mark"></div>
+					Viewport Digital <span>LLC</span>
+				</a>
 				<nav aria-label="Main Navigation">
 					<a href="#flagship">Core Offer</a>
 					<a href="#architecture">Architecture</a>
@@ -380,7 +395,7 @@
 					<a href="/photography">Media</a>
 				</nav>
 				<div>
-					<a href="#contact" class="btn-primary" style="padding: 10px 20px; font-size: 0.85rem;">Inquire</a>
+					<a href="#contact" class="btn-primary" style="padding: 10px 20px; font-size: 0.85rem;">Inquire Now</a>
 				</div>
 			</div>
 		</header>
@@ -393,7 +408,7 @@
 					<div class="archival-tag">[INDEX // 01 : CARMEL, INDIANA STUDIO]</div>
 					<h1>Code.<br>Capture.<br>Convert.</h1>
 					<p class="hero-p">
-						Human-first web infrastructure and precision commercial media. We strip away plastic AI templates and subscription bloat in favor of authentic point-of-view design and sub-second performance.
+						Human-first web infrastructure and precision commercial media. We eliminate plastic AI templates, bloated subscriptions, and dead-end layouts in favor of point-of-view design and sub-second performance.
 					</p>
 					<div class="hero-actions">
 						<a href="#flagship" class="btn-primary">Execute Build</a>
@@ -438,7 +453,7 @@
 				</div>
 			</section>
 
-			<!-- Premium Architecture & Delivery Directives -->
+			<!-- Premium Architecture & Delivery Directives (Bespoke SVGs Included) -->
 			<section id="architecture">
 				<div class="container">
 					<div class="section-header">
@@ -449,22 +464,25 @@
 
 					<div class="grid-3">
 						<div class="glass-card" style="padding: 36px;">
+							<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px;"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
 							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: var(--accent-amber);">01 // BESPOKE CRAFT</span>
 							<h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin: 12px 0 12px 0;">Bespoke Over Stock</h3>
 							<p style="color: var(--text-secondary); font-size: 0.875rem; line-height: 1.6; margin: 0;">
-								Custom-tailored layouts, bespoke graphics, and precise visual assets. Zero generic stock-pack clutter or plastic AI aesthetics.
+								Custom-tailored layouts, bespoke SVGs, and precise visual assets. Zero generic stock-pack clutter or plastic AI aesthetics.
 							</p>
 						</div>
 
 						<div class="glass-card" style="padding: 36px;">
+							<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px;"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
 							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: var(--accent-amber);">02 // CLEAN CODE</span>
-							<h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin: 12px 0 12px 0;">Anti-Black-Box Architecture</h3>
+							<h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin: 12px 0 12px 0;">Anti-Black-Box Code</h3>
 							<p style="color: var(--text-secondary); font-size: 0.875rem; line-height: 1.6; margin: 0;">
 								Maintainable component code and structured CMS schemas so you or your team can easily keep content fresh without breaking layouts.
 							</p>
 						</div>
 
 						<div class="glass-card" style="padding: 36px;">
+							<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
 							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: var(--accent-amber);">03 // STABILIZATION</span>
 							<h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin: 12px 0 12px 0;">White-Glove Handover</h3>
 							<p style="color: var(--text-secondary); font-size: 0.875rem; line-height: 1.6; margin: 0;">
