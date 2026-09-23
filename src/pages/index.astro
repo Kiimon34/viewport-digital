@@ -1,16 +1,8 @@
 ---
-// src/layouts/Layout.astro
-interface Props {
-  title: string;
-  description?: string;
-  currentPath?: string;
-}
-
-const { 
-  title, 
-  description = "Bespoke engineering on Astro, edge delivery via Vercel, and custom commercial photography. Zero templates. Zero subscriptions. You own the code.",
-  currentPath = "/"
-} = Astro.props;
+// src/pages/index.astro
+// Viewport Digital LLC - Unified Master Architecture
+const pageTitle = "Viewport Digital LLC | Engineered Digital Architecture & Commercial Photography";
+const pageDescription = "Bespoke engineering on Astro, edge distribution via Vercel, and custom commercial photography. Zero templates. Zero subscriptions. You own the code.";
 ---
 
 <!DOCTYPE html>
@@ -18,15 +10,15 @@ const {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title}</title>
-  <meta name="description" content={description} />
+  <title>{pageTitle}</title>
+  <meta name="description" content={pageDescription} />
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
 
-  <!-- Self-Healing Tailwind CDN Engine -->
+  <!-- Tailwind Fallback Engine -->
   <script is:inline src="https://cdn.tailwindcss.com"></script>
   <script is:inline>
     tailwind.config = {
@@ -57,18 +49,19 @@ const {
   </script>
 </head>
 
-<body class="bg-[#030712] text-[#CBD5E1] font-sans antialiased selection:bg-[#2563EB] selection:text-white bg-grid-mesh relative overflow-x-hidden min-h-screen flex flex-col justify-between">
+<body class="bg-[#030712] text-[#CBD5E1] font-sans antialiased selection:bg-[#2563EB] selection:text-white bg-grid-mesh relative overflow-x-hidden min-h-screen">
 
   <!-- Ambient Light Orbs -->
   <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-gradient-to-tr from-[#2563EB]/15 to-[#38BDF8]/10 blur-[130px] pointer-events-none -z-10"></div>
   <div class="fixed bottom-0 right-0 w-[600px] h-[500px] bg-gradient-to-tl from-[#0F172A]/60 via-[#2563EB]/10 to-transparent blur-[140px] pointer-events-none -z-10"></div>
 
-  <!-- Persistent Header with Public Logo Pull -->
-  <header class="sticky top-0 z-50 w-full px-4 sm:px-8 py-4 backdrop-blur-md bg-[#030712]/80 border-b border-white/[0.08]">
+  <!-- Persistent Header with Responsive Hamburger Menu -->
+  <header class="sticky top-0 z-50 w-full px-4 sm:px-8 py-3.5 backdrop-blur-xl bg-[#030712]/80 border-b border-white/[0.08]">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3 group">
-        <!-- Logo pulled directly from /public directory with fallback -->
-        <div class="w-9 h-9 min-w-[36px] max-w-[36px] h-[36px] rounded-lg bg-gradient-to-br from-[#2563EB] to-[#0F172A] border border-[#38BDF8]/40 flex items-center justify-center shadow-lg shadow-[#2563EB]/20 overflow-hidden shrink-0">
+      
+      <!-- Brand Logo pulled from public/ -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 min-w-[36px] max-w-[36px] h-[36px] rounded-lg bg-gradient-to-br from-[#2563EB] to-[#0F172A] border border-[#38BDF8]/40 flex items-center justify-center shadow-lg shadow-[#2563EB]/25 overflow-hidden shrink-0">
           <img 
             src="/logo.svg" 
             alt="Viewport Digital Logo" 
@@ -83,34 +76,673 @@ const {
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider">
-        <a href="/" class={currentPath === "/" ? "text-white font-bold border-b border-[#38BDF8] pb-0.5" : "text-[#94A3B8] hover:text-white transition-colors"}>Home</a>
-        <a href="/process" class={currentPath === "/process" ? "text-white font-bold border-b border-[#38BDF8] pb-0.5" : "text-[#94A3B8] hover:text-white transition-colors"}>Our Process</a>
-        <a href="/pricing" class={currentPath === "/pricing" ? "text-white font-bold border-b border-[#38BDF8] pb-0.5" : "text-[#94A3B8] hover:text-white transition-colors"}>Tiers & Pricing</a>
-        <a href="/contact" class={currentPath === "/contact" ? "text-white font-bold border-b border-[#38BDF8] pb-0.5" : "text-[#94A3B8] hover:text-white transition-colors"}>Contact / Let's Build</a>
+      <nav class="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider text-[#94A3B8]">
+        <a href="#hero" class="hover:text-white transition-colors">Home</a>
+        <a href="#paradigm" class="hover:text-white transition-colors">The Paradigm</a>
+        <a href="#stack" class="hover:text-white transition-colors">Stack & Specs</a>
+        <a href="#photography" class="hover:text-white transition-colors">Photography</a>
+        <a href="#pricing" class="hover:text-white transition-colors">Tiers & Rates</a>
       </nav>
 
-      <!-- Header CTA -->
+      <!-- Desktop CTA & Mobile Hamburger Button -->
       <div class="flex items-center gap-3">
-        <a href="/contact" class="tactile-btn inline-flex items-center justify-center px-4 sm:px-5 py-2 sm:py-2.5 text-xs font-semibold uppercase tracking-wider text-white bg-[#2563EB] hover:bg-blue-600 rounded-lg shadow-lg shadow-[#2563EB]/30 border border-[#38BDF8]/50 group">
-          <span class="flex items-center gap-2">
+        <a href="#contact" class="hidden sm:inline-flex tactile-btn relative items-center justify-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-[#2563EB] hover:bg-blue-600 rounded-lg shadow-lg shadow-[#2563EB]/30 border border-[#38BDF8]/50 group">
+          <span class="flex items-center gap-1.5">
             Initiate Project
-            <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </span>
         </a>
+
+        <!-- Hamburger Toggle Button -->
+        <button id="menu-btn" aria-label="Toggle Navigation Menu" class="md:hidden p-2 rounded-lg bg-[#0F172A] border border-white/[0.08] text-white hover:border-[#38BDF8]/50 focus:outline-none">
+          <svg id="hamburger-icon" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+          <svg id="close-icon" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
       </div>
+
+    </div>
+
+    <!-- Mobile Slide-Down Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2 px-2 border-t border-white/[0.08] mt-3 space-y-3 font-mono text-xs uppercase tracking-wider">
+      <a href="#hero" class="mobile-nav-link block py-2 px-3 rounded-lg hover:bg-white/[0.05] text-[#CBD5E1]">Home</a>
+      <a href="#paradigm" class="mobile-nav-link block py-2 px-3 rounded-lg hover:bg-white/[0.05] text-[#CBD5E1]">The Paradigm</a>
+      <a href="#stack" class="mobile-nav-link block py-2 px-3 rounded-lg hover:bg-white/[0.05] text-[#CBD5E1]">Stack & Specs</a>
+      <a href="#photography" class="mobile-nav-link block py-2 px-3 rounded-lg hover:bg-white/[0.05] text-[#CBD5E1]">Photography</a>
+      <a href="#pricing" class="mobile-nav-link block py-2 px-3 rounded-lg hover:bg-white/[0.05] text-[#CBD5E1]">Tiers & Pricing</a>
+      <a href="#contact" class="mobile-nav-link block py-2.5 px-3 rounded-lg bg-[#2563EB] text-white text-center font-bold">Initiate Project &rarr;</a>
     </div>
   </header>
 
-  <!-- Page Content -->
-  <main class="flex-grow">
-    <slot />
+  <main class="space-y-24 sm:space-y-32">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative pt-12 sm:pt-20 px-4 sm:px-8 max-w-7xl mx-auto">
+      <div class="fade-observe flex flex-col items-center text-center max-w-4xl mx-auto space-y-6 sm:space-y-8">
+        
+        <!-- Status Indicator Pill -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0F172A]/80 border border-white/[0.08] text-[11px] font-mono tracking-widest uppercase text-[#94A3B8]">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Bespoke Engineering & Authentic Optics</span>
+        </div>
+
+        <!-- Master Headline -->
+        <h1 class="text-3xl sm:text-6xl md:text-7xl font-display font-bold tracking-[-0.03em] leading-[1.08] text-white">
+          Own your digital footprint. <br />
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#CBD5E1] via-[#38BDF8] to-[#2563EB]">
+            No templates. No monthly rent.
+          </span>
+        </h1>
+
+        <!-- Reading Copy -->
+        <p class="text-sm sm:text-lg text-[#94A3B8] leading-relaxed max-w-[650px]">
+          Most agencies lease you bloated WordPress themes on life support. Viewport Digital writes high-performance static architecture on Astro, paired with bespoke commercial photography that captures real physical substance.
+        </p>
+
+        <!-- CTA Cluster -->
+        <div class="flex flex-col sm:flex-row items-center gap-4 pt-2 w-full sm:w-auto">
+          <a href="#pricing" class="tactile-btn w-full sm:w-auto px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider text-white bg-gradient-to-r from-[#2563EB] to-blue-700 hover:from-blue-600 hover:to-blue-800 border border-[#38BDF8]/40 shadow-xl shadow-[#2563EB]/30 text-center">
+            View Tiers & Pricing
+          </a>
+          <a href="#paradigm" class="tactile-btn w-full sm:w-auto px-8 py-4 rounded-xl text-sm font-semibold tracking-wider text-[#CBD5E1] hover:text-white glass-panel border border-white/[0.08] hover:border-white/20 text-center">
+            Compare The Architecture
+          </a>
+        </div>
+
+        <!-- 4 Archival Trust Metrics -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full pt-10 text-left">
+          <div class="glass-panel p-4 sm:p-5 rounded-xl">
+            <span class="font-mono text-xs text-[#94A3B8] block">RENDER TIME</span>
+            <span class="font-display text-xl sm:text-2xl font-bold text-white">&lt; 350ms</span>
+            <p class="text-[11px] sm:text-xs text-[#94A3B8] mt-1">Edge distribution via Vercel</p>
+          </div>
+          <div class="glass-panel p-4 sm:p-5 rounded-xl">
+            <span class="font-mono text-xs text-[#94A3B8] block">CODE OWNERSHIP</span>
+            <span class="font-display text-xl sm:text-2xl font-bold text-[#38BDF8]">100%</span>
+            <p class="text-[11px] sm:text-xs text-[#94A3B8] mt-1">Stored in your GitHub repo</p>
+          </div>
+          <div class="glass-panel p-4 sm:p-5 rounded-xl">
+            <span class="font-mono text-xs text-[#94A3B8] block">MONTHLY RENT</span>
+            <span class="font-display text-xl sm:text-2xl font-bold text-emerald-400">$0.00</span>
+            <p class="text-[11px] sm:text-xs text-[#94A3B8] mt-1">Zero mandatory site fees</p>
+          </div>
+          <div class="glass-panel p-4 sm:p-5 rounded-xl">
+            <span class="font-mono text-xs text-[#94A3B8] block">VISUAL ASSETS</span>
+            <span class="font-display text-xl sm:text-2xl font-bold text-white">Full Raw/Edit</span>
+            <p class="text-[11px] sm:text-xs text-[#94A3B8] mt-1">Authentic commercial photography</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- THE PARADIGM: ENGINEERED VS TEMPLATE -->
+    <section id="paradigm" class="px-4 sm:px-8 max-w-7xl mx-auto">
+      <div class="fade-observe space-y-4 mb-10 text-center md:text-left">
+        <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Engineering Contrast</span>
+        <h2 class="text-2xl sm:text-4xl font-display font-bold text-white tracking-tight">The Reality Gap: Engineered Code vs. Subscription Clutter</h2>
+        <p class="text-[#94A3B8] max-w-2xl text-sm sm:text-base">
+          Wix, Squarespace, and bloated CMS builds hold your domain hostage while bleeding recurring cash. Here is the concrete technical breakdown.
+        </p>
+      </div>
+
+      <div class="fade-observe grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="glass-panel p-6 sm:p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between">
+          <div class="space-y-4">
+            <span class="text-xs font-mono uppercase tracking-wider text-[#38BDF8]">Structural Model</span>
+            <h3 class="text-xl sm:text-2xl font-display font-bold text-white">Engineered vs. Template</h3>
+            <p class="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
+              Templates load 40 unused JavaScript libraries, tracking bloat, and fragile layout builders that collapse across screens.
+            </p>
+            <ul class="space-y-2.5 pt-2 text-xs font-mono">
+              <li class="flex items-center gap-2 text-white">
+                <svg class="w-4 h-4 text-[#38BDF8] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Engineered: Semantic Astro HTML compiled at build
+              </li>
+              <li class="flex items-center gap-2 text-[#94A3B8]">
+                <svg class="w-4 h-4 text-red-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                Templates: 4MB DOM trees and messy div soup
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/[0.08] text-xs text-[#94A3B8]">
+            Result: 100/100 Google Lighthouse performance score.
+          </div>
+        </div>
+
+        <div class="glass-panel p-6 sm:p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between border-[#2563EB]/40">
+          <div class="space-y-4">
+            <span class="text-xs font-mono uppercase tracking-wider text-[#38BDF8]">Financial Model</span>
+            <h3 class="text-xl sm:text-2xl font-display font-bold text-white">Flat Fee vs. Subscription</h3>
+            <p class="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
+              Agencies trap you in $200–$500/month recurring builder fees just to keep your landing page live. Stop paying monthly rent for plain text.
+            </p>
+            <ul class="space-y-2.5 pt-2 text-xs font-mono">
+              <li class="flex items-center gap-2 text-white">
+                <svg class="w-4 h-4 text-[#38BDF8] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Flat Fee: You pay once for the completed asset
+              </li>
+              <li class="flex items-center gap-2 text-[#94A3B8]">
+                <svg class="w-4 h-4 text-red-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                Subscription: Monthly lock-ins that compound forever
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/[0.08] text-xs text-[#94A3B8]">
+            Result: Real capital efficiency and predictable spend.
+          </div>
+        </div>
+
+        <div class="glass-panel p-6 sm:p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between">
+          <div class="space-y-4">
+            <span class="text-xs font-mono uppercase tracking-wider text-[#38BDF8]">Asset Control</span>
+            <h3 class="text-xl sm:text-2xl font-display font-bold text-white">Ownership vs. Renting</h3>
+            <p class="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
+              If your SaaS provider closes or hikes fees 300%, you lose your website. Viewport delivers pure code you can host anywhere on earth.
+            </p>
+            <ul class="space-y-2.5 pt-2 text-xs font-mono">
+              <li class="flex items-center gap-2 text-white">
+                <svg class="w-4 h-4 text-[#38BDF8] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Ownership: Clean Git repo and DNS ownership
+              </li>
+              <li class="flex items-center gap-2 text-[#94A3B8]">
+                <svg class="w-4 h-4 text-red-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                Renting: Proprietary silos you cannot export
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/[0.08] text-xs text-[#94A3B8]">
+            Result: A true digital asset that adds equity to your balance sheet.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- THE PRODUCTION STACK -->
+    <section id="stack" class="px-4 sm:px-8 max-w-7xl mx-auto">
+      <div class="fade-observe glass-panel p-6 sm:p-12 rounded-3xl border border-white/[0.08] relative overflow-hidden">
+        
+        <div class="max-w-3xl space-y-4 mb-10">
+          <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Modern Stack Ecosystem</span>
+          <h2 class="text-2xl sm:text-4xl font-display font-bold text-white tracking-tight">Purpose-Built Infrastructure</h2>
+          <p class="text-[#94A3B8] text-xs sm:text-base leading-relaxed">
+            Every layer of your build is selected for zero bloat, sub-second execution, enterprise-tier security, and clean developer ergonomics.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 font-mono">
+          
+          <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors">
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
+              <span class="font-bold">ASTRO</span>
+              <span>RENDER CORE</span>
+            </div>
+            <p class="text-xs text-[#CBD5E1] leading-relaxed font-sans">
+              Handles lightning-fast static rendering by stripping away client-side JS by default for raw HTML delivery.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors">
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
+              <span class="font-bold">VERCEL</span>
+              <span>EDGE COMPUTE</span>
+            </div>
+            <p class="text-xs text-[#CBD5E1] leading-relaxed font-sans">
+              Powers instant global edge deployments, auto-routing your visitors to the nearest data center node.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors">
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
+              <span class="font-bold">CURSOR + GEMINI</span>
+              <span>SYNTHESIS</span>
+            </div>
+            <p class="text-xs text-[#CBD5E1] leading-relaxed font-sans">
+              Drives clean workspace code generation, eliminating human error across boilerplate and schema definitions.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors">
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
+              <span class="font-bold">GITHUB</span>
+              <span>VERSION CONTROL</span>
+            </div>
+            <p class="text-xs text-[#CBD5E1] leading-relaxed font-sans">
+              Anchors version control and provides full transparency. You hold the master branch keys forever.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors">
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
+              <span class="font-bold">TAILWIND CSS</span>
+              <span>DESIGN SYSTEM</span>
+            </div>
+            <p class="text-xs text-[#CBD5E1] leading-relaxed font-sans">
+              Styles the UI through strict atomic token sets without runtime styling engine bottlenecks.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors">
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
+              <span class="font-bold">SUPABASE</span>
+              <span>RELATIONAL DATA</span>
+            </div>
+            <p class="text-xs text-[#CBD5E1] leading-relaxed font-sans">
+              Handles database scaling, user auth pools, and PostgreSQL storage when dynamic portals are required.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors">
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
+              <span class="font-bold">SENTRY</span>
+              <span>TELEMETRY</span>
+            </div>
+            <p class="text-xs text-[#CBD5E1] leading-relaxed font-sans">
+              Catches production errors and client performance regressions before customers notice them.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors">
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
+              <span class="font-bold">RESEND</span>
+              <span>COMMUNICATIONS</span>
+            </div>
+            <p class="text-xs text-[#CBD5E1] leading-relaxed font-sans">
+              Manages transactional lead alerts and customer confirmation emails with 99.9% inbox deliverability.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors">
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
+              <span class="font-bold">CLOUDFLARE</span>
+              <span>SECURITY & DNS</span>
+            </div>
+            <p class="text-xs text-[#CBD5E1] leading-relaxed font-sans">
+              Locks down the DNS edge with enterprise DDoS mitigation and high-speed SSL cert rotation.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMERCIAL PHOTOGRAPHY INTEGRATION -->
+    <section id="photography" class="px-4 sm:px-8 max-w-7xl mx-auto">
+      <div class="fade-observe grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Authentic Visual Assets</span>
+          <h2 class="text-2xl sm:text-5xl font-display font-bold text-white tracking-tight leading-tight">
+            Stop pasting fake stock photos into real business websites.
+          </h2>
+          <p class="text-[#94A3B8] text-xs sm:text-base leading-relaxed">
+            Customers immediately spot plastic corporate stock photography. It destroys trust before they finish reading your hero line. Viewport Digital pairs web architecture directly with dedicated commercial photography.
+          </p>
+          <div class="space-y-3 pt-2">
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded bg-[#0F172A] flex items-center justify-center border border-[#2563EB]/40 text-[#38BDF8] text-xs font-bold shrink-0 mt-0.5">01</div>
+              <p class="text-xs sm:text-sm text-[#CBD5E1]"><strong class="text-white">Workspace & Field Reality:</strong> Crisp shots of your team doing the actual work, shop interiors, fleet machinery, and storefront curb appeal.</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded bg-[#0F172A] flex items-center justify-center border border-[#2563EB]/40 text-[#38BDF8] text-xs font-bold shrink-0 mt-0.5">02</div>
+              <p class="text-xs sm:text-sm text-[#CBD5E1]"><strong class="text-white">Component-Ready Assets:</strong> Formatted specifically for Astro modern image pipelines (AVIF/WebP) with custom aspect ratios that do not break CSS grids.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 glass-panel p-6 sm:p-8 rounded-2xl border border-white/[0.08] relative">
+          <div class="flex items-center justify-between pb-4 border-b border-white/[0.08] text-xs font-mono text-[#94A3B8]">
+            <span>OPTICAL_PIPELINE.LOG</span>
+            <span class="text-emerald-400">READY FOR ASTRO</span>
+          </div>
+          <div class="mt-6 space-y-4">
+            <div class="h-44 sm:h-56 rounded-xl bg-gradient-to-br from-[#0F172A] via-[#0B0F19] to-[#030712] border border-white/[0.08] flex items-center justify-center relative overflow-hidden group">
+              <div class="absolute inset-0 bg-[#2563EB]/10 opacity-30 group-hover:opacity-60 transition-opacity"></div>
+              <div class="text-center p-4 relative z-10">
+                <svg class="w-12 h-12 text-[#94A3B8] mx-auto mb-2 opacity-60 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span class="font-mono text-xs text-[#CBD5E1] uppercase tracking-wider block">Raw Optical Precision</span>
+                <span class="text-[11px] text-[#94A3B8]">Canon Full-Frame Prime Captures • Custom Color Profiles</span>
+              </div>
+            </div>
+            
+            <div class="p-4 rounded-lg bg-[#0F172A]/60 border border-white/[0.08] flex items-center justify-between">
+              <div>
+                <span class="text-xs font-bold text-white block">The Web Dev Bundle Incentive</span>
+                <span class="text-[11px] text-[#94A3B8]">Save $150 instantly when bundled with any website tier</span>
+              </div>
+              <span class="text-sm font-mono font-bold text-emerald-400">-$150.00</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- COMPLETE PRICING & TIERS -->
+    <section id="pricing" class="px-4 sm:px-8 max-w-7xl mx-auto space-y-12 sm:space-y-16">
+      
+      <div class="fade-observe space-y-4 text-center max-w-3xl mx-auto">
+        <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Transparent Pricing</span>
+        <h2 class="text-2xl sm:text-5xl font-display font-bold text-white tracking-tight">Website Architecture Packages</h2>
+        <p class="text-[#94A3B8] text-xs sm:text-base">
+          Flat-fee deliverables. Clear turnaround. No endless hourly bills or platform licensing fees.
+        </p>
+      </div>
+
+      <div class="fade-observe grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        
+        <!-- Tier 1 -->
+        <div class="glass-panel glass-card-interactive p-6 sm:p-8 rounded-2xl flex flex-col justify-between">
+          <div class="space-y-6">
+            <div class="space-y-2">
+              <span class="text-xs font-mono uppercase tracking-widest text-[#94A3B8]">Tier 01</span>
+              <h3 class="text-xl sm:text-2xl font-display font-bold text-white">The Local Landing Page</h3>
+              <p class="text-xs text-[#94A3B8]">Single-page builds, transport fleets, service contractors, or targeted campaigns.</p>
+            </div>
+            
+            <div class="py-4 border-y border-white/[0.08]">
+              <span class="text-2xl sm:text-4xl font-display font-bold text-white">$750 – $1,200</span>
+              <span class="text-xs font-mono text-[#94A3B8] block mt-1">One-time flat fee</span>
+            </div>
+
+            <div class="space-y-3">
+              <span class="text-xs font-mono uppercase text-[#CBD5E1] tracking-wider block">Scope of Deliverables:</span>
+              <ul class="space-y-2.5 text-xs text-[#94A3B8]">
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  High-impact single page architecture on Astro
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Strict mobile-first responsive layout
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Formspree zero-backend contact integration
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  High-speed edge setup on Vercel
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-6 sm:pt-8 mt-6 border-t border-white/[0.08]">
+            <a href="#contact" class="tactile-btn block w-full py-3 text-center text-xs font-bold uppercase tracking-wider text-white bg-[#0F172A] hover:bg-[#2563EB] border border-white/[0.08] hover:border-[#38BDF8] rounded-lg transition-colors">
+              Select Tier 1
+            </a>
+          </div>
+        </div>
+
+        <!-- Tier 2 (Core Recommendation) -->
+        <div class="glass-panel glass-card-interactive p-6 sm:p-8 rounded-2xl flex flex-col justify-between border-[#38BDF8]/40 shadow-2xl shadow-[#2563EB]/15 relative">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-0.5 bg-[#2563EB] text-white font-mono text-[10px] uppercase font-bold tracking-widest rounded-full border border-[#38BDF8]">
+            Core Recommendation
+          </div>
+
+          <div class="space-y-6">
+            <div class="space-y-2">
+              <span class="text-xs font-mono uppercase tracking-widest text-[#38BDF8]">Tier 02</span>
+              <h3 class="text-xl sm:text-2xl font-display font-bold text-white">The Multi-Page Core</h3>
+              <p class="text-xs text-[#94A3B8]">Established local businesses, clinics, and professional firms needing depth.</p>
+            </div>
+            
+            <div class="py-4 border-y border-white/[0.08]">
+              <span class="text-2xl sm:text-4xl font-display font-bold text-white">$1,800 – $3,200</span>
+              <span class="text-xs font-mono text-[#94A3B8] block mt-1">One-time flat fee</span>
+            </div>
+
+            <div class="space-y-3">
+              <span class="text-xs font-mono uppercase text-[#CBD5E1] tracking-wider block">Scope of Deliverables:</span>
+              <ul class="space-y-2.5 text-xs text-[#CBD5E1]">
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Up to 5 custom routes (Home, Services, About, Gallery, Contact)
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Seamless commercial photography component integration
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Architectural local SEO metadata & OpenGraph schemas
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Recorded video training & 30-day stabilization buffer
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-6 sm:pt-8 mt-6 border-t border-white/[0.08]">
+            <a href="#contact" class="tactile-btn block w-full py-3 text-center text-xs font-bold uppercase tracking-wider text-white bg-[#2563EB] hover:bg-blue-600 rounded-lg shadow-lg shadow-[#2563EB]/30 border border-[#38BDF8]/60">
+              Select Tier 2
+            </a>
+          </div>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="glass-panel glass-card-interactive p-6 sm:p-8 rounded-2xl flex flex-col justify-between">
+          <div class="space-y-6">
+            <div class="space-y-2">
+              <span class="text-xs font-mono uppercase tracking-widest text-[#94A3B8]">Tier 03</span>
+              <h3 class="text-xl sm:text-2xl font-display font-bold text-white">The Custom Portal & App</h3>
+              <p class="text-xs text-[#94A3B8]">Interactive onboarding flows, membership portals, and multi-step data collection.</p>
+            </div>
+            
+            <div class="py-4 border-y border-white/[0.08]">
+              <span class="text-2xl sm:text-4xl font-display font-bold text-white">$3,500 – $6,500+</span>
+              <span class="text-xs font-mono text-[#94A3B8] block mt-1">Based on database & logic depth</span>
+            </div>
+
+            <div class="space-y-3">
+              <span class="text-xs font-mono uppercase text-[#CBD5E1] tracking-wider block">Scope of Deliverables:</span>
+              <ul class="space-y-2.5 text-xs text-[#94A3B8]">
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Astro Server-Side Rendering (SSR) configuration
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Relational Supabase database + secure authentication
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Custom dashboard logic generated via Cursor and Gemini
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Sentry error tracking & Resend automated email dispatch
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-6 sm:pt-8 mt-6 border-t border-white/[0.08]">
+            <a href="#contact" class="tactile-btn block w-full py-3 text-center text-xs font-bold uppercase tracking-wider text-white bg-[#0F172A] hover:bg-[#2563EB] border border-white/[0.08] hover:border-[#38BDF8] rounded-lg transition-colors">
+              Select Tier 3
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PHOTOGRAPHY PACKAGES -->
+      <div class="fade-observe pt-8 space-y-6">
+        <div class="border-t border-white/[0.08] pt-10 text-center md:text-left">
+          <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Optics & Production</span>
+          <h3 class="text-xl sm:text-3xl font-display font-bold text-white mt-1">Commercial Photography Packages</h3>
+          <p class="text-xs sm:text-sm text-[#94A3B8] mt-1">Authentic visual proof captured on-site to give your Astro site undeniable presence.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="glass-panel p-6 rounded-xl space-y-3">
+            <div class="flex justify-between items-start">
+              <span class="text-xs font-mono uppercase text-[#94A3B8]">Package 01</span>
+              <span class="text-xl font-display font-bold text-white">$350</span>
+            </div>
+            <h4 class="text-base font-bold text-white">The Web Asset Starter</h4>
+            <p class="text-xs text-[#94A3B8] leading-relaxed">
+              The natural pairing for a single-page landing build. One location, roughly one hour on-site. Clean headshots, sharp storefront angles, and immediate texture.
+            </p>
+            <div class="pt-3 border-t border-white/[0.08] text-xs font-mono text-[#38BDF8]">
+              10 to 15 fully edited, web-optimized files.
+            </div>
+          </div>
+
+          <div class="glass-panel p-6 rounded-xl space-y-3 border-[#38BDF8]/30">
+            <div class="flex justify-between items-start">
+              <span class="text-xs font-mono uppercase text-[#38BDF8]">Package 02</span>
+              <span class="text-xl font-display font-bold text-white">$750</span>
+            </div>
+            <h4 class="text-base font-bold text-white">The Full Brand Suite</h4>
+            <p class="text-xs text-[#94A3B8] leading-relaxed">
+              Built for the multi-page business core. Half-day commitment. Multiple setups across the workspace. Action shots of the crew doing actual work, interior details, and curb appeal.
+            </p>
+            <div class="pt-3 border-t border-white/[0.08] text-xs font-mono text-[#38BDF8]">
+              30 to 40 polished images ready for Astro components.
+            </div>
+          </div>
+
+          <div class="glass-panel p-6 rounded-xl space-y-3">
+            <div class="flex justify-between items-start">
+              <span class="text-xs font-mono uppercase text-[#94A3B8]">Package 03</span>
+              <span class="text-xl font-display font-bold text-white">$1,500+</span>
+            </div>
+            <h4 class="text-base font-bold text-white">Full-Day Commercial Production</h4>
+            <p class="text-xs text-[#94A3B8] leading-relaxed">
+              Heavy lifting. A full day on the ground. Complex lighting setups, multi-room facilities, massive inventory catalogs, or sprawling business footprints.
+            </p>
+            <div class="pt-3 border-t border-white/[0.08] text-xs font-mono text-[#38BDF8]">
+              Comprehensive raw archive + deep file delivery.
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-panel p-5 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono">
+          <div class="flex flex-wrap items-center gap-4">
+            <span><strong class="text-white">A LA CARTE:</strong> $125 / hour for ad-hoc photo tasks</span>
+            <span><strong class="text-white">BUNDLE REBATE:</strong> -$150 off photography with Web Dev</span>
+          </div>
+          <span class="text-[#38BDF8]">High Value • Full Copyright Release</span>
+        </div>
+      </div>
+
+      <!-- WEBSITE CARE RETAINERS -->
+      <div class="fade-observe pt-6 space-y-6">
+        <div class="border-t border-white/[0.08] pt-10 text-center md:text-left">
+          <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Ongoing Reliability</span>
+          <h3 class="text-xl sm:text-3xl font-display font-bold text-white mt-1">Structured Website Care Retainers</h3>
+          <p class="text-xs sm:text-sm text-[#94A3B8] mt-1">Optional maintenance buffers. You own the code regardless; these tiers keep updates off your plate.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="glass-panel p-6 rounded-xl space-y-3">
+            <div class="flex justify-between items-baseline">
+              <h4 class="text-base font-bold text-white">Basic Care</h4>
+              <span class="font-mono text-base font-bold text-white">$75 <span class="text-xs text-[#94A3B8]">/mo</span></span>
+            </div>
+            <p class="text-xs text-[#94A3B8]">Dependency checks, Vercel edge upkeep, uptime monitoring, and 30 mins of minor edits.</p>
+          </div>
+
+          <div class="glass-panel p-6 rounded-xl space-y-3 border-[#2563EB]/40">
+            <div class="flex justify-between items-baseline">
+              <h4 class="text-base font-bold text-white">Growth Retainer</h4>
+              <span class="font-mono text-base font-bold text-[#38BDF8]">$150 <span class="text-xs text-[#94A3B8]">/mo</span></span>
+            </div>
+            <p class="text-xs text-[#94A3B8]">Priority queue response and up to two (2) hours of layout edits or asset swaps per month.</p>
+          </div>
+
+          <div class="glass-panel p-6 rounded-xl space-y-3">
+            <div class="flex justify-between items-baseline">
+              <h4 class="text-base font-bold text-white">Scale Retainer</h4>
+              <span class="font-mono text-base font-bold text-white">$300 <span class="text-xs text-[#94A3B8]">/mo</span></span>
+            </div>
+            <p class="text-xs text-[#94A3B8]">For dynamic portals. Supabase management, same-day bug remediation, and 4 hours of updates.</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- INTAKE & DIRECT CONTACT ANCHOR -->
+    <section id="contact" class="px-4 sm:px-8 max-w-4xl mx-auto pb-16">
+      <div class="fade-observe glass-panel p-6 sm:p-12 rounded-3xl border border-white/[0.08] space-y-8 relative overflow-hidden">
+        
+        <div class="text-center space-y-3">
+          <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Zero Dead-End Architecture</span>
+          <h2 class="text-2xl sm:text-4xl font-display font-bold text-white">Initiate Your Build Specifications</h2>
+          <p class="text-xs sm:text-sm text-[#94A3B8] max-w-lg mx-auto">
+            Direct communication with the engineer and photographer. No account managers or sales runarounds.
+          </p>
+        </div>
+
+        <form class="space-y-6" onsubmit="event.preventDefault(); alert('Inquiry logged into Viewport Digital dispatch pipeline.');">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            <div class="space-y-2">
+              <label class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Your Name</label>
+              <input type="text" required placeholder="Jane Doe" class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors" />
+            </div>
+            <div class="space-y-2">
+              <label class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Email Address</label>
+              <input type="email" required placeholder="jane@company.com" class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            <div class="space-y-2">
+              <label class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Target Web Tier</label>
+              <select class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors">
+                <option>Tier 1: Landing Page ($750 - $1,200)</option>
+                <option selected>Tier 2: Business Core ($1,800 - $3,200)</option>
+                <option>Tier 3: Custom Portal ($3,500 - $6,500+)</option>
+                <option>A La Carte / Custom Architecture</option>
+              </select>
+            </div>
+            <div class="space-y-2">
+              <label class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Commercial Photography Add-on</label>
+              <select class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors">
+                <option>Starter Suite ($350 - $150 bundle rebate)</option>
+                <option selected>Full Brand Suite ($750 - $150 bundle rebate)</option>
+                <option>Full-Day Production ($1,500+)</option>
+                <option>No Photography Needed</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Project Scope & Objectives</label>
+            <textarea rows="4" required placeholder="Describe your current site bottlenecks, workflow goals, or required integrations..." class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors"></textarea>
+          </div>
+
+          <button type="submit" class="tactile-btn w-full py-4 text-center text-sm font-bold uppercase tracking-wider text-white bg-[#2563EB] hover:bg-blue-600 rounded-xl shadow-xl shadow-[#2563EB]/30 border border-[#38BDF8]/50">
+            Submit Specifications to Viewport Digital
+          </button>
+        </form>
+
+        <div class="text-center pt-2">
+          <span class="text-xs font-mono text-[#94A3B8]">White-glove handover included: Video docs, Git repository push, and 30-day warranty.</span>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
-  <!-- Archival Footer -->
-  <footer class="border-t border-white/[0.08] bg-[#020617] py-12 px-4 sm:px-8 text-xs font-mono text-[#94A3B8] mt-24">
+  <!-- ARCHIVAL FOOTER -->
+  <footer class="border-t border-white/[0.08] bg-[#020617] py-12 px-4 sm:px-8 text-xs font-mono text-[#94A3B8]">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-3">
         <div class="w-6 h-6 rounded bg-[#2563EB]/20 border border-[#2563EB]/40 flex items-center justify-center overflow-hidden shrink-0">
@@ -122,10 +754,11 @@ const {
       </div>
 
       <div class="flex items-center gap-6">
-        <a href="/" class="hover:text-white transition-colors">HOME</a>
-        <a href="/process" class="hover:text-white transition-colors">OUR PROCESS</a>
-        <a href="/pricing" class="hover:text-white transition-colors">TIERS & PRICING</a>
-        <a href="/contact" class="hover:text-white transition-colors">CONTACT</a>
+        <a href="#hero" class="hover:text-white transition-colors">TOP</a>
+        <a href="#paradigm" class="hover:text-white transition-colors">PARADIGM</a>
+        <a href="#stack" class="hover:text-white transition-colors">STACK</a>
+        <a href="#photography" class="hover:text-white transition-colors">OPTICS</a>
+        <a href="#pricing" class="hover:text-white transition-colors">TIERS</a>
       </div>
 
       <div>
@@ -134,20 +767,57 @@ const {
     </div>
   </footer>
 
+  <!-- CLIENT-SIDE HAMBURGER & OBSERVER SCRIPT -->
   <script is:inline>
     document.addEventListener('DOMContentLoaded', () => {
+      // 1. Mobile Hamburger Toggle Logic
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const hamburgerIcon = document.getElementById('hamburger-icon');
+      const closeIcon = document.getElementById('close-icon');
+
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+          const isOpen = !mobileMenu.classList.contains('hidden');
+          if (isOpen) {
+            mobileMenu.classList.add('hidden');
+            hamburgerIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+          } else {
+            mobileMenu.classList.remove('hidden');
+            hamburgerIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+          }
+        });
+
+        // Close menu when tapping any link
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            hamburgerIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+          });
+        });
+      }
+
+      // 2. Safe Intersection Observer (Content stays visible regardless)
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) entry.target.classList.add('is-visible');
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
         });
-      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+      }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+
       document.querySelectorAll('.fade-observe').forEach(el => observer.observe(el));
     });
   </script>
+
 </body>
 </html>
 
 <style is:global>
+  /* Glassmorphism 2.0 specs */
   .glass-panel {
     background: radial-gradient(120% 120% at 50% 0%, rgba(30, 41, 59, 0.5) 0%, rgba(11, 15, 25, 0.75) 100%);
     backdrop-filter: blur(16px);
@@ -155,6 +825,7 @@ const {
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
+  
   .glass-card-interactive {
     transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
   }
@@ -163,28 +834,32 @@ const {
     border-color: rgba(56, 189, 248, 0.35);
     box-shadow: 0 24px 48px -12px rgba(37, 99, 235, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
+
+  /* Safe Fade-In: Opacity starts at 0.94 so mobile never sees an empty screen */
   .fade-observe {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: opacity, transform;
+    opacity: 0.94;
+    transform: translateY(0);
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .fade-observe.is-visible {
     opacity: 1;
     transform: translateY(0);
   }
+
   .bg-grid-mesh {
     background-size: 40px 40px;
     background-image: 
       linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   }
+
   .tactile-btn {
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .tactile-btn:active {
     transform: scale(0.97);
   }
+
   a {
     text-decoration: none;
     color: inherit;
