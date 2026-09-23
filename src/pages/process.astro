@@ -1,258 +1,163 @@
 ---
 // src/pages/process.astro
+// Viewport Digital LLC - Process / Modern Stack Ecosystem
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Our Process & Stack | Viewport Digital LLC" currentPath="/process">
-  <div class="space-y-20 sm:space-y-28 pt-12 sm:pt-20 px-4 sm:px-8 max-w-7xl mx-auto">
+<Layout title="Modern Stack Ecosystem | Viewport Digital LLC" currentPath="/process">
+  <div class="pt-8 sm:pt-16 pb-16 px-4 sm:px-8 max-w-7xl mx-auto">
     
-    <!-- Hero Intro -->
-    <section class="fade-observe flex flex-col items-center text-center max-w-4xl mx-auto space-y-6 sm:space-y-8">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0F172A]/80 border border-white/[0.08] text-[11px] font-mono tracking-widest uppercase text-[#94A3B8]">
-        <span class="w-2 h-2 rounded-full bg-[#38BDF8] animate-ping"></span>
-        <span>Bespoke Engineering & Authentic Optics</span>
-      </div>
-
-      <h1 class="text-3xl sm:text-6xl md:text-7xl font-display font-bold tracking-[-0.03em] leading-[1.08] text-white">
-        Own your digital footprint. <br />
-        <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#CBD5E1] via-[#38BDF8] to-[#2563EB]">
-          No templates. No monthly rent.
+    <div class="fade-observe glass-panel p-6 sm:p-12 rounded-3xl border border-white/[0.08] relative overflow-hidden">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl space-y-4 mb-10 text-left">
+        <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase block">
+          MODERN STACK ECOSYSTEM
         </span>
-      </h1>
-
-      <p class="text-sm sm:text-lg text-[#94A3B8] leading-relaxed max-w-[650px]">
-        Most agencies lease you bloated WordPress themes on life support. Viewport Digital writes high-performance static architecture on Astro, paired with bespoke commercial photography that captures real physical substance.
-      </p>
-
-      <div class="flex flex-col sm:flex-row items-center gap-4 pt-2 w-full sm:w-auto">
-        <a href="/pricing" class="tactile-btn w-full sm:w-auto px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider text-white bg-gradient-to-r from-[#2563EB] to-blue-700 hover:from-blue-600 hover:to-blue-800 border border-[#38BDF8]/40 shadow-xl shadow-[#2563EB]/30 text-center">
-          View Tiers & Pricing
-        </a>
-        <a href="#engineered" class="tactile-btn w-full sm:w-auto px-8 py-4 rounded-xl text-sm font-semibold tracking-wider text-[#CBD5E1] hover:text-white glass-panel border border-white/[0.08] hover:border-white/20 text-center">
-          Compare The Architecture
-        </a>
-      </div>
-
-      <!-- 4 Trust Metrics -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full pt-10 text-left">
-        <div class="glass-panel p-4 sm:p-5 rounded-xl">
-          <span class="font-mono text-xs text-[#94A3B8] block">RENDER TIME</span>
-          <span class="font-display text-xl sm:text-2xl font-bold text-white">&lt; 350ms</span>
-          <p class="text-[11px] sm:text-xs text-[#94A3B8] mt-1">Edge distribution via Vercel</p>
-        </div>
-        <div class="glass-panel p-4 sm:p-5 rounded-xl">
-          <span class="font-mono text-xs text-[#94A3B8] block">CODE OWNERSHIP</span>
-          <span class="font-display text-xl sm:text-2xl font-bold text-[#38BDF8]">100%</span>
-          <p class="text-[11px] sm:text-xs text-[#94A3B8] mt-1">Stored in your GitHub repo</p>
-        </div>
-        <div class="glass-panel p-4 sm:p-5 rounded-xl">
-          <span class="font-mono text-xs text-[#94A3B8] block">MONTHLY RENT</span>
-          <span class="font-display text-xl sm:text-2xl font-bold text-emerald-400">$0.00</span>
-          <p class="text-[11px] sm:text-xs text-[#94A3B8] mt-1">Zero mandatory site fees</p>
-        </div>
-        <div class="glass-panel p-4 sm:p-5 rounded-xl">
-          <span class="font-mono text-xs text-[#94A3B8] block">VISUAL ASSETS</span>
-          <span class="font-display text-xl sm:text-2xl font-bold text-white">Full Raw/Edit</span>
-          <p class="text-[11px] sm:text-xs text-[#94A3B8] mt-1">Authentic commercial photography</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Detailed Paradigm Grid -->
-    <section id="engineered" class="space-y-8">
-      <div class="fade-observe space-y-3 text-center md:text-left">
-        <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Engineering Contrast</span>
-        <h2 class="text-2xl sm:text-4xl font-display font-bold text-white tracking-tight">The Reality Gap: Engineered Code vs. Subscription Clutter</h2>
-        <p class="text-[#94A3B8] max-w-2xl text-sm sm:text-base">
-          Wix, Squarespace, and bloated CMS builds hold your domain hostage while bleeding recurring cash. Here is the concrete technical breakdown.
-        </p>
-      </div>
-
-      <div class="fade-observe grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4 flex flex-col justify-between">
-          <div class="space-y-3">
-            <span class="text-xs font-mono uppercase text-[#38BDF8]">Structural Model</span>
-            <h3 class="text-xl font-display font-bold text-white">Engineered vs. Template</h3>
-            <p class="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
-              Templates load 40 unused JavaScript libraries, tracking bloat, and fragile layout builders that collapse across screens.
-            </p>
-            <ul class="space-y-2 pt-2 text-xs font-mono">
-              <li class="flex items-center gap-2 text-white">
-                <svg class="w-4 h-4 text-[#38BDF8] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                Engineered: Semantic Astro HTML compiled at build
-              </li>
-              <li class="flex items-center gap-2 text-[#94A3B8]">
-                <svg class="w-4 h-4 text-red-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                Templates: 4MB DOM trees and messy div soup
-              </li>
-            </ul>
-          </div>
-          <div class="pt-4 border-t border-white/[0.08] text-xs font-mono text-[#38BDF8]">
-            Result: 100/100 Google Lighthouse performance score.
-          </div>
-        </div>
-
-        <div class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4 flex flex-col justify-between border-[#2563EB]/40">
-          <div class="space-y-3">
-            <span class="text-xs font-mono uppercase text-[#38BDF8]">Financial Model</span>
-            <h3 class="text-xl font-display font-bold text-white">Flat Fee vs. Subscription</h3>
-            <p class="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
-              Agencies trap you in $200–$500/month recurring builder fees just to keep your landing page live. Stop paying monthly rent for plain text.
-            </p>
-            <ul class="space-y-2 pt-2 text-xs font-mono">
-              <li class="flex items-center gap-2 text-white">
-                <svg class="w-4 h-4 text-[#38BDF8] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                Flat Fee: You pay once for the completed asset
-              </li>
-              <li class="flex items-center gap-2 text-[#94A3B8]">
-                <svg class="w-4 h-4 text-red-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                Subscription: Monthly lock-ins that compound forever
-              </li>
-            </ul>
-          </div>
-          <div class="pt-4 border-t border-white/[0.08] text-xs font-mono text-[#38BDF8]">
-            Result: Real capital efficiency and predictable spend.
-          </div>
-        </div>
-
-        <div class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4 flex flex-col justify-between">
-          <div class="space-y-3">
-            <span class="text-xs font-mono uppercase text-[#38BDF8]">Asset Control</span>
-            <h3 class="text-xl font-display font-bold text-white">Ownership vs. Renting</h3>
-            <p class="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
-              If your SaaS provider closes or hikes fees 300%, you lose your website. Viewport delivers pure code you can host anywhere on earth.
-            </p>
-            <ul class="space-y-2 pt-2 text-xs font-mono">
-              <li class="flex items-center gap-2 text-white">
-                <svg class="w-4 h-4 text-[#38BDF8] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                Ownership: Clean Git repo and DNS ownership
-              </li>
-              <li class="flex items-center gap-2 text-[#94A3B8]">
-                <svg class="w-4 h-4 text-red-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                Renting: Proprietary silos you cannot export
-              </li>
-            </ul>
-          </div>
-          <div class="pt-4 border-t border-white/[0.08] text-xs font-mono text-[#38BDF8]">
-            Result: A true digital asset that adds equity to your balance sheet.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 9-Part Production Stack -->
-    <section class="fade-observe glass-panel p-6 sm:p-12 rounded-3xl border border-white/[0.08]">
-      <div class="max-w-3xl space-y-3 mb-10">
-        <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Modern Stack Ecosystem</span>
-        <h2 class="text-2xl sm:text-4xl font-display font-bold text-white tracking-tight">Purpose-Built Infrastructure</h2>
-        <p class="text-xs sm:text-base text-[#94A3B8]">
+        <h1 class="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight leading-tight">
+          Purpose-Built Infrastructure
+        </h1>
+        <p class="text-sm sm:text-base text-[#94A3B8] leading-relaxed max-w-2xl">
           Every layer of your build is selected for zero bloat, sub-second execution, enterprise-tier security, and clean developer ergonomics.
         </p>
       </div>
 
+      <!-- Purpose-Built Infrastructure Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 font-mono">
-        <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06]">
-          <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
-            <span class="font-bold">ASTRO</span><span>RENDER CORE</span>
-          </div>
-          <p class="text-xs text-[#CBD5E1] font-sans">Handles lightning-fast static rendering by stripping away client-side JS by default for raw HTML delivery.</p>
-        </div>
-
-        <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06]">
-          <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
-            <span class="font-bold">VERCEL</span><span>EDGE COMPUTE</span>
-          </div>
-          <p class="text-xs text-[#CBD5E1] font-sans">Powers instant global edge deployments, auto-routing your visitors to the nearest data center node.</p>
-        </div>
-
-        <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06]">
-          <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
-            <span class="font-bold">CURSOR + GEMINI</span><span>SYNTHESIS</span>
-          </div>
-          <p class="text-xs text-[#CBD5E1] font-sans">Drives clean workspace code generation, eliminating human error across boilerplate and schema definitions.</p>
-        </div>
-
-        <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06]">
-          <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
-            <span class="font-bold">GITHUB</span><span>VERSION CONTROL</span>
-          </div>
-          <p class="text-xs text-[#CBD5E1] font-sans">Anchors version control and provides full transparency. You hold the master branch keys forever.</p>
-        </div>
-
-        <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06]">
-          <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
-            <span class="font-bold">TAILWIND CSS</span><span>DESIGN SYSTEM</span>
-          </div>
-          <p class="text-xs text-[#CBD5E1] font-sans">Styles the UI through strict atomic token sets without runtime styling engine bottlenecks.</p>
-        </div>
-
-        <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06]">
-          <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
-            <span class="font-bold">SUPABASE</span><span>RELATIONAL DATA</span>
-          </div>
-          <p class="text-xs text-[#CBD5E1] font-sans">Handles database scaling, user auth pools, and PostgreSQL storage when dynamic portals are required.</p>
-        </div>
-
-        <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06]">
-          <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
-            <span class="font-bold">SENTRY</span><span>TELEMETRY</span>
-          </div>
-          <p class="text-xs text-[#CBD5E1] font-sans">Catches production errors and client performance regressions before customers notice them.</p>
-        </div>
-
-        <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06]">
-          <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
-            <span class="font-bold">RESEND</span><span>COMMUNICATIONS</span>
-          </div>
-          <p class="text-xs text-[#CBD5E1] font-sans">Manages transactional lead alerts and customer confirmation emails with 99.9% inbox deliverability.</p>
-        </div>
-
-        <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06]">
-          <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
-            <span class="font-bold">CLOUDFLARE</span><span>SECURITY & DNS</span>
-          </div>
-          <p class="text-xs text-[#CBD5E1] font-sans">Locks down the DNS edge with enterprise DDoS mitigation and high-speed SSL cert rotation.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Commercial Photography Integration -->
-    <section class="fade-observe grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-      <div class="lg:col-span-6 space-y-6">
-        <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Authentic Visual Assets</span>
-        <h2 class="text-2xl sm:text-5xl font-display font-bold text-white tracking-tight leading-tight">
-          Stop pasting fake stock photos into real business websites.
-        </h2>
-        <p class="text-[#94A3B8] text-xs sm:text-base leading-relaxed">
-          Customers immediately spot plastic corporate stock photography. It destroys trust before they finish reading your hero line. Viewport Digital pairs web architecture directly with dedicated commercial photography.
-        </p>
-        <div class="space-y-3 pt-2">
-          <div class="flex items-start gap-3">
-            <div class="w-6 h-6 rounded bg-[#0F172A] flex items-center justify-center border border-[#2563EB]/40 text-[#38BDF8] text-xs font-bold shrink-0 mt-0.5">01</div>
-            <p class="text-xs sm:text-sm text-[#CBD5E1]"><strong class="text-white">Workspace & Field Reality:</strong> Crisp shots of your team doing the actual work, shop interiors, fleet machinery, and storefront curb appeal.</p>
-          </div>
-          <div class="flex items-start gap-3">
-            <div class="w-6 h-6 rounded bg-[#0F172A] flex items-center justify-center border border-[#2563EB]/40 text-[#38BDF8] text-xs font-bold shrink-0 mt-0.5">02</div>
-            <p class="text-xs sm:text-sm text-[#CBD5E1]"><strong class="text-white">Component-Ready Assets:</strong> Formatted specifically for Astro modern image pipelines (AVIF/WebP) with custom aspect ratios that do not break CSS grids.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="lg:col-span-6 glass-panel p-6 sm:p-8 rounded-2xl border border-white/[0.08]">
-        <div class="flex items-center justify-between pb-4 border-b border-white/[0.08] text-xs font-mono text-[#94A3B8]">
-          <span>OPTICAL_PIPELINE.LOG</span>
-          <span class="text-emerald-400">READY FOR ASTRO</span>
-        </div>
-        <div class="mt-6 space-y-4">
-          <div class="h-48 sm:h-56 rounded-xl bg-gradient-to-br from-[#0F172A] via-[#0B0F19] to-[#030712] border border-white/[0.08] flex items-center justify-center text-center p-4">
-            <div>
-              <span class="font-mono text-sm text-[#CBD5E1] uppercase tracking-wider block font-bold">Raw Optical Precision</span>
-              <span class="text-xs text-[#38BDF8] font-mono mt-1 block">Canon Full-Frame Prime Captures • Custom Color Profiles</span>
+        
+        <!-- Astro -->
+        <div class="p-5 sm:p-6 rounded-2xl bg-[#0B0F19]/80 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs font-bold mb-3 tracking-wider">
+              <span>ASTRO</span>
+              <span class="text-[11px] font-normal text-[#94A3B8]">RENDER CORE</span>
             </div>
+            <p class="text-xs sm:text-sm text-[#CBD5E1] leading-relaxed font-sans">
+              Handles lightning-fast static rendering by stripping away client-side JS by default for raw HTML delivery.
+            </p>
           </div>
         </div>
+
+        <!-- Vercel -->
+        <div class="p-5 sm:p-6 rounded-2xl bg-[#0B0F19]/80 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs font-bold mb-3 tracking-wider">
+              <span>VERCEL</span>
+              <span class="text-[11px] font-normal text-[#94A3B8]">EDGE COMPUTE</span>
+            </div>
+            <p class="text-xs sm:text-sm text-[#CBD5E1] leading-relaxed font-sans">
+              Powers instant global edge deployments, auto-routing your visitors to the nearest data center node.
+            </p>
+          </div>
+        </div>
+
+        <!-- Cursor + Gemini -->
+        <div class="p-5 sm:p-6 rounded-2xl bg-[#0B0F19]/80 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs font-bold mb-3 tracking-wider">
+              <span>CURSOR + GEMINI</span>
+              <span class="text-[11px] font-normal text-[#94A3B8]">SYNTHESIS</span>
+            </div>
+            <p class="text-xs sm:text-sm text-[#CBD5E1] leading-relaxed font-sans">
+              Drives clean workspace code generation, eliminating human error across boilerplate and schema definitions.
+            </p>
+          </div>
+        </div>
+
+        <!-- GitHub -->
+        <div class="p-5 sm:p-6 rounded-2xl bg-[#0B0F19]/80 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs font-bold mb-3 tracking-wider">
+              <span>GITHUB</span>
+              <span class="text-[11px] font-normal text-[#94A3B8]">VERSION CONTROL</span>
+            </div>
+            <p class="text-xs sm:text-sm text-[#CBD5E1] leading-relaxed font-sans">
+              Anchors version control and provides full transparency. You hold the master branch keys forever.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tailwind CSS -->
+        <div class="p-5 sm:p-6 rounded-2xl bg-[#0B0F19]/80 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs font-bold mb-3 tracking-wider">
+              <span>TAILWIND CSS</span>
+              <span class="text-[11px] font-normal text-[#94A3B8]">DESIGN SYSTEM</span>
+            </div>
+            <p class="text-xs sm:text-sm text-[#CBD5E1] leading-relaxed font-sans">
+              Styles the UI through strict atomic token sets without runtime styling engine bottlenecks.
+            </p>
+          </div>
+        </div>
+
+        <!-- Supabase -->
+        <div class="p-5 sm:p-6 rounded-2xl bg-[#0B0F19]/80 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs font-bold mb-3 tracking-wider">
+              <span>SUPABASE</span>
+              <span class="text-[11px] font-normal text-[#94A3B8]">RELATIONAL DATA</span>
+            </div>
+            <p class="text-xs sm:text-sm text-[#CBD5E1] leading-relaxed font-sans">
+              Handles database scaling, user auth pools, and PostgreSQL storage when dynamic portals are required.
+            </p>
+          </div>
+        </div>
+
+        <!-- Sentry -->
+        <div class="p-5 sm:p-6 rounded-2xl bg-[#0B0F19]/80 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs font-bold mb-3 tracking-wider">
+              <span>SENTRY</span>
+              <span class="text-[11px] font-normal text-[#94A3B8]">TELEMETRY</span>
+            </div>
+            <p class="text-xs sm:text-sm text-[#CBD5E1] leading-relaxed font-sans">
+              Catches production errors and client performance regressions before customers notice them.
+            </p>
+          </div>
+        </div>
+
+        <!-- Resend -->
+        <div class="p-5 sm:p-6 rounded-2xl bg-[#0B0F19]/80 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs font-bold mb-3 tracking-wider">
+              <span>RESEND</span>
+              <span class="text-[11px] font-normal text-[#94A3B8]">COMMUNICATIONS</span>
+            </div>
+            <p class="text-xs sm:text-sm text-[#CBD5E1] leading-relaxed font-sans">
+              Manages transactional lead alerts and customer confirmation emails with 99.9% inbox deliverability.
+            </p>
+          </div>
+        </div>
+
+        <!-- Cloudflare -->
+        <div class="p-5 sm:p-6 rounded-2xl bg-[#0B0F19]/80 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs font-bold mb-3 tracking-wider">
+              <span>CLOUDFLARE</span>
+              <span class="text-[11px] font-normal text-[#94A3B8]">SECURITY & DNS</span>
+            </div>
+            <p class="text-xs sm:text-sm text-[#CBD5E1] leading-relaxed font-sans">
+              Locks down the DNS edge with enterprise DDoS mitigation and high-speed SSL cert rotation.
+            </p>
+          </div>
+        </div>
+
       </div>
-    </section>
+
+      <!-- Action Anchor -->
+      <div class="mt-12 pt-8 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <span class="text-xs font-mono text-[#94A3B8]">
+          READY TO DEPLOY ARCHITECTURE?
+        </span>
+        <a href="/pricing" class="tactile-btn inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-[#2563EB] hover:bg-blue-600 border border-[#38BDF8]/50 shadow-lg shadow-[#2563EB]/25">
+          <span>View Tiers & Pricing</span>
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+
+    </div>
 
   </div>
 </Layout>
