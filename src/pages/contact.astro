@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Contact / Let's Build | Viewport Digital LLC" currentPath="/contact">
-  <div class="pt-12 sm:pt-20 px-4 sm:px-8 max-w-4xl mx-auto">
+  <div class="pt-12 sm:pt-20 px-4 sm:px-8 max-w-4xl mx-auto pb-16">
     
     <div class="fade-observe glass-panel p-6 sm:p-12 rounded-3xl border border-white/[0.08] space-y-8 relative overflow-hidden">
       
@@ -16,47 +16,85 @@ import Layout from '../layouts/Layout.astro';
         </p>
       </div>
 
-      <form class="space-y-6" onsubmit="event.preventDefault(); alert('Inquiry logged into Viewport Digital dispatch pipeline.');">
+      <!-- Live Formspree Integration -->
+      <form id="contact-form" action="https://formspree.io/f/xgavejzr" method="POST" class="space-y-6">
+        
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           <div class="space-y-2">
-            <label class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Your Name</label>
-            <input type="text" required placeholder="Jane Doe" class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors" />
+            <label for="name" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Your Name</label>
+            <input 
+              type="text" 
+              id="name"
+              name="name" 
+              required 
+              placeholder="Jane Doe" 
+              class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors" 
+            />
           </div>
           <div class="space-y-2">
-            <label class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Email Address</label>
-            <input type="email" required placeholder="jane@company.com" class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors" />
+            <label for="email" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Email Address</label>
+            <input 
+              type="email" 
+              id="email"
+              name="email" 
+              required 
+              placeholder="jane@company.com" 
+              class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors" 
+            />
           </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           <div class="space-y-2">
-            <label class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Target Web Tier</label>
-            <select class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors">
-              <option>Tier 1: Landing Page ($750 - $1,200)</option>
-              <option selected>Tier 2: Business Core ($1,800 - $3,200)</option>
-              <option>Tier 3: Custom Portal ($3,500 - $6,500+)</option>
-              <option>A La Carte / Custom Architecture</option>
+            <label for="tier" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Target Web Tier</label>
+            <select 
+              id="tier"
+              name="tier" 
+              class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors"
+            >
+              <option value="Tier 1: Landing Page ($750 - $1,200)">Tier 1: Landing Page ($750 - $1,200)</option>
+              <option value="Tier 2: Business Core ($1,800 - $3,200)" selected>Tier 2: Business Core ($1,800 - $3,200)</option>
+              <option value="Tier 3: Custom Portal ($3,500 - $6,500+)">Tier 3: Custom Portal ($3,500 - $6,500+)</option>
+              <option value="A La Carte / Custom Architecture">A La Carte / Custom Architecture</option>
             </select>
           </div>
           <div class="space-y-2">
-            <label class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Commercial Photography Add-on</label>
-            <select class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors">
-              <option>Starter Suite ($350 - $150 bundle rebate)</option>
-              <option selected>Full Brand Suite ($750 - $150 bundle rebate)</option>
-              <option>Full-Day Production ($1,500+)</option>
-              <option>No Photography Needed</option>
+            <label for="photography" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Commercial Photography Add-on</label>
+            <select 
+              id="photography"
+              name="photography" 
+              class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors"
+            >
+              <option value="Starter Suite ($350 - $150 bundle rebate)">Starter Suite ($350 - $150 bundle rebate)</option>
+              <option value="Full Brand Suite ($750 - $150 bundle rebate)" selected>Full Brand Suite ($750 - $150 bundle rebate)</option>
+              <option value="Full-Day Production ($1,500+)">Full-Day Production ($1,500+)</option>
+              <option value="No Photography Needed">No Photography Needed</option>
             </select>
           </div>
         </div>
 
         <div class="space-y-2">
-          <label class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Project Scope & Objectives</label>
-          <textarea rows="4" required placeholder="Describe your current site bottlenecks, workflow goals, or required integrations..." class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors"></textarea>
+          <label for="message" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Project Scope & Objectives</label>
+          <textarea 
+            id="message"
+            name="message" 
+            rows="4" 
+            required 
+            placeholder="Describe your current site bottlenecks, workflow goals, or required integrations..." 
+            class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors"
+          ></textarea>
         </div>
 
-        <button type="submit" class="tactile-btn w-full py-4 text-center text-sm font-bold uppercase tracking-wider text-white bg-[#2563EB] hover:bg-blue-600 rounded-xl shadow-xl shadow-[#2563EB]/30 border border-[#38BDF8]/50">
-          Submit Specifications to Viewport Digital
+        <button 
+          id="submit-btn"
+          type="submit" 
+          class="tactile-btn w-full py-4 text-center text-sm font-bold uppercase tracking-wider text-white bg-[#2563EB] hover:bg-blue-600 rounded-xl shadow-xl shadow-[#2563EB]/30 border border-[#38BDF8]/50 flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <span id="btn-text">Submit Specifications to Viewport Digital</span>
         </button>
+
+        <!-- Dynamic Success & Error Feedback Banners -->
+        <div id="form-status" class="hidden text-center text-xs font-mono p-4 rounded-lg"></div>
       </form>
 
       <div class="text-center pt-2">
@@ -66,4 +104,49 @@ import Layout from '../layouts/Layout.astro';
     </div>
 
   </div>
+
+  <script is:inline>
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const btnText = document.getElementById('btn-text');
+    const formStatus = document.getElementById('form-status');
+
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        btnText.textContent = 'Transmitting Specifications...';
+        submitBtn.disabled = true;
+        submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+
+          if (response.ok) {
+            form.reset();
+            formStatus.className = 'block text-center text-xs font-mono p-4 rounded-lg bg-emerald-950/60 border border-emerald-500/40 text-emerald-300';
+            formStatus.textContent = '✓ Specifications received. Viewport Digital dispatch will review and respond within 24 hours.';
+            btnText.textContent = 'Specifications Submitted';
+          } else {
+            const data = await response.json();
+            throw new Error(data?.errors?.[0]?.message || 'Submission error');
+          }
+        } catch (error) {
+          formStatus.className = 'block text-center text-xs font-mono p-4 rounded-lg bg-red-950/60 border border-red-500/40 text-red-300';
+          formStatus.textContent = 'Transmission failed. Please check fields or email directly.';
+          btnText.textContent = 'Retry Transmission';
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+        }
+      });
+    }
+  </script>
 </Layout>
