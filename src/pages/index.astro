@@ -1,6 +1,6 @@
 ---
 // src/pages/index.astro
-// Viewport Digital LLC - Production Architecture
+// Viewport Digital LLC - Self-Contained Edge Architecture
 const pageTitle = "Viewport Digital LLC | Engineered Digital Architecture & Commercial Photography";
 const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel, and custom commercial photography. Zero templates. Zero subscriptions. You own the code.";
 ---
@@ -13,32 +13,63 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
   <title>{pageTitle}</title>
   <meta name="description" content={pageDescription} />
   
-  <!-- Typography -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind Fallback CDN Engine (Guarantees styling renders immediately) -->
+  <script is:inline src="https://cdn.tailwindcss.com"></script>
+  <script is:inline>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#030712',
+              surface: '#0B0F19',
+              card: 'rgba(15, 23, 42, 0.65)',
+              border: 'rgba(255, 255, 255, 0.08)',
+              borderHover: 'rgba(56, 189, 248, 0.4)',
+              silver: '#CBD5E1',
+              silverMuted: '#94A3B8',
+              navy: '#0F172A',
+              navyDeep: '#020617',
+              blue: '#2563EB',
+              blueVibrant: '#38BDF8',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 </head>
 
-<body class="bg-[#030712] text-[#CBD5E1] font-['Plus_Jakarta_Sans',sans-serif] antialiased selection:bg-[#2563EB] selection:text-white bg-grid-mesh relative overflow-x-hidden">
+<body class="bg-[#030712] text-[#CBD5E1] font-sans antialiased selection:bg-[#2563EB] selection:text-white bg-grid-mesh relative overflow-x-hidden min-h-screen">
 
   <!-- Ambient Light Orbs -->
   <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-gradient-to-tr from-[#2563EB]/15 to-[#38BDF8]/10 blur-[130px] pointer-events-none -z-10"></div>
   <div class="fixed bottom-0 right-0 w-[600px] h-[500px] bg-gradient-to-tl from-[#0F172A]/60 via-[#2563EB]/10 to-transparent blur-[140px] pointer-events-none -z-10"></div>
 
-  <!-- Persistent Header / Navigation -->
+  <!-- Persistent Header -->
   <header class="sticky top-0 z-50 w-full px-4 sm:px-8 py-4 backdrop-blur-md bg-[#030712]/75 border-b border-white/[0.08]">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <a href="#hero" class="flex items-center gap-3 group">
-        <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-[#2563EB] to-[#0F172A] border border-[#38BDF8]/40 flex items-center justify-center shadow-lg shadow-[#2563EB]/20">
-          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <a href="#hero" class="flex items-center gap-3 group text-decoration-none">
+        <div class="w-9 h-9 min-w-[36px] max-w-[36px] h-[36px] rounded-lg bg-gradient-to-br from-[#2563EB] to-[#0F172A] border border-[#38BDF8]/40 flex items-center justify-center shadow-lg shadow-[#2563EB]/20 shrink-0">
+          <svg class="w-5 h-5 max-w-[20px] max-h-[20px] text-white shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
             <line x1="8" y1="21" x2="16" y2="21"></line>
             <line x1="12" y1="17" x2="12" y2="21"></line>
           </svg>
         </div>
-        <div class="flex flex-col">
-          <span class="text-base font-bold font-['Space_Grotesk',sans-serif] tracking-tight text-white group-hover:text-[#38BDF8] transition-colors">VIEWPORT DIGITAL</span>
-          <span class="text-[10px] uppercase tracking-widest text-[#94A3B8]/70 font-mono -mt-1">Architectural Web</span>
+        <div class="flex flex-col text-left">
+          <span class="text-base font-bold font-display tracking-tight text-white group-hover:text-[#38BDF8] transition-colors leading-none">VIEWPORT DIGITAL</span>
+          <span class="text-[10px] uppercase tracking-widest text-[#94A3B8]/70 font-mono mt-1">Architectural Web</span>
         </div>
       </a>
 
@@ -52,10 +83,10 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
 
       <!-- Primary Action CTA -->
       <div class="flex items-center gap-3">
-        <a href="#pricing" class="tactile-btn relative inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-white bg-[#2563EB] hover:bg-blue-600 rounded-lg shadow-lg shadow-[#2563EB]/30 border border-[#38BDF8]/50 overflow-hidden group">
+        <a href="#pricing" class="tactile-btn relative inline-flex items-center justify-center px-4 sm:px-5 py-2 sm:py-2.5 text-xs font-semibold uppercase tracking-wider text-white bg-[#2563EB] hover:bg-blue-600 rounded-lg shadow-lg shadow-[#2563EB]/30 border border-[#38BDF8]/50 overflow-hidden group">
           <span class="relative z-10 flex items-center gap-2">
             Initiate Project
-            <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="w-3.5 h-3.5 max-w-[14px] transition-transform group-hover:translate-x-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </span>
@@ -64,57 +95,57 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
     </div>
   </header>
 
-  <main class="space-y-24 sm:space-y-32">
+  <main class="space-y-20 sm:space-y-32">
 
     <!-- HERO SECTION -->
-    <section id="hero" class="relative pt-16 sm:pt-24 px-4 sm:px-8 max-w-7xl mx-auto">
-      <div class="fade-observe flex flex-col items-center text-center max-w-4xl mx-auto space-y-8">
+    <section id="hero" class="relative pt-12 sm:pt-24 px-4 sm:px-8 max-w-7xl mx-auto">
+      <div class="fade-observe flex flex-col items-center text-center max-w-4xl mx-auto space-y-6 sm:space-y-8">
         
         <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0F172A]/80 border border-white/[0.08] text-[11px] font-mono tracking-widest uppercase text-[#94A3B8]">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
           <span>Bespoke Engineering & Authentic Optics</span>
         </div>
 
-        <h1 class="text-4xl sm:text-6xl md:text-7xl font-['Space_Grotesk',sans-serif] font-bold tracking-[-0.03em] leading-[1.05] text-white">
+        <h1 class="text-3xl sm:text-6xl md:text-7xl font-display font-bold tracking-[-0.03em] leading-[1.08] text-white">
           Own your digital footprint. <br />
           <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#CBD5E1] via-[#38BDF8] to-[#2563EB]">
             No templates. No monthly rent.
           </span>
         </h1>
 
-        <p class="text-base sm:text-lg text-[#94A3B8] leading-relaxed max-w-[650px]">
+        <p class="text-sm sm:text-lg text-[#94A3B8] leading-relaxed max-w-[650px]">
           Most agencies lease you bloated WordPress themes on life support. Viewport Digital writes high-performance static architecture on Astro, paired with bespoke commercial photography that captures real physical substance.
         </p>
 
-        <div class="flex flex-col sm:row items-center gap-4 pt-2 w-full sm:w-auto">
-          <a href="#pricing" class="tactile-btn w-full sm:w-auto px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider text-white bg-gradient-to-r from-[#2563EB] to-blue-700 hover:from-blue-600 hover:to-blue-800 border border-[#38BDF8]/40 shadow-xl shadow-[#2563EB]/30">
+        <div class="flex flex-col sm:flex-row items-center gap-4 pt-2 w-full sm:w-auto">
+          <a href="#pricing" class="tactile-btn w-full sm:w-auto px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider text-white bg-gradient-to-r from-[#2563EB] to-blue-700 hover:from-blue-600 hover:to-blue-800 border border-[#38BDF8]/40 shadow-xl shadow-[#2563EB]/30 text-center">
             View Tiers & Pricing
           </a>
-          <a href="#engineered" class="tactile-btn w-full sm:w-auto px-8 py-4 rounded-xl text-sm font-semibold tracking-wider text-[#CBD5E1] hover:text-white glass-panel border border-white/[0.08] hover:border-white/20">
+          <a href="#engineered" class="tactile-btn w-full sm:w-auto px-8 py-4 rounded-xl text-sm font-semibold tracking-wider text-[#CBD5E1] hover:text-white glass-panel border border-white/[0.08] hover:border-white/20 text-center">
             Compare The Architecture
           </a>
         </div>
 
         <!-- Archival Trust Metrics -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full pt-12 text-left">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full pt-10 text-left">
           <div class="glass-panel p-4 rounded-xl">
             <span class="font-mono text-xs text-[#94A3B8] block">RENDER TIME</span>
-            <span class="font-['Space_Grotesk',sans-serif] text-2xl font-bold text-white">&lt; 350ms</span>
+            <span class="font-display text-2xl font-bold text-white">&lt; 350ms</span>
             <p class="text-xs text-[#94A3B8] mt-1">Edge distribution via Vercel</p>
           </div>
           <div class="glass-panel p-4 rounded-xl">
             <span class="font-mono text-xs text-[#94A3B8] block">CODE OWNERSHIP</span>
-            <span class="font-['Space_Grotesk',sans-serif] text-2xl font-bold text-[#38BDF8]">100%</span>
+            <span class="font-display text-2xl font-bold text-[#38BDF8]">100%</span>
             <p class="text-xs text-[#94A3B8] mt-1">Stored in your GitHub repo</p>
           </div>
           <div class="glass-panel p-4 rounded-xl">
             <span class="font-mono text-xs text-[#94A3B8] block">MONTHLY RENT</span>
-            <span class="font-['Space_Grotesk',sans-serif] text-2xl font-bold text-emerald-400">$0.00</span>
+            <span class="font-display text-2xl font-bold text-emerald-400">$0.00</span>
             <p class="text-xs text-[#94A3B8] mt-1">Zero mandatory site fees</p>
           </div>
           <div class="glass-panel p-4 rounded-xl">
             <span class="font-mono text-xs text-[#94A3B8] block">VISUAL ASSETS</span>
-            <span class="font-['Space_Grotesk',sans-serif] text-2xl font-bold text-white">Full Raw/Edit</span>
+            <span class="font-display text-2xl font-bold text-white">Full Raw/Edit</span>
             <p class="text-xs text-[#94A3B8] mt-1">Authentic commercial photography</p>
           </div>
         </div>
@@ -122,11 +153,11 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
       </div>
     </section>
 
-    <!-- ARCHITECTURAL COMPARISON: ENGINEERED VS TEMPLATE -->
+    <!-- ARCHITECTURAL COMPARISON -->
     <section id="engineered" class="px-4 sm:px-8 max-w-7xl mx-auto">
-      <div class="fade-observe space-y-4 mb-12 text-center md:text-left">
+      <div class="fade-observe space-y-4 mb-10 text-center md:text-left">
         <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Engineering Contrast</span>
-        <h2 class="text-3xl sm:text-4xl font-['Space_Grotesk',sans-serif] font-bold text-white tracking-tight">The Reality Gap: Engineered Code vs. Subscription Clutter</h2>
+        <h2 class="text-2xl sm:text-4xl font-display font-bold text-white tracking-tight">The Reality Gap: Engineered Code vs. Subscription Clutter</h2>
         <p class="text-[#94A3B8] max-w-2xl text-sm sm:text-base">
           Wix, Squarespace, and bloated CMS builds hold your domain hostage while bleeding recurring cash. Here is the concrete technical breakdown.
         </p>
@@ -134,74 +165,71 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
 
       <div class="fade-observe grid grid-cols-1 md:grid-cols-3 gap-6">
         
-        <!-- Column 1 -->
-        <div class="glass-panel p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between">
+        <div class="glass-panel p-6 sm:p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between">
           <div class="space-y-4">
             <span class="text-xs font-mono uppercase tracking-wider text-[#38BDF8]">Structural Model</span>
-            <h3 class="text-2xl font-['Space_Grotesk',sans-serif] font-bold text-white">Engineered vs. Template</h3>
-            <p class="text-sm text-[#94A3B8] leading-relaxed">
+            <h3 class="text-xl sm:text-2xl font-display font-bold text-white">Engineered vs. Template</h3>
+            <p class="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
               Templates load 40 unused JavaScript libraries, tracking bloat, and fragile layout builders that collapse across screens.
             </p>
-            <ul class="space-y-3 pt-2 text-xs font-mono">
+            <ul class="space-y-2.5 pt-2 text-xs font-mono">
               <li class="flex items-center gap-2 text-white">
-                <svg class="w-4 h-4 text-[#38BDF8] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <svg class="w-4 h-4 max-w-[16px] text-[#38BDF8] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                 Engineered: Semantic Astro HTML compiled at build
               </li>
               <li class="flex items-center gap-2 text-[#94A3B8]">
-                <svg class="w-4 h-4 text-red-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                <svg class="w-4 h-4 max-w-[16px] text-red-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
                 Templates: 4MB DOM trees and messy div soup
               </li>
             </ul>
           </div>
-          <div class="mt-8 pt-4 border-t border-white/[0.08] text-xs text-[#94A3B8]">
+          <div class="mt-6 pt-4 border-t border-white/[0.08] text-xs text-[#94A3B8]">
             Result: 100/100 Google Lighthouse performance score.
           </div>
         </div>
 
-        <!-- Column 2 -->
-        <div class="glass-panel p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between border-[#2563EB]/40">
+        <div class="glass-panel p-6 sm:p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between border-[#2563EB]/40">
           <div class="space-y-4">
             <span class="text-xs font-mono uppercase tracking-wider text-[#38BDF8]">Financial Model</span>
-            <h3 class="text-2xl font-['Space_Grotesk',sans-serif] font-bold text-white">Flat Fee vs. Subscription</h3>
-            <p class="text-sm text-[#94A3B8] leading-relaxed">
+            <h3 class="text-xl sm:text-2xl font-display font-bold text-white">Flat Fee vs. Subscription</h3>
+            <p class="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
               Agencies trap you in $200–$500/month recurring builder fees just to keep your landing page live. Stop paying monthly rent for plain text.
             </p>
-            <ul class="space-y-3 pt-2 text-xs font-mono">
+            <ul class="space-y-2.5 pt-2 text-xs font-mono">
               <li class="flex items-center gap-2 text-white">
-                <svg class="w-4 h-4 text-[#38BDF8] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <svg class="w-4 h-4 max-w-[16px] text-[#38BDF8] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                 Flat Fee: You pay once for the completed asset
               </li>
               <li class="flex items-center gap-2 text-[#94A3B8]">
-                <svg class="w-4 h-4 text-red-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                <svg class="w-4 h-4 max-w-[16px] text-red-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
                 Subscription: Monthly lock-ins that compound forever
               </li>
             </ul>
           </div>
-          <div class="mt-8 pt-4 border-t border-white/[0.08] text-xs text-[#94A3B8]">
+          <div class="mt-6 pt-4 border-t border-white/[0.08] text-xs text-[#94A3B8]">
             Result: Real capital efficiency and predictable spend.
           </div>
         </div>
 
-        <!-- Column 3 -->
-        <div class="glass-panel p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between">
+        <div class="glass-panel p-6 sm:p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between">
           <div class="space-y-4">
             <span class="text-xs font-mono uppercase tracking-wider text-[#38BDF8]">Asset Control</span>
-            <h3 class="text-2xl font-['Space_Grotesk',sans-serif] font-bold text-white">Ownership vs. Renting</h3>
-            <p class="text-sm text-[#94A3B8] leading-relaxed">
+            <h3 class="text-xl sm:text-2xl font-display font-bold text-white">Ownership vs. Renting</h3>
+            <p class="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
               If your SaaS provider closes or hikes fees 300%, you lose your website. Viewport delivers pure code you can host anywhere on earth.
             </p>
-            <ul class="space-y-3 pt-2 text-xs font-mono">
+            <ul class="space-y-2.5 pt-2 text-xs font-mono">
               <li class="flex items-center gap-2 text-white">
-                <svg class="w-4 h-4 text-[#38BDF8] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <svg class="w-4 h-4 max-w-[16px] text-[#38BDF8] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                 Ownership: Clean Git repo and DNS ownership
               </li>
               <li class="flex items-center gap-2 text-[#94A3B8]">
-                <svg class="w-4 h-4 text-red-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                <svg class="w-4 h-4 max-w-[16px] text-red-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
                 Renting: Proprietary silos you cannot export
               </li>
             </ul>
           </div>
-          <div class="mt-8 pt-4 border-t border-white/[0.08] text-xs text-[#94A3B8]">
+          <div class="mt-6 pt-4 border-t border-white/[0.08] text-xs text-[#94A3B8]">
             Result: A true digital asset that adds equity to your balance sheet.
           </div>
         </div>
@@ -211,17 +239,17 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
 
     <!-- THE PRODUCTION STACK -->
     <section id="stack" class="px-4 sm:px-8 max-w-7xl mx-auto">
-      <div class="fade-observe glass-panel p-8 sm:p-12 rounded-3xl border border-white/[0.08] relative overflow-hidden">
+      <div class="fade-observe glass-panel p-6 sm:p-12 rounded-3xl border border-white/[0.08] relative overflow-hidden">
         
-        <div class="max-w-3xl space-y-4 mb-12">
+        <div class="max-w-3xl space-y-4 mb-10">
           <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Modern Stack Ecosystem</span>
-          <h2 class="text-3xl sm:text-4xl font-['Space_Grotesk',sans-serif] font-bold text-white tracking-tight">Purpose-Built Infrastructure</h2>
-          <p class="text-[#94A3B8] text-sm sm:text-base leading-relaxed">
+          <h2 class="text-2xl sm:text-4xl font-display font-bold text-white tracking-tight">Purpose-Built Infrastructure</h2>
+          <p class="text-[#94A3B8] text-xs sm:text-base leading-relaxed">
             Every layer of your build is selected for zero bloat, sub-second execution, enterprise-tier security, and clean developer ergonomics.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 font-mono">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 font-mono">
           
           <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors">
             <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
@@ -323,25 +351,24 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
         
         <div class="lg:col-span-6 space-y-6">
           <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Authentic Visual Assets</span>
-          <h2 class="text-3xl sm:text-5xl font-['Space_Grotesk',sans-serif] font-bold text-white tracking-tight leading-tight">
+          <h2 class="text-2xl sm:text-5xl font-display font-bold text-white tracking-tight leading-tight">
             Stop pasting fake stock photos into real business websites.
           </h2>
-          <p class="text-[#94A3B8] text-sm sm:text-base leading-relaxed">
+          <p class="text-[#94A3B8] text-xs sm:text-base leading-relaxed">
             Customers immediately spot plastic corporate stock photography. It destroys trust before they finish reading your hero line. Viewport Digital pairs web architecture directly with dedicated commercial photography.
           </p>
           <div class="space-y-3 pt-2">
             <div class="flex items-start gap-3">
               <div class="w-6 h-6 rounded bg-[#0F172A] flex items-center justify-center border border-[#2563EB]/40 text-[#38BDF8] text-xs font-bold shrink-0 mt-0.5">01</div>
-              <p class="text-sm text-[#CBD5E1]"><strong class="text-white">Workspace & Field Reality:</strong> Crisp shots of your team doing the actual work, shop interiors, fleet machinery, and storefront curb appeal.</p>
+              <p class="text-xs sm:text-sm text-[#CBD5E1]"><strong class="text-white">Workspace & Field Reality:</strong> Crisp shots of your team doing the actual work, shop interiors, fleet machinery, and storefront curb appeal.</p>
             </div>
             <div class="flex items-start gap-3">
               <div class="w-6 h-6 rounded bg-[#0F172A] flex items-center justify-center border border-[#2563EB]/40 text-[#38BDF8] text-xs font-bold shrink-0 mt-0.5">02</div>
-              <p class="text-sm text-[#CBD5E1]"><strong class="text-white">Component-Ready Assets:</strong> Formatted specifically for Astro modern image pipelines (AVIF/WebP) with custom aspect ratios that do not break CSS grids.</p>
+              <p class="text-xs sm:text-sm text-[#CBD5E1]"><strong class="text-white">Component-Ready Assets:</strong> Formatted specifically for Astro modern image pipelines (AVIF/WebP) with custom aspect ratios that do not break CSS grids.</p>
             </div>
           </div>
         </div>
 
-        <!-- Visual Display Card -->
         <div class="lg:col-span-6 glass-panel p-6 sm:p-8 rounded-2xl border border-white/[0.08] relative">
           <div class="flex items-center justify-between pb-4 border-b border-white/[0.08] text-xs font-mono text-[#94A3B8]">
             <span>OPTICAL_PIPELINE.LOG</span>
@@ -351,7 +378,7 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
             <div class="h-44 sm:h-56 rounded-xl bg-gradient-to-br from-[#0F172A] via-[#0B0F19] to-[#030712] border border-white/[0.08] flex items-center justify-center relative overflow-hidden group">
               <div class="absolute inset-0 bg-[#2563EB]/10 opacity-30 group-hover:opacity-60 transition-opacity"></div>
               <div class="text-center p-4 relative z-10">
-                <svg class="w-12 h-12 text-[#94A3B8] mx-auto mb-2 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg class="w-12 h-12 max-w-[48px] max-h-[48px] text-[#94A3B8] mx-auto mb-2 opacity-60 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
@@ -374,30 +401,29 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
     </section>
 
     <!-- COMPLETE PRICING & TIERS -->
-    <section id="pricing" class="px-4 sm:px-8 max-w-7xl mx-auto space-y-16">
+    <section id="pricing" class="px-4 sm:px-8 max-w-7xl mx-auto space-y-12 sm:space-y-16">
       
       <div class="fade-observe space-y-4 text-center max-w-3xl mx-auto">
         <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Transparent Pricing</span>
-        <h2 class="text-3xl sm:text-5xl font-['Space_Grotesk',sans-serif] font-bold text-white tracking-tight">Website Architecture Packages</h2>
-        <p class="text-[#94A3B8] text-sm sm:text-base">
+        <h2 class="text-2xl sm:text-5xl font-display font-bold text-white tracking-tight">Website Architecture Packages</h2>
+        <p class="text-[#94A3B8] text-xs sm:text-base">
           Flat-fee deliverables. Clear turnaround. No endless hourly bills or platform licensing fees.
         </p>
       </div>
 
-      <!-- Tiers Grid -->
       <div class="fade-observe grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
         
         <!-- Tier 1 -->
-        <div class="glass-panel glass-card-interactive p-8 rounded-2xl flex flex-col justify-between">
+        <div class="glass-panel glass-card-interactive p-6 sm:p-8 rounded-2xl flex flex-col justify-between">
           <div class="space-y-6">
             <div class="space-y-2">
               <span class="text-xs font-mono uppercase tracking-widest text-[#94A3B8]">Tier 01</span>
-              <h3 class="text-2xl font-['Space_Grotesk',sans-serif] font-bold text-white">The Local Landing Page</h3>
+              <h3 class="text-xl sm:text-2xl font-display font-bold text-white">The Local Landing Page</h3>
               <p class="text-xs text-[#94A3B8]">Single-page builds, transport fleets, service contractors, or targeted campaigns.</p>
             </div>
             
             <div class="py-4 border-y border-white/[0.08]">
-              <span class="text-3xl sm:text-4xl font-['Space_Grotesk',sans-serif] font-bold text-white">$750 – $1,200</span>
+              <span class="text-2xl sm:text-4xl font-display font-bold text-white">$750 – $1,200</span>
               <span class="text-xs font-mono text-[#94A3B8] block mt-1">One-time flat fee</span>
             </div>
 
@@ -405,34 +431,34 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
               <span class="text-xs font-mono uppercase text-[#CBD5E1] tracking-wider block">Scope of Deliverables:</span>
               <ul class="space-y-2.5 text-xs text-[#94A3B8]">
                 <li class="flex items-start gap-2">
-                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <svg class="w-4 h-4 max-w-[16px] text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                   High-impact single page architecture on Astro
                 </li>
                 <li class="flex items-start gap-2">
-                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <svg class="w-4 h-4 max-w-[16px] text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                   Strict mobile-first responsive layout
                 </li>
                 <li class="flex items-start gap-2">
-                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <svg class="w-4 h-4 max-w-[16px] text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                   Formspree zero-backend contact integration
                 </li>
                 <li class="flex items-start gap-2">
-                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <svg class="w-4 h-4 max-w-[16px] text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                   High-speed edge setup on Vercel
                 </li>
               </ul>
             </div>
           </div>
 
-          <div class="pt-8 mt-6 border-t border-white/[0.08]">
+          <div class="pt-6 sm:pt-8 mt-6 border-t border-white/[0.08]">
             <a href="#contact" class="tactile-btn block w-full py-3 text-center text-xs font-bold uppercase tracking-wider text-white bg-[#0F172A] hover:bg-[#2563EB] border border-white/[0.08] hover:border-[#38BDF8] rounded-lg transition-colors">
               Select Tier 1
             </a>
           </div>
         </div>
 
-        <!-- Tier 2 (Featured) -->
-        <div class="glass-panel glass-card-interactive p-8 rounded-2xl flex flex-col justify-between border-[#38BDF8]/40 shadow-2xl shadow-[#2563EB]/15 relative">
+        <!-- Tier 2 -->
+        <div class="glass-panel glass-card-interactive p-6 sm:p-8 rounded-2xl flex flex-col justify-between border-[#38BDF8]/40 shadow-2xl shadow-[#2563EB]/15 relative">
           <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-0.5 bg-[#2563EB] text-white font-mono text-[10px] uppercase font-bold tracking-widest rounded-full border border-[#38BDF8]">
             Core Recommendation
           </div>
@@ -440,12 +466,12 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
           <div class="space-y-6">
             <div class="space-y-2">
               <span class="text-xs font-mono uppercase tracking-widest text-[#38BDF8]">Tier 02</span>
-              <h3 class="text-2xl font-['Space_Grotesk',sans-serif] font-bold text-white">The Multi-Page Core</h3>
+              <h3 class="text-xl sm:text-2xl font-display font-bold text-white">The Multi-Page Core</h3>
               <p class="text-xs text-[#94A3B8]">Established local businesses, clinics, and professional firms needing depth.</p>
             </div>
             
             <div class="py-4 border-y border-white/[0.08]">
-              <span class="text-3xl sm:text-4xl font-['Space_Grotesk',sans-serif] font-bold text-white">$1,800 – $3,200</span>
+              <span class="text-2xl sm:text-4xl font-display font-bold text-white">$1,800 – $3,200</span>
               <span class="text-xs font-mono text-[#94A3B8] block mt-1">One-time flat fee</span>
             </div>
 
@@ -453,26 +479,26 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
               <span class="text-xs font-mono uppercase text-[#CBD5E1] tracking-wider block">Scope of Deliverables:</span>
               <ul class="space-y-2.5 text-xs text-[#CBD5E1]">
                 <li class="flex items-start gap-2">
-                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <svg class="w-4 h-4 max-w-[16px] text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                   Up to 5 custom routes (Home, Services, About, Gallery, Contact)
                 </li>
                 <li class="flex items-start gap-2">
-                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <svg class="w-4 h-4 max-w-[16px] text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                   Seamless commercial photography component integration
                 </li>
                 <li class="flex items-start gap-2">
-                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <svg class="w-4 h-4 max-w-[16px] text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                   Architectural local SEO metadata & OpenGraph schemas
                 </li>
                 <li class="flex items-start gap-2">
-                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <svg class="w-4 h-4 max-w-[16px] text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                   Recorded video training & 30-day stabilization buffer
                 </li>
               </ul>
             </div>
           </div>
 
-          <div class="pt-8 mt-6 border-t border-white/[0.08]">
+          <div class="pt-6 sm:pt-8 mt-6 border-t border-white/[0.08]">
             <a href="#contact" class="tactile-btn block w-full py-3 text-center text-xs font-bold uppercase tracking-wider text-white bg-[#2563EB] hover:bg-blue-600 rounded-lg shadow-lg shadow-[#2563EB]/30 border border-[#38BDF8]/60">
               Select Tier 2
             </a>
@@ -480,16 +506,16 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
         </div>
 
         <!-- Tier 3 -->
-        <div class="glass-panel glass-card-interactive p-8 rounded-2xl flex flex-col justify-between">
+        <div class="glass-panel glass-card-interactive p-6 sm:p-8 rounded-2xl flex flex-col justify-between">
           <div class="space-y-6">
             <div class="space-y-2">
               <span class="text-xs font-mono uppercase tracking-widest text-[#94A3B8]">Tier 03</span>
-              <h3 class="text-2xl font-['Space_Grotesk',sans-serif] font-bold text-white">The Custom Portal & App</h3>
+              <h3 class="text-xl sm:text-2xl font-display font-bold text-white">The Custom Portal & App</h3>
               <p class="text-xs text-[#94A3B8]">Interactive onboarding flows, membership portals, and multi-step data collection.</p>
             </div>
             
             <div class="py-4 border-y border-white/[0.08]">
-              <span class="text-3xl sm:text-4xl font-['Space_Grotesk',sans-serif] font-bold text-white">$3,500 – $6,500+</span>
+              <span class="text-2xl sm:text-4xl font-display font-bold text-white">$3,500 – $6,500+</span>
               <span class="text-xs font-mono text-[#94A3B8] block mt-1">Based on database & logic depth</span>
             </div>
 
@@ -497,26 +523,26 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
               <span class="text-xs font-mono uppercase text-[#CBD5E1] tracking-wider block">Scope of Deliverables:</span>
               <ul class="space-y-2.5 text-xs text-[#94A3B8]">
                 <li class="flex items-start gap-2">
-                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <svg class="w-4 h-4 max-w-[16px] text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                   Astro Server-Side Rendering (SSR) configuration
                 </li>
                 <li class="flex items-start gap-2">
-                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <svg class="w-4 h-4 max-w-[16px] text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                   Relational Supabase database + secure authentication
                 </li>
                 <li class="flex items-start gap-2">
-                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <svg class="w-4 h-4 max-w-[16px] text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                   Custom dashboard logic generated via Cursor and Gemini
                 </li>
                 <li class="flex items-start gap-2">
-                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <svg class="w-4 h-4 max-w-[16px] text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                   Sentry error tracking & Resend automated email dispatch
                 </li>
               </ul>
             </div>
           </div>
 
-          <div class="pt-8 mt-6 border-t border-white/[0.08]">
+          <div class="pt-6 sm:pt-8 mt-6 border-t border-white/[0.08]">
             <a href="#contact" class="tactile-btn block w-full py-3 text-center text-xs font-bold uppercase tracking-wider text-white bg-[#0F172A] hover:bg-[#2563EB] border border-white/[0.08] hover:border-[#38BDF8] rounded-lg transition-colors">
               Select Tier 3
             </a>
@@ -525,12 +551,12 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
 
       </div>
 
-      <!-- PHOTOGRAPHY PACKAGES SECTION -->
-      <div class="fade-observe pt-12 space-y-8">
-        <div class="border-t border-white/[0.08] pt-12 text-center md:text-left">
+      <!-- PHOTOGRAPHY PACKAGES -->
+      <div class="fade-observe pt-8 space-y-6">
+        <div class="border-t border-white/[0.08] pt-10 text-center md:text-left">
           <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Optics & Production</span>
-          <h3 class="text-2xl sm:text-3xl font-['Space_Grotesk',sans-serif] font-bold text-white mt-1">Commercial Photography Packages</h3>
-          <p class="text-sm text-[#94A3B8] mt-1">Authentic visual proof captured on-site to give your Astro site undeniable presence.</p>
+          <h3 class="text-xl sm:text-3xl font-display font-bold text-white mt-1">Commercial Photography Packages</h3>
+          <p class="text-xs sm:text-sm text-[#94A3B8] mt-1">Authentic visual proof captured on-site to give your Astro site undeniable presence.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -538,9 +564,9 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
           <div class="glass-panel p-6 rounded-xl space-y-4">
             <div class="flex justify-between items-start">
               <span class="text-xs font-mono uppercase text-[#94A3B8]">Package 01</span>
-              <span class="text-xl font-['Space_Grotesk',sans-serif] font-bold text-white">$350</span>
+              <span class="text-xl font-display font-bold text-white">$350</span>
             </div>
-            <h4 class="text-lg font-bold text-white">The Web Asset Starter</h4>
+            <h4 class="text-base font-bold text-white">The Web Asset Starter</h4>
             <p class="text-xs text-[#94A3B8] leading-relaxed">
               The natural pairing for a single-page landing build. One location, roughly one hour on-site. Clean headshots, sharp storefront angles, and immediate texture.
             </p>
@@ -552,9 +578,9 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
           <div class="glass-panel p-6 rounded-xl space-y-4 border-[#38BDF8]/30">
             <div class="flex justify-between items-start">
               <span class="text-xs font-mono uppercase text-[#38BDF8]">Package 02</span>
-              <span class="text-xl font-['Space_Grotesk',sans-serif] font-bold text-white">$750</span>
+              <span class="text-xl font-display font-bold text-white">$750</span>
             </div>
-            <h4 class="text-lg font-bold text-white">The Full Brand Suite</h4>
+            <h4 class="text-base font-bold text-white">The Full Brand Suite</h4>
             <p class="text-xs text-[#94A3B8] leading-relaxed">
               Built for the multi-page business core. Half-day commitment. Multiple setups across the workspace. Action shots of the crew doing actual work, interior details, and curb appeal.
             </p>
@@ -566,9 +592,9 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
           <div class="glass-panel p-6 rounded-xl space-y-4">
             <div class="flex justify-between items-start">
               <span class="text-xs font-mono uppercase text-[#94A3B8]">Package 03</span>
-              <span class="text-xl font-['Space_Grotesk',sans-serif] font-bold text-white">$1,500+</span>
+              <span class="text-xl font-display font-bold text-white">$1,500+</span>
             </div>
-            <h4 class="text-lg font-bold text-white">Full-Day Commercial Production</h4>
+            <h4 class="text-base font-bold text-white">Full-Day Commercial Production</h4>
             <p class="text-xs text-[#94A3B8] leading-relaxed">
               Heavy lifting. A full day on the ground. Complex lighting setups, multi-room facilities, massive inventory catalogs, or sprawling business footprints.
             </p>
@@ -579,21 +605,21 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
 
         </div>
 
-        <div class="glass-panel p-6 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono">
-          <div class="flex flex-wrap items-center gap-6">
+        <div class="glass-panel p-5 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono">
+          <div class="flex flex-wrap items-center gap-4">
             <span><strong class="text-white">A LA CARTE:</strong> $125 / hour for ad-hoc photo tasks</span>
-            <span><strong class="text-white">BUNDLE REBATE:</strong> -$150 off photography when bundled with Web Dev</span>
+            <span><strong class="text-white">BUNDLE REBATE:</strong> -$150 off photography with Web Dev</span>
           </div>
           <span class="text-[#38BDF8]">High Value • Full Copyright Release</span>
         </div>
       </div>
 
-      <!-- WEBSITE CARE & MONTHLY RETAINERS -->
-      <div class="fade-observe pt-8 space-y-8">
-        <div class="border-t border-white/[0.08] pt-12 text-center md:text-left">
+      <!-- WEBSITE CARE RETAINERS -->
+      <div class="fade-observe pt-6 space-y-6">
+        <div class="border-t border-white/[0.08] pt-10 text-center md:text-left">
           <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Ongoing Reliability</span>
-          <h3 class="text-2xl sm:text-3xl font-['Space_Grotesk',sans-serif] font-bold text-white mt-1">Structured Website Care Retainers</h3>
-          <p class="text-sm text-[#94A3B8] mt-1">Optional maintenance buffers. You own the code regardless; these tiers keep updates off your plate.</p>
+          <h3 class="text-xl sm:text-3xl font-display font-bold text-white mt-1">Structured Website Care Retainers</h3>
+          <p class="text-xs sm:text-sm text-[#94A3B8] mt-1">Optional maintenance buffers. You own the code regardless; these tiers keep updates off your plate.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -601,7 +627,7 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
           <div class="glass-panel p-6 rounded-xl space-y-4">
             <div class="flex justify-between items-baseline">
               <h4 class="text-base font-bold text-white">Basic Care</h4>
-              <span class="font-mono text-lg font-bold text-white">$75 <span class="text-xs text-[#94A3B8] font-normal">/mo</span></span>
+              <span class="font-mono text-base font-bold text-white">$75 <span class="text-xs text-[#94A3B8] font-normal">/mo</span></span>
             </div>
             <p class="text-xs text-[#94A3B8] leading-relaxed">
               Framework dependency checks, Vercel edge deployment upkeep, continuous uptime monitoring, and up to 30 minutes of minor copy or image changes each month.
@@ -611,7 +637,7 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
           <div class="glass-panel p-6 rounded-xl space-y-4 border-[#2563EB]/40">
             <div class="flex justify-between items-baseline">
               <h4 class="text-base font-bold text-white">Growth Retainer</h4>
-              <span class="font-mono text-lg font-bold text-[#38BDF8]">$150 <span class="text-xs text-[#94A3B8] font-normal">/mo</span></span>
+              <span class="font-mono text-base font-bold text-[#38BDF8]">$150 <span class="text-xs text-[#94A3B8] font-normal">/mo</span></span>
             </div>
             <p class="text-xs text-[#94A3B8] leading-relaxed">
               Everything in Basic Care, plus priority queue response times and up to two (2) hours of minor layout edits, fresh asset swaps, or new landing page sections per month.
@@ -621,7 +647,7 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
           <div class="glass-panel p-6 rounded-xl space-y-4">
             <div class="flex justify-between items-baseline">
               <h4 class="text-base font-bold text-white">Scale Retainer</h4>
-              <span class="font-mono text-lg font-bold text-white">$300 <span class="text-xs text-[#94A3B8] font-normal">/mo</span></span>
+              <span class="font-mono text-base font-bold text-white">$300 <span class="text-xs text-[#94A3B8] font-normal">/mo</span></span>
             </div>
             <p class="text-xs text-[#94A3B8] leading-relaxed">
               Engineered for dynamic application portals. Active Supabase database management, priority same-day bug remediation, and up to four (4) hours of feature development per month.
@@ -635,18 +661,18 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
 
     <!-- INTAKE & DIRECT CONTACT ANCHOR -->
     <section id="contact" class="px-4 sm:px-8 max-w-4xl mx-auto pb-16">
-      <div class="fade-observe glass-panel p-8 sm:p-12 rounded-3xl border border-white/[0.08] space-y-8 relative overflow-hidden">
+      <div class="fade-observe glass-panel p-6 sm:p-12 rounded-3xl border border-white/[0.08] space-y-8 relative overflow-hidden">
         
         <div class="text-center space-y-3">
           <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Zero Dead-End Architecture</span>
-          <h2 class="text-3xl sm:text-4xl font-['Space_Grotesk',sans-serif] font-bold text-white">Initiate Your Build Specifications</h2>
-          <p class="text-sm text-[#94A3B8] max-w-lg mx-auto">
+          <h2 class="text-2xl sm:text-4xl font-display font-bold text-white">Initiate Your Build Specifications</h2>
+          <p class="text-xs sm:text-sm text-[#94A3B8] max-w-lg mx-auto">
             Direct communication with the engineer and photographer. No account managers or sales runarounds.
           </p>
         </div>
 
         <form class="space-y-6" onsubmit="event.preventDefault(); alert('Inquiry logged into Viewport Digital dispatch pipeline.');">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div class="space-y-2">
               <label class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Your Name</label>
               <input type="text" required placeholder="Jane Doe" class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors" />
@@ -657,7 +683,7 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
             </div>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div class="space-y-2">
               <label class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Target Web Tier</label>
               <select class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors">
@@ -688,7 +714,7 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
           </button>
         </form>
 
-        <div class="text-center pt-4">
+        <div class="text-center pt-2">
           <span class="text-xs font-mono text-[#94A3B8]">White-glove handover included: Video docs, Git repository push, and 30-day warranty.</span>
         </div>
 
@@ -721,13 +747,13 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
     </div>
   </footer>
 
-  <!-- CLIENT-SIDE MICRO-INTERACTIONS & SCROLL SCRIPT -->
+  <!-- CLIENT-SIDE SCRIPT -->
   <script is:inline>
     document.addEventListener('DOMContentLoaded', () => {
       const observerOptions = {
         root: null,
-        rootMargin: '0px 0px -40px 0px',
-        threshold: 0.12
+        rootMargin: '0px 0px -30px 0px',
+        threshold: 0.08
       };
 
       const observer = new IntersectionObserver((entries) => {
@@ -748,6 +774,7 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
 </html>
 
 <style is:global>
+  /* Glassmorphism 2.0 specs */
   .glass-panel {
     background: radial-gradient(120% 120% at 50% 0%, rgba(30, 41, 59, 0.5) 0%, rgba(11, 15, 25, 0.75) 100%);
     backdrop-filter: blur(16px);
@@ -767,8 +794,8 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
 
   .fade-observe {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: opacity, transform;
   }
   .fade-observe.is-visible {
@@ -788,5 +815,11 @@ const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel,
   }
   .tactile-btn:active {
     transform: scale(0.97);
+  }
+
+  /* Reset browser default link styles */
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 </style>
