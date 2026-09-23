@@ -19,9 +19,12 @@ import Layout from '../layouts/Layout.astro';
       <!-- Live Formspree Integration -->
       <form id="contact-form" action="https://formspree.io/f/xgavejzr" method="POST" class="space-y-6">
         
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+        <!-- Contact Information (Name, Email, Phone) -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
           <div class="space-y-2">
-            <label for="name" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Your Name</label>
+            <label for="name" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">
+              Your Name <span class="text-[#38BDF8]">*</span>
+            </label>
             <input 
               type="text" 
               id="name"
@@ -32,7 +35,9 @@ import Layout from '../layouts/Layout.astro';
             />
           </div>
           <div class="space-y-2">
-            <label for="email" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Email Address</label>
+            <label for="email" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">
+              Email Address <span class="text-[#38BDF8]">*</span>
+            </label>
             <input 
               type="email" 
               id="email"
@@ -42,8 +47,22 @@ import Layout from '../layouts/Layout.astro';
               class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors" 
             />
           </div>
+          <div class="space-y-2">
+            <label for="phone" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">
+              Phone Number <span class="text-[#38BDF8]">*</span>
+            </label>
+            <input 
+              type="tel" 
+              id="phone"
+              name="phone" 
+              required 
+              placeholder="(317) 555-0192" 
+              class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors" 
+            />
+          </div>
         </div>
 
+        <!-- Tier and Add-on Selection -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           <div class="space-y-2">
             <label for="tier" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Target Web Tier</label>
@@ -73,28 +92,41 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
 
+        <!-- Clarified Description Box -->
         <div class="space-y-2">
-          <label for="message" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Project Scope & Objectives</label>
+          <label for="message" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">
+            What would you like to build? <span class="text-[#38BDF8]">*</span>
+          </label>
           <textarea 
             id="message"
             name="message" 
             rows="4" 
             required 
-            placeholder="Describe your current site bottlenecks, workflow goals, or required integrations..." 
+            placeholder="Describe your dream website, what features you need, or the vision for your business..." 
             class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors"
           ></textarea>
         </div>
 
+        <!-- Animated Tactile Button -->
         <button 
           id="submit-btn"
           type="submit" 
-          class="tactile-btn w-full py-4 text-center text-sm font-bold uppercase tracking-wider text-white bg-[#2563EB] hover:bg-blue-600 rounded-xl shadow-xl shadow-[#2563EB]/30 border border-[#38BDF8]/50 flex items-center justify-center gap-2 cursor-pointer"
+          class="tactile-btn relative overflow-hidden w-full py-4 text-center text-sm font-bold uppercase tracking-wider text-white bg-[#2563EB] hover:bg-blue-600 rounded-xl shadow-xl shadow-[#2563EB]/30 border border-[#38BDF8]/50 flex items-center justify-center gap-3 cursor-pointer transition-all duration-300"
         >
+          <!-- Animated Paper Plane SVG -->
+          <svg id="btn-plane-icon" class="w-4 h-4 text-[#38BDF8] transition-transform duration-500 ease-out" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+          </svg>
+
+          <!-- Animated Winking Smiley / Checkmark Feedback Container -->
+          <span id="btn-emoji" class="hidden text-xl transform scale-0 transition-transform duration-300">😉</span>
+          <span id="btn-check" class="hidden text-base text-emerald-400">✓</span>
+
           <span id="btn-text">Submit Specifications to Viewport Digital</span>
         </button>
 
-        <!-- Dynamic Success & Error Feedback Banners -->
-        <div id="form-status" class="hidden text-center text-xs font-mono p-4 rounded-lg"></div>
+        <!-- Confirmation / Error Notice -->
+        <div id="form-status" class="hidden text-center text-xs font-mono p-4 rounded-lg transition-all duration-300"></div>
       </form>
 
       <div class="text-center pt-2">
@@ -105,19 +137,73 @@ import Layout from '../layouts/Layout.astro';
 
   </div>
 
+  <style is:inline>
+    /* Paper Plane Launch Animation */
+    @keyframes flyOff {
+      0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        opacity: 1;
+      }
+      40% {
+        transform: translate(12px, -8px) scale(1.1) rotate(-15deg);
+        opacity: 0.9;
+      }
+      100% {
+        transform: translate(80px, -60px) scale(0.3) rotate(-35deg);
+        opacity: 0;
+      }
+    }
+
+    /* Pop & Wink Animation */
+    @keyframes popWink {
+      0% {
+        transform: scale(0) rotate(-20deg);
+        opacity: 0;
+      }
+      60% {
+        transform: scale(1.3) rotate(10deg);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+      }
+    }
+
+    .plane-flying {
+      animation: flyOff 0.65s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .wink-popping {
+      display: inline-block !important;
+      animation: popWink 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+  </style>
+
   <script is:inline>
     const form = document.getElementById('contact-form');
     const submitBtn = document.getElementById('submit-btn');
     const btnText = document.getElementById('btn-text');
+    const planeIcon = document.getElementById('btn-plane-icon');
+    const btnEmoji = document.getElementById('btn-emoji');
+    const btnCheck = document.getElementById('btn-check');
     const formStatus = document.getElementById('form-status');
 
     if (form) {
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
+        // Native HTML5 Validation Guard
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        // Trigger paper plane launch animation
+        planeIcon.classList.add('plane-flying');
         btnText.textContent = 'Transmitting Specifications...';
         submitBtn.disabled = true;
-        submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+        submitBtn.classList.add('opacity-90', 'cursor-not-allowed');
 
         const formData = new FormData(form);
 
@@ -132,19 +218,35 @@ import Layout from '../layouts/Layout.astro';
 
           if (response.ok) {
             form.reset();
+            
+            // Pop up the winking smiley 😉
+            planeIcon.classList.add('hidden');
+            planeIcon.classList.remove('plane-flying');
+            btnEmoji.classList.add('wink-popping');
+            btnText.textContent = 'Got It! We’ll Be In Touch';
+
+            // After 1.8 seconds, transition smiley to checkmark
+            setTimeout(() => {
+              btnEmoji.classList.remove('wink-popping');
+              btnEmoji.classList.add('hidden');
+              btnCheck.classList.remove('hidden');
+              btnText.textContent = 'Specifications Submitted';
+            }, 1800);
+
+            // Display confirmation banner
             formStatus.className = 'block text-center text-xs font-mono p-4 rounded-lg bg-emerald-950/60 border border-emerald-500/40 text-emerald-300';
             formStatus.textContent = '✓ Specifications received. Viewport Digital dispatch will review and respond within 24 hours.';
-            btnText.textContent = 'Specifications Submitted';
           } else {
             const data = await response.json();
             throw new Error(data?.errors?.[0]?.message || 'Submission error');
           }
         } catch (error) {
           formStatus.className = 'block text-center text-xs font-mono p-4 rounded-lg bg-red-950/60 border border-red-500/40 text-red-300';
-          formStatus.textContent = 'Transmission failed. Please check fields or email directly.';
+          formStatus.textContent = 'Transmission failed. Please verify required fields or email directly.';
           btnText.textContent = 'Retry Transmission';
+          planeIcon.classList.remove('plane-flying');
           submitBtn.disabled = false;
-          submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+          submitBtn.classList.remove('opacity-90', 'cursor-not-allowed');
         }
       });
     }
