@@ -103,7 +103,7 @@ const {
         </a>
 
         <!-- Hamburger Toggle Button -->
-        <button id="menu-btn" aria-label="Toggle Navigation Menu" class="md:hidden p-2 rounded-lg bg-[#0F172A] border border-white/[0.08] text-white hover:border-[#38BDF8]/50 focus:outline-none">
+        <button id="menu-btn" type="button" aria-label="Toggle Navigation Menu" class="md:hidden p-2 rounded-lg bg-[#0F172A] border border-white/[0.08] text-white hover:border-[#38BDF8]/50 focus:outline-none">
           <svg id="hamburger-icon" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
           </svg>
@@ -117,10 +117,10 @@ const {
 
     <!-- Mobile Slide-Down Dropdown Menu -->
     <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2 px-2 border-t border-white/[0.08] mt-3 space-y-3 font-mono text-xs uppercase tracking-wider">
-      <a href="/" class="mobile-nav-link block py-2 px-3 rounded-lg hover:bg-white/[0.05] text-[#CBD5E1]">Home</a>
-      <a href="/process" class="mobile-nav-link block py-2 px-3 rounded-lg hover:bg-white/[0.05] text-[#CBD5E1]">Our Process</a>
-      <a href="/pricing" class="mobile-nav-link block py-2 px-3 rounded-lg hover:bg-white/[0.05] text-[#CBD5E1]">Tiers & Pricing</a>
-      <a href="/contact" class="mobile-nav-link block py-2.5 px-3 rounded-lg bg-[#2563EB] text-white text-center font-bold">Contact / Let's Build &rarr;</a>
+      <a href="/" class="block py-2 px-3 rounded-lg hover:bg-white/[0.05] text-[#CBD5E1]">Home</a>
+      <a href="/process" class="block py-2 px-3 rounded-lg hover:bg-white/[0.05] text-[#CBD5E1]">Our Process</a>
+      <a href="/pricing" class="block py-2 px-3 rounded-lg hover:bg-white/[0.05] text-[#CBD5E1]">Tiers & Pricing</a>
+      <a href="/contact" class="block py-2.5 px-3 rounded-lg bg-[#2563EB] text-white text-center font-bold">Contact / Let's Build &rarr;</a>
     </div>
   </header>
 
@@ -154,7 +154,7 @@ const {
     </div>
   </footer>
 
-  <!-- Responsive Logic & Safe Scroll Observer -->
+  <!-- Script with NO link interception -->
   <script is:inline>
     document.addEventListener('DOMContentLoaded', () => {
       const menuBtn = document.getElementById('menu-btn');
@@ -177,7 +177,6 @@ const {
         });
       }
 
-      // Observer starts elements at 0.94 opacity so screens are never empty
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -194,7 +193,6 @@ const {
 </html>
 
 <style is:global>
-  /* Glassmorphism 2.0 Specs */
   .glass-panel {
     background: radial-gradient(120% 120% at 50% 0%, rgba(30, 41, 59, 0.5) 0%, rgba(11, 15, 25, 0.75) 100%);
     backdrop-filter: blur(16px);
@@ -212,7 +210,6 @@ const {
     box-shadow: 0 24px 48px -12px rgba(37, 99, 235, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
 
-  /* Safe Fade-In */
   .fade-observe {
     opacity: 0.94;
     transform: translateY(0);
