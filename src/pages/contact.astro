@@ -1,254 +1,277 @@
 ---
-// src/pages/contact.astro
+// src/pages/pricing.astro
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Contact / Let's Build | Viewport Digital LLC" currentPath="/contact">
-  <div class="pt-12 sm:pt-20 px-4 sm:px-8 max-w-4xl mx-auto pb-16">
+<Layout title="Tiers & Pricing | Viewport Digital LLC" currentPath="/pricing">
+  <div class="space-y-16 sm:space-y-24 pt-12 sm:pt-20 px-4 sm:px-8 max-w-7xl mx-auto pb-16">
     
-    <div class="fade-observe glass-panel p-6 sm:p-12 rounded-3xl border border-white/[0.08] space-y-8 relative overflow-hidden">
+    <div class="fade-observe space-y-3 text-center max-w-3xl mx-auto">
+      <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Transparent Pricing</span>
+      <h1 class="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">Website Architecture Packages</h1>
+      <p class="text-xs sm:text-base text-[#94A3B8]">
+        Flat-fee deliverables. Clear turnaround. No endless hourly bills or platform licensing fees.
+      </p>
+    </div>
+
+    <!-- 3 Website Architecture Packages -->
+    <div class="fade-observe grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
       
-      <div class="text-center space-y-3">
-        <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Zero Dead-End Architecture</span>
-        <h1 class="text-2xl sm:text-4xl font-display font-bold text-white">Initiate Your Build Specifications</h1>
-        <p class="text-xs sm:text-sm text-[#94A3B8] max-w-lg mx-auto">
-          Direct communication with the engineer and photographer. No account managers or sales runarounds.
-        </p>
+      <!-- Tier 1 -->
+      <div class="glass-panel glass-card-interactive p-6 sm:p-8 rounded-2xl flex flex-col justify-between">
+        <div class="space-y-6">
+          <div class="space-y-2">
+            <span class="text-xs font-mono uppercase tracking-widest text-[#94A3B8]">Tier 01</span>
+            <h2 class="text-xl sm:text-2xl font-display font-bold text-white">The Local Landing Page</h2>
+            <p class="text-xs text-[#94A3B8]">Single-page builds, transport fleets, service contractors, or targeted campaigns.</p>
+          </div>
+          
+          <div class="py-4 border-y border-white/[0.08]">
+            <span class="text-2xl sm:text-4xl font-display font-bold text-white">$750 – $1,200</span>
+            <span class="text-xs font-mono text-[#94A3B8] block mt-1">One-time flat fee</span>
+          </div>
+
+          <div class="space-y-3">
+            <span class="text-xs font-mono uppercase text-[#CBD5E1] tracking-wider block">Scope of Deliverables:</span>
+            <ul class="space-y-2 text-xs text-[#94A3B8]">
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                High-impact single page architecture on Astro
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Strict mobile-first responsive layout
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Formspree zero-backend contact integration
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                High-speed edge setup on Vercel
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-6 sm:pt-8 mt-6 border-t border-white/[0.08]">
+          <a href="/contact" class="tactile-btn block w-full py-3 text-center text-xs font-bold uppercase tracking-wider text-white bg-[#0F172A] hover:bg-[#2563EB] border border-white/[0.08] hover:border-[#38BDF8] rounded-lg transition-colors">
+            Select Tier 1
+          </a>
+        </div>
       </div>
 
-      <!-- Live Formspree Integration -->
-      <form id="contact-form" action="https://formspree.io/f/xgavejzr" method="POST" class="space-y-6">
-        
-        <!-- Contact Information (Name, Email, Phone) -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+      <!-- Tier 2 (Core Recommendation) -->
+      <div class="glass-panel glass-card-interactive p-6 sm:p-8 rounded-2xl flex flex-col justify-between border-[#38BDF8]/50 shadow-2xl shadow-[#2563EB]/20 relative">
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-1 bg-[#2563EB] text-white font-mono text-[10px] uppercase font-bold tracking-widest rounded-full border border-[#38BDF8]">
+          Core Recommendation
+        </div>
+
+        <div class="space-y-6">
           <div class="space-y-2">
-            <label for="name" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">
-              Your Name <span class="text-[#38BDF8]">*</span>
-            </label>
-            <input 
-              type="text" 
-              id="name"
-              name="name" 
-              required 
-              placeholder="Jane Doe" 
-              class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors" 
-            />
+            <span class="text-xs font-mono uppercase tracking-widest text-[#38BDF8]">Tier 02</span>
+            <h2 class="text-xl sm:text-2xl font-display font-bold text-white">The Multi-Page Core</h2>
+            <p class="text-xs text-[#94A3B8]">Established local businesses, clinics, and professional firms needing depth.</p>
           </div>
-          <div class="space-y-2">
-            <label for="email" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">
-              Email Address <span class="text-[#38BDF8]">*</span>
-            </label>
-            <input 
-              type="email" 
-              id="email"
-              name="email" 
-              required 
-              placeholder="jane@company.com" 
-              class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors" 
-            />
+          
+          <div class="py-4 border-y border-white/[0.08]">
+            <span class="text-2xl sm:text-4xl font-display font-bold text-white">$1,800 – $3,200</span>
+            <span class="text-xs font-mono text-[#94A3B8] block mt-1">One-time flat fee</span>
           </div>
-          <div class="space-y-2">
-            <label for="phone" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">
-              Phone Number <span class="text-[#38BDF8]">*</span>
-            </label>
-            <input 
-              type="tel" 
-              id="phone"
-              name="phone" 
-              required 
-              placeholder="(317) 555-0192" 
-              class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors" 
-            />
+
+          <div class="space-y-3">
+            <span class="text-xs font-mono uppercase text-[#CBD5E1] tracking-wider block">Scope of Deliverables:</span>
+            <ul class="space-y-2 text-xs text-[#CBD5E1]">
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Up to 5 custom routes (Home, Services, About, Gallery, Contact)
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Seamless commercial photography component integration
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Architectural local SEO metadata & OpenGraph schemas
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Recorded video training & 30-day stabilization buffer
+              </li>
+            </ul>
           </div>
         </div>
 
-        <!-- Tier and Add-on Selection -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+        <div class="pt-6 sm:pt-8 mt-6 border-t border-white/[0.08]">
+          <a href="/contact" class="tactile-btn block w-full py-3 text-center text-xs font-bold uppercase tracking-wider text-white bg-[#2563EB] hover:bg-blue-600 rounded-lg shadow-lg shadow-[#2563EB]/30 border border-[#38BDF8]/60">
+            Select Tier 2
+          </a>
+        </div>
+      </div>
+
+      <!-- Tier 3 -->
+      <div class="glass-panel glass-card-interactive p-6 sm:p-8 rounded-2xl flex flex-col justify-between">
+        <div class="space-y-6">
           <div class="space-y-2">
-            <label for="tier" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Target Web Tier</label>
-            <select 
-              id="tier"
-              name="tier" 
-              class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors"
-            >
-              <option value="Tier 1: Landing Page ($750 - $1,200)">Tier 1: Landing Page ($750 - $1,200)</option>
-              <option value="Tier 2: Business Core ($1,800 - $3,200)" selected>Tier 2: Business Core ($1,800 - $3,200)</option>
-              <option value="Tier 3: Custom Portal ($3,500 - $6,500+)">Tier 3: Custom Portal ($3,500 - $6,500+)</option>
-              <option value="A La Carte / Custom Architecture">A La Carte / Custom Architecture</option>
-            </select>
+            <span class="text-xs font-mono uppercase tracking-widest text-[#94A3B8]">Tier 03</span>
+            <h2 class="text-xl sm:text-2xl font-display font-bold text-white">The Custom Portal & App</h2>
+            <p class="text-xs text-[#94A3B8]">Interactive onboarding flows, membership portals, and multi-step data collection.</p>
           </div>
-          <div class="space-y-2">
-            <label for="photography" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Commercial Photography Add-on</label>
-            <select 
-              id="photography"
-              name="photography" 
-              class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors"
-            >
-              <option value="Starter Suite ($350 - $150 bundle rebate)">Starter Suite ($350 - $150 bundle rebate)</option>
-              <option value="Full Brand Suite ($750 - $150 bundle rebate)" selected>Full Brand Suite ($750 - $150 bundle rebate)</option>
-              <option value="Full-Day Production ($1,500+)">Full-Day Production ($1,500+)</option>
-              <option value="No Photography Needed">No Photography Needed</option>
-            </select>
+          
+          <div class="py-4 border-y border-white/[0.08]">
+            <span class="text-2xl sm:text-4xl font-display font-bold text-white">$3,500 – $6,500+</span>
+            <span class="text-xs font-mono text-[#94A3B8] block mt-1">Based on database & logic depth</span>
+          </div>
+
+          <div class="space-y-3">
+            <span class="text-xs font-mono uppercase text-[#CBD5E1] tracking-wider block">Scope of Deliverables:</span>
+            <ul class="space-y-2 text-xs text-[#94A3B8]">
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Astro Server-Side Rendering (SSR) configuration
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Relational Supabase database + secure authentication
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Custom dashboard logic generated via Cursor and Gemini
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Sentry error tracking & Resend automated email dispatch
+              </li>
+            </ul>
           </div>
         </div>
 
-        <!-- Clarified Description Box -->
-        <div class="space-y-2">
-          <label for="message" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">
-            What would you like to build? <span class="text-[#38BDF8]">*</span>
-          </label>
-          <textarea 
-            id="message"
-            name="message" 
-            rows="4" 
-            required 
-            placeholder="Describe your dream website, what features you need, or the vision for your business..." 
-            class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors"
-          ></textarea>
+        <div class="pt-6 sm:pt-8 mt-6 border-t border-white/[0.08]">
+          <a href="/contact" class="tactile-btn block w-full py-3 text-center text-xs font-bold uppercase tracking-wider text-white bg-[#0F172A] hover:bg-[#2563EB] border border-white/[0.08] hover:border-[#38BDF8] rounded-lg transition-colors">
+            Select Tier 3
+          </a>
         </div>
-
-        <!-- Animated Tactile Button -->
-        <button 
-          id="submit-btn"
-          type="submit" 
-          class="tactile-btn relative overflow-hidden w-full py-4 text-center text-sm font-bold uppercase tracking-wider text-white bg-[#2563EB] hover:bg-blue-600 rounded-xl shadow-xl shadow-[#2563EB]/30 border border-[#38BDF8]/50 flex items-center justify-center gap-3 cursor-pointer transition-all duration-300"
-        >
-          <!-- Animated Paper Plane SVG -->
-          <svg id="btn-plane-icon" class="w-4 h-4 text-[#38BDF8] transition-transform duration-500 ease-out" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-          </svg>
-
-          <!-- Animated Winking Smiley / Checkmark Feedback Container -->
-          <span id="btn-emoji" class="hidden text-xl transform scale-0 transition-transform duration-300">😉</span>
-          <span id="btn-check" class="hidden text-base text-emerald-400">✓</span>
-
-          <span id="btn-text">Submit Specifications to Viewport Digital</span>
-        </button>
-
-        <!-- Confirmation / Error Notice -->
-        <div id="form-status" class="hidden text-center text-xs font-mono p-4 rounded-lg transition-all duration-300"></div>
-      </form>
-
-      <div class="text-center pt-2">
-        <span class="text-xs font-mono text-[#94A3B8]">White-glove handover included: Video docs, Git repository push, and 30-day warranty.</span>
       </div>
 
     </div>
 
-  </div>
+    <!-- Commercial Photography Packages -->
+    <div class="fade-observe pt-10 space-y-6">
+      <div class="border-t border-white/[0.08] pt-10 text-center md:text-left">
+        <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Optics & Production</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-white mt-1">Commercial Photography Packages</h2>
+        <p class="text-xs sm:text-sm text-[#94A3B8] mt-1">Authentic visual proof captured on-site to give your Astro site undeniable presence.</p>
+      </div>
 
-  <style is:inline>
-    /* Paper Plane Launch Animation */
-    @keyframes flyOff {
-      0% {
-        transform: translate(0, 0) scale(1) rotate(0deg);
-        opacity: 1;
-      }
-      40% {
-        transform: translate(12px, -8px) scale(1.1) rotate(-15deg);
-        opacity: 0.9;
-      }
-      100% {
-        transform: translate(80px, -60px) scale(0.3) rotate(-35deg);
-        opacity: 0;
-      }
-    }
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass-panel p-6 rounded-xl space-y-3">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-mono text-[#94A3B8]">PACKAGE 01</span>
+            <span class="text-xl font-display font-bold text-white">$350</span>
+          </div>
+          <h3 class="text-base font-bold text-white">The Web Asset Starter</h3>
+          <p class="text-xs text-[#94A3B8]">One location, ~1 hour on-site. Clean headshots, storefront curb appeal, 10–15 edited files.</p>
+        </div>
 
-    /* Pop & Wink Animation */
-    @keyframes popWink {
-      0% {
-        transform: scale(0) rotate(-20deg);
-        opacity: 0;
-      }
-      60% {
-        transform: scale(1.3) rotate(10deg);
-        opacity: 1;
-      }
-      100% {
-        transform: scale(1) rotate(0deg);
-        opacity: 1;
-      }
-    }
+        <div class="glass-panel p-6 rounded-xl space-y-3 border-[#38BDF8]/40">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-mono text-[#38BDF8]">PACKAGE 02</span>
+            <span class="text-xl font-display font-bold text-white">$750</span>
+          </div>
+          <h3 class="text-base font-bold text-white">The Full Brand Suite</h3>
+          <p class="text-xs text-[#94A3B8]">Half-day commitment. Action shots of the crew, interior details, 30–40 polished files.</p>
+        </div>
 
-    .plane-flying {
-      animation: flyOff 0.65s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    }
+        <div class="glass-panel p-6 rounded-xl space-y-3">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-mono text-[#94A3B8]">PACKAGE 03</span>
+            <span class="text-xl font-display font-bold text-white">$1,500+</span>
+          </div>
+          <h3 class="text-base font-bold text-white">Full-Day Commercial Production</h3>
+          <p class="text-xs text-[#94A3B8]">Full day on the ground. Multi-room facilities, inventory catalogs, and deep raw archives.</p>
+        </div>
+      </div>
 
-    .wink-popping {
-      display: inline-block !important;
-      animation: popWink 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-    }
-  </style>
+      <div class="glass-panel p-5 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono">
+        <div class="flex flex-wrap items-center gap-4">
+          <span><strong class="text-white">A LA CARTE:</strong> $125 / hour for ad-hoc photo tasks</span>
+          <span><strong class="text-white">BUNDLE REBATE:</strong> -$150 off photography with Web Dev</span>
+        </div>
+        <span class="text-[#38BDF8]">High Value • Full Copyright Release</span>
+      </div>
+    </div>
 
-  <script is:inline>
-    const form = document.getElementById('contact-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const btnText = document.getElementById('btn-text');
-    const planeIcon = document.getElementById('btn-plane-icon');
-    const btnEmoji = document.getElementById('btn-emoji');
-    const btnCheck = document.getElementById('btn-check');
-    const formStatus = document.getElementById('form-status');
+    <!-- WEBSITE CARE AND HOSTING RETAINERS (ALL THREE TIERS INCLUDE MANAGED HOSTING) -->
+    <div class="fade-observe pt-6 space-y-6">
+      <div class="border-t border-white/[0.08] pt-10 text-center md:text-left">
+        <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Ongoing Reliability</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-white mt-1">Website Care and Hosting Retainers</h2>
+        <p class="text-xs sm:text-sm text-[#94A3B8] mt-1">Managed Vercel edge hosting and maintenance buffers included on all tiers. You own the code regardless; these plans keep updates and servers managed for you.</p>
+      </div>
 
-    if (form) {
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
-        // Native HTML5 Validation Guard
-        if (!form.checkValidity()) {
-          form.reportValidity();
-          return;
-        }
+        <!-- Basic Care -->
+        <div class="glass-panel p-6 rounded-xl space-y-3">
+          <div class="flex justify-between items-baseline">
+            <h3 class="text-base font-bold text-white">Basic Care</h3>
+            <span class="font-mono text-base font-bold text-white">$75 <span class="text-xs text-[#94A3B8]">/mo</span></span>
+          </div>
+          <p class="text-xs text-[#94A3B8] leading-relaxed">
+            Includes high-speed Vercel edge hosting, global CDN maintenance, monthly framework dependency checks, 24/7 uptime monitoring, and up to 30 minutes of minor copy or image updates.
+          </p>
+        </div>
 
-        // Trigger paper plane launch animation
-        planeIcon.classList.add('plane-flying');
-        btnText.textContent = 'Transmitting Specifications...';
-        submitBtn.disabled = true;
-        submitBtn.classList.add('opacity-90', 'cursor-not-allowed');
+        <!-- Growth Retainer -->
+        <div class="glass-panel p-6 rounded-xl space-y-3 border-[#2563EB]/40">
+          <div class="flex justify-between items-baseline">
+            <h3 class="text-base font-bold text-white">Growth Retainer</h3>
+            <span class="font-mono text-base font-bold text-[#38BDF8]">$150 <span class="text-xs text-[#94A3B8]">/mo</span></span>
+          </div>
+          <p class="text-xs text-[#94A3B8] leading-relaxed">
+            Includes fully managed edge hosting, standard monitoring, priority queue response, and up to two (2) hours of minor layout edits, fresh asset swaps, or new landing page sections per month.
+          </p>
+        </div>
 
-        const formData = new FormData(form);
+        <!-- Scale Retainer -->
+        <div class="glass-panel p-6 rounded-xl space-y-3">
+          <div class="flex justify-between items-baseline">
+            <h3 class="text-base font-bold text-white">Scale Retainer</h3>
+            <span class="font-mono text-base font-bold text-white">$300 <span class="text-xs text-[#94A3B8]">/mo</span></span>
+          </div>
+          <p class="text-xs text-[#94A3B8] leading-relaxed">
+            Built for dynamic application portals. Includes edge hosting, active Supabase database upkeep, priority same-day bug remediation, and up to four (4) hours of custom feature development per month.
+          </p>
+        </div>
+      </div>
+    </div>
 
-        try {
-          const response = await fetch(form.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-              'Accept': 'application/json'
-            }
-          });
+    <!-- LET'S BUILD CONVERSION ANCHOR -->
+    <div class="fade-observe pt-6">
+      <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-white/[0.08] relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+        <div class="space-y-3 max-w-xl">
+          <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase block">Ready to Begin?</span>
+          <h2 class="text-2xl sm:text-4xl font-display font-bold text-white tracking-tight leading-tight">
+            Have a project in mind? Let's engineer it.
+          </h2>
+          <p class="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
+            Zero sales friction. Submit your timeline, tech specs, or required photography assets directly into our dispatch pipeline.
+          </p>
+        </div>
 
-          if (response.ok) {
-            form.reset();
-            
-            // Pop up the winking smiley 😉
-            planeIcon.classList.add('hidden');
-            planeIcon.classList.remove('plane-flying');
-            btnEmoji.classList.add('wink-popping');
-            btnText.textContent = 'Got It! We’ll Be In Touch';
+        <div class="w-full md:w-auto shrink-0">
+          <a 
+            href="/contact" 
+            class="tactile-btn inline-flex items-center justify-center gap-3 w-full md:w-auto px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider text-white bg-[#2563EB] hover:bg-blue-600 border border-[#38BDF8]/60 shadow-xl shadow-[#2563EB]/35 transition-all group"
+          >
+            <span>Let's Build</span>
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
 
-            // After 1.8 seconds, transition smiley to checkmark
-            setTimeout(() => {
-              btnEmoji.classList.remove('wink-popping');
-              btnEmoji.classList.add('hidden');
-              btnCheck.classList.remove('hidden');
-              btnText.textContent = 'Specifications Submitted';
-            }, 1800);
-
-            // Display confirmation banner
-            formStatus.className = 'block text-center text-xs font-mono p-4 rounded-lg bg-emerald-950/60 border border-emerald-500/40 text-emerald-300';
-            formStatus.textContent = '✓ Specifications received. Viewport Digital dispatch will review and respond within 24 hours.';
-          } else {
-            const data = await response.json();
-            throw new Error(data?.errors?.[0]?.message || 'Submission error');
-          }
-        } catch (error) {
-          formStatus.className = 'block text-center text-xs font-mono p-4 rounded-lg bg-red-950/60 border border-red-500/40 text-red-300';
-          formStatus.textContent = 'Transmission failed. Please verify required fields or email directly.';
-          btnText.textContent = 'Retry Transmission';
-          planeIcon.classList.remove('plane-flying');
-          submitBtn.disabled = false;
-          submitBtn.classList.remove('opacity-90', 'cursor-not-allowed');
-        }
-      });
-    }
-  </script>
+  </div>
 </Layout>
