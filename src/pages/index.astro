@@ -1,608 +1,792 @@
 ---
-// Viewport Digital LLC - Obsidian Quartz Design System (2026 Sovereign Build)
-// Stack: Astro, Vercel
+// src/pages/index.astro
+// Viewport Digital LLC - Production Architecture
+const pageTitle = "Viewport Digital LLC | Engineered Digital Architecture & Commercial Photography";
+const pageDescription = "Bespoke engineering on Astro, edge delivery via Vercel, and custom commercial photography. Zero templates. Zero subscriptions. You own the code.";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Viewport Digital LLC | High-Performance Web Infrastructure & Media</title>
-		<style>
-			:root {
-				color-scheme: dark;
-				--bg-canvas: #090A0F;
-				--surface-glass: #13161F;
-				--surface-glass-hover: #1a1e2b;
-				--accent-amber: #FF5C00;
-				--accent-amber-glow: rgba(255, 92, 0, 0.3);
-				--text-primary: #F8FAFC;
-				--text-secondary: #94A3B8;
-				--border-frost: rgba(255, 255, 255, 0.08);
-				--border-frost-hover: rgba(255, 92, 0, 0.4);
-			}
-
-			* {
-				box-sizing: border-box;
-				letter-spacing: -0.015em;
-			}
-
-			body {
-				margin: 0;
-				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-				background-color: var(--bg-canvas);
-				color: var(--text-primary);
-				line-height: 1.6;
-				-webkit-font-smoothing: antialiased;
-				overflow-x: hidden;
-			}
-
-			/* Accessibility Focus */
-			a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
-				outline: 2px solid var(--accent-amber);
-				outline-offset: 4px;
-			}
-
-			/* Cinematic Motion System */
-			@keyframes maskReveal {
-				0% { opacity: 0; transform: translateY(28px); filter: blur(6px); }
-				100% { opacity: 1; transform: translateY(0); filter: blur(0); }
-			}
-
-			.animate-reveal {
-				animation: maskReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-			}
-
-			/* Header - Glassmorphism 2.0 */
-			header {
-				position: sticky;
-				top: 0;
-				z-index: 100;
-				backdrop-filter: blur(24px);
-				-webkit-backdrop-filter: blur(24px);
-				background-color: rgba(9, 10, 15, 0.82);
-				border-bottom: 1px solid var(--border-frost);
-			}
-
-			.container {
-				max-width: 1200px;
-				margin: 0 auto;
-				padding: 0 32px;
-			}
-
-			.header-content {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				height: 80px;
-			}
-
-			.logo {
-				font-weight: 800;
-				font-size: 1rem;
-				letter-spacing: 0.06em;
-				text-transform: uppercase;
-				color: #fff;
-				text-decoration: none;
-				display: flex;
-				align-items: center;
-				gap: 10px;
-			}
-
-			.logo-mark {
-				width: 10px;
-				height: 10px;
-				background-color: var(--accent-amber);
-				box-shadow: 0 0 12px var(--accent-amber);
-			}
-
-			.logo span {
-				color: var(--text-secondary);
-				font-weight: 400;
-			}
-
-			nav {
-				display: flex;
-				gap: 32px;
-				font-size: 0.85rem;
-				font-weight: 500;
-				text-transform: uppercase;
-				letter-spacing: 0.08em;
-				color: var(--text-secondary);
-			}
-
-			nav a {
-				color: var(--text-secondary);
-				text-decoration: none;
-				transition: color 0.2s ease;
-			}
-
-			nav a:hover { color: #fff; }
-
-			/* Archival Indexing Tag */
-			.archival-tag {
-				font-size: 0.75rem;
-				font-family: ui-monospace, monospace;
-				text-transform: uppercase;
-				letter-spacing: 0.15em;
-				color: var(--accent-amber);
-				display: inline-flex;
-				align-items: center;
-				gap: 8px;
-				margin-bottom: 24px;
-			}
-
-			.archival-tag::before {
-				content: "■";
-				font-size: 0.5rem;
-			}
-
-			/* Action Drivers */
-			.btn-primary {
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
-				padding: 14px 28px;
-				background-color: var(--accent-amber);
-				color: #090A0F;
-				font-weight: 700;
-				font-size: 0.9rem;
-				text-decoration: none;
-				border-radius: 8px;
-				transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-				box-shadow: 0 4px 25px rgba(255, 92, 0, 0.3);
-			}
-
-			.btn-primary:hover {
-				background-color: #ff7024;
-				transform: translateY(-2px);
-				box-shadow: 0 6px 35px rgba(255, 92, 0, 0.5);
-			}
-
-			.btn-outline {
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
-				padding: 14px 28px;
-				background-color: var(--surface-glass);
-				border: 1px solid var(--border-frost);
-				color: var(--text-primary);
-				font-weight: 600;
-				font-size: 0.9rem;
-				text-decoration: none;
-				border-radius: 8px;
-				transition: all 0.3s ease;
-				backdrop-filter: blur(12px);
-			}
-
-			.btn-outline:hover {
-				border-color: rgba(255, 255, 255, 0.3);
-				background-color: var(--surface-glass-hover);
-			}
-
-			/* Hero Section */
-			.hero {
-				padding: 140px 0 120px 0;
-				position: relative;
-				overflow: hidden;
-			}
-
-			.hero-glow {
-				position: absolute;
-				top: 35%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				width: 750px;
-				height: 500px;
-				background: radial-gradient(circle, rgba(255, 92, 0, 0.08) 0%, rgba(99, 102, 241, 0.03) 60%, transparent 80%);
-				filter: blur(140px);
-				pointer-events: none;
-			}
-
-			h1 {
-				font-size: clamp(3.2rem, 7.5vw, 6.8rem);
-				font-weight: 800;
-				letter-spacing: -0.03em;
-				line-height: 1.02;
-				color: #fff;
-				margin: 0 0 24px 0;
-				text-transform: uppercase;
-			}
-
-			.hero-p {
-				max-width: 620px;
-				font-size: 1.15rem;
-				color: var(--text-secondary);
-				line-height: 1.6;
-				margin-bottom: 48px;
-			}
-
-			.hero-actions {
-				display: flex;
-				gap: 16px;
-				align-items: center;
-				flex-wrap: wrap;
-			}
-
-			/* Sections */
-			section {
-				padding: 130px 0;
-				border-top: 1px solid var(--border-frost);
-				position: relative;
-			}
-
-			.section-header {
-				max-width: 700px;
-				margin-bottom: 64px;
-			}
-
-			.section-header h2 {
-				font-size: clamp(2.25rem, 4vw, 3.5rem);
-				font-weight: 800;
-				letter-spacing: -0.02em;
-				color: #fff;
-				margin: 0 0 16px 0;
-				text-transform: uppercase;
-			}
-
-			.section-header p {
-				color: var(--text-secondary);
-				font-size: 1.05rem;
-				line-height: 1.6;
-			}
-
-			/* Glassmorphism 2.0 Tactile Cards */
-			.glass-card {
-				background: var(--surface-glass);
-				border: 1px solid var(--border-frost);
-				box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 24px 60px rgba(0, 0, 0, 0.6);
-				backdrop-filter: blur(24px);
-				-webkit-backdrop-filter: blur(24px);
-				border-radius: 24px;
-				padding: 56px;
-				position: relative;
-				transition: border-color 0.3s ease, transform 0.3s ease;
-			}
-
-			.glass-card:hover {
-				border-color: var(--border-frost-hover);
-				transform: translateY(-2px);
-			}
-
-			.flagship-grid {
-				display: grid;
-				grid-template-columns: 1fr;
-				gap: 48px;
-			}
-
-			@media(min-width: 860px) {
-				.flagship-grid { grid-template-columns: 1.2fr 0.8fr; align-items: center; }
-			}
-
-			.price-display {
-				font-size: 3rem;
-				font-weight: 800;
-				color: #fff;
-				letter-spacing: -0.03em;
-				margin: 16px 0 24px 0;
-			}
-
-			.specs-list {
-				list-style: none;
-				padding: 0;
-				margin: 0 0 32px 0;
-				display: grid;
-				gap: 14px;
-			}
-
-			.specs-list li {
-				font-size: 0.95rem;
-				color: #cbd5e1;
-				display: flex;
-				align-items: center;
-				gap: 12px;
-			}
-
-			.specs-list li::before {
-				content: "→";
-				color: var(--accent-amber);
-				font-weight: bold;
-			}
-
-			/* Grid Two & Three */
-			.grid-2 {
-				display: grid;
-				grid-template-columns: 1fr;
-				gap: 32px;
-			}
-
-			@media(min-width: 768px) {
-				.grid-2 { grid-template-columns: repeat(2, 1fr); }
-			}
-
-			.grid-3 {
-				display: grid;
-				grid-template-columns: 1fr;
-				gap: 24px;
-			}
-
-			@media(min-width: 768px) {
-				.grid-3 { grid-template-columns: repeat(3, 1fr); }
-			}
-
-			/* Intake Terminal */
-			.terminal-box {
-				max-width: 680px;
-				margin: 0 auto;
-				background: var(--surface-glass);
-				border: 1px solid var(--border-frost);
-				box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 30px 80px rgba(0,0,0,0.8);
-				backdrop-filter: blur(24px);
-				border-radius: 20px;
-				padding: 48px;
-			}
-
-			.form-group {
-				margin-bottom: 24px;
-			}
-
-			label {
-				display: block;
-				font-size: 0.75rem;
-				font-family: ui-monospace, monospace;
-				text-transform: uppercase;
-				letter-spacing: 0.12em;
-				color: var(--accent-amber);
-				margin-bottom: 10px;
-			}
-
-			input, textarea {
-				width: 100%;
-				padding: 16px;
-				background-color: var(--bg-canvas);
-				border: 1px solid rgba(255, 255, 255, 0.1);
-				border-radius: 8px;
-				color: #fff;
-				font-size: 1rem;
-				box-sizing: border-box;
-				transition: border-color 0.2s ease;
-			}
-
-			input:focus, textarea:focus { border-color: var(--accent-amber); outline: none; }
-
-			footer {
-				padding: 80px 0;
-				border-top: 1px solid var(--border-frost);
-				text-align: center;
-				color: var(--text-secondary);
-				font-size: 0.85rem;
-			}
-		</style>
-	</head>
-	<body>
-
-		<!-- Header -->
-		<header>
-			<div class="container header-content">
-				<a href="/" class="logo">
-					<div class="logo-mark"></div>
-					Viewport Digital <span>LLC</span>
-				</a>
-				<nav aria-label="Main Navigation">
-					<a href="#flagship">Core Offer</a>
-					<a href="#architecture">Architecture</a>
-					<a href="/pricing">Tiers</a>
-					<a href="/photography">Media</a>
-				</nav>
-				<div>
-					<a href="#contact" class="btn-primary" style="padding: 10px 20px; font-size: 0.85rem;">Inquire Now</a>
-				</div>
-			</div>
-		</header>
-
-		<main id="main-content">
-			<!-- Hero Section -->
-			<section class="hero animate-reveal" style="border-top: none;">
-				<div class="hero-glow"></div>
-				<div class="container">
-					<div class="archival-tag">[INDEX // 01 : CARMEL, INDIANA STUDIO]</div>
-					<h1>Code.<br>Capture.<br>Convert.</h1>
-					<p class="hero-p">
-						Human-first web infrastructure and precision commercial media. We eliminate plastic AI templates, bloated subscriptions, and dead-end layouts in favor of point-of-view design and sub-second performance.
-					</p>
-					<div class="hero-actions">
-						<a href="#flagship" class="btn-primary">Execute Build</a>
-						<a href="/pricing" class="btn-outline">Review Pricing Matrix</a>
-					</div>
-				</div>
-			</section>
-
-			<!-- Flagship Product Card (Tier 2 Core) -->
-			<section id="flagship">
-				<div class="container">
-					<div class="section-header">
-						<span class="archival-tag">[INDEX // 02 : FLAGSHIP STANDARD]</span>
-						<h2>The Multi-Page Business Core.</h2>
-						<p>Engineered via Astro and Vercel for sub-second load times, rigid security, and zero database friction.</p>
-					</div>
-
-					<div class="glass-card">
-						<div class="flagship-grid">
-							<div>
-								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-amber);">Tier 2 Solution • Most Popular</span>
-								<h3 style="font-size: 2.25rem; font-weight: 800; color: #fff; margin: 12px 0 0 0; letter-spacing: -0.02em;">Business Core Architecture</h3>
-								<div class="price-display">$1,800 – $3,200</div>
-								<p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.6; margin-bottom: 28px;">
-									Designed specifically for local service leaders and professional offices demanding a dominant, lightning-fast digital asset.
-								</p>
-								<ul class="specs-list">
-									<li>Up to 5 custom semantic pages (Home, Services, About, Gallery, Contact)</li>
-									<li>Integrated commercial photography assets</li>
-									<li>Sub-second static edge deployment via Vercel</li>
-									<li>Rigorously optimized SEO metadata structure</li>
-								</ul>
-							</div>
-							<div style="background: rgba(9, 10, 15, 0.6); border: 1px solid var(--border-frost); padding: 40px; border-radius: 16px; display: flex; flex-direction: column; justify-content: center; gap: 16px;">
-								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #34D399; text-transform: uppercase;">Foundational Partner Rate</span>
-								<p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">Lock in priority queue status and direct collaboration with your engineer.</p>
-								<a href="#contact" class="btn-primary" style="text-align: center; margin-top: 8px;">Secure Build Slot</a>
-								<a href="/pricing" style="text-align: center; color: var(--text-secondary); font-size: 0.8rem; text-decoration: none; font-family: ui-monospace, monospace;" class="hover:text-white">View all development tiers &rarr;</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<!-- Premium Architecture & Delivery Directives (Bespoke SVGs Included) -->
-			<section id="architecture">
-				<div class="container">
-					<div class="section-header">
-						<span class="archival-tag">[INDEX // 03 : ARCHITECTURAL DIRECTIVES]</span>
-						<h2>Bespoke Craft & White-Glove Handover.</h2>
-						<p>How we ensure zero dead-end journeys, clean component code, and long-term stabilization.</p>
-					</div>
-
-					<div class="grid-3">
-						<div class="glass-card" style="padding: 36px;">
-							<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px;"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: var(--accent-amber);">01 // BESPOKE CRAFT</span>
-							<h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin: 12px 0 12px 0;">Bespoke Over Stock</h3>
-							<p style="color: var(--text-secondary); font-size: 0.875rem; line-height: 1.6; margin: 0;">
-								Custom-tailored layouts, bespoke SVGs, and precise visual assets. Zero generic stock-pack clutter or plastic AI aesthetics.
-							</p>
-						</div>
-
-						<div class="glass-card" style="padding: 36px;">
-							<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px;"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: var(--accent-amber);">02 // CLEAN CODE</span>
-							<h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin: 12px 0 12px 0;">Anti-Black-Box Code</h3>
-							<p style="color: var(--text-secondary); font-size: 0.875rem; line-height: 1.6; margin: 0;">
-								Maintainable component code and structured CMS schemas so you or your team can easily keep content fresh without breaking layouts.
-							</p>
-						</div>
-
-						<div class="glass-card" style="padding: 36px;">
-							<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: var(--accent-amber);">03 // STABILIZATION</span>
-							<h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin: 12px 0 12px 0;">White-Glove Handover</h3>
-							<p style="color: var(--text-secondary); font-size: 0.875rem; line-height: 1.6; margin: 0;">
-								Includes recorded video training, a 30-day post-launch stabilization buffer, and structured ongoing maintenance care tiers.
-							</p>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<!-- Commercial Media Tease -->
-			<section>
-				<div class="container">
-					<div class="section-header">
-						<span class="archival-tag">[INDEX // 04 : VISUAL DOMAIN]</span>
-						<h2>Commercial Media Production.</h2>
-						<p>Authentic workspace assets captured and formatted specifically for your Astro repository.</p>
-					</div>
-
-					<div class="grid-2">
-						<div class="glass-card" style="padding: 40px; display: flex; flex-direction: column; justify-content: space-between;">
-							<div>
-								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: var(--accent-amber); text-transform: uppercase;">Visual Asset Suite</span>
-								<h3 style="font-size: 1.75rem; font-weight: 800; color: #fff; margin: 12px 0 16px 0;">The Full Brand Suite</h3>
-								<div style="font-size: 2.25rem; font-weight: 800; color: #fff; margin-bottom: 16px;">$750 flat</div>
-								<p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
-									Half-day commitment. 30 to 40 fully edited, web-optimized files delivered ready for immediate deployment.
-								</p>
-							</div>
-							<div style="border-top: 1px solid var(--border-frost); padding-top: 20px; display: flex; justify-content: space-between; align-items: center;">
-								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #34D399;">Bundle Savings: -$150</span>
-								<a href="/photography" class="btn-outline" style="padding: 8px 16px; font-size: 0.8rem;">Explore Suites</a>
-							</div>
-						</div>
-
-						<div class="glass-card" style="padding: 40px; display: flex; flex-direction: column; justify-content: space-between;">
-							<div>
-								<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: var(--accent-amber); text-transform: uppercase;">Local Production</span>
-								<h3 style="font-size: 1.75rem; font-weight: 800; color: #fff; margin: 12px 0 16px 0;">Web Asset Starter</h3>
-								<div style="font-size: 2.25rem; font-weight: 800; color: #fff; margin-bottom: 16px;">$350 flat</div>
-								<p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
-									Natural pairing for single-page builds. 1 hour on-site, 10 to 15 edited files for instant layout texture.
-								</p>
-							</div>
-							<div style="border-top: 1px solid var(--border-frost); padding-top: 20px;">
-								<a href="/photography" style="color: #fff; font-size: 0.85rem; text-decoration: none; font-weight: 600;" class="hover:underline">View complete pricing matrix &rarr;</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<!-- Ownership vs Subscription Traps -->
-			<section>
-				<div class="container">
-					<div class="section-header">
-						<span class="archival-tag">[INDEX // 05 : ARCHITECTURAL COMPARISON]</span>
-						<h2>True Ownership vs. Rental Traps.</h2>
-						<p>Why custom code outperforms mainstream DIY template platforms.</p>
-					</div>
-
-					<div class="grid-2">
-						<div class="glass-card" style="padding: 40px; border-color: rgba(239, 68, 68, 0.2);">
-							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #EF4444; text-transform: uppercase;">Subscription Overhead</span>
-							<h3 style="font-size: 1.5rem; font-weight: 800; color: #fff; margin: 12px 0 16px 0;">GoDaddy & Wix</h3>
-							<p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin: 0;">
-								Endless monthly overhead for bloated templates that choke on mobile devices, tank search rankings, and leave you stranded with call-center automated loops.
-							</p>
-						</div>
-
-						<div class="glass-card" style="padding: 40px; border-color: rgba(52, 211, 153, 0.3);">
-							<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: #34D399; text-transform: uppercase;">Absolute Sovereignty</span>
-							<h3 style="font-size: 1.5rem; font-weight: 800; color: #fff; margin: 12px 0 16px 0;">Viewport Digital LLC</h3>
-							<p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin: 0;">
-								You own your code. High-speed Astro static rendering, edge deployment via Vercel, and direct partnership with a local engineer right here in Carmel, Indiana[span_0](start_span)[span_0](end_span).
-							</p>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<!-- Contact / Intake Terminal -->
-			<section id="contact">
-				<div class="container">
-					<div class="section-header" style="text-align: center; max-width: 600px; margin: 0 auto 60px auto;">
-						<span class="archival-tag">[INDEX // 06 : INTAKE TERMINAL]</span>
-						<h2>Initiate Project Transmission.</h2>
-						<p>Direct communication channel for web architecture, media bookings, and retainers.</p>
-					</div>
-
-					<div class="terminal-box">
-						<form action="https://formspree.io/f/xlgpqvaz" method="POST">
-							<div class="form-group">
-								<label htmlFor="name">// Your Name</label>
-								<input type="text" id="name" name="name" required placeholder="Jane Doe" />
-							</div>
-							<div class="form-group">
-								<label htmlFor="email">// Email Address</label>
-								<input type="email" id="email" name="email" required placeholder="jane@company.com" />
-							</div>
-							<div class="form-group">
-								<label htmlFor="message">// Project Scope & Requirements</label>
-								<textarea id="message" name="message" rows="4" required placeholder="Specify your web build tier, media suite, or deployment goals..."></textarea>
-							</div>
-							<button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer; padding: 16px; font-size: 0.95rem;">
-								Transmit Inquiry
-							</button>
-						</form>
-					</div>
-				</div>
-			</section>
-		</main>
-
-		<!-- Footer -->
-		<footer>
-			<div class="container">
-				<p style="margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75rem;">&copy; 2026 Viewport Digital LLC. All rights reserved[span_1](start_span)[span_1](end_span).</p>
-				<p style="font-family: ui-monospace, monospace; font-size: 0.75rem; color: var(--accent-amber);">kiimon@viewportdigitalmedia.com</p>
-			</div>
-		</footer>
-
-	</body>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{pageTitle}</title>
+  <meta name="description" content={pageDescription} />
+  
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+</head>
+
+<body class="bg-[#030712] text-[#CBD5E1] font-['Plus_Jakarta_Sans',sans-serif] antialiased selection:bg-[#2563EB] selection:text-white bg-grid-mesh relative overflow-x-hidden">
+
+  <!-- Ambient Light Orbs -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-gradient-to-tr from-[#2563EB]/15 to-[#38BDF8]/10 blur-[130px] pointer-events-none -z-10"></div>
+  <div class="fixed bottom-0 right-0 w-[600px] h-[500px] bg-gradient-to-tl from-[#0F172A]/60 via-[#2563EB]/10 to-transparent blur-[140px] pointer-events-none -z-10"></div>
+
+  <!-- Persistent Header / Navigation -->
+  <header class="sticky top-0 z-50 w-full px-4 sm:px-8 py-4 backdrop-blur-md bg-[#030712]/75 border-b border-white/[0.08]">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-[#2563EB] to-[#0F172A] border border-[#38BDF8]/40 flex items-center justify-center shadow-lg shadow-[#2563EB]/20">
+          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-base font-bold font-['Space_Grotesk',sans-serif] tracking-tight text-white group-hover:text-[#38BDF8] transition-colors">VIEWPORT DIGITAL</span>
+          <span class="text-[10px] uppercase tracking-widest text-[#94A3B8]/70 font-mono -mt-1">Architectural Web</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider text-[#94A3B8]">
+        <a href="#engineered" class="hover:text-white transition-colors">The Paradigm</a>
+        <a href="#stack" class="hover:text-white transition-colors">Stack & Specs</a>
+        <a href="#photography" class="hover:text-white transition-colors">Photography</a>
+        <a href="#pricing" class="hover:text-white transition-colors">Tiers & Rates</a>
+      </nav>
+
+      <!-- Primary Action CTA -->
+      <div class="flex items-center gap-3">
+        <a href="#pricing" class="tactile-btn relative inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-white bg-[#2563EB] hover:bg-blue-600 rounded-lg shadow-lg shadow-[#2563EB]/30 border border-[#38BDF8]/50 overflow-hidden group">
+          <span class="relative z-10 flex items-center gap-2">
+            Initiate Project
+            <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="space-y-24 sm:space-y-32">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative pt-16 sm:pt-24 px-4 sm:px-8 max-w-7xl mx-auto">
+      <div class="fade-observe flex flex-col items-center text-center max-w-4xl mx-auto space-y-8">
+        
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0F172A]/80 border border-white/[0.08] text-[11px] font-mono tracking-widest uppercase text-[#94A3B8]">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Bespoke Engineering & Authentic Optics</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-['Space_Grotesk',sans-serif] font-bold tracking-[-0.03em] leading-[1.05] text-white">
+          Own your digital footprint. <br />
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#CBD5E1] via-[#38BDF8] to-[#2563EB]">
+            No templates. No monthly rent.
+          </span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-[#94A3B8] leading-relaxed max-w-[650px]">
+          Most agencies lease you bloated WordPress themes on life support. Viewport Digital writes high-performance static architecture on Astro, paired with bespoke commercial photography that captures real physical substance.
+        </p>
+
+        <div class="flex flex-col sm:row items-center gap-4 pt-2 w-full sm:w-auto">
+          <a href="#pricing" class="tactile-btn w-full sm:w-auto px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider text-white bg-gradient-to-r from-[#2563EB] to-blue-700 hover:from-blue-600 hover:to-blue-800 border border-[#38BDF8]/40 shadow-xl shadow-[#2563EB]/30">
+            View Tiers & Pricing
+          </a>
+          <a href="#engineered" class="tactile-btn w-full sm:w-auto px-8 py-4 rounded-xl text-sm font-semibold tracking-wider text-[#CBD5E1] hover:text-white glass-panel border border-white/[0.08] hover:border-white/20">
+            Compare The Architecture
+          </a>
+        </div>
+
+        <!-- Archival Trust Metrics -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full pt-12 text-left">
+          <div class="glass-panel p-4 rounded-xl">
+            <span class="font-mono text-xs text-[#94A3B8] block">RENDER TIME</span>
+            <span class="font-['Space_Grotesk',sans-serif] text-2xl font-bold text-white">&lt; 350ms</span>
+            <p class="text-xs text-[#94A3B8] mt-1">Edge distribution via Vercel</p>
+          </div>
+          <div class="glass-panel p-4 rounded-xl">
+            <span class="font-mono text-xs text-[#94A3B8] block">CODE OWNERSHIP</span>
+            <span class="font-['Space_Grotesk',sans-serif] text-2xl font-bold text-[#38BDF8]">100%</span>
+            <p class="text-xs text-[#94A3B8] mt-1">Stored in your GitHub repo</p>
+          </div>
+          <div class="glass-panel p-4 rounded-xl">
+            <span class="font-mono text-xs text-[#94A3B8] block">MONTHLY RENT</span>
+            <span class="font-['Space_Grotesk',sans-serif] text-2xl font-bold text-emerald-400">$0.00</span>
+            <p class="text-xs text-[#94A3B8] mt-1">Zero mandatory site fees</p>
+          </div>
+          <div class="glass-panel p-4 rounded-xl">
+            <span class="font-mono text-xs text-[#94A3B8] block">VISUAL ASSETS</span>
+            <span class="font-['Space_Grotesk',sans-serif] text-2xl font-bold text-white">Full Raw/Edit</span>
+            <p class="text-xs text-[#94A3B8] mt-1">Authentic commercial photography</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ARCHITECTURAL COMPARISON: ENGINEERED VS TEMPLATE -->
+    <section id="engineered" class="px-4 sm:px-8 max-w-7xl mx-auto">
+      <div class="fade-observe space-y-4 mb-12 text-center md:text-left">
+        <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Engineering Contrast</span>
+        <h2 class="text-3xl sm:text-4xl font-['Space_Grotesk',sans-serif] font-bold text-white tracking-tight">The Reality Gap: Engineered Code vs. Subscription Clutter</h2>
+        <p class="text-[#94A3B8] max-w-2xl text-sm sm:text-base">
+          Wix, Squarespace, and bloated CMS builds hold your domain hostage while bleeding recurring cash. Here is the concrete technical breakdown.
+        </p>
+      </div>
+
+      <div class="fade-observe grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Column 1 -->
+        <div class="glass-panel p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between">
+          <div class="space-y-4">
+            <span class="text-xs font-mono uppercase tracking-wider text-[#38BDF8]">Structural Model</span>
+            <h3 class="text-2xl font-['Space_Grotesk',sans-serif] font-bold text-white">Engineered vs. Template</h3>
+            <p class="text-sm text-[#94A3B8] leading-relaxed">
+              Templates load 40 unused JavaScript libraries, tracking bloat, and fragile layout builders that collapse across screens.
+            </p>
+            <ul class="space-y-3 pt-2 text-xs font-mono">
+              <li class="flex items-center gap-2 text-white">
+                <svg class="w-4 h-4 text-[#38BDF8] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Engineered: Semantic Astro HTML compiled at build
+              </li>
+              <li class="flex items-center gap-2 text-[#94A3B8]">
+                <svg class="w-4 h-4 text-red-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                Templates: 4MB DOM trees and messy div soup
+              </li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-white/[0.08] text-xs text-[#94A3B8]">
+            Result: 100/100 Google Lighthouse performance score.
+          </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="glass-panel p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between border-[#2563EB]/40">
+          <div class="space-y-4">
+            <span class="text-xs font-mono uppercase tracking-wider text-[#38BDF8]">Financial Model</span>
+            <h3 class="text-2xl font-['Space_Grotesk',sans-serif] font-bold text-white">Flat Fee vs. Subscription</h3>
+            <p class="text-sm text-[#94A3B8] leading-relaxed">
+              Agencies trap you in $200–$500/month recurring builder fees just to keep your landing page live. Stop paying monthly rent for plain text.
+            </p>
+            <ul class="space-y-3 pt-2 text-xs font-mono">
+              <li class="flex items-center gap-2 text-white">
+                <svg class="w-4 h-4 text-[#38BDF8] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Flat Fee: You pay once for the completed asset
+              </li>
+              <li class="flex items-center gap-2 text-[#94A3B8]">
+                <svg class="w-4 h-4 text-red-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                Subscription: Monthly lock-ins that compound forever
+              </li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-white/[0.08] text-xs text-[#94A3B8]">
+            Result: Real capital efficiency and predictable spend.
+          </div>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="glass-panel p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between">
+          <div class="space-y-4">
+            <span class="text-xs font-mono uppercase tracking-wider text-[#38BDF8]">Asset Control</span>
+            <h3 class="text-2xl font-['Space_Grotesk',sans-serif] font-bold text-white">Ownership vs. Renting</h3>
+            <p class="text-sm text-[#94A3B8] leading-relaxed">
+              If your SaaS provider closes or hikes fees 300%, you lose your website. Viewport delivers pure code you can host anywhere on earth.
+            </p>
+            <ul class="space-y-3 pt-2 text-xs font-mono">
+              <li class="flex items-center gap-2 text-white">
+                <svg class="w-4 h-4 text-[#38BDF8] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Ownership: Clean Git repo and DNS ownership
+              </li>
+              <li class="flex items-center gap-2 text-[#94A3B8]">
+                <svg class="w-4 h-4 text-red-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                Renting: Proprietary silos you cannot export
+              </li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-white/[0.08] text-xs text-[#94A3B8]">
+            Result: A true digital asset that adds equity to your balance sheet.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- THE PRODUCTION STACK -->
+    <section id="stack" class="px-4 sm:px-8 max-w-7xl mx-auto">
+      <div class="fade-observe glass-panel p-8 sm:p-12 rounded-3xl border border-white/[0.08] relative overflow-hidden">
+        
+        <div class="max-w-3xl space-y-4 mb-12">
+          <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Modern Stack Ecosystem</span>
+          <h2 class="text-3xl sm:text-4xl font-['Space_Grotesk',sans-serif] font-bold text-white tracking-tight">Purpose-Built Infrastructure</h2>
+          <p class="text-[#94A3B8] text-sm sm:text-base leading-relaxed">
+            Every layer of your build is selected for zero bloat, sub-second execution, enterprise-tier security, and clean developer ergonomics.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 font-mono">
+          
+          <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors">
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
+              <span class="font-bold">ASTRO</span>
+              <span>RENDER CORE</span>
+            </div>
+            <p class="text-xs text-[#CBD5E1] leading-relaxed font-sans">
+              Handles lightning-fast static rendering by stripping away client-side JS by default for raw HTML delivery.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors">
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
+              <span class="font-bold">VERCEL</span>
+              <span>EDGE COMPUTE</span>
+            </div>
+            <p class="text-xs text-[#CBD5E1] leading-relaxed font-sans">
+              Powers instant global edge deployments, auto-routing your visitors to the nearest data center node.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors">
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
+              <span class="font-bold">CURSOR + GEMINI</span>
+              <span>SYNTHESIS</span>
+            </div>
+            <p class="text-xs text-[#CBD5E1] leading-relaxed font-sans">
+              Drives clean workspace code generation, eliminating human error across boilerplate and schema definitions.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors">
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
+              <span class="font-bold">GITHUB</span>
+              <span>VERSION CONTROL</span>
+            </div>
+            <p class="text-xs text-[#CBD5E1] leading-relaxed font-sans">
+              Anchors version control and provides full transparency. You hold the master branch keys forever.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors">
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
+              <span class="font-bold">TAILWIND CSS</span>
+              <span>DESIGN SYSTEM</span>
+            </div>
+            <p class="text-xs text-[#CBD5E1] leading-relaxed font-sans">
+              Styles the UI through strict atomic token sets without runtime styling engine bottlenecks.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors">
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
+              <span class="font-bold">SUPABASE</span>
+              <span>RELATIONAL DATA</span>
+            </div>
+            <p class="text-xs text-[#CBD5E1] leading-relaxed font-sans">
+              Handles database scaling, user auth pools, and PostgreSQL storage when dynamic portals are required.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors">
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
+              <span class="font-bold">SENTRY</span>
+              <span>TELEMETRY</span>
+            </div>
+            <p class="text-xs text-[#CBD5E1] leading-relaxed font-sans">
+              Catches production errors and client performance regressions before customers notice them.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors">
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
+              <span class="font-bold">RESEND</span>
+              <span>COMMUNICATIONS</span>
+            </div>
+            <p class="text-xs text-[#CBD5E1] leading-relaxed font-sans">
+              Manages transactional lead alerts and customer confirmation emails with 99.9% inbox deliverability.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-[#0B0F19]/70 border border-white/[0.06] hover:border-[#38BDF8]/40 transition-colors">
+            <div class="flex items-center justify-between text-[#38BDF8] text-xs mb-2">
+              <span class="font-bold">CLOUDFLARE</span>
+              <span>SECURITY & DNS</span>
+            </div>
+            <p class="text-xs text-[#CBD5E1] leading-relaxed font-sans">
+              Locks down the DNS edge with enterprise DDoS mitigation and high-speed SSL cert rotation.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMERCIAL PHOTOGRAPHY INTEGRATION -->
+    <section id="photography" class="px-4 sm:px-8 max-w-7xl mx-auto">
+      <div class="fade-observe grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Authentic Visual Assets</span>
+          <h2 class="text-3xl sm:text-5xl font-['Space_Grotesk',sans-serif] font-bold text-white tracking-tight leading-tight">
+            Stop pasting fake stock photos into real business websites.
+          </h2>
+          <p class="text-[#94A3B8] text-sm sm:text-base leading-relaxed">
+            Customers immediately spot plastic corporate stock photography. It destroys trust before they finish reading your hero line. Viewport Digital pairs web architecture directly with dedicated commercial photography.
+          </p>
+          <div class="space-y-3 pt-2">
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded bg-[#0F172A] flex items-center justify-center border border-[#2563EB]/40 text-[#38BDF8] text-xs font-bold shrink-0 mt-0.5">01</div>
+              <p class="text-sm text-[#CBD5E1]"><strong class="text-white">Workspace & Field Reality:</strong> Crisp shots of your team doing the actual work, shop interiors, fleet machinery, and storefront curb appeal.</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded bg-[#0F172A] flex items-center justify-center border border-[#2563EB]/40 text-[#38BDF8] text-xs font-bold shrink-0 mt-0.5">02</div>
+              <p class="text-sm text-[#CBD5E1]"><strong class="text-white">Component-Ready Assets:</strong> Formatted specifically for Astro modern image pipelines (AVIF/WebP) with custom aspect ratios that do not break CSS grids.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual Display Card -->
+        <div class="lg:col-span-6 glass-panel p-6 sm:p-8 rounded-2xl border border-white/[0.08] relative">
+          <div class="flex items-center justify-between pb-4 border-b border-white/[0.08] text-xs font-mono text-[#94A3B8]">
+            <span>OPTICAL_PIPELINE.LOG</span>
+            <span class="text-emerald-400">READY FOR ASTRO</span>
+          </div>
+          <div class="mt-6 space-y-4">
+            <div class="h-44 sm:h-56 rounded-xl bg-gradient-to-br from-[#0F172A] via-[#0B0F19] to-[#030712] border border-white/[0.08] flex items-center justify-center relative overflow-hidden group">
+              <div class="absolute inset-0 bg-[#2563EB]/10 opacity-30 group-hover:opacity-60 transition-opacity"></div>
+              <div class="text-center p-4 relative z-10">
+                <svg class="w-12 h-12 text-[#94A3B8] mx-auto mb-2 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span class="font-mono text-xs text-[#CBD5E1] uppercase tracking-wider block">Raw Optical Precision</span>
+                <span class="text-[11px] text-[#94A3B8]">Sony Full-Frame Prime Captures • Custom Color Profiles</span>
+              </div>
+            </div>
+            
+            <div class="p-4 rounded-lg bg-[#0F172A]/60 border border-white/[0.08] flex items-center justify-between">
+              <div>
+                <span class="text-xs font-bold text-white block">The Web Dev Bundle Incentive</span>
+                <span class="text-[11px] text-[#94A3B8]">Save $150 instantly when bundled with any website tier</span>
+              </div>
+              <span class="text-sm font-mono font-bold text-emerald-400">-$150.00</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- COMPLETE PRICING & TIERS -->
+    <section id="pricing" class="px-4 sm:px-8 max-w-7xl mx-auto space-y-16">
+      
+      <div class="fade-observe space-y-4 text-center max-w-3xl mx-auto">
+        <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Transparent Pricing</span>
+        <h2 class="text-3xl sm:text-5xl font-['Space_Grotesk',sans-serif] font-bold text-white tracking-tight">Website Architecture Packages</h2>
+        <p class="text-[#94A3B8] text-sm sm:text-base">
+          Flat-fee deliverables. Clear turnaround. No endless hourly bills or platform licensing fees.
+        </p>
+      </div>
+
+      <!-- Tiers Grid -->
+      <div class="fade-observe grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        
+        <!-- Tier 1 -->
+        <div class="glass-panel glass-card-interactive p-8 rounded-2xl flex flex-col justify-between">
+          <div class="space-y-6">
+            <div class="space-y-2">
+              <span class="text-xs font-mono uppercase tracking-widest text-[#94A3B8]">Tier 01</span>
+              <h3 class="text-2xl font-['Space_Grotesk',sans-serif] font-bold text-white">The Local Landing Page</h3>
+              <p class="text-xs text-[#94A3B8]">Single-page builds, transport fleets, service contractors, or targeted campaigns.</p>
+            </div>
+            
+            <div class="py-4 border-y border-white/[0.08]">
+              <span class="text-3xl sm:text-4xl font-['Space_Grotesk',sans-serif] font-bold text-white">$750 – $1,200</span>
+              <span class="text-xs font-mono text-[#94A3B8] block mt-1">One-time flat fee</span>
+            </div>
+
+            <div class="space-y-3">
+              <span class="text-xs font-mono uppercase text-[#CBD5E1] tracking-wider block">Scope of Deliverables:</span>
+              <ul class="space-y-2.5 text-xs text-[#94A3B8]">
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  High-impact single page architecture on Astro
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Strict mobile-first responsive layout
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Formspree zero-backend contact integration
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  High-speed edge setup on Vercel
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-8 mt-6 border-t border-white/[0.08]">
+            <a href="#contact" class="tactile-btn block w-full py-3 text-center text-xs font-bold uppercase tracking-wider text-white bg-[#0F172A] hover:bg-[#2563EB] border border-white/[0.08] hover:border-[#38BDF8] rounded-lg transition-colors">
+              Select Tier 1
+            </a>
+          </div>
+        </div>
+
+        <!-- Tier 2 (Featured) -->
+        <div class="glass-panel glass-card-interactive p-8 rounded-2xl flex flex-col justify-between border-[#38BDF8]/40 shadow-2xl shadow-[#2563EB]/15 relative">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-0.5 bg-[#2563EB] text-white font-mono text-[10px] uppercase font-bold tracking-widest rounded-full border border-[#38BDF8]">
+            Core Recommendation
+          </div>
+
+          <div class="space-y-6">
+            <div class="space-y-2">
+              <span class="text-xs font-mono uppercase tracking-widest text-[#38BDF8]">Tier 02</span>
+              <h3 class="text-2xl font-['Space_Grotesk',sans-serif] font-bold text-white">The Multi-Page Core</h3>
+              <p class="text-xs text-[#94A3B8]">Established local businesses, clinics, and professional firms needing depth.</p>
+            </div>
+            
+            <div class="py-4 border-y border-white/[0.08]">
+              <span class="text-3xl sm:text-4xl font-['Space_Grotesk',sans-serif] font-bold text-white">$1,800 – $3,200</span>
+              <span class="text-xs font-mono text-[#94A3B8] block mt-1">One-time flat fee</span>
+            </div>
+
+            <div class="space-y-3">
+              <span class="text-xs font-mono uppercase text-[#CBD5E1] tracking-wider block">Scope of Deliverables:</span>
+              <ul class="space-y-2.5 text-xs text-[#CBD5E1]">
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Up to 5 custom routes (Home, Services, About, Gallery, Contact)
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Seamless commercial photography component integration
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Architectural local SEO metadata & OpenGraph schemas
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Recorded video training & 30-day stabilization buffer
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-8 mt-6 border-t border-white/[0.08]">
+            <a href="#contact" class="tactile-btn block w-full py-3 text-center text-xs font-bold uppercase tracking-wider text-white bg-[#2563EB] hover:bg-blue-600 rounded-lg shadow-lg shadow-[#2563EB]/30 border border-[#38BDF8]/60">
+              Select Tier 2
+            </a>
+          </div>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="glass-panel glass-card-interactive p-8 rounded-2xl flex flex-col justify-between">
+          <div class="space-y-6">
+            <div class="space-y-2">
+              <span class="text-xs font-mono uppercase tracking-widest text-[#94A3B8]">Tier 03</span>
+              <h3 class="text-2xl font-['Space_Grotesk',sans-serif] font-bold text-white">The Custom Portal & App</h3>
+              <p class="text-xs text-[#94A3B8]">Interactive onboarding flows, membership portals, and multi-step data collection.</p>
+            </div>
+            
+            <div class="py-4 border-y border-white/[0.08]">
+              <span class="text-3xl sm:text-4xl font-['Space_Grotesk',sans-serif] font-bold text-white">$3,500 – $6,500+</span>
+              <span class="text-xs font-mono text-[#94A3B8] block mt-1">Based on database & logic depth</span>
+            </div>
+
+            <div class="space-y-3">
+              <span class="text-xs font-mono uppercase text-[#CBD5E1] tracking-wider block">Scope of Deliverables:</span>
+              <ul class="space-y-2.5 text-xs text-[#94A3B8]">
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Astro Server-Side Rendering (SSR) configuration
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Relational Supabase database + secure authentication
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Custom dashboard logic generated via Cursor and Gemini
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Sentry error tracking & Resend automated email dispatch
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-8 mt-6 border-t border-white/[0.08]">
+            <a href="#contact" class="tactile-btn block w-full py-3 text-center text-xs font-bold uppercase tracking-wider text-white bg-[#0F172A] hover:bg-[#2563EB] border border-white/[0.08] hover:border-[#38BDF8] rounded-lg transition-colors">
+              Select Tier 3
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PHOTOGRAPHY PACKAGES SECTION -->
+      <div class="fade-observe pt-12 space-y-8">
+        <div class="border-t border-white/[0.08] pt-12 text-center md:text-left">
+          <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Optics & Production</span>
+          <h3 class="text-2xl sm:text-3xl font-['Space_Grotesk',sans-serif] font-bold text-white mt-1">Commercial Photography Packages</h3>
+          <p class="text-sm text-[#94A3B8] mt-1">Authentic visual proof captured on-site to give your Astro site undeniable presence.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <div class="glass-panel p-6 rounded-xl space-y-4">
+            <div class="flex justify-between items-start">
+              <span class="text-xs font-mono uppercase text-[#94A3B8]">Package 01</span>
+              <span class="text-xl font-['Space_Grotesk',sans-serif] font-bold text-white">$350</span>
+            </div>
+            <h4 class="text-lg font-bold text-white">The Web Asset Starter</h4>
+            <p class="text-xs text-[#94A3B8] leading-relaxed">
+              The natural pairing for a single-page landing build. One location, roughly one hour on-site. Clean headshots, sharp storefront angles, and immediate texture.
+            </p>
+            <div class="pt-3 border-t border-white/[0.08] text-xs font-mono text-[#38BDF8]">
+              10 to 15 fully edited, web-optimized files.
+            </div>
+          </div>
+
+          <div class="glass-panel p-6 rounded-xl space-y-4 border-[#38BDF8]/30">
+            <div class="flex justify-between items-start">
+              <span class="text-xs font-mono uppercase text-[#38BDF8]">Package 02</span>
+              <span class="text-xl font-['Space_Grotesk',sans-serif] font-bold text-white">$750</span>
+            </div>
+            <h4 class="text-lg font-bold text-white">The Full Brand Suite</h4>
+            <p class="text-xs text-[#94A3B8] leading-relaxed">
+              Built for the multi-page business core. Half-day commitment. Multiple setups across the workspace. Action shots of the crew doing actual work, interior details, and curb appeal.
+            </p>
+            <div class="pt-3 border-t border-white/[0.08] text-xs font-mono text-[#38BDF8]">
+              30 to 40 polished images ready for Astro components.
+            </div>
+          </div>
+
+          <div class="glass-panel p-6 rounded-xl space-y-4">
+            <div class="flex justify-between items-start">
+              <span class="text-xs font-mono uppercase text-[#94A3B8]">Package 03</span>
+              <span class="text-xl font-['Space_Grotesk',sans-serif] font-bold text-white">$1,500+</span>
+            </div>
+            <h4 class="text-lg font-bold text-white">Full-Day Commercial Production</h4>
+            <p class="text-xs text-[#94A3B8] leading-relaxed">
+              Heavy lifting. A full day on the ground. Complex lighting setups, multi-room facilities, massive inventory catalogs, or sprawling business footprints.
+            </p>
+            <div class="pt-3 border-t border-white/[0.08] text-xs font-mono text-[#38BDF8]">
+              Comprehensive raw archive + deep file delivery.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="glass-panel p-6 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono">
+          <div class="flex flex-wrap items-center gap-6">
+            <span><strong class="text-white">A LA CARTE:</strong> $125 / hour for ad-hoc photo tasks</span>
+            <span><strong class="text-white">BUNDLE REBATE:</strong> -$150 off photography when bundled with Web Dev</span>
+          </div>
+          <span class="text-[#38BDF8]">High Value • Full Copyright Release</span>
+        </div>
+      </div>
+
+      <!-- WEBSITE CARE & MONTHLY RETAINERS -->
+      <div class="fade-observe pt-8 space-y-8">
+        <div class="border-t border-white/[0.08] pt-12 text-center md:text-left">
+          <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Ongoing Reliability</span>
+          <h3 class="text-2xl sm:text-3xl font-['Space_Grotesk',sans-serif] font-bold text-white mt-1">Structured Website Care Retainers</h3>
+          <p class="text-sm text-[#94A3B8] mt-1">Optional maintenance buffers. You own the code regardless; these tiers keep updates off your plate.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <div class="glass-panel p-6 rounded-xl space-y-4">
+            <div class="flex justify-between items-baseline">
+              <h4 class="text-base font-bold text-white">Basic Care</h4>
+              <span class="font-mono text-lg font-bold text-white">$75 <span class="text-xs text-[#94A3B8] font-normal">/mo</span></span>
+            </div>
+            <p class="text-xs text-[#94A3B8] leading-relaxed">
+              Framework dependency checks, Vercel edge deployment upkeep, continuous uptime monitoring, and up to 30 minutes of minor copy or image changes each month.
+            </p>
+          </div>
+
+          <div class="glass-panel p-6 rounded-xl space-y-4 border-[#2563EB]/40">
+            <div class="flex justify-between items-baseline">
+              <h4 class="text-base font-bold text-white">Growth Retainer</h4>
+              <span class="font-mono text-lg font-bold text-[#38BDF8]">$150 <span class="text-xs text-[#94A3B8] font-normal">/mo</span></span>
+            </div>
+            <p class="text-xs text-[#94A3B8] leading-relaxed">
+              Everything in Basic Care, plus priority queue response times and up to two (2) hours of minor layout edits, fresh asset swaps, or new landing page sections per month.
+            </p>
+          </div>
+
+          <div class="glass-panel p-6 rounded-xl space-y-4">
+            <div class="flex justify-between items-baseline">
+              <h4 class="text-base font-bold text-white">Scale Retainer</h4>
+              <span class="font-mono text-lg font-bold text-white">$300 <span class="text-xs text-[#94A3B8] font-normal">/mo</span></span>
+            </div>
+            <p class="text-xs text-[#94A3B8] leading-relaxed">
+              Engineered for dynamic application portals. Active Supabase database management, priority same-day bug remediation, and up to four (4) hours of feature development per month.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- INTAKE & DIRECT CONTACT ANCHOR -->
+    <section id="contact" class="px-4 sm:px-8 max-w-4xl mx-auto pb-16">
+      <div class="fade-observe glass-panel p-8 sm:p-12 rounded-3xl border border-white/[0.08] space-y-8 relative overflow-hidden">
+        
+        <div class="text-center space-y-3">
+          <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Zero Dead-End Architecture</span>
+          <h2 class="text-3xl sm:text-4xl font-['Space_Grotesk',sans-serif] font-bold text-white">Initiate Your Build Specifications</h2>
+          <p class="text-sm text-[#94A3B8] max-w-lg mx-auto">
+            Direct communication with the engineer and photographer. No account managers or sales runarounds.
+          </p>
+        </div>
+
+        <form class="space-y-6" onsubmit="event.preventDefault(); alert('Inquiry logged into Viewport Digital dispatch pipeline.');">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Your Name</label>
+              <input type="text" required placeholder="Jane Doe" class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors" />
+            </div>
+            <div class="space-y-2">
+              <label class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Email Address</label>
+              <input type="email" required placeholder="jane@company.com" class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Target Web Tier</label>
+              <select class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors">
+                <option>Tier 1: Landing Page ($750 - $1,200)</option>
+                <option selected>Tier 2: Business Core ($1,800 - $3,200)</option>
+                <option>Tier 3: Custom Portal ($3,500 - $6,500+)</option>
+                <option>A La Carte / Custom Architecture</option>
+              </select>
+            </div>
+            <div class="space-y-2">
+              <label class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Commercial Photography Add-on</label>
+              <select class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors">
+                <option>Starter Suite ($350 - $150 bundle rebate)</option>
+                <option selected>Full Brand Suite ($750 - $150 bundle rebate)</option>
+                <option>Full-Day Production ($1,500+)</option>
+                <option>No Photography Needed</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Project Scope & Objectives</label>
+            <textarea rows="4" required placeholder="Describe your current site bottlenecks, workflow goals, or required integrations..." class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors"></textarea>
+          </div>
+
+          <button type="submit" class="tactile-btn w-full py-4 text-center text-sm font-bold uppercase tracking-wider text-white bg-[#2563EB] hover:bg-blue-600 rounded-xl shadow-xl shadow-[#2563EB]/30 border border-[#38BDF8]/50">
+            Submit Specifications to Viewport Digital
+          </button>
+        </form>
+
+        <div class="text-center pt-4">
+          <span class="text-xs font-mono text-[#94A3B8]">White-glove handover included: Video docs, Git repository push, and 30-day warranty.</span>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ARCHIVAL FOOTER -->
+  <footer class="border-t border-white/[0.08] bg-[#020617] py-12 px-4 sm:px-8 text-xs font-mono text-[#94A3B8]">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-6 h-6 rounded bg-[#2563EB]/20 border border-[#2563EB]/40 flex items-center justify-center text-white font-bold">V</div>
+        <span class="text-white font-bold tracking-tight">VIEWPORT DIGITAL LLC</span>
+        <span class="text-white/[0.15]">/</span>
+        <span>ENGINEERED ARCHITECTURE</span>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <a href="#hero" class="hover:text-white transition-colors">TOP</a>
+        <a href="#engineered" class="hover:text-white transition-colors">PARADIGM</a>
+        <a href="#stack" class="hover:text-white transition-colors">STACK</a>
+        <a href="#photography" class="hover:text-white transition-colors">OPTICS</a>
+        <a href="#pricing" class="hover:text-white transition-colors">TIERS</a>
+      </div>
+
+      <div>
+        <span>DEPLOYED AT THE EDGE // FULL CODE OWNERSHIP</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CLIENT-SIDE MICRO-INTERACTIONS & SCROLL SCRIPT -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.12
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-observe').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+
+</body>
 </html>
+
+<style is:global>
+  .glass-panel {
+    background: radial-gradient(120% 120% at 50% 0%, rgba(30, 41, 59, 0.5) 0%, rgba(11, 15, 25, 0.75) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-card-interactive {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .glass-card-interactive:hover {
+    transform: translateY(-4px);
+    border-color: rgba(56, 189, 248, 0.35);
+    box-shadow: 0 24px 48px -12px rgba(37, 99, 235, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .fade-observe {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  .fade-observe.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .bg-grid-mesh {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  }
+
+  .tactile-btn {
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .tactile-btn:active {
+    transform: scale(0.97);
+  }
+</style>
