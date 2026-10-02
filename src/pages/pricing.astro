@@ -1,23 +1,23 @@
 ---
-// Viewport Digital LLC - Pricing Matrix & Service Tiers (Obsidian Quartz Design System + Mobile Menu)
+// Viewport Digital LLC - Pricing Matrix & Service Tiers (Exact Brand Design Alignment)
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Complete Pricing Matrix & Services | Viewport Digital LLC</title>
+		<title>Tiers & Pricing | Viewport Digital LLC</title>
 		<style>
 			:root {
 				color-scheme: dark;
-				--bg-canvas: #090A0F;
-				--surface-glass: #13161F;
-				--surface-glass-hover: #1a1e2b;
-				--accent-amber: #FF5C00;
+				--bg-canvas: #060911;
+				--surface-glass: #0b101c;
+				--surface-glass-hover: #131b2e;
+				--accent-blue: #2563eb;
+				--accent-blue-hover: #1d4ed8;
 				--text-primary: #F8FAFC;
 				--text-secondary: #94A3B8;
 				--border-frost: rgba(255, 255, 255, 0.08);
-				--border-frost-hover: rgba(255, 92, 0, 0.4);
 			}
 
 			* { box-sizing: border-box; letter-spacing: -0.015em; }
@@ -33,137 +33,186 @@
 
 			header {
 				position: sticky; top: 0; z-index: 100;
-				backdrop-filter: blur(24px);
-				-webkit-backdrop-filter: blur(24px);
-				background-color: rgba(9, 10, 15, 0.85);
+				backdrop-filter: blur(20px);
+				-webkit-backdrop-filter: blur(20px);
+				background-color: rgba(6, 9, 17, 0.9);
 				border-bottom: 1px solid var(--border-frost);
 			}
 
-			.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+			.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
 			.header-content {
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
-				height: 80px;
-				gap: 16px;
+				height: 76px;
 			}
 
-			.logo {
-				font-weight: 800;
-				font-size: 1rem;
-				letter-spacing: 0.06em;
-				text-transform: uppercase;
-				color: #fff;
+			.brand-wrap {
+				display: flex;
+				align-items: center;
+				gap: 12px;
 				text-decoration: none;
-				white-space: nowrap;
+			}
+
+			.logo-box {
+				width: 36px;
+				height: 36px;
+				background: #111827;
+				border: 1px solid rgba(255,255,255,0.15);
+				border-radius: 6px;
 				display: flex;
 				align-items: center;
-				gap: 10px;
+				justify-content: center;
+				padding: 4px;
 			}
 
-			.logo-mark {
-				width: 8px;
-				height: 8px;
-				background-color: var(--accent-amber);
-				box-shadow: 0 0 10px var(--accent-amber);
+			.logo-box svg {
+				width: 100%;
+				height: 100%;
 			}
 
-			.logo span { color: var(--text-secondary); font-weight: 400; }
-
-			/* Desktop Nav */
-			.desktop-nav {
-				display: none;
-				gap: 32px;
-				font-size: 0.85rem;
-				font-weight: 500;
-				text-transform: uppercase;
-				letter-spacing: 0.08em;
-				color: var(--text-secondary);
-			}
-
-			@media(min-width: 768px) {
-				.desktop-nav { display: flex; }
-			}
-
-			.desktop-nav a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s ease; }
-			.desktop-nav a:hover { color: #fff; }
-
-			.header-actions {
-				display: flex;
-				align-items: center;
-				gap: 16px;
-			}
-
-			/* Sandwich (Hamburger) Menu Button */
-			.hamburger {
+			.brand-text {
 				display: flex;
 				flex-direction: column;
-				justify-content: space-between;
-				width: 28px;
-				height: 20px;
-				background: transparent;
-				border: none;
+			}
+
+			.brand-title {
+				font-weight: 800;
+				font-size: 0.95rem;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				color: #fff;
+				line-height: 1.1;
+			}
+
+			.brand-subtitle {
+				font-size: 0.65rem;
+				font-family: ui-monospace, monospace;
+				text-transform: uppercase;
+				letter-spacing: 0.15em;
+				color: var(--text-secondary);
+				margin-top: 2px;
+			}
+
+			/* Sandwich Menu Button */
+			.hamburger {
+				width: 44px;
+				height: 44px;
+				background: var(--surface-glass);
+				border: 1px solid var(--border-frost);
+				border-radius: 8px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				gap: 5px;
 				cursor: pointer;
 				padding: 0;
 				z-index: 101;
 			}
 
-			@media(min-width: 768px) {
-				.hamburger { display: none; }
-			}
-
 			.hamburger span {
-				width: 100%;
+				width: 18px;
 				height: 2px;
 				background-color: var(--text-primary);
 				transition: all 0.3s ease;
 			}
 
-			/* Mobile Drawer */
+			/* Mobile Drawer Menu (Matches Screenshot 1) */
 			.mobile-drawer {
-				position: absolute;
-				top: 80px;
+				position: fixed;
+				top: 0;
 				left: 0;
 				width: 100%;
-				background-color: var(--surface-glass);
-				border-bottom: 1px solid var(--border-frost);
-				backdrop-filter: blur(24px);
-				padding: 24px;
+				height: 100vh;
+				background-color: #04060b;
+				padding: 24px 20px;
 				display: flex;
 				flex-direction: column;
-				gap: 20px;
-				max-height: 0;
-				overflow: hidden;
-				transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+				z-index: 1000;
+				opacity: 0;
+				pointer-events: none;
+				transition: opacity 0.3s ease;
 			}
 
 			.mobile-drawer.active {
-				max-height: 350px;
+				opacity: 1;
+				pointer-events: auto;
 			}
 
-			.mobile-drawer a {
-				color: var(--text-primary);
+			.drawer-header {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				height: 52px;
+				margin-bottom: 40px;
+			}
+
+			.close-btn {
+				width: 40px;
+				height: 40px;
+				background: var(--surface-glass);
+				border: 1px solid var(--border-frost);
+				border-radius: 8px;
+				color: #fff;
+				font-size: 1.25rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+			}
+
+			.drawer-nav {
+				display: flex;
+				flex-direction: column;
+				gap: 28px;
+				margin-bottom: 40px;
+			}
+
+			.drawer-nav a {
+				color: #fff;
 				text-decoration: none;
-				font-weight: 600;
-				font-size: 1rem;
+				font-weight: 700;
+				font-size: 1.15rem;
 				text-transform: uppercase;
-				letter-spacing: 0.05em;
+				letter-spacing: 0.08em;
+				transition: color 0.2s;
+			}
+
+			.drawer-nav a:hover, .drawer-nav a.active {
+				color: var(--accent-blue);
+			}
+
+			.drawer-cta {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				padding: 16px;
+				background-color: var(--accent-blue);
+				color: #fff;
+				font-weight: 700;
+				font-size: 0.9rem;
+				text-transform: uppercase;
+				letter-spacing: 0.08em;
+				text-decoration: none;
+				border-radius: 8px;
+				box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
 			}
 
 			.archival-tag {
 				font-size: 0.75rem; font-family: ui-monospace, monospace; text-transform: uppercase;
-				letter-spacing: 0.15em; color: var(--accent-amber); display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px;
+				letter-spacing: 0.15em; color: var(--accent-blue); display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px;
 			}
 			.archival-tag::before { content: "■"; font-size: 0.5rem; }
 
 			.btn-primary {
 				display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px;
-				background-color: var(--accent-amber); color: #090A0F; font-weight: 700; font-size: 0.9rem;
-				text-decoration: none; border-radius: 8px; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(255, 92, 0, 0.25);
-				white-space: nowrap;
+				background-color: var(--accent-blue); color: #fff; font-weight: 700; font-size: 0.9rem;
+				text-decoration: none; border-radius: 8px; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
 			}
-			.btn-primary:hover { background-color: #ff7024; transform: translateY(-2px); }
+			.btn-primary:hover { background-color: var(--accent-blue-hover); transform: translateY(-2px); }
 
 			.btn-outline {
 				display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px;
@@ -172,67 +221,80 @@
 			}
 			.btn-outline:hover { border-color: rgba(255, 255, 255, 0.3); background-color: var(--surface-glass-hover); }
 
-			section { padding: 90px 0; border-top: 1px solid var(--border-frost); }
-			.section-header { max-width: 700px; margin-bottom: 56px; }
-			.section-header h1, .section-header h2 { font-size: clamp(2.25rem, 4vw, 3.5rem); font-weight: 800; letter-spacing: -0.02em; color: #fff; margin: 0 0 16px 0; text-transform: uppercase; }
-			.section-header p { color: var(--text-secondary); font-size: 1.05rem; }
+			section { padding: 80px 0; border-top: 1px solid var(--border-frost); }
+			.section-header { max-width: 700px; margin-bottom: 48px; }
+			.section-header h1, .section-header h2 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; letter-spacing: -0.02em; color: #fff; margin: 0 0 16px 0; text-transform: uppercase; }
+			.section-header p { color: var(--text-secondary); font-size: 1rem; }
 
-			.grid-3 { display: grid; grid-template-columns: 1fr; gap: 28px; }
+			.grid-3 { display: grid; grid-template-columns: 1fr; gap: 24px; }
 			@media(min-width: 768px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
 
-			.grid-2 { display: grid; grid-template-columns: 1fr; gap: 28px; }
+			.grid-2 { display: grid; grid-template-columns: 1fr; gap: 24px; }
 			@media(min-width: 768px) { .grid-2 { grid-template-columns: repeat(2, 1fr); } }
 
 			.glass-card {
 				background: var(--surface-glass); border: 1px solid var(--border-frost);
 				box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 24px 60px rgba(0, 0, 0, 0.6);
-				backdrop-filter: blur(24px); border-radius: 20px; padding: 40px; display: flex; flex-direction: column; justify-content: space-between;
+				backdrop-filter: blur(20px); border-radius: 20px; padding: 36px; display: flex; flex-direction: column; justify-content: space-between;
 				transition: border-color 0.3s ease, transform 0.3s ease;
 			}
-			.glass-card:hover { border-color: var(--border-frost-hover); transform: translateY(-2px); }
+			.glass-card:hover { border-color: rgba(37, 99, 235, 0.4); transform: translateY(-2px); }
 
-			.card-price { font-size: 2.25rem; font-weight: 800; color: #fff; margin: 16px 0 8px 0; letter-spacing: -0.03em; }
-			.card h3 { font-size: 1.25rem; font-weight: 700; color: #fff; margin: 0 0 8px 0; }
-			.card p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; margin: 0 0 24px 0; }
-			.card-tag { font-size: 0.75rem; font-family: ui-monospace, monospace; color: var(--accent-amber); text-transform: uppercase; letter-spacing: 0.05em; }
+			.card-price { font-size: 2rem; font-weight: 800; color: #fff; margin: 16px 0 8px 0; letter-spacing: -0.03em; }
+			.card h3 { font-size: 1.2rem; font-weight: 700; color: #fff; margin: 0 0 8px 0; }
+			.card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6; margin: 0 0 24px 0; }
+			.card-tag { font-size: 0.75rem; font-family: ui-monospace, monospace; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.05em; }
 
 			.features-list { list-style: none; padding: 0; margin: 0 0 24px 0; font-size: 0.85rem; color: #cbd5e1; }
 			.features-list li { padding: 6px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
 
-			footer { padding: 80px 0; border-top: 1px solid var(--border-frost); text-align: center; color: var(--text-secondary); font-size: 0.85rem; }
+			footer { padding: 60px 0; border-top: 1px solid var(--border-frost); text-align: center; color: var(--text-secondary); font-size: 0.85rem; }
 		</style>
 	</head>
 	<body>
 		<header>
 			<div class="container header-content">
-				<a href="/" class="logo">
-					<div class="logo-mark"></div>
-					Viewport Digital <span>LLC</span>
+				<a href="/" class="brand-wrap">
+					<div class="logo-box">
+						<svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"/><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"/></svg>
+					</div>
+					<div class="brand-text">
+						<span class="brand-title">Viewport Digital</span>
+						<span class="brand-subtitle">Architectural Web</span>
+					</div>
 				</a>
-				<nav class="desktop-nav" aria-label="Desktop Navigation">
-					<a href="/">Home</a>
-					<a href="/pricing">Pricing</a>
-					<a href="/photography">Media</a>
-				</nav>
-				<div class="header-actions">
-					<a href="/#contact" class="btn-primary" style="padding: 10px 20px; font-size: 0.85rem;">Inquire</a>
-					<button class="hamburger" id="menu-toggle" aria-label="Toggle Mobile Navigation">
-						<span></span>
-						<span></span>
-						<span></span>
-					</button>
-				</div>
+				<button class="hamburger" id="menu-toggle" aria-label="Toggle Mobile Navigation">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
 			</div>
-			<!-- Mobile Navigation Drawer -->
+
+			<!-- Full-Screen Mobile Drawer Menu (Matching Screenshot 1) -->
 			<div class="mobile-drawer" id="mobile-drawer">
-				<a href="/">Home</a>
-				<a href="/pricing">Pricing Tiers</a>
-				<a href="/photography">Commercial Media</a>
-				<a href="/#contact" class="btn-primary" style="text-align: center; margin-top: 8px;">Inquire Now</a>
+				<div class="drawer-header">
+					<a href="/" class="brand-wrap">
+						<div class="logo-box">
+							<svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"/><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"/></svg>
+						</div>
+						<div class="brand-text">
+							<span class="brand-title">Viewport Digital</span>
+							<span class="brand-subtitle">Architectural Web</span>
+						</div>
+					</a>
+					<button class="close-btn" id="menu-close" aria-label="Close Navigation">&times;</button>
+				</div>
+				<nav class="drawer-nav">
+					<a href="/">Home</a>
+					<a href="/#process">Our Process</a>
+					<a href="/pricing" class="active">Tiers & Pricing</a>
+					<a href="/photography">Commercial Media</a>
+				</nav>
+				<a href="/#contact" class="drawer-cta">Contact / Let's Build &rarr;</a>
 			</div>
 		</header>
 
-		<main class="container" style="padding-top: 64px; padding-bottom: 96px;">
+		<main class="container" style="padding-top: 56px; padding-bottom: 80px;">
 			<div class="section-header">
 				<span class="archival-tag">[INDEX // PRICING MATRIX & SERVICE TIERS]</span>
 				<h1>Web Infrastructure Tiers.</h1>
@@ -240,7 +302,7 @@
 			</div>
 
 			<!-- Micro-Entry & Core Tiers Grid -->
-			<div class="grid-3" style="margin-bottom: 80px;">
+			<div class="grid-3" style="margin-bottom: 64px;">
 				<div class="glass-card">
 					<div>
 						<span class="card-tag">Micro-Entry Tier</span>
@@ -273,9 +335,9 @@
 					<a href="/#contact" class="btn-outline" style="text-align: center;">Select Tier 1</a>
 				</div>
 
-				<div class="glass-card" style="border-color: rgba(255, 92, 0, 0.4);">
+				<div class="glass-card" style="border-color: rgba(37, 99, 235, 0.4);">
 					<div>
-						<span class="card-tag" style="color: var(--accent-amber);">Tier 2 • Most Popular</span>
+						<span class="card-tag" style="color: var(--accent-blue);">Tier 2 • Most Popular</span>
 						<h3>Multi-Page Business Core</h3>
 						<div class="card-price">$1,800 – $3,200</div>
 						<p>Best for small local businesses, professional offices, or trade contractors needing a robust footprint.</p>
@@ -291,7 +353,7 @@
 			</div>
 
 			<!-- Tier 3 & Micro Subscriptions -->
-			<div class="grid-2" style="margin-bottom: 80px;">
+			<div class="grid-2" style="margin-bottom: 64px;">
 				<div class="glass-card">
 					<div>
 						<span class="card-tag">Tier 3</span>
@@ -319,25 +381,25 @@
 							<li><strong>The Monthly Promo Drop ($45/mo):</strong> Text/email monthly flyer updates; live within 24 hours.</li>
 						</ul>
 					</div>
-					<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: var(--accent-amber);">Zero Active Maintenance Overhead</span>
+					<span style="font-size: 0.75rem; font-family: ui-monospace, monospace; color: var(--accent-blue);">Zero Active Maintenance Overhead</span>
 				</div>
 			</div>
 
 			<!-- Flexible Financing & Payment Terms -->
-			<div class="glass-card" style="padding: 48px; border-color: rgba(52, 211, 153, 0.3); margin-bottom: 80px;">
+			<div class="glass-card" style="padding: 40px; border-color: rgba(52, 211, 153, 0.3); margin-bottom: 64px;">
 				<span class="archival-tag" style="color: #34D399;">[FLEXIBLE FINANCING TERMS]</span>
-				<h2 style="color: #fff; font-size: 1.75rem; margin: 12px 0 16px 0;">Alternative Financing & Milestone Plans</h2>
-				<p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px; font-size: 0.95rem;">
+				<h2 style="color: #fff; font-size: 1.5rem; margin: 12px 0 16px 0;">Alternative Financing & Milestone Plans</h2>
+				<p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px; font-size: 0.9rem;">
 					If third-party approval via Klarna is unavailable, Viewport Digital LLC offers structured internal financing to eliminate upfront cash-flow friction:
 				</p>
-				<div class="grid-2" style="gap: 24px;">
+				<div class="grid-2" style="gap: 20px;">
 					<div>
-						<h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 8px;">1. The 50/50 Milestone Contract</h3>
-						<p style="color: var(--text-secondary); font-size: 0.875rem; margin: 0;">Split your project down the middle. 50% upfront to initiate code development, and the final 50% due upon review before domain pointing.</p>
+						<h3 style="color: #fff; font-size: 1rem; margin-bottom: 6px;">1. The 50/50 Milestone Contract</h3>
+						<p style="color: var(--text-secondary); font-size: 0.85rem; margin: 0;">Split your project down the middle. 50% upfront to initiate code development, and the final 50% due upon review before domain pointing.</p>
 					</div>
 					<div>
-						<h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 8px;">2. Stripe Manual Installments</h3>
-						<p style="color: var(--text-secondary); font-size: 0.875rem; margin: 0;">Automated split payments billed securely across three monthly increments directly on file via Stripe. (Hosted on temporary Vercel preview URLs until final settlement).</p>
+						<h3 style="color: #fff; font-size: 1rem; margin-bottom: 6px;">2. Stripe Manual Installments</h3>
+						<p style="color: var(--text-secondary); font-size: 0.85rem; margin: 0;">Automated split payments billed securely across three monthly increments directly on file via Stripe. (Hosted on temporary Vercel preview URLs until final settlement).</p>
 					</div>
 				</div>
 			</div>
@@ -380,12 +442,18 @@
 
 		<footer>&copy; 2026 Viewport Digital LLC. All rights reserved. kiimon@viewportdigitalmedia.com</footer>
 
-		<!-- Mobile Menu Toggle Script -->
+		<!-- Mobile Drawer Script -->
 		<script>
 			const toggle = document.getElementById('menu-toggle');
+			const closeBtn = document.getElementById('menu-close');
 			const drawer = document.getElementById('mobile-drawer');
+
 			toggle?.addEventListener('click', () => {
-				drawer?.classList.toggle('active');
+				drawer?.classList.add('active');
+			});
+
+			closeBtn?.addEventListener('click', () => {
+				drawer?.classList.remove('active');
 			});
 		</script>
 	</body>
