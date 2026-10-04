@@ -1,215 +1,372 @@
 ---
-// src/pages/contact.astro
-import Layout from '../layouts/Layout.astro';
+// Viewport Digital LLC - Contact & Dispatch Pipeline (Micro-Entry Tier Added)
 ---
 
-<Layout title="Contact / Let's Build | Viewport Digital LLC" currentPath="/contact">
-  <div class="pt-12 sm:pt-20 px-4 sm:px-8 max-w-4xl mx-auto pb-16">
-    
-    <div class="fade-observe glass-panel p-6 sm:p-12 rounded-3xl border border-white/[0.08] space-y-8 relative overflow-hidden">
-      
-      <div class="text-center space-y-3">
-        <span class="text-xs font-mono tracking-widest text-[#38BDF8] uppercase">Zero Dead-End Architecture</span>
-        <h1 class="text-2xl sm:text-4xl font-display font-bold text-white">Initiate Your Build Specifications</h1>
-        <p class="text-xs sm:text-sm text-[#94A3B8] max-w-lg mx-auto">
-          Direct communication with the engineer and photographer. No account managers or sales runarounds.
-        </p>
-      </div>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Contact & Dispatch | Viewport Digital LLC</title>
+		<style>
+			:root {
+				color-scheme: dark;
+				--bg-canvas: #060911;
+				--surface-glass: #0b101c;
+				--surface-glass-hover: #131b2e;
+				--accent-blue: #2563eb;
+				--accent-blue-hover: #1d4ed8;
+				--text-primary: #F8FAFC;
+				--text-secondary: #94A3B8;
+				--border-frost: rgba(255, 255, 255, 0.08);
+			}
 
-      <!-- Live Formspree Integration -->
-      <form id="contact-form" action="https://formspree.io/f/xgavejzr" method="POST" class="space-y-6">
-        
-        <!-- Contact Information (Name, Email, Phone) -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-          <div class="space-y-2">
-            <label for="name" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">
-              Your Name <span class="text-[#38BDF8]">*</span>
-            </label>
-            <input 
-              type="text" 
-              id="name"
-              name="name" 
-              required 
-              placeholder="Jane Doe" 
-              class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors" 
-            />
-          </div>
-          <div class="space-y-2">
-            <label for="email" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">
-              Email Address <span class="text-[#38BDF8]">*</span>
-            </label>
-            <input 
-              type="email" 
-              id="email"
-              name="email" 
-              required 
-              placeholder="jane@company.com" 
-              class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors" 
-            />
-          </div>
-          <div class="space-y-2">
-            <label for="phone" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">
-              Phone Number <span class="text-[#38BDF8]">*</span>
-            </label>
-            <input 
-              type="tel" 
-              id="phone"
-              name="phone" 
-              required 
-              placeholder="(317) 555-0192" 
-              class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors" 
-            />
-          </div>
-        </div>
+			* { box-sizing: border-box; letter-spacing: -0.015em; }
 
-        <!-- Tier and Add-on Selection -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-          <div class="space-y-2">
-            <label for="tier" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Target Web Tier</label>
-            <select 
-              id="tier"
-              name="tier" 
-              class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors"
-            >
-              <option value="Tier 1: Landing Page ($750 - $1,200)">Tier 1: Landing Page ($750 - $1,200)</option>
-              <option value="Tier 2: Business Core ($1,800 - $3,200)" selected>Tier 2: Business Core ($1,800 - $3,200)</option>
-              <option value="Tier 3: Custom Portal ($3,500 - $6,500+)">Tier 3: Custom Portal ($3,500 - $6,500+)</option>
-              <option value="A La Carte / Custom Architecture">A La Carte / Custom Architecture</option>
-            </select>
-          </div>
-          <div class="space-y-2">
-            <label for="photography" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">Commercial Photography Add-on</label>
-            <select 
-              id="photography"
-              name="photography" 
-              class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors"
-            >
-              <option value="Starter Suite ($350 - $150 bundle rebate)">Starter Suite ($350 - $150 bundle rebate)</option>
-              <option value="Full Brand Suite ($750 - $150 bundle rebate)" selected>Full Brand Suite ($750 - $150 bundle rebate)</option>
-              <option value="Full-Day Production ($1,500+)">Full-Day Production ($1,500+)</option>
-              <option value="No Photography Needed">No Photography Needed</option>
-            </select>
-          </div>
-        </div>
+			body {
+				margin: 0;
+				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+				background-color: var(--bg-canvas);
+				color: var(--text-primary);
+				line-height: 1.6;
+				-webkit-font-smoothing: antialiased;
+			}
 
-        <!-- Description Box -->
-        <div class="space-y-2">
-          <label for="message" class="block text-xs font-mono uppercase tracking-wider text-[#CBD5E1]">
-            What would you like to build? <span class="text-[#38BDF8]">*</span>
-          </label>
-          <textarea 
-            id="message"
-            name="message" 
-            rows="4" 
-            required 
-            placeholder="Describe your dream website, what features you need, or the vision for your business..." 
-            class="w-full px-4 py-3 rounded-lg bg-[#0B0F19] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#38BDF8] transition-colors"
-          ></textarea>
-        </div>
+			header {
+				position: sticky; top: 0; z-index: 100;
+				backdrop-filter: blur(20px);
+				-webkit-backdrop-filter: blur(20px);
+				background-color: rgba(6, 9, 17, 0.9);
+				border-bottom: 1px solid var(--border-frost);
+			}
 
-        <!-- Animated Tactile Button -->
-        <button 
-          id="submit-btn"
-          type="submit" 
-          class="tactile-btn relative overflow-hidden w-full py-4 text-center text-sm font-bold uppercase tracking-wider text-white bg-[#2563EB] hover:bg-blue-600 rounded-xl shadow-xl shadow-[#2563EB]/30 border border-[#38BDF8]/50 flex items-center justify-center gap-3 cursor-pointer transition-all duration-300"
-        >
-          <svg id="btn-plane-icon" class="w-4 h-4 text-[#38BDF8] transition-transform duration-500 ease-out" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-          </svg>
+			.container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
 
-          <span id="btn-emoji" class="hidden text-xl transform scale-0 transition-transform duration-300">😉</span>
-          <span id="btn-check" class="hidden text-base text-emerald-400">✓</span>
+			.header-content {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				height: 76px;
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+			}
 
-          <span id="btn-text">Submit Specifications to Viewport Digital</span>
-        </button>
+			.brand-wrap {
+				display: flex;
+				align-items: center;
+				gap: 12px;
+				text-decoration: none;
+			}
 
-        <div id="form-status" class="hidden text-center text-xs font-mono p-4 rounded-lg transition-all duration-300"></div>
-      </form>
+			.logo-img {
+				width: 36px;
+				height: 36px;
+				object-fit: contain;
+				border-radius: 6px;
+				background: #111827;
+				border: 1px solid rgba(255,255,255,0.15);
+			}
 
-      <div class="text-center pt-2">
-        <span class="text-xs font-mono text-[#94A3B8]">White-glove handover included: Video docs, Git repository push, and 30-day warranty.</span>
-      </div>
+			.brand-text {
+				display: flex;
+				flex-direction: column;
+			}
 
-    </div>
+			.brand-title {
+				font-weight: 800;
+				font-size: 0.95rem;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				color: #fff;
+				line-height: 1.1;
+			}
 
-  </div>
+			.brand-subtitle {
+				font-size: 0.65rem;
+				font-family: ui-monospace, monospace;
+				text-transform: uppercase;
+				letter-spacing: 0.15em;
+				color: var(--text-secondary);
+				margin-top: 2px;
+			}
 
-  <style is:inline>
-    @keyframes flyOff {
-      0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
-      40% { transform: translate(12px, -8px) scale(1.1) rotate(-15deg); opacity: 0.9; }
-      100% { transform: translate(80px, -60px) scale(0.3) rotate(-35deg); opacity: 0; }
-    }
-    @keyframes popWink {
-      0% { transform: scale(0) rotate(-20deg); opacity: 0; }
-      60% { transform: scale(1.3) rotate(10deg); opacity: 1; }
-      100% { transform: scale(1) rotate(0deg); opacity: 1; }
-    }
-    .plane-flying { animation: flyOff 0.65s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-    .wink-popping { display: inline-block !important; animation: popWink 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-  </style>
+			/* Sandwich Menu Button */
+			.hamburger {
+				width: 44px;
+				height: 44px;
+				background: var(--surface-glass);
+				border: 1px solid var(--border-frost);
+				border-radius: 8px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				gap: 5px;
+				cursor: pointer;
+				padding: 0;
+				z-index: 101;
+			}
 
-  <script is:inline>
-    const form = document.getElementById('contact-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const btnText = document.getElementById('btn-text');
-    const planeIcon = document.getElementById('btn-plane-icon');
-    const btnEmoji = document.getElementById('btn-emoji');
-    const btnCheck = document.getElementById('btn-check');
-    const formStatus = document.getElementById('form-status');
+			.hamburger span {
+				width: 18px;
+				height: 2px;
+				background-color: var(--text-primary);
+				transition: all 0.3s ease;
+			}
 
-    if (form) {
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        if (!form.checkValidity()) {
-          form.reportValidity();
-          return;
-        }
+			/* Full-Screen Mobile Drawer Menu */
+			.mobile-drawer {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100vh;
+				background-color: #04060b;
+				padding: 24px 20px;
+				display: flex;
+				flex-direction: column;
+				z-index: 1000;
+				opacity: 0;
+				pointer-events: none;
+				transition: opacity 0.3s ease;
+			}
 
-        planeIcon.classList.add('plane-flying');
-        btnText.textContent = 'Transmitting Specifications...';
-        submitBtn.disabled = true;
-        submitBtn.classList.add('opacity-90', 'cursor-not-allowed');
+			.mobile-drawer.active {
+				opacity: 1;
+				pointer-events: auto;
+			}
 
-        const formData = new FormData(form);
+			.drawer-header {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				height: 52px;
+				margin-bottom: 40px;
+			}
 
-        try {
-          const response = await fetch(form.action, {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-          });
+			.close-btn {
+				width: 40px;
+				height: 40px;
+				background: var(--surface-glass);
+				border: 1px solid var(--border-frost);
+				border-radius: 8px;
+				color: #fff;
+				font-size: 1.25rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+			}
 
-          if (response.ok) {
-            form.reset();
-            planeIcon.classList.add('hidden');
-            planeIcon.classList.remove('plane-flying');
-            btnEmoji.classList.add('wink-popping');
-            btnText.textContent = 'Got It! We’ll Be In Touch';
+			.drawer-nav {
+				display: flex;
+				flex-direction: column;
+				gap: 28px;
+				margin-bottom: 40px;
+			}
 
-            setTimeout(() => {
-              btnEmoji.classList.remove('wink-popping');
-              btnEmoji.classList.add('hidden');
-              btnCheck.classList.remove('hidden');
-              btnText.textContent = 'Specifications Submitted';
-            }, 1800);
+			.drawer-nav a {
+				color: #fff;
+				text-decoration: none;
+				font-weight: 700;
+				font-size: 1.15rem;
+				text-transform: uppercase;
+				letter-spacing: 0.08em;
+				transition: color 0.2s;
+			}
 
-            formStatus.className = 'block text-center text-xs font-mono p-4 rounded-lg bg-emerald-950/60 border border-emerald-500/40 text-emerald-300';
-            formStatus.textContent = '✓ Specifications received. Viewport Digital dispatch will review and respond within 24 hours.';
-          } else {
-            const data = await response.json();
-            throw new Error(data?.errors?.[0]?.message || 'Submission error');
-          }
-        } catch (error) {
-          formStatus.className = 'block text-center text-xs font-mono p-4 rounded-lg bg-red-950/60 border border-red-500/40 text-red-300';
-          formStatus.textContent = 'Transmission failed. Please verify required fields or email directly.';
-          btnText.textContent = 'Retry Transmission';
-          planeIcon.classList.remove('plane-flying');
-          submitBtn.disabled = false;
-          submitBtn.classList.remove('opacity-90', 'cursor-not-allowed');
-        }
-      });
-    }
-  </script>
-</Layout>
+			.drawer-nav a:hover, .drawer-nav a.active {
+				color: var(--accent-blue);
+			}
+
+			.drawer-cta {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				padding: 16px;
+				background-color: var(--accent-blue);
+				color: #fff;
+				font-weight: 700;
+				font-size: 0.9rem;
+				text-transform: uppercase;
+				letter-spacing: 0.08em;
+				text-decoration: none;
+				border-radius: 8px;
+				box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+			}
+
+			.archival-tag {
+				font-size: 0.75rem; font-family: ui-monospace, monospace; text-transform: uppercase;
+				letter-spacing: 0.15em; color: var(--accent-blue); display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px;
+			}
+			.archival-tag::before { content: "■"; font-size: 0.5rem; }
+
+			section { padding: 80px 0; }
+			.section-header { text-align: center; margin-bottom: 48px; }
+			.section-header h1 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; letter-spacing: -0.02em; color: #fff; margin: 0 0 16px 0; text-transform: uppercase; }
+			.section-header p { color: var(--text-secondary); font-size: 1rem; }
+
+			.terminal-box {
+				background: var(--surface-glass);
+				border: 1px solid var(--border-frost);
+				box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 30px 80px rgba(0,0,0,0.8);
+				backdrop-filter: blur(24px);
+				border-radius: 20px;
+				padding: 48px 32px;
+			}
+
+			.form-group {
+				margin-bottom: 24px;
+			}
+
+			label {
+				display: block;
+				font-size: 0.75rem;
+				font-family: ui-monospace, monospace;
+				text-transform: uppercase;
+				letter-spacing: 0.12em;
+				color: var(--accent-blue);
+				margin-bottom: 10px;
+			}
+
+			input, select, textarea {
+				width: 100%;
+				padding: 16px;
+				background-color: var(--bg-canvas);
+				border: 1px solid rgba(255, 255, 255, 0.12);
+				border-radius: 8px;
+				color: #fff;
+				font-size: 1rem;
+				box-sizing: border-box;
+				transition: border-color 0.2s ease;
+			}
+
+			input:focus, select:focus, textarea:focus { border-color: var(--accent-blue); outline: none; }
+
+			select option {
+				background-color: #0b101c;
+				color: #fff;
+			}
+
+			.btn-primary {
+				display: inline-flex; align-items: center; justify-content: center; padding: 16px 28px;
+				background-color: var(--accent-blue); color: #fff; font-weight: 700; font-size: 0.95rem;
+				text-decoration: none; border-radius: 8px; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+				width: 100%; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em;
+			}
+			.btn-primary:hover { background-color: var(--accent-blue-hover); transform: translateY(-2px); }
+
+			footer { padding: 60px 0; border-top: 1px solid var(--border-frost); text-align: center; color: var(--text-secondary); font-size: 0.85rem; }
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="header-content">
+				<a href="/" class="brand-wrap">
+					<img src="/logo.svg" alt="Viewport Digital Logo" class="logo-img" onerror="this.src='/logo.png';" />
+					<div class="brand-text">
+						<span class="brand-title">Viewport Digital</span>
+						<span class="brand-subtitle">Architectural Web</span>
+					</div>
+				</a>
+				<button class="hamburger" id="menu-toggle" aria-label="Toggle Mobile Navigation">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+			</div>
+
+			<!-- Full-Screen Mobile Drawer Menu -->
+			<div class="mobile-drawer" id="mobile-drawer">
+				<div class="drawer-header">
+					<a href="/" class="brand-wrap">
+						<img src="/logo.svg" alt="Viewport Digital Logo" class="logo-img" onerror="this.src='/logo.png';" />
+						<div class="brand-text">
+							<span class="brand-title">Viewport Digital</span>
+							<span class="brand-subtitle">Architectural Web</span>
+						</div>
+					</a>
+					<button class="close-btn" id="menu-close" aria-label="Close Navigation">&times;</button>
+				</div>
+				<nav class="drawer-nav">
+					<a href="/">Home</a>
+					<a href="/#process">Our Process</a>
+					<a href="/pricing">Tiers & Pricing</a>
+					<a href="/photography">Commercial Media</a>
+				</nav>
+				<a href="/contact" class="drawer-cta active">Contact / Let's Build &rarr;</a>
+			</div>
+		</header>
+
+		<main class="container">
+			<section>
+				<div class="section-header">
+					<span class="archival-tag">[INDEX // DISPATCH PIPELINE]</span>
+					<h1>Initiate Transmission.</h1>
+					<p>Submit your project scope, tier selection, or media requirements directly into our engineering queue.</p>
+				</div>
+
+				<div class="terminal-box">
+					<form action="https://formspree.io/f/xlgpqvaz" method="POST">
+						<div class="form-group">
+							<label htmlFor="name">// Your Name *</label>
+							<input type="text" id="name" name="name" required placeholder="Jane Doe" />
+						</div>
+
+						<div class="form-group">
+							<label htmlFor="email">// Email Address *</label>
+							<input type="email" id="email" name="email" required placeholder="jane@company.com" />
+						</div>
+
+						<div class="form-group">
+							<label htmlFor="phone">// Phone Number *</label>
+							<input type="tel" id="phone" name="phone" required placeholder="(317) 555-0192" />
+						</div>
+
+						<div class="form-group">
+							<label htmlFor="tier">// Target Web Tier *</label>
+							<select id="tier" name="tier" required>
+								<option value="" disabled selected>Select your project tier...</option>
+								<option value="micro-entry">Micro-Entry: Digital Business Card / Promo ($150 - $350)</option>
+								<option value="tier-1">Tier 1: Landing Page ($750 - $1,200)</option>
+								<option value="tier-2">Tier 2: Business Core ($1,800 - $3,200)</option>
+								<option value="tier-3">Tier 3: Custom Portal ($3,500 - $6,500+)</option>
+								<option value="alacarte">A La Carte / Custom Architecture</option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label htmlFor="message">// Project Scope & Requirements *</label>
+							<textarea id="message" name="message" rows="4" required placeholder="Describe your timeline, business goals, or media needs..."></textarea>
+						</div>
+
+						<button type="submit" class="btn-primary">
+							Submit Specifications to Viewport Digital
+						</button>
+					</form>
+					<p style="text-align: center; color: var(--text-secondary); font-size: 0.8rem; margin-top: 24px; font-family: ui-monospace, monospace;">
+						White-glove handover included: Video docs, Git repository push, and 30-day warranty.
+					</p>
+				</div>
+			</section>
+		</main>
+
+		<footer>&copy; 2026 Viewport Digital LLC. All rights reserved. kiimon@viewportdigitalmedia.com</footer>
+
+		<!-- Mobile Drawer Script -->
+		<script>
+			const toggle = document.getElementById('menu-toggle');
+			const closeBtn = document.getElementById('menu-close');
+			const drawer = document.getElementById('mobile-drawer');
+
+			toggle?.addEventListener('click', () => {
+				drawer?.classList.add('active');
+			});
+
+			closeBtn?.addEventListener('click', () => {
+				drawer?.classList.remove('active');
+			});
+		</script>
+	</body>
+</html>
